@@ -6,7 +6,6 @@
     <title>Um País Muitas Crenças - Moçambique</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Variáveis de cores */
         :root {
             --primary-color: #2E7D32;
             --secondary-color: #4CAF50;
@@ -14,11 +13,9 @@
             --light-bg: #f9f9f9;
             --dark-text: #333;
             --light-text: #fff;
-            --card-shadow: 0 4px 8px rgba(0,0,0,0.1);
             --menu-width: 280px;
         }
         
-        /* Estilos Gerais */
         * {
             margin: 0;
             padding: 0;
@@ -30,7 +27,6 @@
             background-color: var(--light-bg);
             color: var(--dark-text);
             line-height: 1.6;
-            transition: margin-left 0.3s ease;
         }
         
         .container {
@@ -72,7 +68,7 @@
             font-size: 1.1rem;
         }
         
-        /* Menu Hambúrguer Aprimorado */
+        /* Menu Hambúrguer */
         .hamburger-menu {
             position: fixed;
             top: 20px;
@@ -98,7 +94,6 @@
         .hamburger-menu i {
             color: white;
             font-size: 1.5rem;
-            transition: transform 0.3s ease;
         }
         
         .sidebar {
@@ -119,7 +114,6 @@
         
         .sidebar.active {
             left: 0;
-            transform: translateX(0);
         }
         
         .sidebar-header {
@@ -133,7 +127,6 @@
             color: white;
             margin: 0;
             font-size: 1.5rem;
-            font-weight: 600;
         }
         
         .sidebar-nav {
@@ -157,23 +150,6 @@
             padding: 1.2rem 1.5rem;
             transition: all 0.3s ease;
             border-left: 4px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .sidebar-nav a:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: left 0.5s ease;
-        }
-        
-        .sidebar-nav a:hover:before {
-            left: 100%;
         }
         
         .sidebar-nav a:hover, .sidebar-nav a.active {
@@ -208,7 +184,6 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.4s ease;
-            backdrop-filter: blur(3px);
         }
         
         .overlay.active {
@@ -254,16 +229,10 @@
         .religion-section {
             background-color: white;
             border-radius: 10px;
-            box-shadow: var(--card-shadow);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             padding: 2.5rem;
             margin-bottom: 3rem;
             scroll-margin-top: 100px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .religion-section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
         }
         
         .religion-header {
@@ -300,13 +269,11 @@
             padding: 1.8rem;
             border-radius: 10px;
             border-left: 5px solid var(--accent-color);
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
         }
         
         .beliefs-list h4, .practices-list h4 {
             margin-bottom: 1.2rem;
             color: var(--primary-color);
-            font-size: 1.3rem;
         }
         
         ul {
@@ -316,7 +283,6 @@
         
         li {
             margin-bottom: 0.7rem;
-            padding-left: 0.5rem;
         }
         
         .demographics {
@@ -329,7 +295,6 @@
         .demographics h4 {
             color: var(--primary-color);
             margin-bottom: 1.2rem;
-            font-size: 1.3rem;
         }
         
         /* Footer */
@@ -349,7 +314,6 @@
         .footer-logo {
             font-size: 1.8rem;
             margin-bottom: 1rem;
-            font-weight: bold;
         }
         
         .footer-nav {
@@ -364,19 +328,47 @@
             color: #c8e6c9;
             text-decoration: none;
             transition: color 0.3s ease;
-            padding: 0.5rem;
-            border-radius: 4px;
         }
         
         .footer-nav a:hover {
             color: white;
-            background: rgba(255,255,255,0.1);
         }
         
         .copyright {
             margin-top: 1.5rem;
             opacity: 0.8;
             font-size: 0.9rem;
+        }
+        
+        /* Botão de voltar ao topo */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 98;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
         }
         
         /* Responsividade */
@@ -414,73 +406,6 @@
                 left: -85%;
             }
         }
-        
-        /* Botão de voltar ao topo */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-            z-index: 98;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        
-        .back-to-top.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .back-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-        }
-        
-        /* Animações */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .religion-section {
-            animation: fadeIn 0.6s ease forwards;
-        }
-        
-        .religion-section:nth-child(2) { animation-delay: 0.1s; }
-        .religion-section:nth-child(3) { animation-delay: 0.2s; }
-        .religion-section:nth-child(4) { animation-delay: 0.3s; }
-        .religion-section:nth-child(5) { animation-delay: 0.4s; }
-        .religion-section:nth-child(6) { animation-delay: 0.5s; }
-        .religion-section:nth-child(7) { animation-delay: 0.6s; }
-        
-        /* Scroll personalizado */
-        .sidebar::-webkit-scrollbar {
-            width: 6px;
-        }
-        
-        .sidebar::-webkit-scrollbar-track {
-            background: rgba(0,0,0,0.1);
-        }
-        
-        .sidebar::-webkit-scrollbar-thumb {
-            background: rgba(255,255,255,0.3);
-            border-radius: 3px;
-        }
-        
-        .sidebar::-webkit-scrollbar-thumb:hover {
-            background: rgba(255,255,255,0.5);
-        }
     </style>
 </head>
 <body>
@@ -489,41 +414,20 @@
         <i class="fas fa-bars"></i>
     </div>
     
-    <!-- Menu Lateral Aprimorado -->
+    <!-- Menu Lateral -->
     <div class="sidebar">
         <div class="sidebar-header">
             <h3>☮️ Navegação</h3>
         </div>
         <nav class="sidebar-nav">
             <ul>
-                <li><a href="#introducao" class="active">
-                    <span class="nav-icon">🏠</span>
-                    <span>Introdução</span>
-                </a></li>
-                <li><a href="#cristianismo">
-                    <span class="nav-icon">✝️</span>
-                    <span>Cristianismo</span>
-                </a></li>
-                <li><a href="#islamismo">
-                    <span class="nav-icon">☪️</span>
-                    <span>Islamismo</span>
-                </a></li>
-                <li><a href="#tradicionais">
-                    <span class="nav-icon">🌍</span>
-                    <span>Religiões Tradicionais</span>
-                </a></li>
-                <li><a href="#outras">
-                    <span class="nav-icon">☸️</span>
-                    <span>Outras Religiões</span>
-                </a></li>
-                <li><a href="#comparacao">
-                    <span class="nav-icon">📊</span>
-                    <span>Comparação</span>
-                </a></li>
-                <li><a href="#contato">
-                    <span class="nav-icon">📧</span>
-                    <span>Contato</span>
-                </a></li>
+                <li><a href="#introducao" class="active"><span class="nav-icon">🏠</span> Introdução</a></li>
+                <li><a href="#cristianismo"><span class="nav-icon">✝️</span> Cristianismo</a></li>
+                <li><a href="#islamismo"><span class="nav-icon">☪️</span> Islamismo</a></li>
+                <li><a href="#tradicionais"><span class="nav-icon">🌍</span> Religiões Tradicionais</a></li>
+                <li><a href="#outras"><span class="nav-icon">☸️</span> Outras Religiões</a></li>
+                <li><a href="#comparacao"><span class="nav-icon">📊</span> Comparação</a></li>
+                <li><a href="#contato"><span class="nav-icon">📧</span> Contato</a></li>
             </ul>
         </nav>
         <div class="sidebar-footer">
@@ -551,7 +455,7 @@
         <section id="introducao" class="religion-section">
             <h2>Diversidade Religiosa em Moçambique</h2>
             <p>Moçambique é um país caracterizado por uma notável diversidade religiosa, onde diferentes crenças e tradições coexistem há séculos. Esta plataforma tem como objetivo apresentar informações detalhadas sobre as principais religiões praticadas no país, mantendo sempre uma postura neutra, respeitosa e informativa.</p>
-            <p>Nosso compromisso é promover o entendimento mútuo e celebrar a riqueza cultural que esta diversidade proporciona à nação moçambicana. Em cada seção, você encontrará informações sobre história, crenças, práticas e distribuição geográfica de cada tradição religiosa.</p>
+            <p>Nosso compromisso é promover o entendimento mútuo e celebrar a riqueza cultural que esta diversidade proporciona à nação moçambicana.</p>
             <div class="demographics">
                 <h4>Distribuição Religiosa Aproximada em Moçambique</h4>
                 <p>De acordo com os últimos dados disponíveis:</p>
@@ -559,13 +463,10 @@
                     <li>Cristianismo: aproximadamente 56% da população</li>
                     <li>Islamismo: aproximadamente 18% da população</li>
                     <li>Religiões Africanas Tradicionais: aproximadamente 26% da população</li>
-                    <li>Outras religiões: menos de 1% da população</li>
                 </ul>
-                <p><em>Nota: Muitos moçambicanos praticam simultaneamente o Cristianismo ou Islamismo com religiões tradicionais, o que pode afetar as estatísticas.</em></p>
             </div>
         </section>
         
-        <!-- Conteúdo das outras seções mantido igual -->
         <!-- Cristianismo -->
         <section id="cristianismo" class="religion-section">
             <div class="religion-header">
@@ -577,15 +478,16 @@
                 <div>
                     <h3>História e Presença</h3>
                     <p>O Cristianismo chegou a Moçambique no século XV com os exploradores portugueses, mas a evangelização mais significativa ocorreu durante o período colonial. Após a independência em 1975, muitas denominações cristãs estabeleceram-se no país.</p>
+                    <p>Atualmente, o Cristianismo é a religião com o maior número de seguidores em Moçambique, com representantes em todas as províncias do país.</p>
                 </div>
                 
                 <div>
                     <h3>Principais Denominações</h3>
                     <ul>
-                        <li>Igreja Católica Romana</li>
-                        <li>Igrejas Protestantes históricas</li>
-                        <li>Igrejas Pentecostais</li>
-                        <li>Igrejas Africanas Independentes</li>
+                        <li>Igreja Católica Romana (maior denominação cristã)</li>
+                        <li>Igrejas Protestantes históricas (Anglicana, Metodista, Presbiteriana)</li>
+                        <li>Igrejas Pentecostais e Carismáticas (de rápido crescimento)</li>
+                        <li>Igrejas Africanas Independentes (Zionistas, Apostólicas)</li>
                     </ul>
                 </div>
             </div>
@@ -602,11 +504,21 @@
                 <div>
                     <h3>História e Presença</h3>
                     <p>O Islamismo chegou a Moçambique antes do Cristianismo, através do comércio costeiro com os árabes a partir do século VIII. Estabeleceu-se principalmente nas regiões litorais do norte e centro do país.</p>
+                    <p>Durante o período colonial, a comunidade muçulmana manteve suas tradições, e após a independência, experimentou um crescimento significativo.</p>
+                </div>
+                
+                <div>
+                    <h3>Principais Tradições Islâmicas</h3>
+                    <ul>
+                        <li>Sunismo (maioria dos muçulmanos moçambicanos)</li>
+                        <li>Sufismo (práticas místicas e irmandades sufistas)</li>
+                        <li>Comunidades xiitas (pequena minoria)</li>
+                    </ul>
                 </div>
             </div>
         </section>
         
-        <!-- Continuação do conteúdo... -->
+        <!-- Adicione as outras seções conforme necessário -->
         
     </main>
     
@@ -616,17 +528,6 @@
             <div class="footer-content">
                 <div class="footer-logo">Um País Muitas Crenças</div>
                 <p>Promovendo entendimento e respeito pela diversidade religiosa moçambicana</p>
-                
-                <div class="footer-nav">
-                    <a href="#introducao">Introdução</a>
-                    <a href="#cristianismo">Cristianismo</a>
-                    <a href="#islamismo">Islamismo</a>
-                    <a href="#tradicionais">Religiões Tradicionais</a>
-                    <a href="#outras">Outras Religiões</a>
-                    <a href="#comparacao">Comparação</a>
-                    <a href="#contato">Contato</a>
-                </div>
-                
                 <p class="copyright">© 2023 Um País Muitas Crenças. Todos os direitos reservados.</p>
             </div>
         </div>
@@ -636,7 +537,6 @@
     <a href="#" class="back-to-top">↑</a>
 
     <script>
-        // Script aprimorado para o menu hambúrguer
         document.addEventListener('DOMContentLoaded', function() {
             const hamburgerMenu = document.querySelector('.hamburger-menu');
             const sidebar = document.querySelector('.sidebar');
@@ -644,86 +544,46 @@
             const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
             const backToTopButton = document.querySelector('.back-to-top');
             
-            // Estado do menu
             let isMenuOpen = false;
             
-            // Função para abrir o menu
             function openMenu() {
                 sidebar.classList.add('active');
                 overlay.classList.add('active');
                 hamburgerMenu.querySelector('i').classList.replace('fa-bars', 'fa-times');
                 isMenuOpen = true;
-                
-                // Adicionar classe para prevenir scroll no body
                 document.body.style.overflow = 'hidden';
             }
             
-            // Função para fechar o menu
             function closeMenu() {
                 sidebar.classList.remove('active');
                 overlay.classList.remove('active');
                 hamburgerMenu.querySelector('i').classList.replace('fa-times', 'fa-bars');
                 isMenuOpen = false;
-                
-                // Remover classe para permitir scroll no body
                 document.body.style.overflow = '';
             }
             
-            // Função para alternar o menu
             function toggleMenu() {
-                if (isMenuOpen) {
-                    closeMenu();
-                } else {
-                    openMenu();
-                }
+                isMenuOpen ? closeMenu() : openMenu();
             }
             
-            // Abrir e fechar o menu ao clicar no ícone
             hamburgerMenu.addEventListener('click', function(e) {
                 e.stopPropagation();
                 toggleMenu();
             });
             
-            // Fechar o menu ao clicar no overlay
             overlay.addEventListener('click', closeMenu);
             
-            // Fechar o menu ao clicar em um link
             sidebarLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    // Fechar o menu com uma pequena delay para melhor UX
+                link.addEventListener('click', function() {
                     setTimeout(closeMenu, 300);
                 });
             });
             
-            // Fechar o menu ao pressionar a tecla ESC
             document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && isMenuOpen) {
-                    closeMenu();
-                }
+                if (e.key === 'Escape' && isMenuOpen) closeMenu();
             });
             
-            // Destacar a seção atual no menu durante a rolagem
-            const sections = document.querySelectorAll('.religion-section');
             window.addEventListener('scroll', function() {
-                let current = '';
-                
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    
-                    if (window.pageYOffset >= (sectionTop - 200)) {
-                        current = section.getAttribute('id');
-                    }
-                });
-                
-                sidebarLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href').substring(1) === current) {
-                        link.classList.add('active');
-                    }
-                });
-                
-                // Mostrar/ocultar botão de voltar ao topo
                 if (window.pageYOffset > 300) {
                     backToTopButton.classList.add('visible');
                 } else {
@@ -731,31 +591,15 @@
                 }
             });
             
-            // Botão voltar ao topo
             backToTopButton.addEventListener('click', function(e) {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
             
-            // Fechar o menu ao clicar fora dele
             document.addEventListener('click', function(e) {
                 if (isMenuOpen && !sidebar.contains(e.target) && e.target !== hamburgerMenu) {
                     closeMenu();
                 }
-            });
-            
-            // Suavizar o scroll para links âncora
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
             });
         });
     </script>
