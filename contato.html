@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informações de Contato</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        header {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+        }
+        
+        header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .contact-info {
+            padding: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .icon {
+            width: 60px;
+            height: 60px;
+            min-width: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 24px;
+            color: white;
+        }
+        
+        .phone .icon { background: #25D366; }
+        .email .icon { background: #3498db; }
+        .whatsapp .icon { background: #128C7E; }
+        .facebook .icon { background: #3b5998; }
+        
+        .content h3 {
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .content p, .content a {
+            font-size: 16px;
+            color: #7f8c8d;
+            text-decoration: none;
+        }
+        
+        .phone-link {
+            color: #25D366;
+            font-weight: 600;
+        }
+        
+        .content a:hover {
+            color: #3498db;
+            text-decoration: underline;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 14px;
+            background: #f8f9fa;
+        }
+        
+        @media (max-width: 600px) {
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Entre em Contato</h1>
+            <p>Estou disponível através dos seguintes canais</p>
+            <p> No caso de houver uma sugestão ou algo por retificar é só entrar em contato através das opções abaixo segundo o teu critério</p>
+        </header>
+        
+        <div class="contact-info">
+            <div class="contact-item phone">
+                <div class="icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div class="content">
+                    <h3>Telefone</h3>
+                    <a href="tel:+258855920773" class="phone-link">contacto pessoal</a>
+                </div>
+            </div>
+            
+            <div class="contact-item email">
+                <div class="icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="content">
+                    <h3>E-mail</h3>
+                    <a href="mailto: fernandojonantonio@gmail.com"> clique aquí pra pra correio eletrônico</a>
+                </div>
+            </div>
+            
+            <div class="contact-item whatsapp">
+                <div class="icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <div class="content">
+                    <h3>WhatsApp</h3>
+                    <a href="https://wa.me/+258855920773" target="_blank">Envie uma mensagem</a>
+                </div>
+            </div>
+            
+            <div class="contact-item facebook">
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                </div>
+                <div class="content">
+                    <h3>Facebook</h3>
+                    <a href="https://www.facebook.com/seu.perfil" target="_blank">/seu.perfil</a>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Sinta-se à vontade para entrar em contato a qualquer momento. Retornarei o mais breve possível!</p>
+        </footer>
+    </div>
+
+    <script>
+        // Efeito de animação suave ao carregar a página
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactItems = document.querySelectorAll('.contact-item');
+            
+            contactItems.forEach((item, index) => {
+                item.style.opacity = 0;
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                
+                setTimeout(() => {
+                    item.style.opacity = 1;
+                    item.style.transform = 'translateY(0)';
+                }, 200 * index);
+            });
+        });
+    </script>
+</body>
+</html>
