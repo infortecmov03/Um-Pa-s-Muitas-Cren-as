@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assembleia de Deus em Moçambique</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Menu de navegação */
+        .sobre-menu {
+            background: linear-gradient(to right, #2E7D32, #4CAF50);
+            padding: 15px 0;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        
+        .sobre-menu ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .sobre-menu li {
+            margin: 5px 10px;
+        }
+        
+        .sobre-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+            font-weight: 500;
+        }
+        
+        .sobre-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%234CAF50"/><path d="M0 0L100 100" stroke="%232E7D32" stroke-width="2"/><path d="M100 0L0 100" stroke="%232E7D32" stroke-width="2"/></svg>');
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .logo h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* Conteúdo principal */
+        .religion-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .religion-header {
+            background: linear-gradient(to right, #2E7D32, #4CAF50);
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .religion-icon {
+            font-size: 2rem;
+            margin-right: 15px;
+        }
+        
+        .religion-title {
+            font-size: 1.8rem;
+        }
+        
+        .religion-content {
+            padding: 30px;
+        }
+        
+        .religion-content h3 {
+            color: #2E7D32;
+            margin: 20px 0 15px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 8px;
+        }
+        
+        .religion-content h4 {
+            color: #1B5E20;
+            margin: 18px 0 12px;
+        }
+        
+        .religion-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .beliefs-list, .practices-list, .demographics {
+            background-color: #f9f9f9;
+            border-left: 4px solid #4CAF50;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .beliefs-list h4, .practices-list h4, .demographics h4 {
+            color: #2E7D32;
+            margin-top: 0;
+        }
+        
+        .beliefs-list ul, .practices-list ul, .demographics ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        
+        .beliefs-list li, .practices-list li, .demographics li {
+            margin-bottom: 8px;
+        }
+        
+        /* Seção de tópicos */
+        .topics-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .topics-header {
+            background: linear-gradient(to right, #2E7D32, #4CAF50);
+            color: white;
+            padding: 15px 20px;
+        }
+        
+        .topics-header h2 {
+            font-size: 1.5rem;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            padding: 0 20px;
+        }
+        
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: 500;
+            color: #666;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+        
+        .tab-button.active {
+            color: #4CAF50;
+            border-bottom: 3px solid #4CAF50;
+        }
+        
+        .tab-button i {
+            margin-right: 8px;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 20px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .topic-card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .topic-card h4 {
+            color: #2E7D32;
+            margin-bottom: 10px;
+        }
+        
+        /* Rodapé */
+        footer {
+            background: linear-gradient(to right, #1B5E20, #2E7D32);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px 10px;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-nav a:hover {
+            opacity: 0.8;
+        }
+        
+        .copyright {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* Botão voltar ao topo */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #4CAF50;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s;
+        }
+        
+        .back-to-top:hover {
+            background: #2E7D32;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .logo h1 {
+                font-size: 2rem;
+            }
+            
+            .religion-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .religion-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab-button {
+                justify-content: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="sobre-menu">
+        <ul>
+            <li><a href="Sobre universal.html">Universal</a></li>
+            <li><a href="Sobre Testemunhas de Jeová em Moçambique.html">Testemunhas de Jeová</a></li>
+            <li><a href="Sobre Sara Nossa Terra em Moçambique.html">Sara Nossa Terra</a></li>
+            <li><a href="Sobre Metodista.html">Metodista</a></li>
+            <li><a href="Sobre Igreja Zionista.html">Zionista</a></li>
+            <li><a href="Sobre Igreja Presbiteriana.html">Presbiteriana</a></li>
+            <li><a href="Sobre Igreja de Profetas em Moçambique.html">Profetas</a></li>
+            <li><a href="Sobre Igreja de Deus.html">Igreja de Deus</a></li>
+            <li><a href="Sobre Igreja da Graça em Moçambique.html">Graça</a></li>
+            <li><a href="Sobre Católica.html">Católica</a></li>
+            <li><a href="Sobre Assembleia de Deus.html" style="background-color: rgba(255, 255, 255, 0.3);">Assembleia de Deus</a></li>
+            <li><a href="Sobre Apostólica.html">Apostólica</a></li>
+            <li><a href="Sobre Anglicana.html">Anglicana</a></li>
+            <li><a href="Sobre Adventistas emMoçambique.html">Adventistas</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-church logo-icon"></i>
+                <h1>Assembleia de Deus</h1>
+                <p class="subtitle">Conheça a história e influência da Assembleia de Deus em Moçambique</p>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <section class="religion-section">
+            <div class="religion-header">
+                <div class="religion-icon">
+                    <i class="fas fa-church"></i>
+                </div>
+                <h2 class="religion-title">Assembleia de Deus</h2>
+            </div>
+            
+            <div class="religion-content">
+                <div>
+                    <h3>Origem</h3>
+                    <p>A Assembleia de Deus tem suas origens no movimento pentecostal que surgiu no início do século XX nos Estados Unidos, particularmente no Avivamento da Rua Azusa em Los Angeles (1906-1909).</p>
+                    <p>Caracteriza-se pela ênfase no batismo no Espírito Santo, com a evidência inicial de falar em línguas, e nos dons espirituais.</p>
+                    
+                    <div class="beliefs-list">
+                        <h4>Características Principais</h4>
+                        <ul>
+                            <li>Ênfase no batismo no Espírito Santo com a evidência de falar em línguas</li>
+                            <li>Crença nos dons espirituais (cura, profecia, milagres)</li>
+                            <li>Cultos caracterizados por intensa participação emocional e expressiva</li>
+                            <li>Forte ênfase na evangelização e missões</li>
+                            <li>Valorização da vida de santidade e separação do mundo</li>
+                        </ul>
+                    </div>
+                    
+                    <h4>O Surgimento das Assembleias de Deus</h4>
+                    <p>A Assembleia de Deus é uma denominação cristã evangélica pentecostal que se originou no movimento pentecostal dos Estados Unidos no início do século XX. Sua formação está diretamente ligada ao Avivamento da Rua Azusa, ocorrido entre 1906 e 1909 em Los Angeles, Califórnia.</p>
+                    
+                    <h4>Parte 1: As Raízes no Avivamento da Rua Azusa</h4>
+                    <p>O movimento começou em Los Angeles, EUA, em um humilde prédio na Rua Azusa 312, liderado por um pregador negro, William J. Seymour. Este avivamento foi caracterizado por manifestações intensas e emocionais: falar em línguas estranhas (glossolalia), curas divinas, profecias e um culto extremamente participativo, quebrando barreiras raciais e sociais (pelo menos inicialmente).</p>
+                    
+                    <h4>A Doutrina Central: O Batismo no Espírito Santo</h4>
+                    <p>A crença distintiva do movimento era de que o "Batismo no Espírito Santo" era uma experiência subsequente à conversão, e a evidência inicial física desse batismo era o falar em outras línguas, tal como ocorreu com os apóstolos no dia de Pentecostes (Atos 2:1-4).</p>
+                    
+                    <h4>A Organização Denominacional (1914)</h4>
+                    <p>Com centenas de congregações pentecostais independentes espalhadas, surgiu a necessidade de criar uma rede cooperativa para estabelecer uma doutrina comum e combater heresias. Na Convenção de Hot Springs, Arkansas (1914), cerca de 120 pastores e leigos decidiram formar uma cooperativa de igrejas autônomas, que viria a se chamar Assembleias de Deus (Assemblies of God - AG).</p>
+                </div>
+                
+                <div>
+                    <h3>Chegada e Expansão em Moçambique</h3>
+                    <p>A Assembleia de Deus chegou a Moçambique na década de 1950 através de missionários brasileiros e portugueses. Inicialmente, estabeleceu-se nas áreas urbanas, particularmente em Maputo (então Lourenço Marques).</p>
+                    <p>Cresceu rapidamente durante as décadas de 1970 e 1980, tornando-se uma das maiores denominações pentecostais do país. Expandiu-se para todas as províncias e mantém forte presença tanto em áreas urbanas como rurais.</p>
+                    
+                    <div class="demographics">
+                        <h4>Estatísticas Atuais em Moçambique</h4>
+                        <ul>
+                            <li>Mais de 1.200 igrejas e pontos de pregação em todo o país</li>
+                            <li>Estimativa de mais de 500.000 membros ativos</li>
+                            <li>Presente em todas as 11 províncias de Moçambique</li>
+                            <li>Rede de escolas e instituições de formação teológica</li>
+                            <li>Programas de rádio e televisão de alcance nacional</li>
+                        </ul>
+                    </div>
+                    
+                    <h4>Linha do Tempo Histórica</h4>
+                    <p><strong>Década de 1920:</strong> Primeiros missionários suecos, Fredrik e Anna Lödström, chegam a Lourenço Marques (atual Maputo).</p>
+                    <p><strong>Década de 1950:</strong> Chegam missionários brasileiros e portugueses, estabelecendo-se em áreas urbanas.</p>
+                    <p><strong>1975:</strong> Com a independência, missionários estrangeiros são expulsos, forçando a liderança nacional.</p>
+                    <p><strong>1977-1992:</strong> Período de crescimento explosivo durante a guerra civil, oferecendo esperança e refúgio espiritual.</p>
+                    <p><strong>Pós-1992:</strong> Consolidação como maior denominação evangélica de Moçambique com expansão nacional.</p>
+                    
+                    <h4>A Fase de Perseguição sob o Domínio Colonial</h4>
+                    <p>Portugal, sob o regime do Estado Novo de Salazar, era um estado católico e autoritário. O regime via qualquer religião protestante, especialmente as pentecostais com suas reuniões fervorosas, como uma ameaça à "civilização portuguesa" e à ordem estabelecida. A atividade missionária protestante era oficialmente proibida entre a população "indígena".</p>
+                    
+                    <p>Os missionários inicialmente focaram na pequena comunidade de colonos europeus e sul-africanos. Qualquer tentativa de pregar aos moçambicanos era feita de forma discreta e resultava em perseguição, prisão, espancamentos e expulsões. Os cultos eram realizados em segredo, nas matas (florestas), para evitar a polícia colonial (PIDE).</p>
+                    
+                    <h4>Estratégias de Crescimento e Resistência</h4>
+                    <p>Missionários como Bernhard Johnson (sueco) adotaram uma estratégia diferente. Eles usaram a ação social como uma porta de entrada. Abriram escolas primárias rudimentares e ofereceram assistência médica básica, conquistando a confiança das comunidades. Traduziram porções da Bíblia para línguas locais (como o changana) e focaram no discipulado.</p>
+                    
+                    <h4>Contribuições para a Sociedade Moçambicana</h4>
+                    <ul>
+                        <li>Rede de escolas primárias e secundárias</li>
+                        <li>Programas de assistência social e combate à pobreza</li>
+                        <li>Projetos de desenvolvimento comunitário</li>
+                        <li>Apoio a órfãos e vulneráveis</li>
+                        <li>Programas de combate ao HIV/AIDS</li>
+                        <li>Promoção da paz e reconciliação nacional</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Seção de Tópicos -->
+        <section class="topics-section">
+            <div class="topics-header">
+                <h2>Tópicos Relacionados</h2>
+            </div>
+            
+            <div class="tabs">
+                <button class="tab-button active" data-tab="tab1">
+                    <i class="fas fa-history"></i> História
+                </button>
+                <button class="tab-button" data-tab="tab2">
+                    <i class="fas fa-map-marked-alt"></i> Distribuição
+                </button>
+                <button class="tab-button" data-tab="tab3">
+                    <i class="fas fa-hands"></i> Práticas
+                </button>
+            </div>
+            
+            <div class="tab-content active" id="tab1">
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <h4>Origens Pentecostais</h4>
+                        <p>A Assembleia de Deus surgiu do movimento pentecostal do início do século XX, com raízes no Avivamento da Rua Azusa em Los Angeles.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Expansão Global</h4>
+                        <p>Das origens norte-americanas, a denominação expandiu-se para todo o mundo, tornando-se uma das maiores igrejas pentecostais.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Chegada a África</h4>
+                        <p>A Assembleia de Deus chegou a Moçambique através de missionários suecos, brasileiros e portugueses ao longo do século XX.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="tab2">
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <h4>Presença Nacional</h4>
+                        <p>A Assembleia de Deus está presente em todas as 11 províncias de Moçambique, com forte concentração nas áreas urbanas.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Áreas Urbanas</h4>
+                        <p>A denominação tem forte presença em centros urbanos, com grandes templos e estruturas organizadas.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Expansão Rural</h4>
+                        <p>Recentemente, a Assembleia de Deus tem expandido sua atuação para áreas rurais e remotas do país.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="tab3">
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <h4>Cultos Pentecostais</h4>
+                        <p>Os cultos são caracterizados por intensa participação emocional, cânticos vibrantes e manifestações dos dons espirituais.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Batismo no Espírito Santo</h4>
+                        <p>Ênfase na experiência do batismo no Espírito Santo com a evidência de falar em línguas.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Evangelização</h4>
+                        <p>Forte ênfase na evangelização e missões, com programas de treinamento e envio de missionários.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-church"></i>
+                </div>
+                <nav class="footer-nav">
+                    <a href="index.html">Início</a>
+                    <a href="#">Sobre</a>
+                    <a href="#">Religiões</a>
+                    <a href="#">Contacto</a>
+                    <a href="#">Privacidade</a>
+                </nav>
+                <p class="copyright">© 2023 Um País, Muitas Crenças. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Botão Voltar ao Topo -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <script>
+        // Script para as abas
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+                    
+                    // Remove a classe active de todos os botões e conteúdos
+                    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                    
+                    // Adiciona a classe active ao botão clicado
+                    button.classList.add('active');
+                    
+                    // Mostra o conteúdo correspondente
+                    document.getElementById(targetTab).classList.add('active');
+                });
+            });
+            
+            // Botão voltar ao topo
+            const backToTopButton = document.querySelector('.back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.style.display = 'flex';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            });
+            
+            backToTopButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>

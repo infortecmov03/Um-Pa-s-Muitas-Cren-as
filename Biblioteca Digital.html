@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Digital - Um País Muitas Crenças</title>
+    <meta name="description" content="Biblioteca digital com livros, artigos e recursos sobre as religiões de Moçambique. Download gratuito de materiais sobre Cristianismo, Islamismo, religiões tradicionais e mais.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<!-- Google tag (gtag.js) --> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VJDQ8Z1NQG"></script> 
+<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-VJDQ8Z1NQG'); </script>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">📚</div>
+                <h1>Biblioteca Digital</h1>
+            </div>
+            <p class="subtitle">Livros, artigos e recursos sobre as religiões de Moçambique</p>
+        </div>
+    </header>
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container breadcrumb-content">
+            <a href="index.html"><i class="fas fa-home"></i> Página Inicial</a>
+            <span>/</span>
+            <span>Biblioteca Digital</span>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main class="container">
+        <section class="library-section">
+            <div class="library-header">
+                <h2>Acervo de Livros</h2>
+                <p>Explore nossa coleção de livros e recursos sobre as diversas tradições religiosas de Moçambique. Todos os materiais estão disponíveis para download gratuito.</p>
+                
+                <!-- Barra de Pesquisa -->
+                <div class="search-container">
+                    <form class="search-box">
+                        <input type="text" placeholder="Pesquisar por título, autor ou assunto...">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                    <div class="search-controls">
+                        <button id="clearSearch" class="clear-btn" title="Limpar busca">Limpar</button>
+                        <label for="sortSelect" class="sort-label">Ordenar por:</label>
+                        <select id="sortSelect" class="sort-select">
+                            <option value="default">Padrão</option>
+                            <option value="title">Título (A-Z)</option>
+                            <option value="author">Autor (A-Z)</option>
+                            <option value="rating">Avaliação (desc)</option>
+                        </select>
+                        <label class="group-toggle">
+                            <input type="checkbox" id="groupByCategory" checked>
+                            Agrupar por religião
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Filtros -->
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="fas fa-book"></i> Todos
+                    </button>
+                    <button class="filter-btn" data-filter="cristianismo">
+                        <i class="fas fa-church"></i> Cristianismo
+                    </button>
+                    <button class="filter-btn" data-filter="islamismo">
+                        <i class="fas fa-mosque"></i> Islamismo
+                    </button>
+                    <button class="filter-btn" data-filter="tradicionais">
+                        <i class="fas fa-globe-africa"></i> Tradicionais
+                    </button>
+                    <button class="filter-btn" data-filter="outras">
+                        <i class="fas fa-hands-praying"></i> Outras
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Loading -->
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Carregando livros...</p>
+            </div>
+            
+            <!-- Grid de Livros -->
+            <div class="books-grid">
+                <!-- Os livros serão renderizados via JavaScript -->
+            </div>
+            
+            <!-- Livros em Destaque -->
+            <div class="featured-books">
+                <div class="featured-header">
+                    <h3>Livros em Destaque</h3>
+                    <p>Obras especialmente selecionadas para estudo aprofundado</p>
+                </div>
+                
+                <div class="books-grid">
+                    <!-- Os livros em destaque serão renderizados via JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Newsletter -->
+            <div class="newsletter">
+                <h3>Receba Novas Publicações</h3>
+                <p>Cadastre-se para receber notificações quando novos livros e recursos forem adicionados à nossa biblioteca.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Seu melhor email" required>
+                    <button type="submit">Inscrever-se</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Biblioteca Digital</div>
+                <p>Um projeto dedicado à preservação e disseminação do conhecimento sobre as religiões de Moçambique.</p>
+                
+                <nav class="footer-nav">
+                    <a href="#"><i class="fas fa-home"></i> Início</a>
+                    <a href="#"><i class="fas fa-book"></i> Biblioteca</a>
+                    <a href="#"><i class="fas fa-info-circle"></i> Sobre</a>
+                    <a href="#"><i class="fas fa-envelope"></i> Contato</a>
+                </nav>
+                
+                <p class="copyright">&copy; 2023 Biblioteca Digital - Um País Muitas Crenças. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Modal de Download -->
+    <div class="modal" id="downloadModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Confirmar Download</h3>
+            <p>Você está prestes a baixar o livro: <strong id="bookTitle"></strong></p>
+            <p>O download começará automaticamente em alguns segundos.</p>
+            <div class="modal-download-action">
+                <a href="#" id="confirmDownload" class="book-download">
+                    <i class="fas fa-download"></i> Iniciar Download Agora
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

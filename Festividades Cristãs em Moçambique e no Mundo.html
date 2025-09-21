@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festividades Cristãs em Moçambique e no Mundo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a4b84;
+            --secondary-color: #c9a066;
+            --accent-color: #8e3c36;
+            --light-color: #f5f5f5;
+            --dark-color: #333;
+            --font-title: 'Merriweather', serif;
+            --font-body: 'Open Sans', sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #f9f9f9;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d4d4d4' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .topic-detail {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-top: 20px;
+        }
+        
+        h1, h2, h3 {
+            font-family: var(--font-title);
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 30px;
+            color: var(--accent-color);
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 25px;
+            color: var(--primary-color);
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+        
+        .topic-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .topic-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 25px 0;
+            justify-content: center;
+        }
+        
+        .image-card {
+            flex: 1 1 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .image-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .image-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .image-caption {
+            padding: 12px;
+            background: var(--light-color);
+            font-size: 0.9rem;
+            text-align: center;
+            color: var(--dark-color);
+        }
+        
+        .bible-verse {
+            background-color: #f8f4e9;
+            border-left: 4px solid var(--secondary-color);
+            padding: 20px;
+            margin: 25px 0;
+            font-style: italic;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .bible-verse p {
+            margin: 0;
+            color: #555;
+        }
+        
+        .bible-verse .verse-ref {
+            display: block;
+            text-align: right;
+            margin-top: 10px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .navigation-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        
+        .nav-button:hover {
+            background-color: var(--accent-color);
+        }
+        
+        @media (max-width: 768px) {
+            .image-gallery {
+                flex-direction: column;
+            }
+            
+            .navigation-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-button {
+                text-align: center;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<!-- Google tag (gtag.js) --> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VJDQ8Z1NQG"></script> 
+<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-VJDQ8Z1NQG'); </script>
+<body>
+    <div class="container">
+        <article class="topic-detail">
+            <h1>Festividades do Cristianismo a Nível Mundial e em Moçambique</h1>
+            
+            <div class="topic-meta">
+                <span><i class="fas fa-clock"></i> Tempo de leitura: 12 minutos</span>
+                <span><i class="fas fa-calendar"></i> Atualizado em: Novembro de 2023</span>
+            </div>
+            
+            <div class="topic-content">
+                <h2>Principais Festividades Cristãs Globais</h2>
+                <p>O calendário cristão inclui diversas festividades importantes celebradas por cristãos em todo o mundo, embora com variações conforme as tradições denominacionais e culturais.</p>
+                
+                <div class="image-gallery">
+                    <div class="image-card">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiM0Yjc3ZGMiLz48Y2lyY2xlIGN4PSIyMDAiIGN5PSIxNTAiIHI9IjUwIiBmaWxsPSIjZmZmM2QzIi8+PHBhdGggZD0iTTE1MCAxMDBIMjUwVjIwMEgxNTBaIiBmaWxsPSIjZGY0YjQ4Ii8+PHBhdGggZD0iTTE3NSA3NUgyMjVWMjI1SDE3NVoiIGZpbGw9IiM4ZTNjMzYiLz48dGV4dCB4PSIyMDAiIHk9IjI2MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+TmF0YWw8L3RleHQ+PC9zdmc+" alt="Celebração de Natal">
+                        <div class="image-caption">Celebração de Natal em igreja decorada</div>
+                    </div>
+                    <div class="image-card">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiM0YTZjM2UiLz48Y2lyY2xlIGN4PSIyMDAiIGN5PSIxNTAiIHI9IjYwIiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTE2MCAxMTBIMjQwVjE5MEgxNjBaIiBmaWxsPSIjZmZjYzExIi8+PHBhdGggZD0iTTE4MCA5MEgyMjBWMjEwSDE4MFoiIGZpbGw9IiNkZjRiNDgiLz48dGV4dCB4PSIyMDAiIHk9IjI2MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+UMOhc2NvYTwvdGV4dD48L3N2Zz4=" alt="Celebração de Páscoa">
+                        <div class="image-caption">Símbolos da Páscoa: cruz e luz</div>
+                    </div>
+                </div>
+                
+                <h3>Natal</h3>
+                <p>Celebrado em 25 de dezembro na maioria das tradições cristãs (com exceção de algumas igrejas ortodoxas que usam o calendário juliano), o Natal comemora o nascimento de Jesus Cristo. As celebrações incluem missas/cultos especiais, decorações, troca de presentes e refeições festivas.</p>
+                
+                <div class="bible-verse">
+                    <p>"Porque um menino nos nasceu, um filho se nos deu; e o governo está sobre os seus ombros; e o seu nome será: Maravilhoso Conselheiro, Deus Forte, Pai da Eternidade, Príncipe da Paz."</p>
+                    <span class="verse-ref">Isaías 9:6</span>
+                </div>
+                
+                <h3>Páscoa</h3>
+                <p>A Páscoa é a festividade mais importante do calendário cristão, celebrando a ressurreição de Jesus Cristo. É precedida pela Quaresma (período de 40 dias de preparação) e pela Semana Santa, que inclui Domingo de Ramos, Quinta-Feira Santa, Sexta-Feira Santa e Sábado de Aleluia.</p>
+                
+                <div class="bible-verse">
+                    <p>"E, se Cristo não ressuscitou, é vã a vossa fé, e ainda permaneceis nos vossos pecados."</p>
+                    <span class="verse-ref">1 Coríntios 15:17</span>
+                </div>
+                
+                <h3>Pentecostes</h3>
+                <p>Celebrado 50 dias após a Páscoa, comemora a descida do Espírito Santo sobre os apóstolos, marcando o início da missão da Igreja.</p>
+                
+                <div class="image-gallery">
+                    <div class="image-card">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiM3YjExMzYiLz48Y2lyY2xlIGN4PSIyMDAiIGN5PSIxNTAiIHI9IjUwIiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuOCIvPjxjaXJjbGUgY3g9IjIwMCIgY3k9IjE1MCIgcj0iMzAiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC45Ii8+PHBhdGggZD0iTTE3MCAxMjBIMjMwVjE4MEgxNzBaIiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuNyIvPjxjaXJjbGUgY3g9IjE2MCIgY3k9IjEzMCIgcj0iNSIgZmlsbD0iI2ZmZjNmMyIvPjxjaXJjbGUgY3g9IjE4MCIgY3k9IjEyMCIgcj0iNSIgZmlsbD0iI2ZmZjNmMyIvPjxjaXJjbGUgY3g9IjIwMCIgY3k9IjExNSIgcj0iNSIgZmlsbD0iI2ZmZjNmMyIvPjxjaXJjbGUgY3g9IjIyMCIgY3k9IjEyMCIgcj0iNSIgZmlsbD0iI2ZmZjNmMyIvPjxjaXJjbGUgY3g9IjI0MCIgY3k9IjEzMCIgcj0iNSIgZmlsbD0iI2ZmZjNmMyIvPjx0ZXh0IHg9IjIwMCIgeT0iMjYwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSJib2xkIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5QZW50ZWNvc3RlczwvdGV4dD48L3N2Zz4=" alt="Pentecostes">
+                        <div class="image-caption">Representação do Espírito Santo no Pentecostes</div>
+                    </div>
+                </div>
+                
+                <div class="bible-verse">
+                    <p>"De repente, veio do céu um som, como de um vento impetuoso, e encheu toda a casa onde estavam assentados. E lhes apareceram umas línguas como que de fogo, que se distribuíam, e sobre cada um deles pousou uma."</p>
+                    <span class="verse-ref">Atos 2:2-3</span>
+                </div>
+                
+                <h2>Festividades Cristãs em Moçambique</h2>
+                <p>Em Moçambique, as festividades cristãs combinam elementos das tradições universais com particularidades locais e influências culturais moçambicanas.</p>
+                
+                <div class="image-gallery">
+                    <div class="image-card">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNlNmYxZmYiLz48cGF0aCBkPSJNMTUwIDE1MEgyNTBWMTc1SDE1MFoiIGZpbGw9IiNkZDRiNDgiLz48cGF0aCBkPSJNMTUwIDE3NUgyNTBWMjAwSDE1MFoiIGZpbGw9IiNmZmYiLz48cGF0aCBkPSJNMTUwIDIwMEgyNTBWMjI1SDE1MFoiIGZpbGw9IiM0Yjc3ZGMiLz48cGF0aCBkPSJNMTUwIDEyNUgyNTBWMTUwSDE1MFoiIGZpbGw9IiM4ZTMzMjYiLz48cGF0aCBkPSJNMTUwIDIyNUgyNTBWMjUwSDE1MFoiIGZpbGw9IiNmZmMzMDAiLz48Y2lyY2xlIGN4PSIyMDAiIGN5PSIxNzUiIHI9IjI1IiBmaWxsPSIjZmZmM2QzIi8+PHBhdGggZD0iTTE3NSAxNTBIMjI1VjIwMEgxNzVaIiBmaWxsPSIjZGY0YjQ4Ii8+PHBhdGggZD0iTTE4NSAxNDBIMjE1VjIxMEgxODVaIiBmaWxsPSIjOGUzYzM2Ii8+PHJlY3QgeD0iMTgwIiB5PSIxMDAiIHdpZHRoPSI0MCIgaGVpZ2h0PSI1MCIgZmlsbD0iI2RkZCIvPjx0ZXh0IHg9IjIwMCIgeT0iMjgwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSJib2xkIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMzMzIj5Nb2zDpW1iaWNhPC90ZXh0Pjwvc3ZnPg==" alt="Bandeira de Moçambique com símbolos cristãos">
+                        <div class="image-caption">Cristianismo e cultura moçambicana</div>
+                    </div>
+                </div>
+                
+                <h3>Natal em Moçambique</h3>
+                <p>O Natal em Moçambique (chamado "dia de Natal") é celebrado com missas especiais, muitas vezes incluindo cânticos em línguas locais. As famílias reúnem-se para refeições festivas que podem incluir frango, cabrito ou pratos tradicionais. Nas áreas urbanas, é comum ver decorações natalícias e troca de presentes.</p>
+                
+                <h3>Páscoa em Moçambique</h3>
+                <p>A Semana Santa é observada com devoção em Moçambique. Muitas comunidades realizam procissões e encenações da Paixão de Cristo. O Domingo de Páscoa é celebrado com cultos festivos e refeições familiares. Em algumas regiões, é tradicional comer peixe durante a Semana Santa.</p>
+                
+                <div class="image-gallery">
+                    <div class="image-card">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmY3ZTkiLz48Y2lyY2xlIGN4PSIyMDAiIGN5PSIxNTAiIHI9IjYwIiBmaWxsPSIjZmZjYzExIi8+PHBhdGggZD0iTTE2MCAxMTBIMjQwVjE5MEgxNjBaIiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTE4MCA5MEgyMjBWMjEwSDE4MFoiIGZpbGw9IiNkZjRiNDgiLz48Y2lyY2xlIGN4PSIxNzAiIGN5PSIxMzAiIHI9IjgiIGZpbGw9IiM4ZTMzMjYiLz48Y2lyY2xlIGN4PSIyMzAiIGN5PSIxMzAiIHI9IjgiIGZpbGw9IiM4ZTMzMjYiLz48cGF0aCBkPSJNMTgwIDE3MEgyMjBTMjEwIDE4MCAyMDAgMTgwUzE4MCAxNzAgMTgwIDE3MFoiIGZpbGw9IiM4ZTMzMjYiLz48dGV4dCB4PSIyMDAiIHk9IjI2MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzMzMyI+UHJvY2lzc8OjbyBkYSBTZW1hbmEgU2FudGE8L3RleHQ+PC9zdmc+" alt="Procissão de Semana Santa em Moçambique">
+                        <div class="image-caption">Procissão durante a Semana Santa em Moçambique</div>
+                    </div>
+                    <div class="image-card">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmY3ZTkiLz48cGF0aCBkPSJNMTUwIDEwMEgyNTBWMjUwSDE1MFoiIGZpbGw9IiM0Yjc3ZGMiLz48Y2lyY2xlIGN4PSIyMDAiIGN5PSIxNTAiIHI9IjUwIiBmaWxsPSIjZmZmM2QzIi8+PHBhdGggZD0iTTE3NSAxMjVIMjI1VjE3NUgxNzVaIiBmaWxsPSIjZGY0YjQ4Ii8+PHBhdGggZD0iTTE4NSAxMTVIMjE1VjE4NUgxODVaIiBmaWxsPSIjOGUzYzM2Ii8+PHJlY3QgeD0iMTgwIiB5PSI3NSIgd2lkdGg9IjQwIiBoZWlnaHQ9IjI1IiBmaWxsPSIjZGRkIi8+PHBhdGggZD0iTTE2MCAyMDBIMjQwVjIxNUgxNjBaIiBmaWxsPSIjZmZjYzExIi8+PHBhdGggZD0iTTE2NSAyMTVIMjM1VjIyNUgxNjVaIiBmaWxsPSIjNGI3N2RjIi8+PHBhdGggZD0iTTE3MCAyMjVIMjMwVjIzNUgxNzBaIiBmaWxsPSIjOGUzMzI2Ii8+PHJlY3QgeD0iMTkwIiB5PSIyMzUiIHdpZHRoPSIyMCIgaGVpZ2h0PSIxNSIgZmlsbD0iI2RkZCIvPjx0ZXh0IHg9IjIwMCIgeT0iMjgwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSJib2xkIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMzMzIj5JZ3JlamEgZW0gTcOzxWFtYmlxdWU8L3RleHQ+PC9zdmc+" alt="Igreja em Moçambique">
+                        <div class="image-caption">Igreja decorada para celebrações em Moçambique</div>
+                    </div>
+                </div>
+                
+                <h3>Festas dos Santos Padroeiros</h3>
+                <p>Muitas comunidades e paróquias celebram o dia do seu santo padroeiro com festas que incluem missas especiais, procissões e, frequentemente, actividades culturais como danças e música tradicional.</p>
+                
+                <h3>Celebrações das Igrejas Africanas Independentes</h3>
+                <p>As igrejas independentes africanas (como as Zionistas e Apostólicas) desenvolvem as suas próprias celebrações, que frequentemente combinam elementos cristãos com tradições locais, incluindo cerimónias de cura, baptismos em rios, e danças ritualísticas.</p>
+                
+                <div class="image-gallery">
+                    <div class="image-card">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNlNmYxZmYiLz48cGF0aCBkPSJNMTUwIDc1SDI1MFYyMjVIMTUwWiIgZmlsbD0iIzRiNzdkYyIvPjxjaXJjbGUgY3g9IjIwMCIgY3k9IjE1MCIgcj0iNTAiIGZpbGw9IiNmZmYzZDMiLz48cGF0aCBkPSJNMTc1IDEyNUgyMjVWMTc1SDE3NVoiIGZpbGw9IiNkZjRiNDgiLz48cGF0aCBkPSJNMTg1IDExNUgyMTVWMTg1SDE4NVoiIGZpbGw9IiM4ZTNjMzYiLz48Y2lyY2xlIGN4PSIyMDAiIGN5PSIyMDAiIHI9IjE1IiBmaWxsPSIjZmZjYzExIi8+PHBhdGggZD0iTTE5MCAyMDBIMjEwVjI1MEgxOTBaIiBmaWxsPSIjZmZjYzExIi8+PHBhdGggZD0iTTE4NSAyNTBIMjE1VjI2NUgxODVaIiBmaWxsPSIjNGI3N2RjIi8+PHJlY3QgeD0iMTkwIiB5PSIyNjUiIHdpZHRoPSIyMCIgaGVpZ2h0PSIxNSIgZmlsbD0iI2RkZCIvPjx0ZXh0IHg9IjIwMCIgeT0iMjgwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSJib2xkIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMzMzIj5CYXB0aXNtbyBlbSBSaW88L3RleHQ+PC9zdmc+" alt="Batismo em rio">
+                        <div class="image-caption">Batismo em rio - prática comum em igrejas independentes</div>
+                    </div>
+                </div>
+                
+                <h2>Significado Cultural</h2>
+                <p>As festividades cristãs em Moçambique não são apenas expressões religiosas, mas também importantes momentos de reforço dos laços comunitários e familiares, e de celebração da identidade cultural moçambicana.</p>
+                
+                <div class="bible-verse">
+                    <p>"Assim brilhe a vossa luz diante dos homens, para que vejam as vossas boas obras e glorifiquem a vosso Pai que está nos céus."</p>
+                    <span class="verse-ref">Mateus 5:16</span>
+                </div>
+                
+                <div class="navigation-links">
+                    <a href="estudos.html" class="nav-button">Voltar para Área de Estudo</a>
+                    <a href="Influência Cultural do Cristianismo em Moçambique.html" class="nav-button">Próximo Tópico: Influência Cultural</a>
+                </div>
+            </div>
+        </article>
+    </div>
+     <script src="seg.js"></script>
+</body>
+</html>

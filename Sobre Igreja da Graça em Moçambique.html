@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Igreja Internacional da Graça de Deus em Moçambique</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Menu de navegação */
+        .sobre-menu {
+            background: linear-gradient(to right, #1a3c6e, #2c5ba3);
+            padding: 15px 0;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        
+        .sobre-menu ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .sobre-menu li {
+            margin: 5px 10px;
+        }
+        
+        .sobre-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+            font-weight: 500;
+        }
+        
+        .sobre-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232c5ba3"/><path d="M0 0L100 100" stroke="%231a3c6e" stroke-width="2"/><path d="M100 0L0 100" stroke="%231a3c6e" stroke-width="2"/></svg>');
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .logo h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* Conteúdo principal */
+        .religion-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .religion-header {
+            background: linear-gradient(to right, #1a3c6e, #2c5ba3);
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .religion-icon {
+            font-size: 2rem;
+            margin-right: 15px;
+        }
+        
+        .religion-title {
+            font-size: 1.8rem;
+        }
+        
+        .religion-content {
+            padding: 30px;
+        }
+        
+        .religion-content h3 {
+            color: #2c5ba3;
+            margin: 20px 0 15px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 8px;
+        }
+        
+        .religion-content h4 {
+            color: #1a3c6e;
+            margin: 18px 0 12px;
+        }
+        
+        .religion-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .beliefs-list, .practices-list, .demographics {
+            background-color: #f9f9f9;
+            border-left: 4px solid #2c5ba3;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .beliefs-list h4, .practices-list h4, .demographics h4 {
+            color: #1a3c6e;
+            margin-top: 0;
+        }
+        
+        .beliefs-list ul, .practices-list ul, .demographics ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        
+        .beliefs-list li, .practices-list li, .demographics li {
+            margin-bottom: 8px;
+        }
+        
+        /* Seção de tópicos */
+        .topics-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .topics-header {
+            background: linear-gradient(to right, #1a3c6e, #2c5ba3);
+            color: white;
+            padding: 15px 20px;
+        }
+        
+        .topics-header h2 {
+            font-size: 1.5rem;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            padding: 0 20px;
+        }
+        
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: 500;
+            color: #666;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+        
+        .tab-button.active {
+            color: #2c5ba3;
+            border-bottom: 3px solid #2c5ba3;
+        }
+        
+        .tab-button i {
+            margin-right: 8px;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 20px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .topic-card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .topic-card h4 {
+            color: #1a3c6e;
+            margin-bottom: 10px;
+        }
+        
+        /* Rodapé */
+        footer {
+            background: linear-gradient(to right, #1a3c6e, #2c5ba3);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px 10px;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-nav a:hover {
+            opacity: 0.8;
+        }
+        
+        .copyright {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* Botão voltar ao topo */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #2c5ba3;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s;
+        }
+        
+        .back-to-top:hover {
+            background: #1a3c6e;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .logo h1 {
+                font-size: 2rem;
+            }
+            
+            .religion-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .religion-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab-button {
+                justify-content: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="sobre-menu">
+        <ul>
+            <li><a href="Sobre universal.html">Universal</a></li>
+            <li><a href="Sobre Testemunhas de Jeová em Moçambique.html">Testemunhas de Jeová</a></li>
+            <li><a href="Sobre Sara Nossa Terra em Moçambique.html">Sara Nossa Terra</a></li>
+            <li><a href="Sobre Metodista.html">Metodista</a></li>
+            <li><a href="Sobre Igreja Zionista.html">Zionista</a></li>
+            <li><a href="Sobre Igreja Presbiteriana.html">Presbiteriana</a></li>
+            <li><a href="Sobre Igreja de Profetas em Moçambique.html">Profetas</a></li>
+            <li><a href="Sobre Igreja de Deus.html">Igreja de Deus</a></li>
+            <li><a href="Sobre Igreja da Graça em Moçambique.html">Graça</a></li>
+            <li><a href="Sobre Católica.html">Católica</a></li>
+            <li><a href="Sobre Assembleia de Deus.html">Assembleia de Deus</a></li>
+            <li><a href="Sobre Apostólica.html">Apostólica</a></li>
+            <li><a href="Sobre Anglicana.html">Anglicana</a></li>
+            <li><a href="Sobre Adventistas emMoçambique.html">Adventistas</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-church logo-icon"></i>
+                <h1>Igreja Internacional da Graça de Deus</h1>
+                <p class="subtitle">Conheça a história e influência da Igreja Internacional da Graça de Deus em Moçambique</p>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <section class="religion-section">
+            <div class="religion-header">
+                <div class="religion-icon">
+                    <i class="fas fa-church"></i>
+                </div>
+                <h2 class="religion-title">Igreja Internacional da Graça de Deus</h2>
+            </div>
+            
+            <div class="religion-content">
+                <div>
+                    <h3>Origem</h3>
+                    <p>A Igreja Internacional da Graça de Deus foi fundada no Brasil em 1980 por Romildo Ribeiro Soares (missionário RR Soares). Caracteriza-se pela ênfase na teologia da prosperidade e na cura divina.</p>
+                    <p>Expandiu-se internacionalmente através de programas de televisão e campanhas evangelísticas massivas.</p>
+                    
+                    <div class="beliefs-list">
+                        <h4>Características Principais</h4>
+                        <ul>
+                            <li>Ênfase na Teologia da Prosperidade</li>
+                            <li>Cura divina e milagres como atração principal</li>
+                            <li>Uso intensivo de meios de comunicação</li>
+                            <li>Cultos caracterizados por emocionalismo intenso</li>
+                        </ul>
+                    </div>
+                    
+                    <h4>O Contexto: A Gênese na Igreja Universal do Reino de Deus (IURD)</h4>
+                    <p>Na década de 1970, Edir Macedo e Romildo Ribeiro Soares (conhecido como RR Soares) eram parceiros próximos e figuras fundamentais na fundação e expansão inicial da IURD.</p>
+                    
+                    <p>Juntos, eles ajudaram a consolidar o modelo neopentecostal agressivo: uso intensivo da mídia (rádio e TV), ênfase na Teologia da Prosperidade (a "doutrina" da troca: dá-se dinheiro para receber bênçãos financeiras de Deus) e na Guerra Espiritual (onde todos os problemas são causados por demônios).</p>
+                    
+                    <h4>A Cisão: A Questão do Poder e da Herança</h4>
+                    <p>A versão mais difundida e aceita do racha, inclusive confirmada em processos judiciais, aponta para uma disputa de poder e herança após a morte de um parente chave.</p>
+                    
+                    <p>Com a morte da cunhada de RR Soares, que era esposa de Edir Macedo, uma grande quantia de dinheiro e um patrimônio considerável de imóveis da igreja ficaram em seu nome. Romildo Ribeiro Soares, como viúvo, reivindicou esses bens como herança. Edir Macedo, líder máximo da IURD, contestou essa visão, argumentando que os bens pertenciam à igreja, não à pessoa física.</p>
+                    
+                    <h4>A Fundação da Igreja da Graça e a Estratégia de Clonagem</h4>
+                    <p>RR Soares não inventou uma nova roda. Ele fez algo muito mais inteligente: clonou o modelo de sucesso da IURD.</p>
+                    
+                    <p>Imediatamente após sua expulsão, ainda em 1980, RR Soares fundou a Igreja Internacional da Graça de Deus.</p>
+                    
+                    <ul>
+                        <li><strong>Mesma Estrutura:</strong> Uso massivo de rádio e TV (o programa Show da Fé tornou-se sua principal ferramenta), pregação da Teologia da Prosperidade e ênfase em curas e milagres.</li>
+                        <li><strong>Diferença de Marketing:</strong> Enquanto a IURD de Edir Macedo adotava um tom mais agressivo e beligerante, RR Soares posicionou a IIGD com uma linguagem mais suave e "positiva". A palavra "Graça" no nome não é acidental.</li>
+                    </ul>
+                    
+                    <h4>Expansão e Consolidação como Império Midiático</h4>
+                    <p>A IIGD adotou o mesmo modelo de expansão via "franquia": pastores abrem templos e repassam parte da arrecadação para a cúpula.</p>
+                    
+                    <p>RR Soares se tornou um magnata da mídia evangélica, construindo um império de rádios e canais de TV (como a Rede Aleluia e a TV Graça). Sua imagem, sempre trajando terno branco, e sua pregação característica, se tornaram produtos de consumo massivo.</p>
+                </div>
+                
+                <div>
+                    <h3>Chegada e Expansão em Moçambique</h3>
+                    <p>A Igreja Internacional da Graça de Deus chegou a Moçambique na década de 1990, através de missionários brasileiros e da transmissão de programas de televisão via satélite.</p>
+                    <p>Estabeleceu-se inicialmente em Maputo e depois expandiu-se para outras cidades. Cresceu rapidamente graças ao uso intensivo de mídia e grandes campanhas evangelísticas.</p>
+                    
+                    <h4>O Contexto de Chegada: A Onda Neopentecostal Brasileira</h4>
+                    <p>A IIGD chegou a Moçambique na esteira da primeira leva de igrejas neopentecostais brasileiras, como a própria IURD. O país saía de uma guerra civil devastadora (1992) e estava aberto à influência estrangeira, especialmente de um país lusófono como o Brasil.</p>
+                    
+                    <p>A população enfrentava pobreza extrema, desemprego, doenças e um trauma espiritual profundo. A mensagem de "milagres instantâneos" e "prosperidade financeira através da fé" encontrou um solo extremamente fértil.</p>
+                    
+                    <div class="demographics">
+                        <h4>Dados Atuais da IIGD em Moçambique</h4>
+                        <ul>
+                            <li>Presente nas principais cidades moçambicanas</li>
+                            <li>Dezenas de templos e pontos de pregação</li>
+                            <li>Milhares de membros regulares</li>
+                            <li>Programação regular em emissoras de TV nacionais</li>
+                            <li>Campanhas evangelísticas massivas regularmente</li>
+                            <li>Liderança majoritariamente moçambicana atualmente</li>
+                        </ul>
+                    </div>
+                    
+                    <h4>A Estratégia de Entrada: A Mídia como Cavalo de Tróia</h4>
+                    <p>A estratégia foi idêntica à usada no Brasil. Antes mesmo de estabelecer templos físicos, a IIGD comprou horários na televisão moçambicana (na TVM e outras emissoras).</p>
+                    
+                    <p>Inicialmente, os moçambicanos foram apresentados à igreja através dos programas gravados do RR Soares, transmitidos do Brasil. Seu tom "positivo" e a promessa de solução fácil para problemas difíceis começaram a cativar um público.</p>
+                    
+                    <p>A obra começou de forma modesta, com cultos realizados em salões de hotéis ou espaços alugados, liderados por missionários brasileiros ou pastores moçambicanos treinados por eles.</p>
+                    
+                    <h4>A Estruturação e a "Moçambicanização"</h4>
+                    <p>Com o crescimento do número de fiéis atraídos pela TV, a igreja estabeleceu sedes próprias, os "Centros de Fé" ou "Templos da Graça", geralmente em locais de fácil acesso e grande movimento, copiando o modelo de suas concorrentes.</p>
+                    
+                    <p>Seguindo a estratégia bem-sucedida de outras denominações, a IIGD rapidamente treinou e colocou pastores moçambicanos na linha da frente. Isso dá à igreja uma cara local, essencial para o crescimento e a confiança da comunidade.</p>
+                    
+                    <p>A mensagem da "Graça" e da "Prosperidade" foi adaptada para os desafios locais. Os "demônios" a serem combatidos eram os da miséria, do desemprego, da feitiçaria e da doença, temas que ressoam profundamente no dia a dia moçambicano.</p>
+                    
+                    <h4>Concorrência e Críticas</h4>
+                    <p>A IIGD chegou a um mercado religioso já dominado por outras gigantes brasileiras (IURD e Assembleias de Deus) e por uma infinidade de igrejas Zionistas locais. Sua batalha é por fiéis e, consequentemente, por dízimos e ofertas.</p>
+                    
+                    <p>A igreja enfrenta as mesmas críticas dirigidas à IURD e a outras neopentecostais:</p>
+                    
+                    <ul>
+                        <li><strong>Exploração Financeira:</strong> Acusações de pressionar fiéis financeiramente vulneráveis a darem o que não têm, com promessas de retorno milagroso.</li>
+                        <li><strong>Destruição de Culturas Tradicionais:</strong> Sua pregação classifica as crenças e práticas tradicionais moçambicanas (como a consulta a curandeiros) como obra demoníaca.</li>
+                        <li><strong>Responsabilização da Vítima:</strong> Se a "bênção" não chega, a culpa é colocada na "falta de fé" ou no "sacrifício insuficiente" do fiel.</li>
+                    </ul>
+                    
+                    <h4>Contribuições e Impacto na Sociedade Moçambicana</h4>
+                    <ul>
+                        <li>Oferece senso de comunidade e pertença</li>
+                        <li>Proporciona esperança em contextos de dificuldade</li>
+                        <li>Gera empregos para pastores e trabalhadores religiosos</li>
+                        <li>Estimula empreendedorismo entre membros</li>
+                        <li>Participa em ações sociais esporádicas</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Seção de Tópicos -->
+        <section class="topics-section">
+            <div class="topics-header">
+                <h2>Tópicos Relacionados</h2>
+            </div>
+            
+            <div class="tabs">
+                <button class="tab-button active" data-tab="tab1">
+                    <i class="fas fa-history"></i> História
+                </button>
+                <button class="tab-button" data-tab="tab2">
+                    <i class="fas fa-map-marked-alt"></i> Distribuição
+                </button>
+                <button class="tab-button" data-tab="tab3">
+                    <i class="fas fa-hands"></i> Práticas
+                </button>
+            </div>
+            
+            <div class="tab-content active" id="tab1">
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <h4>Origens Brasileiras</h4>
+                        <p>A IIGD foi fundada no Brasil em 1980 por Romildo Ribeiro Soares após uma cisão com a Igreja Universal do Reino de Deus.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Expansão Internacional</h4>
+                        <p>Da sua sede no Brasil, a IIGD expandiu-se para diversos países, incluindo Moçambique, através de programas de televisão e missionários.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Adaptação Cultural</h4>
+                        <p>Em Moçambique, a IIGD adaptou sua mensagem aos contextos locais, formando pastores moçambicanos e abordando problemas específicos da sociedade.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="tab2">
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <h4>Principais Cidades</h4>
+                        <p>A IIGD está presente nas principais cidades moçambicanas, com especial concentração em Maputo, Beira e Nampula.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Áreas Urbanas</h4>
+                        <p>A igreja tem maior penetração em áreas urbanas, onde o acesso à televisão e a infraestrutura de comunicação são mais desenvolvidos.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Expansão para o Interior</h4>
+                        <p>Recentemente, a denominação tem expandido sua atuação para o interior do país, abrindo templos em cidades menores.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="tab3">
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <h4>Cultos de Prosperidade</h4>
+                        <p>Ênfase em cultos focados na teologia da prosperidade, com promessas de bênçãos financeiras através da fé e doação.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Cura Divina</h4>
+                        <p>Sessões de cura divina são centrais nos cultos, com testemunhos de milagres e libertação espiritual.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Uso da Mídia</h4>
+                        <p>Intenso uso de programas de televisão e rádio para evangelização e captação de novos membros.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-church"></i>
+                </div>
+                <nav class="footer-nav">
+                    <a href="index.html">Início</a>
+                    <a href="#">Sobre</a>
+                    <a href="#">Religiões</a>
+                    <a href="#">Contacto</a>
+                    <a href="#">Privacidade</a>
+                </nav>
+                <p class="copyright">© 2023 Um País, Muitas Crenças. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Botão Voltar ao Topo -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <script>
+        // Script para as abas
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+                    
+                    // Remove a classe active de todos os botões e conteúdos
+                    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                    
+                    // Adiciona a classe active ao botão clicado
+                    button.classList.add('active');
+                    
+                    // Mostra o conteúdo correspondente
+                    document.getElementById(targetTab).classList.add('active');
+                });
+            });
+            
+            // Botão voltar ao topo
+            const backToTopButton = document.querySelector('.back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.style.display = 'flex';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            });
+            
+            backToTopButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>

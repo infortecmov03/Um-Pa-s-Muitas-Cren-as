@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Igreja de Deus em Moçambique</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Menu de navegação */
+        .sobre-menu {
+            background: linear-gradient(to right, #1a5276, #2e86c1);
+            padding: 15px 0;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        
+        .sobre-menu ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .sobre-menu li {
+            margin: 5px 10px;
+        }
+        
+        .sobre-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+            font-weight: 500;
+        }
+        
+        .sobre-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232e86c1"/><path d="M0 0L100 100" stroke="%231a5276" stroke-width="2"/><path d="M100 0L0 100" stroke="%231a5276" stroke-width="2"/></svg>');
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .logo h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* Conteúdo principal */
+        .religion-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .religion-header {
+            background: linear-gradient(to right, #1a5276, #2e86c1);
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .religion-icon {
+            font-size: 2rem;
+            margin-right: 15px;
+        }
+        
+        .religion-title {
+            font-size: 1.8rem;
+        }
+        
+        .religion-content {
+            padding: 30px;
+        }
+        
+        .religion-content h3 {
+            color: #2e86c1;
+            margin: 20px 0 15px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 8px;
+        }
+        
+        .religion-content h4 {
+            color: #1a5276;
+            margin: 18px 0 12px;
+        }
+        
+        .religion-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .beliefs-list, .practices-list, .demographics {
+            background-color: #f9f9f9;
+            border-left: 4px solid #2e86c1;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .beliefs-list h4, .practices-list h4, .demographics h4 {
+            color: #1a5276;
+            margin-top: 0;
+        }
+        
+        .beliefs-list ul, .practices-list ul, .demographics ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        
+        .beliefs-list li, .practices-list li, .demographics li {
+            margin-bottom: 8px;
+        }
+        
+        /* Seção de tópicos */
+        .topics-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .topics-header {
+            background: linear-gradient(to right, #1a5276, #2e86c1);
+            color: white;
+            padding: 15px 20px;
+        }
+        
+        .topics-header h2 {
+            font-size: 1.5rem;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            padding: 0 20px;
+        }
+        
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: 500;
+            color: #666;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+        
+        .tab-button.active {
+            color: #2e86c1;
+            border-bottom: 3px solid #2e86c1;
+        }
+        
+        .tab-button i {
+            margin-right: 8px;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 20px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .topic-card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .topic-card h4 {
+            color: #1a5276;
+            margin-bottom: 10px;
+        }
+        
+        /* Rodapé */
+        footer {
+            background: linear-gradient(to right, #1a5276, #2e86c1);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px 10px;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-nav a:hover {
+            opacity: 0.8;
+        }
+        
+        .copyright {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* Botão voltar ao topo */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #2e86c1;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s;
+        }
+        
+        .back-to-top:hover {
+            background: #1a5276;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .logo h1 {
+                font-size: 2rem;
+            }
+            
+            .religion-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .religion-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab-button {
+                justify-content: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="sobre-menu">
+        <ul>
+            <li><a href="Sobre universal.html">Universal</a></li>
+            <li><a href="Sobre Testemunhas de Jeová em Moçambique.html">Testemunhas de Jeová</a></li>
+            <li><a href="Sobre Sara Nossa Terra em Moçambique.html">Sara Nossa Terra</a></li>
+            <li><a href="Sobre Metodista.html">Metodista</a></li>
+            <li><a href="Sobre Igreja Zionista.html">Zionista</a></li>
+            <li><a href="Sobre Igreja Presbiteriana.html">Presbiteriana</a></li>
+            <li><a href="Sobre Igreja de Profetas em Moçambique.html">Profetas</a></li>
+            <li><a href="Sobre Igreja de Deus.html">Igreja de Deus</a></li>
+            <li><a href="Sobre Igreja da Graça em Moçambique.html">Graça</a></li>
+            <li><a href="Sobre Católica.html">Católica</a></li>
+            <li><a href="Sobre Assembleia de Deus.html">Assembleia de Deus</a></li>
+            <li><a href="Sobre Apostólica.html">Apostólica</a></li>
+            <li><a href="Sobre Anglicana.html">Anglicana</a></li>
+            <li><a href="Sobre Adventistas emMoçambique.html">Adventistas</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-church logo-icon"></i>
+                <h1>Igreja de Deus</h1>
+                <p class="subtitle">Conheça a história e influência da Igreja de Deus em Moçambique</p>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <section class="religion-section">
+            <div class="religion-header">
+                <div class="religion-icon">
+                    <i class="fas fa-church"></i>
+                </div>
+                <h2 class="religion-title">Igreja de Deus</h2>
+            </div>
+            
+            <div class="religion-content">
+                <div>
+                    <h3>Origem</h3>
+                    <p>A Igreja de Deus (Church of God) tem suas origens no movimento de santidade que surgiu nos Estados Unidos no final do século XIX. Foi fundada oficialmente em 1886.</p>
+                    <p>Caracteriza-se pela ênfase na santificação, no batismo no Espírito Santo e na vida cristã separada dos padrões mundanos.</p>
+                    
+                    <div class="beliefs-list">
+                        <h4>Características Principais</h4>
+                        <ul>
+                            <li>Ênfase na santificação e vida cristã separada</li>
+                            <li>Batismo no Espírito Santo com evidência de falar em línguas</li>
+                            <li>Cura divina e operação de dons espirituais</li>
+                            <li>Governo episcopal moderado com estrutura representativa</li>
+                        </ul>
+                    </div>
+                    
+                    <h4>O Surgimento da Igreja de Deus</h4>
+                    <p>A origem da Igreja de Deus está intrinsecamente ligada ao fervor religioso do sul dos EUA e à busca por uma experiência cristã mais intensa e purificada, que culminou no Avivamento Pentecostal.</p>
+                    
+                    <h4>Contexto: O Movimento de Santidade (Holiness)</h4>
+                    <p>No final do século XIX, dentro de igrejas metodistas e batistas nos EUA, surgiu o Movimento de Santidade. Este movimento enfatizava uma "segunda bênção" ou "santificação" como uma experiência distinta da conversão, que purificaria o crente do pecado original e o capacitaria a viver uma vida de santidade.</p>
+                    
+                    <h4>A Fundação: A Revolta contra o Formalismo</h4>
+                    <p>Em 1886, em um contexto de pobreza e isolamento nos Montes Apalaches (região do Tennessee e Carolina do Norte), um grupo de fiéis, liderado por Richard G. Spurling, um pastor batista, sentiu-se frustrado com o formalismo e a falta de fervor espiritual em suas igrejas.</p>
+                    
+                    <ul>
+                        <li><strong>A Reunião no Barney Creek Meeting House (1886):</strong> Spurling e um pequeno grupo organizaram-se como "União Cristã", com o objetivo de voltar ao "cristianismo primitivo" do Novo Testamento, livre de dogmas e denominações humanas.</li>
+                        <li><strong>O Avivamento da Rua Azusa e a Adoção do Pentecostes (1906-1909):</strong> A chave para a transformação da igreja foi o Avivamento da Rua Azusa em Los Angeles (1906), que espalhou a doutrina do Batismo no Espírito Santo com a evidência inicial de falar em línguas.</li>
+                    </ul>
+                    
+                    <h4>Características Doutrinárias Distintivas:</h4>
+                    <p>A Igreja de Deus (Cleveland) se estruturou em torno de pilares que a definiram:</p>
+                    <ol>
+                        <li><strong>Pentecostalismo Clássico:</strong> Ênfase no Batismo no Espírito Santo, dons espirituais (glossolalia, profecia, cura), e na iminente segunda vinda de Cristo.</li>
+                        <li><strong>Santidade Prática:</strong> Mantiveram fortes elementos do movimento de santidade, com um código de conduta estrito (modéstia no vestir, proibição de jóias extravagantes, cinema, álcool e tabaco).</li>
+                        <li><strong>Governo Episcopal Moderado:</strong> Sob a liderança de A.J. Tomlinson, a igreja adotou um governo episcopal (com superintendentes gerais e bispos com considerável autoridade), mas mantendo uma estrutura representativa através de uma Assembleia Geral.</li>
+                    </ol>
+                </div>
+                
+                <div>
+                    <h3>Chegada e Expansão em Moçambique</h3>
+                    <p>A Igreja de Deus chegou a Moçambique na década de 1980 através de missionários americanos e sul-africanos. Estabeleceu-se inicialmente na região sul do país.</p>
+                    <p>Desenvolveu trabalho evangelístico e comunitário, com foco em áreas rurais. Cresceu de forma moderada e mantém presença em várias províncias moçambicanas.</p>
+                    
+                    <div class="demographics">
+                        <h4>Distribuição Geográfica</h4>
+                        <p>A Igreja de Deus está presente em várias províncias de Moçambique, com maior concentração:</p>
+                        <ul>
+                            <li>Maputo: 30%</li>
+                            <li>Gaza: 25%</li>
+                            <li>Inhambane: 20%</li>
+                            <li>Sofala: 15%</li>
+                            <li>Outras províncias: 10%</li>
+                        </ul>
+                    </div>
+                    
+                    <h4>A Chegada a Moçambique - Guerra Colonial, Missionários e Perseguição</h4>
+                    <p>A implantação da Igreja de Deus em Moçambique é um capítulo complexo da história missionária, profundamente entrelaçado com a geopolítica da África Austral do século XX.</p>
+                    
+                    <h4>Contexto Hostil: O Colonialismo Português</h4>
+                    <p>Como nas outras denominações protestantes, a barreira inicial foi o Estado Novo português de Salazar e Caetano. O regime colonial, em aliança com a Igreja Católica, era visceralmente hostil ao protestantismo, visto como um braço do imperialismo anglo-saxónico e uma ameaça à "missão civilizadora" portuguesa.</p>
+                    
+                    <h4>A Estratégia de Entrada: A Ponte da África do Sul</h4>
+                    <p>Impossibilitados de entrar diretamente por Portugal, a estratégia foi usar a África do Sul como plataforma. A Igreja de Deus tinha uma presença forte e bem organizada entre os sul-africanos brancos e negros.</p>
+                    
+                    <h4>A Guerra Colonial e a Perseguição (Década de 1960-1974)</h4>
+                    <p>O período da luta de libertação (1964-1974) foi extremamente difícil para a igreja.</p>
+                    
+                    <ul>
+                        <li><strong>Suspeita de Cumplicidade com a FRELIMO:</strong> O trabalho missionário nas zonas rurais fez com que os portugueses suspeitassem que os pastores e crentes fossem simpatizantes da FRELIMO.</li>
+                        <li><strong>Fechamento de Templos e Restrições:</strong> Muitas congregações foram fechadas à força, e as atividades religiosas foram severamente restringidas. A igreja viveu um período de clandestinidade e perseguição intensa.</li>
+                    </ul>
+                    
+                    <h4>Sobrevivência e Crescimento no Moçambique Independente</h4>
+                    <p>Com a Independência em 1975, novos desafios surgiram.</p>
+                    
+                    <ul>
+                        <li><strong>O Regime Marxista:</strong> O governo da FRELIMO, de orientação marxista, era oficialmente ateu. Todas as igrejas foram perseguidas, e as suas atividades, drasticamente limitadas.</li>
+                        <li><strong>A Explosão Pentecostal Pós-Guerra (1992 em diante):</strong> O fim da Guerra Civil em 1992 e a nova constituição multipartidária criaram o ambiente perfeito para uma explosão do pentecostalismo em Moçambique.
+                            <ul>
+                                <li><strong>Crescimento Vertiginoso:</strong> A Igreja de Deus experimentou um crescimento massivo, estabelecendo-se não apenas no sul, mas em todo o país.</li>
+                                <li><strong>Mocambicanização:</strong> A liderança rapidamente passou para as mãos de moçambicanos.</li>
+                                <li><strong>Serviço Social:</strong> Seguindo seu DNA missionário, a igreja envolveu-se em projetos de desenvolvimento comunitário, saúde e educação.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <div class="practices-list">
+                        <h4>Contribuições da Igreja de Deus para Moçambique</h4>
+                        <ul>
+                            <li>Trabalho evangelístico em áreas rurais e urbanas</li>
+                            <li>Projetos de desenvolvimento comunitário</li>
+                            <li>Programas de saúde e combate ao HIV/SIDA</li>
+                            <li>Educação teológica através de seminários</li>
+                            <li>Promoção de valores familiares e comunitários</li>
+                            <li>Apoio em situações de crise e desastres naturais</li>
+                        </ul>
+                    </div>
+                    
+                    <h4>Conclusão</h4>
+                    <p>A história da Igreja de Deus em Moçambique é uma narrativa de resiliência frente a duplas perseguições:</p>
+                    
+                    <ol>
+                        <li><strong>Perseguição Colonial Portuguesa:</strong> Vistos com desconfiança por serem protestantes e por sua ligação com a África do Sul.</li>
+                        <li><strong>Perseguição Marxista da FRELIMO:</strong> Alvo por serem uma instituição religiosa durante um regime oficialmente ateu.</li>
+                    </ol>
+                    
+                    <p>Sua trajetória foi moldada pela geopolítica regional, utilizando a rota sul-africana para entrar no país, uma rota que carregava consigo a pesada bagagem do Apartheid.</p>
+                    
+                    <p>No entanto, a igreja sobreviveu porque sua mensagem pentecostal de poder, cura e esperança falou diretamente às angústias de um povo assolado pela guerra, pela pobreza e pela doença. Ela ofereceu não apenas uma promessa para o futuro, mas uma comunidade e uma identidade no presente.</p>
+                    
+                    <p>Hoje, a Igreja de Deus é uma das denominações pentecostais históricas mais influentes e respeitadas em Moçambique. Sua história é um testemunho de como a fé pode navegar por águas políticas turbulentas, adaptar-se e, por fim, florescer, tornando-se uma parte indelével do tecido religioso e social da nação.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Seção de Tópicos -->
+        <section class="topics-section">
+            <div class="topics-header">
+                <h2>Tópicos Relacionados</h2>
+            </div>
+            
+            <div class="tabs">
+                <button class="tab-button active" data-tab="tab1">
+                    <i class="fas fa-history"></i> História
+                </button>
+                <button class="tab-button" data-tab="tab2">
+                    <i class="fas fa-map-marked-alt"></i> Distribuição
+                </button>
+                <button class="tab-button" data-tab="tab3">
+                    <i class="fas fa-hands"></i> Doutrinas
+                </button>
+            </div>
+            
+            <div class="tab-content active" id="tab1">
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <h4>Origens nos EUA</h4>
+                        <p>A Igreja de Deus surgiu no movimento de santidade nos Estados Unidos no final do século XIX, fundada oficialmente em 1886.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Expansão Internacional</h4>
+                        <p>Da América do Norte, a denominação expandiu-se para a África através de missionários, chegando a Moçambique na década de 1980.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Adaptação Cultural</h4>
+                        <p>Em Moçambique, a Igreja de Deus adaptou-se à cultura local, mantendo suas doutrinas centrais enquanto contextualizava sua abordagem ministerial.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="tab2">
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <h4>Províncias do Sul</h4>
+                        <p>Maputo, Gaza e Inhambane concentram a maior parte dos fiéis da Igreja de Deus, devido à penetração inicial a partir da África do Sul.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Áreas Rurais e Urbanas</h4>
+                        <p>A igreja mantém forte presença tanto em comunidades rurais quanto urbanas, com diferentes estratégias de ministério para cada contexto.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Expansão Nacional</h4>
+                        <p>Recentemente, a denominação tem expandido sua presença para províncias do centro e norte de Moçambique, estabelecendo novas congregações.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="tab3">
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <h4>Santificação</h4>
+                        <p>Ênfase na vida santificada e separada dos padrões mundanos, com códigos de conduta específicos para os membros.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Batismo no Espírito Santo</h4>
+                        <p>Doutrina central que enfatiza a experiência do batismo no Espírito Santo com a evidência inicial de falar em línguas.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Cura Divina</h4>
+                        <p>Crença na cura divina através da fé e da oração, com testemunhos frequentes de milagres e intervenções sobrenaturais.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-church"></i>
+                </div>
+                <nav class="footer-nav">
+                    <a href="index.html">Início</a>
+                    <a href="#">Sobre</a>
+                    <a href="#">Religiões</a>
+                    <a href="#">Contacto</a>
+                    <a href="#">Privacidade</a>
+                </nav>
+                <p class="copyright">© 2023 Um País, Muitas Crenças. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Botão Voltar ao Topo -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <script>
+        // Script para as abas
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+                    
+                    // Remove a classe active de todos os botões e conteúdos
+                    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                    
+                    // Adiciona a classe active ao botão clicado
+                    button.classList.add('active');
+                    
+                    // Mostra o conteúdo correspondente
+                    document.getElementById(targetTab).classList.add('active');
+                });
+            });
+            
+            // Botão voltar ao topo
+            const backToTopButton = document.querySelector('.back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.style.display = 'flex';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            });
+            
+            backToTopButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>

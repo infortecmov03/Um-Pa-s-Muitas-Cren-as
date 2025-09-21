@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>História do Cristianismo em Moçambique</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(to right, #1a4a1c, #2c8437);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: "✝";
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 2rem;
+            opacity: 0.2;
+        }
+        
+        .header::after {
+            content: "✝";
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            font-size: 2rem;
+            opacity: 0.2;
+        }
+        
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .nav {
+            background-color: #2c8437;
+            padding: 0.8rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .nav a:hover {
+            text-decoration: underline;
+            transform: translateY(-2px);
+        }
+        
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            gap: 2rem;
+        }
+        
+        .main-content {
+            flex: 1;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .sidebar {
+            width: 300px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            align-self: flex-start;
+        }
+        
+        .topic-detail {
+            padding: 2rem;
+        }
+        
+        .topic-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .topic-content h2 {
+            color: #2c8437;
+            margin: 1.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e9f5eb;
+        }
+        
+        .topic-content p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+        
+        .img-container {
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        
+        .img-container img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .img-container img:hover {
+            transform: scale(1.02);
+        }
+        
+        .img-caption {
+            font-style: italic;
+            color: #666;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .navigation-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: #2c8437;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .nav-button:hover {
+            background-color: #1a4a1c;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+        }
+        
+        .sidebar h3 {
+            color: #2c8437;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e9f5eb;
+        }
+        
+        .sidebar-links {
+            list-style: none;
+        }
+        
+        .sidebar-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .sidebar-links a {
+            color: #2c8437;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+        
+        .sidebar-links a:hover {
+            color: #1a4a1c;
+            transform: translateX(5px);
+        }
+        
+        .quote {
+            background-color: #e9f5eb;
+            border-left: 4px solid #2c8437;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+        
+        .footer {
+            background: linear-gradient(to right, #1a4a1c, #2c8437);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+            }
+            
+            .topic-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .navigation-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-button {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<!-- Google tag (gtag.js) --> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VJDQ8Z1NQG"></script> 
+<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-VJDQ8Z1NQG'); </script>
+<body>
+    <header class="header">
+        <h1>História do Cristianismo em Moçambique</h1>
+        <p>Uma jornada de fé através dos séculos</p>
+    </header>
+    
+    <nav class="nav">
+        <a href="index.html"><i class="fas fa-home"></i> Início</a>
+        <a href="estudos.html"><i class="fas fa-book"></i> Área de Estudo</a>
+        <a href="denominacoes.html"><i class="fas fa-church"></i> Denominações</a>
+        <a href="galeria.html"><i class="fas fa-images"></i> Galeria</a>
+    </nav>
+    
+    <div class="container">
+        <main class="main-content">
+            <article class="topic-detail">
+                <h1>História e Desenvolvimento do Cristianismo em Moçambique</h1>
+                
+                <div class="topic-meta">
+                    <span><i class="fas fa-clock"></i> Tempo de leitura: 15 minutos</span>
+                    <span><i class="fas fa-calendar"></i> Atualizado em: Novembro de 2023</span>
+                </div>
+                
+                <div class="topic-content">
+                    <h2>Origens do Cristianismo</h2>
+                    <p>O Cristianismo surgiu no século I d.C. na região da Judeia (atual Israel/Palestina), baseado nos ensinamentos de Jesus de Nazaré. Inicialmente uma seita judaica, rapidamente se espalhou pelo Império Romano através dos esforços missionários dos apóstolos, especialmente Paulo de Tarso.</p>
+                    
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1516489331330-20eae3ddf1e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cruz cristã com paisagem ao fundo">
+                        <div class="img-caption">Símbolo cristão representando a fé que chegou a Moçambique</div>
+                    </div>
+                    
+                    <h2>Expansão pelo Mundo</h2>
+                    <p>Nos primeiros séculos, o Cristianismo expandiu-se por todo o Mediterrâneo, tornando-se a religião oficial do Império Romano em 380 d.C. com o Édito de Tessalónica. Durante a Idade Média, missionários levaram o Cristianismo para o Norte da Europa, Europa Oriental e, posteriormente, para outras partes do mundo através das rotas comerciais e expedições.</p>
+                    
+                    <h2>Chegada a África</h2>
+                    <p>O Cristianismo chegou ao continente africano ainda no século I, estabelecendo-se inicialmente no Norte de África (Egito, Etiópia e Cartago). No século XV, com as explorações marítimas portuguesas, o Cristianismo começou a se expandir para a África Subsaariana.</p>
+                    
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1516496636080-14fb876e029d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Igreja histórica em África">
+                        <div class="img-caption">Igrejas históricas representam a longa presença do Cristianismo em África</div>
+                    </div>
+                    
+                    <h2>Primeiros Contactos com Moçambique</h2>
+                    <p>Os primeiros contactos do Cristianismo com Moçambique datam do século XV, quando os exploradores portugueses, liderados por Vasco da Gama, chegaram à costa moçambicana em 1498. As primeiras missões católicas foram estabelecidas no século XVI, principalmente nas feitorias e entrepostos comerciais ao longo da costa.</p>
+                    
+                    <div class="quote">
+                        "A evangelização de Moçambique começou com os primeiros navegadores portugueses, que traziam consigo não apenas a cruz, mas também a coroa." - Pe. António Silva
+                    </div>
+                    
+                    <h2>Período Colonial</h2>
+                    <p>Durante o período colonial português (séculos XIX-XX), o Cristianismo, particularmente o Catolicismo Romano, foi promovido como parte do projeto de assimilação cultural. Missionários católicos estabeleceram missões, escolas e hospitais em várias regiões de Moçambique, contribuindo para a educação e saúde, mas também para a aculturação das populações locais.</p>
+                    
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1580301760557-b9a2b5d3e433?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Missão católica em Moçambique colonial">
+                        <div class="img-caption">Missão católica durante o período colonial em Moçambique</div>
+                    </div>
+                    
+                    <h2>Desenvolvimento no Século XX</h2>
+                    <p>O século XX testemunhou a chegada de diversas denominações protestantes a Moçambique, incluindo Anglicanos, Metodistas, Presbiterianos e, mais tarde, igrejas Pentecostais. Estas denominações frequentemente estabeleciam não apenas igrejas, mas também redes educacionais e de saúde, contribuindo significativamente para o desenvolvimento social do país.</p>
+                    
+                    <h2>Pós-Independência</h2>
+                    <p>Após a independência em 1975, Moçambique tornou-se um estado secular, mas o Cristianismo continuou a crescer. Durante a guerra civil (1977-1992), muitas igrejas desempenharam papéis importantes na assistência humanitária e, posteriormente, nos processos de paz e reconciliação.</p>
+                    
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1545243421-68bfc5d9c639?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Igreja moderna em Moçambique">
+                        <div class="img-caption">Igreja contemporânea em Moçambique</div>
+                    </div>
+                    
+                    <h2>Cenário Contemporâneo</h2>
+                    <p>Atualmente, o Cristianismo é a religião com maior número de adeptos em Moçambique, com uma diversidade de denominações que incluem Católicos, Anglicanos, Metodistas, Pentecostais, e diversas igrejas independentes africanas. Estas comunidades continuam a desempenhar papéis significativos na educação, saúde e desenvolvimento comunitário.</p>
+                    
+                    <div class="navigation-links">
+                        <a href="estudos.html" class="nav-button"><i class="fas fa-arrow-left"></i> Voltar para Área de Estudo</a>
+                        <a href="cristianismo-denominacoes.html" class="nav-button">Próximo Tópico: Denominações Cristãs <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </article>
+        </main>
+        
+        <aside class="sidebar">
+            <h3>Tópicos Relacionados</h3>
+            <ul class="sidebar-links">
+                <li><a href="#"><i class="fas fa-cross"></i> Denominações Cristãs em Moçambique</a></li>
+                <li><a href="#"><i class="fas fa-church"></i> Igrejas Históricas</a></li>
+                <li><a href="#"><i class="fas fa-book-bible"></i> A Bíblia em Línguas Moçambicanas</a></li>
+                <li><a href="#"><i class="fas fa-hands-praying"></i> Contribuição Cristã para a Independência</a></li>
+                <li><a href="#"><i class="fas fa-users"></i> Líderes Cristãos Notáveis</a></li>
+            </ul>
+            
+            <h3>Datas Importantes</h3>
+            <ul class="sidebar-links">
+                <li><a href="#"><i class="fas fa-calendar-day"></i> 1498: Chegada dos Portugueses</a></li>
+                <li><a href="#"><i class="fas fa-calendar-day"></i> 1561: Primeira Missão Católica</a></li>
+                <li><a href="#"><i class="fas fa-calendar-day"></i> 1880: Chegada dos Protestantes</a></li>
+                <li><a href="#"><i class="fas fa-calendar-day"></i> 1975: Independência e Secularização</a></li>
+            </ul>
+            
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1544809295-3c3f6f9f42c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Bíblia aberta">
+                <div class="img-caption">A Bíblia: Fundamento da fé cristã em Moçambique</div>
+            </div>
+        </aside>
+    </div>
+    
+    <footer class="footer">
+        <p>História do Cristianismo em Moçambique &copy; 2023</p>
+        <div class="footer-links">
+            <a href="#">Sobre</a>
+            <a href="#">Contactos</a>
+            <a href="#">Bibliografia</a>
+            <a href="#">Termos de Utilização</a>
+        </div>
+        <p>Desenvolvido para estudo da história religiosa de Moçambique</p>
+    </footer>
+    
+    <script src="seg.js"></script>
+</body>
+</html>

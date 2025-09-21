@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distribuição Religiosa em Moçambique - Um País Muitas Crenças</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        :root {
+            --primary-color: #2E7D32;
+            --secondary-color: #4CAF50;
+            --accent-color: #FFC107;
+            --light-bg: #f9f9f9;
+            --dark-text: #333;
+            --light-text: #fff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--light-text);
+            padding: 3rem 0 2rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .logo-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .breadcrumb {
+            padding: 1rem 0;
+            background-color: #e8f5e9;
+            margin-bottom: 2rem;
+        }
+        
+        .breadcrumb-content {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Mapa e controles */
+        .map-section {
+            padding: 2rem 0;
+        }
+        
+        .map-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .map-header h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .map-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 900px) {
+            .map-container {
+                flex-direction: row;
+            }
+            
+            .map-controls {
+                width: 300px;
+            }
+            
+            #map {
+                flex-grow: 1;
+                height: 600px;
+            }
+        }
+        
+        #map {
+            height: 500px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            z-index: 1;
+        }
+        
+        .map-controls {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .religion-legend {
+            margin-bottom: 2rem;
+        }
+        
+        .religion-legend h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border-radius: 3px;
+        }
+        
+        .province-info {
+            background-color: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        
+        .province-info h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .religion-stats {
+            margin-top: 1rem;
+        }
+        
+        .stat-bar {
+            height: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            margin: 0.5rem 0;
+            overflow: hidden;
+        }
+        
+        .stat-fill {
+            height: 100%;
+            border-radius: 5px;
+        }
+        
+        .stat-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+            color: white;
+            padding: 2.5rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-nav {
+            margin: 1.5rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem;
+        }
+        
+        .footer-nav a {
+            color: #c8e6c9;
+            text-decoration: none;
+        }
+        
+        .footer-nav a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            margin-top: 1.5rem;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            #map {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<!-- Google tag (gtag.js) --> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VJDQ8Z1NQG"></script> 
+<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-VJDQ8Z1NQG'); </script>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">🗺️</div>
+                <h1>Distribuição Religiosa em Moçambique</h1>
+            </div>
+            <p class="subtitle">Mapa interativo mostrando a distribuição geográfica das principais religiões por província</p>
+        </div>
+    </header>
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container breadcrumb-content">
+            <a href="index.html"><i class="fas fa-home"></i> Página Inicial</a>
+            <span>/</span>
+            <span>Mapa Interativo</span>
+        </div>
+    </div>
+    
+    <!-- Mapa Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="map-header">
+                <h2>Distribuição Geográfica das Religiões</h2>
+                <p>Clique em cada província para ver detalhes sobre a distribuição religiosa</p>
+            </div>
+            
+            <div class="map-container">
+                <div class="map-controls">
+                    <div class="religion-legend">
+                        <h3>Legenda</h3>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: #4CAF50;"></div>
+                            <span>Cristianismo</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: #2196F3;"></div>
+                            <span>Islamismo</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: #FF9800;"></div>
+                            <span>Religiões Tradicionais</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: #9C27B0;"></div>
+                            <span>Outras Religiões</span>
+                        </div>
+                    </div>
+                    
+                    <div class="province-info" id="provinceInfo">
+                        <h3>Selecione uma província</h3>
+                        <p>Clique em qualquer província no mapa para ver informações detalhadas sobre a distribuição religiosa naquela região.</p>
+                    </div>
+                </div>
+                
+                <div id="map"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Um País Muitas Crenças</div>
+                <p>Promovendo entendimento e respeito pela diversidade religiosa moçambicana</p>
+                
+                <div class="footer-nav">
+                    <a href="index.html">Página Inicial</a>
+                    <a href="estudos.html">Área de Estudo</a>
+                    <a href="biblioteca.html">Biblioteca Digital</a>
+                    <a href="sobre.html">Sobre o Projeto</a>
+                    <a href="contato.html">Contato</a>
+                </div>
+                
+                <p class="copyright">© 2023 Um País Muitas Crenças. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Inicializar o mapa
+        const map = L.map('map').setView([-18.665695, 35.529562], 6);
+        
+        // Adicionar camada do mapa
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        
+        // Dados das províncias (simplificados para exemplo)
+        const provinceData = {
+            "Maputo": { 
+                center: [-25.969248, 32.573174],
+                religion: { 
+                    "Cristianismo": 70, 
+                    "Islamismo": 15, 
+                    "Religiões Tradicionais": 10, 
+                    "Outras Religiões": 5 
+                }
+            },
+            "Gaza": { 
+                center: [-23.304747, 32.384857],
+                religion: { 
+                    "Cristianismo": 65, 
+                    "Islamismo": 10, 
+                    "Religiões Tradicionais": 20, 
+                    "Outras Religiões": 5 
+                }
+            },
+            "Inhambane": { 
+                center: [-23.293292, 35.388153],
+                religion: { 
+                    "Cristianismo": 60, 
+                    "Islamismo": 5, 
+                    "Religiões Tradicionais": 30, 
+                    "Outras Religiões": 5 
+                }
+            },
+            "Sofala": { 
+                center: [-19.203332, 34.862499],
+                religion: { 
+                    "Cristianismo": 55, 
+                    "Islamismo": 20, 
+                    "Religiões Tradicionais": 20, 
+                    "Outras Religiões": 5 
+                }
+            },
+            "Manica": { 
+                center: [-19.505019, 33.256901],
+                religion: { 
+                    "Cristianismo": 60, 
+                    "Islamismo": 15, 
+                    "Religiões Tradicionais": 20, 
+                    "Outras Religiões": 5 
+                }
+            },
+            "Tete": { 
+                center: [-16.156067, 33.586316],
+                religion: { 
+                    "Cristianismo": 50, 
+                    "Islamismo": 20, 
+                    "Religiões Tradicionais": 25, 
+                    "Outras Religiões": 5 
+                }
+            },
+            "Zambézia": { 
+                center: [-17.854572, 36.563768],
+                religion: { 
+                    "Cristianismo": 45, 
+                    "Islamismo": 25, 
+                    "Religiões Tradicionais": 25, 
+                    "Outras Religiões": 5 
+                }
+            },
+            "Nampula": { 
+                center: [-15.126634, 39.268552],
+                religion: { 
+                    "Cristianismo": 30, 
+                    "Islamismo": 50, 
+                    "Religiões Tradicionais": 15, 
+                    "Outras Religiões": 5 
+                }
+            },
+            "Cabo Delgado": { 
+                center: [-12.560744, 39.834107],
+                religion: { 
+                    "Cristianismo": 20, 
+                    "Islamismo": 60, 
+                    "Religiões Tradicionais": 15, 
+                    "Outras Religiões": 5 
+                }
+            },
+            "Niassa": { 
+                center: [-12.782620, 36.609388],
+                religion: { 
+                    "Cristianismo": 40, 
+                    "Islamismo": 30, 
+                    "Religiões Tradicionais": 25, 
+                    "Outras Religiões": 5 
+                }
+            }
+        };
+        
+        // Cores para cada religião
+        const religionColors = {
+            "Cristianismo": "#4CAF50",
+            "Islamismo": "#2196F3",
+            "Religiões Tradicionais": "#FF9800",
+            "Outras Religiões": "#9C27B0"
+        };
+        
+        // Adicionar marcadores para cada província
+        for (const [province, data] of Object.entries(provinceData)) {
+            // Determinar a religião predominante
+            let predominantReligion = "";
+            let maxPercentage = 0;
+            
+            for (const [religion, percentage] of Object.entries(data.religion)) {
+                if (percentage > maxPercentage) {
+                    maxPercentage = percentage;
+                    predominantReligion = religion;
+                }
+            }
+            
+            // Criar marcador com popup
+            const marker = L.marker(data.center).addTo(map);
+            marker.bindPopup(`
+                <strong>${province}</strong><br>
+                Religião predominante: ${predominantReligion} (${maxPercentage}%)<br>
+                <button onclick="showProvinceDetails('${province}')">Ver detalhes</button>
+            `);
+            
+            // Adicionar evento de clique para mostrar detalhes
+            marker.on('click', function() {
+                showProvinceDetails(province);
+            });
+        }
+        
+        // Função para mostrar detalhes da província
+        function showProvinceDetails(province) {
+            const data = provinceData[province];
+            const infoDiv = document.getElementById('provinceInfo');
+            
+            let html = `<h3>${province}</h3>`;
+            html += `<div class="religion-stats">`;
+            
+            for (const [religion, percentage] of Object.entries(data.religion)) {
+                html += `
+                    <div class="stat-label">
+                        <span>${religion}</span>
+                        <span>${percentage}%</span>
+                    </div>
+                    <div class="stat-bar">
+                        <div class="stat-fill" style="width: ${percentage}%; background-color: ${religionColors[religion]}"></div>
+                    </div>
+                `;
+            }
+            
+            html += `</div>`;
+            
+            infoDiv.innerHTML = html;
+        }
+        
+        // Adicionar controle de camadas
+        const layerControl = L.control.layers(null, null, {position: 'topright'}).addTo(map);
+        
+        // Adicionar camada de satélite
+        const satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+        });
+        
+        layerControl.addBaseLayer(L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }), 'Mapa Padrão');
+        
+        layerControl.addBaseLayer(satelliteLayer, 'Vista de Satélite');
+        
+        // Adicionar controle de escala
+        L.control.scale({metric: true, imperial: false}).addTo(map);
+    </script>
+     <script src="seg.js"></script>
+</body>
+</html>

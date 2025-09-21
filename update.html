@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventistas do Sétimo Dia em Moçambique</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2E7D32;
+            --secondary-color: #4CAF50;
+            --accent-color: #FFC107;
+            --light-bg: #f9f9f9;
+            --dark-text: #333;
+            --light-text: #fff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--light-text);
+            padding: 3rem 0 2rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .logo-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .breadcrumb {
+            padding: 1rem 0;
+            background-color: #e8f5e9;
+            margin-bottom: 2rem;
+        }
+        
+        .breadcrumb-content {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .denomination-section {
+            padding: 2rem 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .denomination-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+        
+        .denomination-header {
+            padding: 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .denomination-icon {
+            font-size: 2.5rem;
+        }
+        
+        .denomination-title {
+            font-size: 1.8rem;
+        }
+        
+        .denomination-content {
+            padding: 2rem;
+        }
+        
+        .denomination-content h3 {
+            color: var(--primary-color);
+            margin: 1.5rem 0 1rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        .denomination-content p {
+            margin-bottom: 1rem;
+        }
+        
+        .denomination-content ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .denomination-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .statistics {
+            background: #f0f8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        
+        .statistics h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+            color: white;
+            padding: 2.5rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-nav {
+            margin: 1.5rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem;
+        }
+        
+        .footer-nav a {
+            color: #c8e6c9;
+            text-decoration: none;
+        }
+        
+        .footer-nav a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            margin-top: 1.5rem;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .denomination-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-church"></i>
+                </div>
+                <h1>Denominações Cristãs em Moçambique</h1>
+                <p class="subtitle">Conheça a diversidade religiosa e a história das principais denominações cristãs em Moçambique</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-content">
+                <a href="#">Início</a>
+                <span>></span>
+                <a href="#">Denominações</a>
+                <span>></span>
+                <span>Adventistas do Sétimo Dia</span>
+            </div>
+        </div>
+    </div>
+
+    <main class="container">
+        <section class="denomination-section">
+            <div class="section-header">
+                <h2>Adventistas do Sétimo Dia</h2>
+            </div>
+
+            <div class="denomination-card">
+                <div class="denomination-header">
+                    <div class="denomination-icon">
+                        <i class="fas fa-church"></i>
+                    </div>
+                    <h2 class="denomination-title">Igreja Adventista do Sétimo Dia</h2>
+                </div>
+                
+                <div class="denomination-content">
+                    <div>
+                        <h3>Origem</h3>
+                        <p>A Igreja Adventista do Sétimo Dia surgiu nos Estados Unidos no século XIX, a partir do movimento millerita que pregava a iminente segunda vinda de Cristo.</p>
+                        <p>Caracteriza-se pela observância do sábado como dia de repouso, pela ênfase na saúde integral e por uma escatologia distintiva.</p>
+                    </div>
+                    
+                    <div>
+                        <h3>Chegada a Moçambique</h3>
+                        <p>Os Adventistas do Sétimo Dia chegaram a Moçambique no início do século XX através de missionários sul-africanos e americanos. Estabeleceram-se inicialmente na região sul do país.</p>
+                        <p>Desenvolveram significativo trabalho educativo e de saúde, fundando escolas e centros médicos. Cresceram substancialmente ao longo do século XX e mantêm forte presença em todo o país.</p>
+                    </div>
+                    
+                    <div class="statistics">
+                        <h4>Estatísticas em Moçambique</h4>
+                        <ul>
+                            <li>Mais de 900 igrejas e congregações</li>
+                            <li>Mais de 300.000 membros batizados</li>
+                            <li>Presença em todas as províncias do país</li>
+                            <li>Rede educacional com mais de 100 escolas</li>
+                            <li>Vários centros de saúde e um hospital</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3>Características Distintivas</h3>
+                        <ul>
+                            <li>Observância do sábado como dia sagrado</li>
+                            <li>Ênfase na saúde e estilo de vida (muitos são vegetarianos)</li>
+                            <li>Crença no ministerio de Ellen G. White como mensageira divina</li>
+                            <li>Forte ênfase na educação e no trabalho missionário</li>
+                            <li>Expectativa da breve volta de Jesus Cristo</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3>Contribuições para Moçambique</h3>
+                        <p>Os Adventistas têm contribuído significativamente para o desenvolvimento de Moçambique através de:</p>
+                        <ul>
+                            <li>Rede de escolas primárias e secundárias</li>
+                            <li>Universidade Adventista de Moçambique (UniAdventista)</li>
+                            <li>Serviços de saúde e clínicas móveis</li>
+                            <li>Programas de desenvolvimento comunitário</li>
+                            <li>Ajuda humanitária em tempos de crise</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-nav">
+                    <a href="#">Início</a>
+                    <a href="#">Sobre</a>
+                    <a href="#">Denominações</a>
+                    <a href="#">Contactos</a>
+                    <a href="#">Recursos</a>
+                </div>
+                <p class="copyright">© 2023 Denominações Cristãs em Moçambique. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="seg.js"></script>
+</body>
+</html>

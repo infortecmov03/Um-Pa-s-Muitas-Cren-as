@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denominações Cristãs em Moçambique - Um País Muitas Crenças</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Estilos base - você pode substituir pelo seu CSS existente */
+        :root {
+            --primary-color: #1a3c6e;
+            --secondary-color: #2c5ba3;
+            --accent-color: #FFC107;
+            --light-bg: #f5f8ff;
+            --dark-text: #222;
+            --light-text: #fff;
+            --card-shadow: 0 10px 20px rgba(28, 60, 110, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--light-text);
+            padding: 3rem 0 2rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.05"><circle cx="50" cy="50" r="40" fill="white"/><path d="M50 10 A40 40 0 0 1 90 50" fill="none" stroke="white" stroke-width="2"/><path d="M50 10 A40 40 0 0 0 10 50" fill="none" stroke="white" stroke-width="2"/></svg>');
+            background-repeat: repeat;
+            opacity: 0.1;
+        }
+        
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .logo-icon {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+        
+        .breadcrumb {
+            padding: 1.2rem 0;
+            background-color: #e2eaf7;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+        
+        .breadcrumb-content {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
+            color: #6c757d;
+        }
+        
+        .quick-nav {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .quick-nav h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.2rem;
+            text-align: center;
+            font-size: 1.4rem;
+        }
+        
+        .denomination-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.2rem;
+        }
+        
+        .denomination-link {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1.2rem;
+            background: #f0f5ff;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--dark-text);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .denomination-link:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(28, 60, 110, 0.2);
+        }
+        
+        .denomination-link i {
+            margin-right: 0.8rem;
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+        }
+        
+        .denomination-section {
+            padding: 2rem 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+        
+        .section-header p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #555;
+        }
+        
+        .denomination-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 3rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .denomination-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(28, 60, 110, 0.2);
+        }
+        
+        .denomination-header {
+            padding: 1.8rem;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .denomination-icon {
+            font-size: 2.8rem;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+        }
+        
+        .denomination-title {
+            font-size: 1.9rem;
+            font-weight: 600;
+        }
+        
+        .denomination-content {
+            padding: 2.2rem;
+        }
+        
+        .denomination-content h3 {
+            color: var(--primary-color);
+            margin: 1.8rem 0 1.2rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.6rem;
+            font-size: 1.5rem;
+        }
+        
+        .denomination-content h3:first-child {
+            margin-top: 0;
+        }
+        
+        .denomination-content p {
+            margin-bottom: 1.2rem;
+            line-height: 1.7;
+        }
+        
+        .denomination-content ul {
+            margin-left: 1.8rem;
+            margin-bottom: 1.8rem;
+        }
+        
+        .denomination-content li {
+            margin-bottom: 0.7rem;
+            line-height: 1.6;
+        }
+        
+        .denomination-content a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+        
+        .denomination-content a:hover {
+            color: var(--primary-color);
+            background: #f0f5ff;
+            text-decoration: underline;
+        }
+        
+        .statistics {
+            background: #f0f5ff;
+            padding: 1.8rem;
+            border-radius: 10px;
+            margin: 1.8rem 0;
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .statistics h4 {
+            color: var(--primary-color);
+            margin-bottom: 1.2rem;
+            font-size: 1.3rem;
+        }
+        
+        .statistics p {
+            margin-bottom: 0.8rem;
+        }
+        
+        .statistics p strong {
+            color: var(--primary-color);
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 5rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-content > p {
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+            opacity: 0.9;
+        }
+        
+        .footer-nav {
+            margin: 1.8rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        
+        .footer-nav a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .footer-nav a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 1.8rem;
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.4rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .denomination-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .denomination-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .denomination-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 2.2rem;
+            }
+            
+            .denomination-title {
+                font-size: 1.6rem;
+            }
+            
+            .denomination-content {
+                padding: 1.5rem;
+            }
+            
+            .denomination-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-nav {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+    </style>
+</head>
+<!-- Google tag (gtag.js) --> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VJDQ8Z1NQG"></script> 
+<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-VJDQ8Z1NQG'); </script>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-church"></i></div>
+                <h1>Denominações Cristãs em Moçambique</h1>
+            </div>
+            <p class="subtitle">Conheça a diversidade das tradições cristãs presentes no país</p>
+        </div>
+    </header>
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container breadcrumb-content">
+            <a href="index.html"><i class="fas fa-home"></i> Página Inicial</a>
+            <span>/</span>
+            <a href="estudos.html"><i class="fas fa-book"></i> Área de Estudo</a>
+            <span>/</span>
+            <span>Denominações Cristãs</span>
+        </div>
+    </div>
+    
+    <!-- Quick Navigation -->
+    <div class="container">
+        <div class="quick-nav">
+            <h3><i class="fas fa-list"></i> Navegue Rapidamente pelas Denominações</h3>
+            <div class="denomination-grid">
+                <a href="#catolica" class="denomination-link"><i class="fas fa-church"></i> Igreja Católica</a>
+                <a href="#protestantes" class="denomination-link"><i class="fas cross"></i> Protestantes Históricas</a>
+                <a href="#pentecostais" class="denomination-link"><i class="fas fa-fire"></i> Pentecostais</a>
+                <a href="#africanas" class="denomination-link"><i class="fas fa-globe-africa"></i> Africanas Independentes</a>
+                <a href="#outras" class="denomination-link"><i class="fas fa-star-of-david"></i> Outras Denominações</a>
+                <a href="Sobre Católica.html" class="denomination-link"><i class="fas fa-arrow-right"></i> Católica Detalhes</a>
+                <a href="Sobre Anglicana.html" class="denomination-link"><i class="fas fa-arrow-right"></i> Anglicana Detalhes</a>
+                <a href="Sobre Metodista.html" class="denomination-link"><i class="fas fa-arrow-right"></i> Metodista Detalhes</a>
+                <a href="Sobre Igreja Presbiteriana.html" class="denomination-link"><i class="fas fa-arrow-right"></i> Presbiteriana Detalhes</a>
+                <a href="Sobre Assembleia de Deus.html" class="denomination-link"><i class="fas fa-arrow-right"></i> Assembleia de Deus Detalhes</a>
+                <a href="Sobre universal.html" class="denomination-link"><i class="fas fa-arrow-right"></i> Universal Detalhes</a>
+                <a href="Sobre Apostólica.html" class="denomination-link"><i class="fas fa-arrow-right"></i> Apostólica Detalhes</a>
+                <a href="Sobre Igreja de Deus.html" class="denomination-link"><i class="fas fa-arrow-right"></i> Igreja de Deus Detalhes</a>
+                <a href="Sobre Igreja Zionista.html" class="denomination-link"><i class="fas fa-arrow-right"></i> Zionista Detalhes</a>
+                <a href="Sobre Igreja de Profetas em Moçambique.html" class="denomination-link"><i class="fas fa-arrow-right"></i> Profetas Detalhes</a>
+                <a href="Sobre Adventistas emMoçambique.html" class="denomination-link"><i class="fas fa-arrow-right"></i> Adventistas Detalhes</a>
+                <a href="Sobre Testemunhas de Jeová em Moçambique.html" class="denomination-link"><i class="fas fa-arrow-right"></i> Testemunhas de Jeová Detalhes</a>
+                <a href="Sobre Igreja da Graça em Moçambique.html" class="denomination-link"><i class="fas fa-arrow-right"></i> Graça de Deus Detalhes</a>
+                <a href="Sobre Sara Nossa Terra em Moçambique.html" class="denomination-link"><i class="fas fa-arrow-right"></i> Sara Nossa Terra Detalhes</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main class="container">
+        <section class="denomination-section">
+            <div class="section-header">
+                <h2>Principais Denominações Cristãs</h2>
+                <p>Moçambique possui uma rica diversidade de tradições cristãs, cada uma com sua história, teologia e práticas distintivas.</p>
+            </div>
+            
+            <!-- Igreja Católica -->
+            <div class="denomination-card" id="catolica">
+                <div class="denomination-header">
+                    <div class="denomination-icon">🏛️</div>
+                    <h2 class="denomination-title">Igreja Católica Romana</h2>
+                </div>
+                <div class="denomination-content">
+                    <h3>História em Moçambique</h3>
+                    <p>A Igreja <a href="Sobre Católica.html">Católica</a> chegou a Moçambique com os exploradores portugueses no século XV. As primeiras missões foram estabelecidas no século XVI, mas a evangelização mais significativa ocorreu durante o período colonial. Após a independência, a Igreja Católica continuou a crescer e hoje é a maior denominação cristã no país.</p>
+                    
+                    <h3>Características Doutrinárias</h3>
+                    <ul>
+                        <li>Reconhece a autoridade do Papa como sucessor de São Pedro</li>
+                        <li>Celebra os sete sacramentos: Batismo, Eucaristia, Confirmação, Reconciliação, Unção dos Enfermos, Ordem e Matrimônio</li>
+                        <li>Valoriza a Tradição apostólica juntamente com as Escrituras</li>
+                        <li>Devoção a Maria, mãe de Jesus, e aos santos</li>
+                        <li>Estrutura hierárquica com bispos, padres e diáconos</li>
+                    </ul>
+                    
+                    <h3>Presença e Influência</h3>
+                    <p>A Igreja Católica está presente em todas as províncias de Moçambique, com uma rede extensa de paróquias, escolas, hospitais e instituições de caridade. A arquidiocese de Maputo é a sé metropolitana, com outras dioceses espalhadas pelo país.</p>
+                    
+                    <div class="statistics">
+                        <h4>Dados Estatísticos</h4>
+                        <p><strong>Fiéis estimados:</strong> Cerca de 8-10 milhões (cerca de 30% da população)</p>
+                        <p><strong>Dioceses:</strong> 12 dioceses, incluindo 3 arquidioceses</p>
+                        <p><strong>Instituições educativas:</strong> Centenas de escolas primárias e secundárias, e a Universidade Católica de Moçambique</p>
+                    </div>
+                    
+                    <h3>Contribuições para a Sociedade</h3>
+                    <p>A Igreja Católica tem sido um actor significativo no desenvolvimento de Moçambique, especialmente nas áreas de educação, saúde e assistência social. Durante a guerra civil, a Igreja desempenhou um papel importante na mediação de conflitos e assistência humanitária.</p>
+                    
+                    <p><a href="Sobre Católica.html" class="read-more">Ler mais sobre a Igreja Católica em Moçambique →</a></p>
+                </div>
+            </div>
+            
+            <!-- Igrejas Protestantes Históricas -->
+            <div class="denomination-card" id="protestantes">
+                <div class="denomination-header">
+                    <div class="denomination-icon">✝️</div>
+                    <h2 class="denomination-title">Igrejas Protestantes Históricas</h2>
+                </div>
+                <div class="denomination-content">
+                    <h3>Anglicanos</h3>
+                    <p>A <a href="Sobre Anglicana.html">Igreja Anglicana</a> chegou a Moçambique através de missionários da África do Sul no final do século XIX. A Diocese de Lebombo foi estabelecida em 1893. Os anglicanos moçambicanos são parte da Comunhão Anglicana mundial.</p>
+                    
+                    <h3>Metodistas</h3>
+                    <p>O <a href="Sobre Metodista.html">Metodismo</a> foi introduzido por missionários suíços e americanos no início do século XX. A Igreja Metodista Unida em Moçambique cresceu significativamente e está organizada em conferências anuais.</p>
+                    
+                    <h3>Presbiterianos</h3>
+                    <p>A Igreja <a href="Sobre Igreja Presbiteriana.html">Presbiteriana</a> de Moçambique foi estabelecida por missionários suíços em 1887 na região de Zambézia. Mantém relações com igrejas reformadas em todo o mundo.</p>
+                    
+                    <h3>Características Comuns</h3>
+                    <ul>
+                        <li>Ênfase na pregação da Palavra e nos sacramentos do Batismo e Santa Ceia</li>
+                        <li>Governo eclesiástico com participação leiga</li>
+                        <li>Tradição litúrgica mais formal do que as igrejas pentecostais</li>
+                        <li>Compromisso com a educação teológica e o engajamento social</li>
+                    </ul>
+                    
+                    <div class="statistics">
+                        <h4>Presença Estimada</h4>
+                        <p><strong>Anglicanos:</strong> Cerca de 500.000 fiéis</p>
+                        <p><strong>Metodistas:</strong> Cerca de 150.000 fiéis</p>
+                        <p><strong>Presbiterianos:</strong> Cerca de 100.000 fiéis</p>
+                    </div>
+                    
+                    <p><a href="Sobre Anglicana.html" class="read-more">Ler mais sobre as Igrejas Protestantes Históricas →</a></p>
+                </div>
+            </div>
+            
+            <!-- Igrejas Pentecostais e Carismáticas -->
+            <div class="denomination-card" id="pentecostais">
+                <div class="denomination-header">
+                    <div class="denomination-icon">🔥</div>
+                    <h2 class="denomination-title">Igrejas Pentecostais e Carismáticas</h2>
+                </div>
+                <div class="denomination-content">
+                    <h3>Origens e Desenvolvimento</h3>
+                    <p>O movimento pentecostal chegou a Moçambique na década de 1950, mas experimentou crescimento significativo após a independência. As igrejas carismáticas, com ênfase similar nos dons do Espírito Santo mas frequentemente dentro de denominações tradicionais, também cresceram nas últimas décadas.</p>
+                    
+                    <h3>Principais Denominações</h3>
+                    <ul>
+                        <li><strong><a href="Sobre Assembleia de Deus.html">Assembleias de Deus</a>:</strong> A maior denominação pentecostal, com forte presença em todo o país</li>
+                        <li><strong><a href="Sobre universal.html">Igreja Universal do Reino de Deus</a>:</strong> Brasileira, com significativa presença nas áreas urbanas</li>
+                        <li><strong><a href="Sobre Apostólica.html">Igreja da Missão Apostólica</a>:</strong> De origem sul-africana</li>
+                        <li><strong><a href="Sobre Igreja de Deus.html">Igreja de Deus</a>:</strong> Com diversas congregações em várias províncias</li>
+                    </ul>
+                    
+                    <h3>Características Doutrinárias</h3>
+                    <ul>
+                        <li>Ênfase no batismo no Espírito Santo como experiência distinta da conversão</li>
+                        <li>Valorização dos dons espirituais (glossolalia, profecia, cura divina)</li>
+                        <li>Cultos caracterizados por expressividade emocional e participação activa</li>
+                        <li>Pregação centrada na experiência religiosa pessoal e no poder de Deus para transformar vidas</li>
+                    </ul>
+                    
+                    <div class="statistics">
+                        <h4>Presença e Crescimento</h4>
+                        <p>As igrejas pentecostais e carismáticas são o segmento cristão que mais cresce em Moçambique, especialmente nas áreas urbanas. Estima-se que representem cerca de 40% dos protestantes no país.</p>
+                    </div>
+                    
+                    <h3>Influência Cultural</h3>
+                    <p>Estas igrejas têm influenciado significativamente a música gospel moçambicana e desenvolvido uma forte presença na mídia, com programas de rádio e televisão.</p>
+                    
+                    <p><a href="Sobre Assembleia de Deus.html" class="read-more">Ler mais sobre as Igrejas Pentecostais →</a></p>
+                </div>
+            </div>
+            
+            <!-- Igrejas Africanas Independentes -->
+            <div class="denomination-card" id="africanas">
+                <div class="denomination-header">
+                    <div class="denomination-icon">🌍</div>
+                    <h2 class="denomination-title">Igrejas Africanas Independentes</h2>
+                </div>
+                <div class="denomination-content">
+                    <h3>Origens e Contexto</h3>
+                    <p>As Igrejas Africanas Independentes emergiram como expressões do Cristianismo profundamente enraizadas nas culturas africanas. Em Moçambique, estas igrejas começaram a surgir no início do século XX, frequentemente fundadas por líderes religiosos africanos que buscavam uma expressão cristã mais relevante para seu contexto cultural.</p>
+                    
+                    <h3>Principais Grupos</h3>
+                    <ul>
+                        <li><strong><a href="Sobre Igreja Zionista.html">Igrejas Zionistas</a>:</strong> Caracterizam-se pelo uso de vestes brancas, ênfase na cura divina e batismo em rios</li>
+                        <li><strong><a href="Sobre Apostólica.html">Igrejas Apostólicas</a>:</strong> Enfatizam a restauração do ministério apostólico e dos dons espirituais</li>
+                        <li><strong><a href="Sobre Igreja de Profetas em Moçambique.html">Igrejas de Profetas</a>:</strong> Centradas em líderes carismáticos considerados com dons proféticos especiais</li>
+                    </ul>
+                    
+                    <h3>Características Distintivas</h3>
+                    <ul>
+                        <li>Sincretismo entre elementos cristãos e tradições africanas</li>
+                        <li>Ênfase na cura divina através de rituais específicos</li>
+                        <li>Uso de símbolos e vestimentas com significados culturais específicos</li>
+                        <li>Liderança carismática e frequentemente hereditária</li>
+                        <li>Celebrações que incorporam danças, tambores e outras expressões culturais africanas</li>
+                    </ul>
+                    
+                    <h3>Desafios e Reconhecimento</h3>
+                    <p>Durante muito tempo, estas igrejas foram marginalizadas pelas denominações tradicionais, mas hoje são reconhecidas como parte importante do panorama religioso moçambicano. Estimativas sugerem que possuem milhões de adeptos, especialmente nas áreas rurais.</p>
+                    
+                    <p><a href="Sobre Igreja Zionista.html" class="read-more">Ler mais sobre as Igrejas Africanas Independentes →</a></p>
+                </div>
+            </div>
+            
+            <!-- Outras Denominações -->
+            <div class="denomination-card" id="outras">
+                <div class="denomination-header">
+                    <div class="denomination-icon">✝️</div>
+                    <h2 class="denomination-title">Outras Denominações</h2>
+                </div>
+                <div class="denomination-content">
+                    <h3>Adventistas do Sétimo Dia</h3>
+                    <p>Presentes em Moçambique desde a década de 1920, os <a href="Sobre Adventistas emMoçambique.html">Adventistas</a> enfatizam a guarda do sábado como dia sagrado, a expectativa da segunda vinda de Cristo e promovem um estilo de vida saudável. Têm uma significativa rede educacional e de saúde.</p>
+                    
+                    <h3>Testemunhas de Jeová</h3>
+                    <p>Conhecidas por seu trabalho evangelístico porta-a-porta, as <a href="Sobre Testemunhas de Jeová em Moçambique.html">Testemunhas de Jeová</a> chegaram a Moçambique na década de 1920. Não aceitam a doutrina da Trindade e recusam-se a participar em serviços militares e em celebrações que consideram de origem pagã.</p>
+                    
+                    <h3>Igrejas de Origem Brasileira</h3>
+                    <p>Além da Igreja Universal do Reino de Deus, outras denominações brasileiras como a <a href="Sobre Igreja da Graça em Moçambique.html">Igreja Internacional da Graça de Deus</a> e a <a href="Sobre Sara Nossa Terra em Moçambique.html">Comunidade Evangélica Sara Nossa Terra</a> estabeleceram presença em Moçambique, especialmente nas áreas urbanas.</p>
+                    
+                    <h3>Igrejas Não-Denominacionais</h3>
+                    <p>Um fenómeno crescente são as igrejas que se identificam como "não-denominacionais" ou "interdenominacionais", focadas na experiência comunitária local rather than affiliation with larger structures.</p>
+                    
+                    <p><a href="Sobre Adventistas emMoçambique.html" class="read-more">Ler mais sobre outras denominações →</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Um País Muitas Crenças</div>
+                <p>Promovendo entendimento e respeito pela diversidade religiosa moçambicana</p>
+                
+                <div class="footer-nav">
+                    <a href="index.html">Página Inicial</a>
+                    <a href="estudos.html">Área de Estudo</a>
+                    <a href="Biblioteca Digital.html">Biblioteca Digital</a>
+                    <a href="sobre.html">Sobre o Projeto</a>
+                    <a href="contato.html">Contato</a>
+                </div>
+                
+                <p class="copyright">© 2023 Um País Muitas Crenças. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <script>
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

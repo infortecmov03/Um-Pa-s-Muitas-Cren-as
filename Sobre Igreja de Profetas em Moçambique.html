@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Igreja de Profetas em Moçambique</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Menu de navegação */
+        .sobre-menu {
+            background: linear-gradient(to right, #2E7D32, #4CAF50);
+            padding: 15px 0;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        
+        .sobre-menu ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .sobre-menu li {
+            margin: 5px 10px;
+        }
+        
+        .sobre-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+            font-weight: 500;
+        }
+        
+        .sobre-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%234CAF50"/><path d="M0 0L100 100" stroke="%232E7D32" stroke-width="2"/><path d="M100 0L0 100" stroke="%232E7D32" stroke-width="2"/></svg>');
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .logo h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* Conteúdo principal */
+        .religion-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .religion-header {
+            background: linear-gradient(to right, #2E7D32, #4CAF50);
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .religion-icon {
+            font-size: 2rem;
+            margin-right: 15px;
+        }
+        
+        .religion-title {
+            font-size: 1.8rem;
+        }
+        
+        .religion-content {
+            padding: 30px;
+        }
+        
+        .religion-content h3 {
+            color: #2E7D32;
+            margin: 20px 0 15px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 8px;
+        }
+        
+        .religion-content h4 {
+            color: #1B5E20;
+            margin: 18px 0 12px;
+        }
+        
+        .religion-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .beliefs-list, .practices-list, .demographics {
+            background-color: #f9f9f9;
+            border-left: 4px solid #4CAF50;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .beliefs-list h4, .practices-list h4, .demographics h4 {
+            color: #2E7D32;
+            margin-top: 0;
+        }
+        
+        .beliefs-list ul, .practices-list ul, .demographics ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        
+        .beliefs-list li, .practices-list li, .demographics li {
+            margin-bottom: 8px;
+        }
+        
+        /* Seção de tópicos */
+        .topics-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .topics-header {
+            background: linear-gradient(to right, #2E7D32, #4CAF50);
+            color: white;
+            padding: 15px 20px;
+        }
+        
+        .topics-header h2 {
+            font-size: 1.5rem;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            padding: 0 20px;
+        }
+        
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: 500;
+            color: #666;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+        
+        .tab-button.active {
+            color: #4CAF50;
+            border-bottom: 3px solid #4CAF50;
+        }
+        
+        .tab-button i {
+            margin-right: 8px;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 20px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .topic-card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .topic-card h4 {
+            color: #2E7D32;
+            margin-bottom: 10px;
+        }
+        
+        /* Rodapé */
+        footer {
+            background: linear-gradient(to right, #1B5E20, #2E7D32);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px 10px;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-nav a:hover {
+            opacity: 0.8;
+        }
+        
+        .copyright {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* Botão voltar ao topo */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #4CAF50;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s;
+        }
+        
+        .back-to-top:hover {
+            background: #2E7D32;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .logo h1 {
+                font-size: 2rem;
+            }
+            
+            .religion-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .religion-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab-button {
+                justify-content: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="sobre-menu">
+        <ul>
+            <li><a href="Sobre universal.html">Universal</a></li>
+            <li><a href="Sobre Testemunhas de Jeová em Moçambique.html">Testemunhas de Jeová</a></li>
+            <li><a href="Sobre Sara Nossa Terra em Moçambique.html">Sara Nossa Terra</a></li>
+            <li><a href="Sobre Metodista.html">Metodista</a></li>
+            <li><a href="Sobre Igreja Zionista.html">Zionista</a></li>
+            <li><a href="Sobre Igreja Presbiteriana.html">Presbiteriana</a></li>
+            <li><a href="Sobre Igreja de Profetas em Moçambique.html" style="background-color: rgba(255, 255, 255, 0.3);">Profetas</a></li>
+            <li><a href="Sobre Igreja de Deus.html">Igreja de Deus</a></li>
+            <li><a href="Sobre Igreja da Graça em Moçambique.html">Graça</a></li>
+            <li><a href="Sobre Católica.html">Católica</a></li>
+            <li><a href="Sobre Assembleia de Deus.html">Assembleia de Deus</a></li>
+            <li><a href="Sobre Apostólica.html">Apostólica</a></li>
+            <li><a href="Sobre Anglicana.html">Anglicana</a></li>
+            <li><a href="Sobre Adventistas emMoçambique.html">Adventistas</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-hands-praying logo-icon"></i>
+                <h1>Igreja de Profetas</h1>
+                <p class="subtitle">Conheça a história e influência das Igrejas de Profetas em Moçambique</p>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <section class="religion-section">
+            <div class="religion-header">
+                <div class="religion-icon">
+                    <i class="fas fa-hands-praying"></i>
+                </div>
+                <h2 class="religion-title">Igreja de Profetas</h2>
+            </div>
+            
+            <div class="religion-content">
+                <div>
+                    <h3>Origem</h3>
+                    <p>As Igrejas de Profetas são movimentos religiosos africanos independentes que surgiram no contexto do encontro entre o cristianismo missionário e as tradições religiosas africanas.</p>
+                    <p>Caracterizam-se pela ênfase no ministério profético, na revelação direta de Deus e na incorporação de elementos das culturas locais.</p>
+                    
+                    <div class="beliefs-list">
+                        <h4>Características Principais</h4>
+                        <ul>
+                            <li>Ênfase no ministério profético e revelação direta</li>
+                            <li>Incorporção de elementos culturais africanos</li>
+                            <li>Liderança carismática baseada em visões e sonhos</li>
+                            <li>Práticas de cura e exorcismo</li>
+                            <li>Sincretismo entre cristianismo e tradições locais</li>
+                        </ul>
+                    </div>
+                    
+                    <h4>A Origem do Fenômeno "Igreja dos Profetas"</h4>
+                    <p>A gênese dessas igrejas está intrinsecamente ligada ao colonialismo, à imposição cultural europeia e a uma busca por uma expressão religiosa autenticamente africana.</p>
+                    
+                    <h4>O Contexto de Protesto e Reafirmação (Século XIX/XX - África do Sul)</h4>
+                    <ul>
+                        <li><strong>Choque Cultural:</strong> As missões cristãs europeias (protestantes e católicas) chegavam à África com um pacote completo: a Bíblia, a doutrina e a cultura europeia. Elas frequentemente demonizavam e proibiam práticas culturais africanas centrais.</li>
+                        <li><strong>Cristianismo de "Segunda Classe":</strong> Nas igrejas lideradas por europeus, os africanos raramente podiam ascender a posições de liderança clerical. Eram tratados como fiéis de segunda categoria.</li>
+                        <li><strong>A Resposta: Cisma e Criação:</strong> Líderes religiosos africanos carismáticos começaram a se separar. Eles argumentavam que Deus falava com e através dos africanos da mesma forma que falava com os europeus.</li>
+                    </ul>
+                    
+                    <h4>A Figura do Profeta Fundador</h4>
+                    <p>A característica definidora destas igrejas é a liderança baseada em carisma e revelação direta, não em formação teológica formal.</p>
+                    
+                    <ul>
+                        <li><strong>Reivindicação de Visões e Sonhos:</strong> O fundador (homem ou mulher) afirma ter tido uma visão dramática, um encontro com um anjo, ou uma instrução direta de Deus ou do Espírito Santo para iniciar uma nova igreja.</li>
+                        <li><strong>Poder de Cura e Revelação:</strong> A autoridade do profeta vem de sua suposta capacidade de curar doenças, expulsar demónios, revelar feitiçaria e prever o futuro.</li>
+                        <li><strong>Sincretismo Prático:</strong> Eles misturam elementos do cristianismo protestante com elementos da cosmovisão africana.</li>
+                    </ul>
+                    
+                    <h4>Duas Correntes Principais (que se misturam)</h4>
+                    <ul>
+                        <li><strong>Igrejas Zionistas (Zione):</strong> Originárias da Missão Cristã Apostólica de Zion, Illinois (EUA). Usam túnicas e capelas brancas.</li>
+                        <li><strong>Igrejas Apostólicas (Vapostori):</strong> Influenciadas por figuras como o profeta Johane Marange no Zimbabwe. Conhecidas por suas longas barbas, vestes longas (geralmente brancas ou verdes) e por realizarem cultos ao ar livre.</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Chegada e Expansão em Moçambique</h3>
+                    <p>As Igrejas de Profetas emergiram em Moçambique principalmente a partir da década de 1970, como resultado de iniciativas locais de líderes carismáticos que combinavam elementos cristãos com tradições espirituais moçambicanas.</p>
+                    <p>Desenvolveram-se principalmente em áreas rurais e semiurbanas, onde respondiam às necessidades espirituais específicas das comunidades locais. Muitas destas igrejas mantêm características distintivas regionais.</p>
+                    
+                    <div class="demographics">
+                        <h4>Características das Igrejas de Profetas em Moçambique</h4>
+                        <ul>
+                            <li>Provavelmente o maior agrupamento cristão em Moçambique</li>
+                            <li>Especialmente fortes nas províncias do Sul e Centro</li>
+                            <li>Diversidade extrema com milhares de denominações diferentes</li>
+                            <li>Liderança baseada em carisma e revelação direta</li>
+                            <li>Forte enraizamento nas comunidades locais</li>
+                            <li>Uso de elementos culturais africanos nos cultos</li>
+                        </ul>
+                    </div>
+                    
+                    <h4>A Chegada e Expansão em Moçambique</h4>
+                    <p>A penetração dessas igrejas em Moçambique não foi através de missões formais, mas de um processo orgânico, social e profundamente ligado à história econômica da região.</p>
+                    
+                    <h4>O Vetor Principal: A Migração Laboral para as Minas Sul-Africanas</h4>
+                    
+                    <ul>
+                        <li><strong>Contexto:</strong> Milhões de homens moçambicanos foram recrutados para trabalhar nas minas de ouro e diamantes da África do Sul e do Zimbabwe.</li>
+                        <li><strong>Exposição e Conversão:</strong> Nos alojamentos das minas, os trabalhadores moçambicanos entraram em contacto com colegas que já eram membros fervorosos destas igrejas.</li>
+                        <li><strong>O Retorno do Profeta:</strong> Quando esses trabalhadores voltavam para suas aldeias, voltavam convertidos e muitos com a convicção de ter recebido um "chamado".</li>
+                    </ul>
+                    
+                    <h4>Expansão Orgânica e Autóctone</h4>
+                    <ul>
+                        <li><strong>Crescimento de Baixo para Cima:</strong> Diferente do catolicismo ou das assembleianas, as "Igrejas dos Profetas" expandiram-se horizontalmente, de aldeia em aldeia.</li>
+                        <li><strong>Adaptação Cultural Imediata:</strong> Elas não precisaram se adaptar à cultura moçambicana; elas já eram uma expressão dela.</li>
+                        <li><strong>Perseguição e Resistência:</strong> Tanto o Estado colonial português quanto o governo pós-independência da FRELIMO viam essas igrejas com extrema desconfiança.</li>
+                    </ul>
+                    
+                    <h4>Críticas e Polêmicas</h4>
+                    <ul>
+                        <li><strong>Exploração Financeira:</strong> Muitos "profetas" exigem pagamentos altos por "consultas", "água abençoada" ou "orações especiais".</li>
+                        <li><strong>Práticas Perigosas:</strong> Há relatos de casos extremos onde rituais de exorcismo levaram a abusos físicos e até mortes.</li>
+                        <li><strong>Falta de Prestação de Contas:</strong> Sem uma hierarquia ou estrutura de supervisão, o "profeta" é uma lei unto himself.</li>
+                    </ul>
+                    
+                    <h4>Em Resumo</h4>
+                    <p>A "Igreja dos Profetas" não "surgiu" de um único fundador nem "chegou" a Moçambique através de missionários. Ela emergiu como um movimento de reafirmação cultural e espiritual africana contra a hegemonia religiosa europeia. Chegou a Moçambique nas malas dos trabalhadores migratórios que voltavam das minas sul-africanas, onde foram evangelizados por outros africanos. É um fenômeno autóctone, orgânico e de baixo para cima que floresceu porque ofereceu uma forma de cristianismo que não exigia que o moçambicano abandonasse sua entire worldview, mas sim que a ressignificasse através da lens do sagrado.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Seção de Tópicos -->
+        <section class="topics-section">
+            <div class="topics-header">
+                <h2>Tópicos Relacionados</h2>
+            </div>
+            
+            <div class="tabs">
+                <button class="tab-button active" data-tab="tab1">
+                    <i class="fas fa-history"></i> História
+                </button>
+                <button class="tab-button" data-tab="tab2">
+                    <i class="fas fa-map-marked-alt"></i> Distribuição
+                </button>
+                <button class="tab-button" data-tab="tab3">
+                    <i class="fas fa-hands"></i> Práticas
+                </button>
+            </div>
+            
+            <div class="tab-content active" id="tab1">
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <h4>Origens Africanas</h4>
+                        <p>As Igrejas de Profetas surgiram como resposta ao colonialismo e imposição cultural europeia, buscando uma expressão religiosa autenticamente africana.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Contexto Colonial</h4>
+                        <p>Desenvolveram-se no contexto de protesto contra o tratamento de "segunda classe" nas igrejas lideradas por europeus.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Líderes Carismáticos</h4>
+                        <p>Surgiram através de líderes religiosos africanos que afirmavam ter recebido revelações diretas de Deus.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="tab2">
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <h4>Províncias do Sul</h4>
+                        <p>Maputo, Gaza e Inhambane concentram a maior parte das Igrejas de Profetas, devido à proximidade com a África do Sul.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Áreas Rurais</h4>
+                        <p>As Igrejas de Profetas são particularmente fortes em comunidades rurais, onde incorporam elementos das culturas locais.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Expansão Nacional</h4>
+                        <p>Recentemente, o movimento tem crescido em todo o país, adaptando-se a diferentes contextos regionais.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="tab3">
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <h4>Ministério Profético</h4>
+                        <p>Ênfase na revelação direta, visões, sonhos e profecias como canal de comunicação com o divino.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Rituais de Cura</h4>
+                        <p>Práticas de cura divina e exorcismo, substituindo em parte a medicina tradicional.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Sincretismo Religioso</h4>
+                        <p>Combinação de elementos do cristianismo com tradições e crenças espirituais africanas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-hands-praying"></i>
+                </div>
+                <nav class="footer-nav">
+                    <a href="index.html">Início</a>
+                    <a href="#">Sobre</a>
+                    <a href="#">Religiões</a>
+                    <a href="#">Contacto</a>
+                    <a href="#">Privacidade</a>
+                </nav>
+                <p class="copyright">© 2023 Um País, Muitas Crenças. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Botão Voltar ao Topo -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <script>
+        // Script para as abas
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+                    
+                    // Remove a classe active de todos os botões e conteúdos
+                    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                    
+                    // Adiciona a classe active ao botão clicado
+                    button.classList.add('active');
+                    
+                    // Mostra o conteúdo correspondente
+                    document.getElementById(targetTab).classList.add('active');
+                });
+            });
+            
+            // Botão voltar ao topo
+            const backToTopButton = document.querySelector('.back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.style.display = 'flex';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            });
+            
+            backToTopButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>

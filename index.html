@@ -4,423 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Um País Muitas Crenças - Moçambique</title>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#2196F3">
+    <link rel="apple-touch-icon" href="/icons/icon-192.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="Menu Hambúrguer.css">
+    <link rel="stylesheet" href="Um País Muitas Crenças.css">
     <style>
-        :root {
-            --primary-color: #2E7D32;
-            --secondary-color: #4CAF50;
-            --accent-color: #FFC107;
-            --light-bg: #f9f9f9;
-            --dark-text: #333;
-            --light-text: #fff;
-            --menu-width: 280px;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: var(--light-bg);
-            color: var(--dark-text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        section {
-            padding: 3rem 0;
-        }
-        
-        h2 {
-            font-size: 2.2rem;
-            color: var(--primary-color);
-            margin-bottom: 2rem;
-            text-align: center;
-            position: relative;
-        }
-        
-        h2:after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: var(--accent-color);
-            margin: 10px auto;
-            border-radius: 2px;
-        }
-        
-        h3 {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin: 1.5rem 0 1rem;
-        }
-        
-        p {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-        
-        /* Menu Hambúrguer */
-        .hamburger-menu {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1000;
-            background: var(--primary-color);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .hamburger-menu:hover {
-            background: var(--secondary-color);
-            transform: scale(1.05);
-        }
-        
-        .hamburger-menu i {
-            color: white;
-            font-size: 1.5rem;
-        }
-        
-        .sidebar {
-            position: fixed;
-            left: -var(--menu-width);
-            top: 0;
-            width: var(--menu-width);
-            height: 100%;
-            background: linear-gradient(180deg, var(--primary-color) 0%, #1B5E20 100%);
-            color: white;
-            transition: all 0.4s ease;
-            z-index: 999;
-            box-shadow: 4px 0 15px rgba(0,0,0,0.3);
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .sidebar.active {
-            left: 0;
-        }
-        
-        .sidebar-header {
-            padding: 2rem 1.5rem;
-            text-align: center;
-            background: rgba(0,0,0,0.2);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .sidebar-header h3 {
-            color: white;
-            margin: 0;
-            font-size: 1.5rem;
-        }
-        
-        .sidebar-nav {
-            padding: 1.5rem 0;
-            flex-grow: 1;
-        }
-        
-        .sidebar-nav ul {
-            list-style: none;
-        }
-        
-        .sidebar-nav li {
-            margin-bottom: 0.3rem;
-        }
-        
-        .sidebar-nav a {
-            display: flex;
-            align-items: center;
-            color: white;
-            text-decoration: none;
-            padding: 1.2rem 1.5rem;
-            transition: all 0.3s ease;
-            border-left: 4px solid transparent;
-        }
-        
-        .sidebar-nav a:hover, .sidebar-nav a.active {
-            background: rgba(255,255,255,0.08);
-            border-left: 4px solid var(--accent-color);
-            padding-left: 2rem;
-        }
-        
+        /* Estilos adicionais para garantir a compatibilidade */
         .nav-icon {
             margin-right: 12px;
             font-size: 1.2rem;
             width: 24px;
             text-align: center;
         }
-        
-        .sidebar-footer {
-            padding: 1.5rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            text-align: center;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-        
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 998;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.4s ease;
-        }
-        
-        .overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        /* Cabeçalho */
-        header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: var(--light-text);
-            padding: 5rem 0 2rem;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        .logo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-        
-        .logo-icon {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        /* Conteúdo Principal */
-        .religion-section {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            padding: 2.5rem;
-            margin-bottom: 3rem;
-            scroll-margin-top: 100px;
-            transition: transform 0.3s ease;
-        }
-        
-        .religion-section:hover {
-            transform: translateY(-5px);
-        }
-        
-        .religion-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 2px solid #f0f0f0;
-        }
-        
-        .religion-icon {
-            font-size: 3rem;
-            margin-right: 1.5rem;
-            flex-shrink: 0;
-        }
-        
-        .religion-title {
-            font-size: 2.2rem;
-            color: var(--primary-color);
-        }
-        
-        .religion-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-        
-        .religion-content .full-width {
-            grid-column: 1 / -1;
-        }
-        
-        .beliefs-list, .practices-list {
-            background: linear-gradient(145deg, #f5f5f5, #ffffff);
-            padding: 1.8rem;
-            border-radius: 10px;
-            border-left: 5px solid var(--accent-color);
-        }
-        
-        .beliefs-list h4, .practices-list h4 {
-            margin-bottom: 1.2rem;
-            color: var(--primary-color);
-        }
-        
-        ul {
-            list-style-position: inside;
-            margin-bottom: 1rem;
-        }
-        
-        li {
-            margin-bottom: 0.7rem;
-        }
-        
-        .demographics {
-            background: linear-gradient(145deg, #e8f5e9, #f1f8e9);
-            padding: 1.8rem;
-            border-radius: 10px;
-            border: 1px solid #c8e6c9;
-        }
-        
-        .demographics h4 {
-            color: var(--primary-color);
-            margin-bottom: 1.2rem;
-        }
-        
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
-            color: white;
-            padding: 2.5rem 0;
-            text-align: center;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .footer-logo {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-        
-        .footer-nav {
-            margin: 1.5rem 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.2rem;
-        }
-        
-        .footer-nav a {
-            color: #c8e6c9;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-nav a:hover {
-            color: white;
-        }
-        
-        .copyright {
-            margin-top: 1.5rem;
-            opacity: 0.8;
-            font-size: 0.9rem;
-        }
-        
-        /* Botão de voltar ao topo */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-            z-index: 98;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        
-        .back-to-top.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .back-to-top:hover {
-            transform: translateY(-5px);
-        }
-        
-        /* Responsividade */
-        @media (max-width: 900px) {
-            .religion-content {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .subtitle {
-                font-size: 1rem;
-            }
-            
-            .religion-header {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .religion-icon {
-                margin-right: 0;
-                margin-bottom: 1rem;
-            }
-            
-            .religion-section {
-                padding: 1.8rem;
-            }
-            
-            .sidebar {
-                width: 85%;
-                left: -85%;
-            }
-        }
     </style>
 </head>
+<!-- Google tag (gtag.js) --> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VJDQ8Z1NQG"></script> 
+<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-VJDQ8Z1NQG'); </script>
 <body>
     <!-- Menu Hambúrguer -->
     <div class="hamburger-menu">
@@ -430,21 +32,20 @@
     <!-- Menu Lateral -->
     <div class="sidebar">
         <div class="sidebar-header">
-            <h3>☮️ Navegação</h3>
+            <h3><i class="fas fa-hands-praying"></i> Navegação</h3>
         </div>
         <nav class="sidebar-nav">
             <ul>
-                <li><a href="#introducao" class="active"><span class="nav-icon">🏠</span> Introdução</a></li>
-                <li><a href="#cristianismo"><span class="nav-icon">✝️</span> Cristianismo</a></li>
-                <li><a href="#islamismo"><span class="nav-icon">☪️</span> Islamismo</a></li>
-                <li><a href="#tradicionais"><span class="nav-icon">🌍</span> Religiões Tradicionais</a></li>
-                <li><a href="#outras"><span class="nav-icon">☸️</span> Outras Religiões</a></li>
-                <li><a href="estudos.html"><span class="nav-icon">📊</span> Comparação</a></li>
-                <li><a href="contato.html"><span class="nav-icon">📧</span> Contato</a></li>
+                <li><a href="#introducao" class="active"><i class="fas fa-home nav-icon"></i> Introdução</a></li>
+                <li><a href="#cristianismo"><i class="fas fa-church nav-icon"></i> Cristianismo</a></li>
+                <li><a href="#islamismo"><i class="fas fa-mosque nav-icon"></i> Islamismo</a></li>
+                <li><a href="#tradicionais"><i class="fas fa-globe-africa nav-icon"></i> Religiões Tradicionais</a></li>
+                <li><a href="estudos.html"><i class="fas fa-book nav-icon"></i> Area de estudos</a></li>
+                <li><a href="#contato"><i class="fas fa-envelope nav-icon"></i> Contato</a></li>
             </ul>
         </nav>
         <div class="sidebar-footer">
-            Um País Muitas Crenças © 2023
+            Um País Muitas Crenças © 2025
         </div>
     </div>
     
@@ -455,7 +56,7 @@
     <header>
         <div class="container">
             <div class="logo">
-                <div class="logo-icon">☮️</div>
+                <div class="logo-icon"><i class="fas fa-hands-praying"></i></div>
                 <h1>Um País Muitas Crenças</h1>
             </div>
             <p class="subtitle">Explorando a diversidade religiosa de Moçambique com respeito e neutralidade</p>
@@ -483,14 +84,14 @@
         <!-- Cristianismo -->
         <section id="cristianismo" class="religion-section">
             <div class="religion-header">
-                <div class="religion-icon">✝️</div>
+                <div class="religion-icon"><i class="fas fa-church"></i></div>
                 <h2 class="religion-title">Cristianismo em Moçambique</h2>
             </div>
             
             <div class="religion-content">
                 <div>
                     <h3>História e Presença</h3>
-                    <p>O Cristianismo chegou a Moçambique no século XV com os exploradores portugueses, mas a evangelização mais significativa ocorreu durante o período colonial. Após a independência em 1975, muitas denominações cristãs estabeleceram-se no país.</p>
+                    <p>O Cristianismo chegou a Moçambique no século XV avec os exploradores portugueses, mas a evangelização mais significativa ocorreu durante o período colonial. Após a independência em 1975, muitas denominações cristãs estabeleceram-se no país.</p>
                     <p>Atualmente, o Cristianismo é a religião com o maior número de seguidores em Moçambique, com representantes em todas as províncias do país.</p>
                 </div>
                 
@@ -509,7 +110,7 @@
         <!-- Islamismo -->
         <section id="islamismo" class="religion-section">
             <div class="religion-header">
-                <div class="religion-icon">☪️</div>
+                <div class="religion-icon"><i class="fas fa-mosque"></i></div>
                 <h2 class="religion-title">Islamismo em Moçambique</h2>
             </div>
             
@@ -531,6 +132,117 @@
             </div>
         </section>
         
+        <!-- Nova Seção de Tópicos Relacionados -->
+        <section id="topicos" class="topics-section">
+            <div class="topics-header">
+                <h2>Tópicos Relacionados às Religiões</h2>
+                <p>Explore temas específicos relacionados a cada tradição religiosa em Moçambique</p>
+            </div>
+            
+            <div class="tabs">
+                <button class="tab-button active" data-tab="cristianismo-topicos">
+                    <i class="fas fa-church"></i> Cristianismo
+                </button>
+                <button class="tab-button" data-tab="islamismo-topicos">
+                    <i class="fas fa-mosque"></i> Islamismo
+                </button>
+                <button class="tab-button" data-tab="tradicionais-topicos">
+                    <i class="fas fa-globe-africa"></i> Religiões Tradicionais
+                </button>
+                <button class="tab-button" data-tab="outras-topicos">
+                    <i class="fas fa-hands-praying"></i> Outras Religiões
+                </button>
+            </div>
+            
+            <div class="tab-content active" id="cristianismo-topicos">
+                <h3>Tópicos Relacionados ao Cristianismo</h3>
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <h4>Festividades Cristãs</h4>
+                        <p>Como o Natal, Páscoa e outras datas importantes são celebradas pelas diferentes denominações cristãs em Moçambique.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Influência na Educação</h4>
+                        <p>O papel das missões cristãs no desenvolvimento do sistema educacional moçambicano.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Arquitetura Religiosa</h4>
+                        <p>As características das igrejas e catedrals construídas em diferentes períodos da história de Moçambique.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Música Sacra</h4>
+                        <p>Como a música religiosa cristã se adaptou aos contextos culturais moçambicanos.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="islamismo-topicos">
+                <h3>Tópicos Relacionados ao Islamismo</h3>
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <h4>Ramadã em Moçambique</h4>
+                        <p>Como o mês sagrado do Ramadã é observado pelas comunidades muçulmanas em diferentes regiões do país.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Arquitetura de Mesquitas</h4>
+                        <p>As características distintivas das mesquitas moçambicanas e sua evolução ao longo do tempo.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Influência na Língua</h4>
+                        <p>Palavras de origem árabe incorporadas nas línguas moçambicanas através do Islão.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Educação Islâmica</h4>
+                        <p>O papel das madraças e outras instituições educacionais islâmicas em Moçambique.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="tradicionais-topicos">
+                <h3>Tópicos Relacionados às Religiões Tradicionais</h3>
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <h4>Ritos de Iniciação</h4>
+                        <p>Cerimônias de passagem em diferentes grupos étnicos moçambicanos e seu significado cultural.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Medicina Tradicional</h4>
+                        <p>O papel dos curandeiros e o uso de plantas medicinais nas práticas tradicionais de cura.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Culto aos Ancestrais</h4>
+                        <p>Como diferentes comunidades honram e mantêm conexão com seus antepassados.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Cosmovisão Tradicional</h4>
+                        <p>Conceitos de criação, natureza e espiritualidade nas religiões tradicionais africanas de Moçambique.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="outras-topicos">
+                <h3>Tópicos Relacionados a Outras Religiões</h3>
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <h4>Comunidade Hindu</h4>
+                        <p>A presença e contribuições da comunidade hindu em Moçambique, particularmente nas áreas urbanas.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Fé Bahá'í</h4>
+                        <p>Os princípios da Fé Bahá'í e suas atividades de promoção da unidade e educação em Moçambique.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Novos Movimentos Religiosos</h4>
+                        <p>O surgimento e crescimento de novas expressões religiosas no contexto moçambicano contemporâneo.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Liberdade Religiosa</h4>
+                        <p>O quadro legal e a prática da liberdade religiosa em Moçambique.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <!-- Adicione as outras seções conforme necessário -->
         
     </main>
@@ -541,117 +253,16 @@
             <div class="footer-content">
                 <div class="footer-logo">Um País Muitas Crenças</div>
                 <p>Promovendo entendimento e respeito pela diversidade religiosa moçambicana</p>
-                <p class="copyright">© 2023 Um País Muitas Crenças. Todos os direitos reservados.</p>
+                <p class="copyright">© 2025 Um País Muitas Crenças. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
     
     <!-- Botão Voltar ao Topo -->
-    <a href="#" class="back-to-top">↑</a>
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
 
-    <script>
-        // JavaScript corrigido para funcionar no GitHub Pages
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburgerMenu = document.querySelector('.hamburger-menu');
-            const sidebar = document.querySelector('.sidebar');
-            const overlay = document.querySelector('.overlay');
-            const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
-            const backToTopButton = document.querySelector('.back-to-top');
-            
-            let isMenuOpen = false;
-            
-            // Função para abrir o menu
-            function openMenu() {
-                sidebar.classList.add('active');
-                overlay.classList.add('active');
-                hamburgerMenu.querySelector('i').classList.replace('fa-bars', 'fa-times');
-                isMenuOpen = true;
-                document.body.style.overflow = 'hidden';
-            }
-            
-            // Função para fechar o menu
-            function closeMenu() {
-                sidebar.classList.remove('active');
-                overlay.classList.remove('active');
-                hamburgerMenu.querySelector('i').classList.replace('fa-times', 'fa-bars');
-                isMenuOpen = false;
-                document.body.style.overflow = '';
-            }
-            
-            // Alternar entre abrir e fechar o menu
-            function toggleMenu() {
-                if (isMenuOpen) {
-                    closeMenu();
-                } else {
-                    openMenu();
-                }
-            }
-            
-            // Event listeners
-            hamburgerMenu.addEventListener('click', function(e) {
-                e.stopPropagation();
-                toggleMenu();
-            });
-            
-            overlay.addEventListener('click', closeMenu);
-            
-            // Fechar o menu ao clicar em qualquer link
-            sidebarLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    closeMenu();
-                });
-            });
-            
-            // Fechar o menu com a tecla ESC
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && isMenuOpen) {
-                    closeMenu();
-                }
-            });
-            
-            // Mostrar/ocultar botão de voltar ao topo
-            window.addEventListener('scroll', function() {
-                if (window.pageYOffset > 300) {
-                    backToTopButton.classList.add('visible');
-                } else {
-                    backToTopButton.classList.remove('visible');
-                }
-            });
-            
-            // Voltar ao topo suavemente
-            backToTopButton.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-            
-            // Fechar o menu ao clicar fora dele
-            document.addEventListener('click', function(e) {
-                if (isMenuOpen && !sidebar.contains(e.target) && e.target !== hamburgerMenu) {
-                    closeMenu();
-                }
-            });
-            
-            // Scroll suave para links âncora
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-        });
-    </script>
+    <script src="hamburgerMenu.js"></script>
+    <script src="Um País Muitas Crenças.js"></script>
+    <script src="seg.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-

@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidade Sara Nossa Terra em Moçambique</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Menu de navegação */
+        .sobre-menu {
+            background: linear-gradient(to right, #1a3c6e, #2c5ba3);
+            padding: 15px 0;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        
+        .sobre-menu ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .sobre-menu li {
+            margin: 5px 10px;
+        }
+        
+        .sobre-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+            font-weight: 500;
+        }
+        
+        .sobre-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232c5ba3"/><path d="M0 0L100 100" stroke="%231a3c6e" stroke-width="2"/><path d="M100 0L0 100" stroke="%231a3c6e" stroke-width="2"/></svg>');
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .logo h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* Conteúdo principal */
+        .religion-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .religion-header {
+            background: linear-gradient(to right, #1a3c6e, #2c5ba3);
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .religion-icon {
+            font-size: 2rem;
+            margin-right: 15px;
+        }
+        
+        .religion-title {
+            font-size: 1.8rem;
+        }
+        
+        .religion-content {
+            padding: 30px;
+        }
+        
+        .religion-content h3 {
+            color: #2c5ba3;
+            margin: 20px 0 15px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 8px;
+        }
+        
+        .religion-content h4 {
+            color: #1a3c6e;
+            margin: 18px 0 12px;
+        }
+        
+        .religion-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .beliefs-list, .practices-list, .demographics {
+            background-color: #f9f9f9;
+            border-left: 4px solid #2c5ba3;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .beliefs-list h4, .practices-list h4, .demographics h4 {
+            color: #1a3c6e;
+            margin-top: 0;
+        }
+        
+        .beliefs-list ul, .practices-list ul, .demographics ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        
+        .beliefs-list li, .practices-list li, .demographics li {
+            margin-bottom: 8px;
+        }
+        
+        /* Seção de tópicos */
+        .topics-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .topics-header {
+            background: linear-gradient(to right, #1a3c6e, #2c5ba3);
+            color: white;
+            padding: 15px 20px;
+        }
+        
+        .topics-header h2 {
+            font-size: 1.5rem;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            padding: 0 20px;
+        }
+        
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: 500;
+            color: #666;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+        
+        .tab-button.active {
+            color: #2c5ba3;
+            border-bottom: 3px solid #2c5ba3;
+        }
+        
+        .tab-button i {
+            margin-right: 8px;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 20px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .topic-card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .topic-card h4 {
+            color: #1a3c6e;
+            margin-bottom: 10px;
+        }
+        
+        /* Rodapé */
+        footer {
+            background: linear-gradient(to right, #1a3c6e, #2c5ba3);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px 10px;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-nav a:hover {
+            opacity: 0.8;
+        }
+        
+        .copyright {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* Botão voltar ao topo */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #2c5ba3;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s;
+        }
+        
+        .back-to-top:hover {
+            background: #1a3c6e;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .logo h1 {
+                font-size: 2rem;
+            }
+            
+            .religion-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .religion-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab-button {
+                justify-content: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="sobre-menu">
+        <ul>
+            <li><a href="Sobre universal.html">Universal</a></li>
+            <li><a href="Sobre Testemunhas de Jeová em Moçambique.html">Testemunhas de Jeová</a></li>
+            <li><a href="Sobre Sara Nossa Terra em Moçambique.html">Sara Nossa Terra</a></li>
+            <li><a href="Sobre Metodista.html">Metodista</a></li>
+            <li><a href="Sobre Igreja Zionista.html">Zionista</a></li>
+            <li><a href="Sobre Igreja Presbiteriana.html">Presbiteriana</a></li>
+            <li><a href="Sobre Igreja de Profetas em Moçambique.html">Profetas</a></li>
+            <li><a href="Sobre Igreja de Deus.html">Igreja de Deus</a></li>
+            <li><a href="Sobre Igreja da Graça em Moçambique.html">Graça</a></li>
+            <li><a href="Sobre Católica.html">Católica</a></li>
+            <li><a href="Sobre Assembleia de Deus.html">Assembleia de Deus</a></li>
+            <li><a href="Sobre Apostólica.html">Apostólica</a></li>
+            <li><a href="Sobre Anglicana.html">Anglicana</a></li>
+            <li><a href="Sobre Adventistas emMoçambique.html">Adventistas</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-church logo-icon"></i>
+                <h1>Comunidade Evangélica Sara Nossa Terra</h1>
+                <p class="subtitle">Conheça a história e influência da Comunidade Sara Nossa Terra em Moçambique</p>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <section class="religion-section">
+            <div class="religion-header">
+                <div class="religion-icon">
+                    <i class="fas fa-church"></i>
+                </div>
+                <h2 class="religion-title">Comunidade Evangélica Sara Nossa Terra</h2>
+            </div>
+            
+            <div class="religion-content">
+                <div>
+                    <h3>Origem</h3>
+                    <p>A Comunidade Evangélica Sara Nossa Terra foi fundada no Brasil em 1992 pelos bispos Robson e Lúcia Rodovalho. Caracteriza-se pela ênfase na adoração, na batalha espiritual e na teologia da prosperidade.</p>
+                    <p>Destaca-se por seu estilo musical contemporâneo e pela forte presença na mídia.</p>
+                    
+                    <div class="beliefs-list">
+                        <h4>Características Principais</h4>
+                        <ul>
+                            <li>Ênfase na adoração e batalha espiritual</li>
+                            <li>Teologia da prosperidade</li>
+                            <li>Estilo musical contemporâneo</li>
+                            <li>Forte presença na mídia</li>
+                        </ul>
+                    </div>
+                    
+                    <h4>O Surgimento da Sara Nossa Terra no Brasil - Neopentecostalismo e Marketing</h4>
+                    <p>Para entender a "Sara" em Moçambique, é fundamental entender seu DNA brasileiro, radicalmente diferente das origens de outras denominações.</p>
+                    
+                    <p><strong>Contexto Histórico (Brasil, Décadas de 1970-1990):</strong> O cenário religioso brasileiro era dominado pela Igreja Católica e por denominações pentecostais tradicionais. A partir dos anos 70, surge a "Segunda Onda" ou Neopentecostalismo, com igrejas como Universal do Reino de Deus (IURD), Internacional da Graça de Deus e, mais tarde, a Sara Nossa Terra.</p>
+                    
+                    <h4>Características do Neopentecostalismo (o caldo cultural onde a Sara nasceu):</h4>
+                    <ul>
+                        <li><strong>Ênfase na Teologia da Prosperidade:</strong> A fé é um investimento. Dízimos e ofertas são sementes financeiras que garantem retorno material.</li>
+                        <li><strong>Batalha Espiritual e Exorcismo:</strong> Problemas como pobreza, doenças e fracasso são causados por demónios específicos.</li>
+                        <li><strong>Cura Divina:</strong> Milagres e curas espetaculares são centrais nos cultos.</li>
+                        <li><strong>Uso Intensivo da Mídia:</strong> Rádio, TV e internet são usadas de forma agressiva e profissional.</li>
+                        <li><strong>Cultos Dinâmicos e Apelo Emocional:</strong> Música pop gospel de alto nível, pregação carismática e teatral.</li>
+                    </ul>
+                    
+                    <h4>Fundação e Ascensão da Sara Nossa Terra:</h4>
+                    <p><strong>Fundador:</strong> Bispo Robson Rodovalho e sua esposa, Missionária Maria Lúcia Rodovalho.</p>
+                    <p><strong>Origem:</strong> A semente da igreja surgiu em Brasília no final dos anos 1970, em um contexto de reavivamento pentecostal entre universitários e classe média.</p>
+                    <p><strong>Data de Fundação Oficial:</strong> 1992 é considerado o marco de fundação. O nome "Sara" é uma referência bíblica à esposa de Abraão, que simboliza fertilidade e o cumprimento de uma promessa de Deus.</p>
+                    
+                    <h4>Diferencial de Mercado:</h4>
+                    <p>A Sara se diferenciou no competitivo mercado neopentecostal por:</p>
+                    <ol>
+                        <li><strong>Cultura e Música Gospel Sofisticada:</strong> Investiu pesadamente em produção musical de alta qualidade.</li>
+                        <li><strong>Foco na Família e na Juventude:</strong> Pregação focada na restauração familiar e no empoderamento jovem.</li>
+                        <li><strong>Estrutura Empresarial:</strong> A igreja é administrada como um holding empresarial, com negócios em educação, mídia, gravadora, editora e outros empreendimentos.</li>
+                    </ol>
+                </div>
+                
+                <div>
+                    <h3>Chegada a Moçambique</h3>
+                    <p>A Comunidade Sara Nossa Terra chegou a Moçambique na década de 2000, através de missionários brasileiros e da transmissão de programas de televisão.</p>
+                    <p>Estabeleceu-se inicialmente em Maputo e depois expandiu-se para outras cidades. Desenvolveu trabalho evangelístico com foco especial em jovens e profissionais urbanos.</p>
+                    
+                    <div class="demographics">
+                        <h4>Dados Atuais da Sara Nossa Terra em Moçambique</h4>
+                        <ul>
+                            <li>Presente nas principais cidades moçambicanas</li>
+                            <li>Diversos templos e pontos de pregação</li>
+                            <li>Milhares de membros regulares</li>
+                            <li>Programação regular em emissoras de TV nacionais</li>
+                            <li>Foco especial em jovens e profissionais urbanos</li>
+                            <li>Liderança com participação moçambicana</li>
+                        </ul>
+                    </div>
+                    
+                    <h4>A Chegada e Expansão em Moçambique - Neo-colonialismo Religioso?</h4>
+                    <p>A expansão da Sara Nossa Terra para África, e especificamente para Moçambique, é parte de um movimento massivo de exportação do neopentecostalismo brasileiro para o continente africano.</p>
+                    
+                    <h4>Contexto de Chegada a Moçambique (Anos 2000):</h4>
+                    <ul>
+                        <li><strong>Cenário Pós-Guerra Civil:</strong> Moçambique saía de uma devastadora guerra civil (1977-1992). O país estava fragilizado, com traumas sociais profundos.</li>
+                        <li><strong>Solo Fértil para Pentecostalismos:</strong> O cenário de dificuldade económica é terreno fértil para movimentos religiosos que prometem milagres e prosperidade.</li>
+                        <li><strong>Abertura Religiosa:</strong> A Constituição de 1990 estabeleceu o Estado laico, abrindo as portas para uma explosão de denominações evangélicas.</li>
+                    </ul>
+                    
+                    <h4>Estratégia de Penetração e Expansão:</h4>
+                    <ol>
+                        <li><strong>Missões e "Invasão Espiritual":</strong> Chegou com estratégias de "conquista" e "invasão espiritual" de territórios, com grandes caravanas missionárias do Brasil.</li>
+                        <li><strong>Uso Poderoso da Mídia:</strong> Aquisição de horários em emissoras de rádio e TV moçambicanas com programação produzida no Brasil.</li>
+                        <li><strong>Liderança Brasileira e Formação de Lideranças Locais:</strong> Inicialmente liderada por missionários brasileiros, com rápida formação de pastores locais.</li>
+                        <li><strong>Cultos Dinâmicos e Música Atraente:</strong> Replicação da fórmula bem-sucedida no Brasil: cultos longos, com música gospel animada.</li>
+                        <li><strong>Oferta de Serviços Sociais:</strong> Envolvimento em ações sociais como estratégias de captação e marketing.</li>
+                    </ol>
+                    
+                    <h4>Análise Crítica:</h4>
+                    <ul>
+                        <li><strong>Neo-colonialismo Religioso?</strong> Muitos académicos veem a expansão como uma forma de imperialismo cultural e religioso.</li>
+                        <li><strong>Dependência Económica:</strong> Críticas sobre o fluxo de recursos de fiéis moçambicanos para a sede no Brasil.</li>
+                        <li><strong>Teologia da Prosperidade em Contexto de Pobreza:</strong> Questionamentos sobre a promessa de enriquecimento através da fé em contexto de pobreza.</li>
+                        <li><strong>Fragilização do Tecido Social Tradicional:</strong> Atribuição de problemas a demónios pode desencorajar análise sócio-económica dos reais problemas.</li>
+                    </ul>
+                    
+                    <h4>Conclusão:</h4>
+                    <p>A chegada da Igreja Evangélica Sara Nossa Terra a Moçambique é a globalização do neopentecostalismo brasileiro como um produto, impulsionado por estratégias de marketing agressivas e uso intensivo de mídia. Seu crescimento explosivo reflecte as vulnerabilidades e aspirações de uma sociedade moçambicana pós-guerra. No entanto, sua atuação é envolta em críticas sobre seu papel: é um agente de empowerment espiritual ou um veículo de dependência cultural e económica?</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Seção de Tópicos -->
+        <section class="topics-section">
+            <div class="topics-header">
+                <h2>Tópicos Relacionados</h2>
+            </div>
+            
+            <div class="tabs">
+                <button class="tab-button active" data-tab="tab1">
+                    <i class="fas fa-history"></i> História
+                </button>
+                <button class="tab-button" data-tab="tab2">
+                    <i class="fas fa-map-marked-alt"></i> Distribuição
+                </button>
+                <button class="tab-button" data-tab="tab3">
+                    <i class="fas fa-hands"></i> Práticas
+                </button>
+            </div>
+            
+            <div class="tab-content active" id="tab1">
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <h4>Origens Brasileiras</h4>
+                        <p>A Sara Nossa Terra foi fundada no Brasil em 1992 por Robson e Lúcia Rodovalho, com ênfase na adoração e batalha espiritual.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Expansão Internacional</h4>
+                        <p>Da sua sede no Brasil, a Sara expandiu-se para diversos países, incluindo Moçambique, através de programas de televisão e missionários.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Adaptação Cultural</h4>
+                        <p>Em Moçambique, a Sara adaptou sua mensagem aos contextos locais, formando pastores moçambicanos e abordando problemas específicos.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="tab2">
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <h4>Principais Cidades</h4>
+                        <p>A Sara está presente nas principais cidades moçambicanas, com especial concentração em Maputo, Beira e Nampula.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Áreas Urbanas</h4>
+                        <p>A igreja tem maior penetração em áreas urbanas, onde o acesso à televisão e a infraestrutura de comunicação são mais desenvolvidos.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Expansão para o Interior</h4>
+                        <p>Recentemente, a denominação tem expandido sua atuação para o interior do país, abrindo templos em cidades menores.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="tab3">
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <h4>Adoração e Música</h4>
+                        <p>Ênfase em cultos com música gospel contemporânea de alta qualidade, atraindo especialmente jovens.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Batalha Espiritual</h4>
+                        <p>Sessões de libertação e batalha espiritual contra demónios específicos que causariam problemas na vida dos fiéis.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Teologia da Prosperidade</h4>
+                        <p>Pregação focada na prosperidade financeira como resultado da fé e das contribuições à igreja.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-church"></i>
+                </div>
+                <nav class="footer-nav">
+                    <a href="index.html">Início</a>
+                    <a href="#">Sobre</a>
+                    <a href="#">Religiões</a>
+                    <a href="#">Contacto</a>
+                    <a href="#">Privacidade</a>
+                </nav>
+                <p class="copyright">© 2023 Um País, Muitas Crenças. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Botão Voltar ao Topo -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <script>
+        // Script para as abas
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+                    
+                    // Remove a classe active de todos os botões e conteúdos
+                    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                    
+                    // Adiciona a classe active ao botão clicado
+                    button.classList.add('active');
+                    
+                    // Mostra o conteúdo correspondente
+                    document.getElementById(targetTab).classList.add('active');
+                });
+            });
+            
+            // Botão voltar ao topo
+            const backToTopButton = document.querySelector('.back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.style.display = 'flex';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            });
+            
+            backToTopButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>

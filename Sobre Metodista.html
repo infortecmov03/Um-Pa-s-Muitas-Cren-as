@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Igreja Metodista em Moçambique</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Menu de navegação */
+        .sobre-menu {
+            background: linear-gradient(to right, #2E7D32, #4CAF50);
+            padding: 15px 0;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        
+        .sobre-menu ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .sobre-menu li {
+            margin: 5px 10px;
+        }
+        
+        .sobre-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+            font-weight: 500;
+        }
+        
+        .sobre-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%234CAF50"/><path d="M0 0L100 100" stroke="%232E7D32" stroke-width="2"/><path d="M100 0L0 100" stroke="%232E7D32" stroke-width="2"/></svg>');
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .logo h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* Conteúdo principal */
+        .religion-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .religion-header {
+            background: linear-gradient(to right, #2E7D32, #4CAF50);
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .religion-icon {
+            font-size: 2rem;
+            margin-right: 15px;
+        }
+        
+        .religion-title {
+            font-size: 1.8rem;
+        }
+        
+        .religion-content {
+            padding: 30px;
+        }
+        
+        .religion-content h3 {
+            color: #2E7D32;
+            margin: 20px 0 15px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 8px;
+        }
+        
+        .religion-content h4 {
+            color: #1B5E20;
+            margin: 18px 0 12px;
+        }
+        
+        .religion-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .beliefs-list, .practices-list, .demographics {
+            background-color: #f9f9f9;
+            border-left: 4px solid #4CAF50;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .beliefs-list h4, .practices-list h4, .demographics h4 {
+            color: #2E7D32;
+            margin-top: 0;
+        }
+        
+        .beliefs-list ul, .practices-list ul, .demographics ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        
+        .beliefs-list li, .practices-list li, .demographics li {
+            margin-bottom: 8px;
+        }
+        
+        /* Seção de tópicos */
+        .topics-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .topics-header {
+            background: linear-gradient(to right, #2E7D32, #4CAF50);
+            color: white;
+            padding: 15px 20px;
+        }
+        
+        .topics-header h2 {
+            font-size: 1.5rem;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            padding: 0 20px;
+        }
+        
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: 500;
+            color: #666;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+        
+        .tab-button.active {
+            color: #4CAF50;
+            border-bottom: 3px solid #4CAF50;
+        }
+        
+        .tab-button i {
+            margin-right: 8px;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 20px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .topic-card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .topic-card h4 {
+            color: #2E7D32;
+            margin-bottom: 10px;
+        }
+        
+        /* Rodapé */
+        footer {
+            background: linear-gradient(to right, #1B5E20, #2E7D32);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px 10px;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-nav a:hover {
+            opacity: 0.8;
+        }
+        
+        .copyright {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* Botão voltar ao topo */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #4CAF50;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s;
+        }
+        
+        .back-to-top:hover {
+            background: #2E7D32;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .logo h1 {
+                font-size: 2rem;
+            }
+            
+            .religion-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .religion-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab-button {
+                justify-content: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="sobre-menu">
+        <ul>
+            <li><a href="Sobre universal.html">Universal</a></li>
+            <li><a href="Sobre Testemunhas de Jeová em Moçambique.html">Testemunhas de Jeová</a></li>
+            <li><a href="Sobre Sara Nossa Terra em Moçambique.html">Sara Nossa Terra</a></li>
+            <li><a href="Sobre Metodista.html" style="background-color: rgba(255, 255, 255, 0.3);">Metodista</a></li>
+            <li><a href="Sobre Igreja Zionista.html">Zionista</a></li>
+            <li><a href="Sobre Igreja Presbiteriana.html">Presbiteriana</a></li>
+            <li><a href="Sobre Igreja de Profetas em Moçambique.html">Profetas</a></li>
+            <li><a href="Sobre Igreja de Deus.html">Igreja de Deus</a></li>
+            <li><a href="Sobre Igreja da Graça em Moçambique.html">Graça</a></li>
+            <li><a href="Sobre Católica.html">Católica</a></li>
+            <li><a href="Sobre Assembleia de Deus.html">Assembleia de Deus</a></li>
+            <li><a href="Sobre Apostólica.html">Apostólica</a></li>
+            <li><a href="Sobre Anglicana.html">Anglicana</a></li>
+            <li><a href="Sobre Adventistas emMoçambique.html">Adventistas</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-church logo-icon"></i>
+                <h1>Igreja Metodista</h1>
+                <p class="subtitle">Conheça a história e influência da Igreja Metodista em Moçambique</p>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <section class="religion-section">
+            <div class="religion-header">
+                <div class="religion-icon">
+                    <i class="fas fa-church"></i>
+                </div>
+                <h2 class="religion-title">Igreja Metodista</h2>
+            </div>
+            
+            <div class="religion-content">
+                <div>
+                    <h3>Origem</h3>
+                    <p>O Metodismo surgiu na Inglaterra no século XVIII como um movimento de avivamento dentro da Igreja Anglicana, liderado por John Wesley e seu irmão Charles Wesley.</p>
+                    <p>Destacou-se pela ênfase na santificação pessoal, na piedade prática e no evangelismo ativo. Separou-se oficialmente da Igreja Anglicana após a morte de Wesley.</p>
+                    
+                    <div class="beliefs-list">
+                        <h4>Características Principais</h4>
+                        <ul>
+                            <li>Ênfase na santificação pessoal e crescimento espiritual</li>
+                            <li>Piedade prática e vivência da fé no quotidiano</li>
+                            <li>Evangelismo ativo e compromisso missionário</li>
+                            <li>Valorização da educação e formação teológica</li>
+                            <li>Compromisso com a justiça social e ação prática</li>
+                        </ul>
+                    </div>
+                    
+                    <h4>O Surgimento do Metodismo - Um "Grande Despertar" na Inglaterra Industrial</h4>
+                    <p>Para entender a chegada a Moçambique, é crucial entender a essência do que era o Metodismo original.</p>
+                    
+                    <h4>Contexto Histórico (Inglaterra, Século XVIII)</h4>
+                    <p>A Inglaterra passava pela Revolução Industrial e pelo Iluminismo. As cidades cresciam desordenadamente com a migração de camponeses para as fábricas, resultando em pobreza extrema, alcoolismo, exploração laboral e uma profunda desconexão espiritual. A Igreja Anglicana, estabelecida e muitas vezes complacente com a elite, estava distante dessas massas urbanas sofridas.</p>
+                    
+                    <h4>Os Irmãos Wesley: John e Charles</h4>
+                    <ul>
+                        <li><strong>John Wesley (1703-1791):</strong> O arquiteto principal do movimento. Um intelectual, filho de um pastor anglicano, extremamente disciplinado e metódico (daí a origem do nome, inicialmente um apelido pejorativo).</li>
+                        <li><strong>Charles Wesley (1707-1788):</strong> Irmão de John, o grande poeta e hinista. Compôs mais de 6.000 hinos, que se tornaram a espinha dorsal emocional e doutrinária do Metodismo.</li>
+                    </ul>
+                    
+                    <h4>O "Evento do Coração Aquecido" (24 de Maio de 1738)</h4>
+                    <p>Apesar de ser um sacerdote anglicano e extremamente religioso, John Wesley sentia uma profunda insatisfação espiritual. Num encontro de estudo bíblico na Rua Aldersgate, em Londres, enquanto ouvia a leitura do prefácio de Martinho Lutero à Epístola aos Romanos, ele teve uma experiência conversionista única:</p>
+                    
+                    <p><em>"Senti meu coração estranhamente aquecido. Senti que confiava em Cristo, somente em Cristo, para a salvação; e foi-me dada a certeza de que Ele havia levado os meus pecados, mesmo os meus, e me salvado da lei do pecado e da morte."</em></p>
+                    
+                    <p>Este evento não foi sobre descobrir Deus, mas sobre experienciar a graça de Deus de forma pessoal e transformadora. Isso se tornou o cerne do Metodismo: uma fé viva, sentida no coração, e não apenas uma adesão intelectual a credos.</p>
+                    
+                    <h4>Características Revolucionárias do Metodismo Primitivo</h4>
+                    <ul>
+                        <li><strong>Pregação ao Ar Livre:</strong> Contra todas as convenções eclesiásticas, Wesley saiu dos púlpitos e foi pregar para onde o povo estava: nas minas de carvão, nas praças das fábricas, nos campos.</li>
+                        <li><strong>As "Sociedades" e "Classes":</strong> Estrutura celular. As pessoas eram organizadas em pequenos grupos para estudo bíblico, partilha de experiências e apoio material.</li>
+                        <li><strong>Ênfase na Santificação:</strong> A salvação não era apenas um ponto de partida, mas um processo contínuo de "aperfeiçoamento em amor" ao longo da vida toda.</li>
+                        <li><strong>Ativismo Social:</strong> O Metodismo foi, desde o início, profundamente social. Os Wesley pregavam contra a escravidão, criavam dispensários médicos para os pobres, fundavam escolas para crianças órfãs e lutavam por reformas nas prisões.</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Chegada a Moçambique</h3>
+                    <p>A Igreja Metodista chegou a Moçambique no final do século XIX através de missionários suíços e americanos. Estabeleceu-se inicialmente na região sul do país, particularmente na província de Gaza.</p>
+                    <p>Desenvolveu significativo trabalho educativo e de saúde, fundando escolas e centros médicos. Cresceu substancialmente durante o século XX e mantém forte presença especialmente nas regiões sul e central de Moçambique.</p>
+                    
+                    <div class="demographics">
+                        <h4>Presença da Igreja Metodista em Moçambique</h4>
+                        <ul>
+                            <li>Forte presença nas províncias do sul: Maputo, Gaza e Inhambane</li>
+                            <li>Expansão significativa para as regiões centrais: Sofala e Manica</li>
+                            <li>Presença crescente nas províncias do norte: Nampula e Zambézia</li>
+                            <li>Rede de escolas e instituições de saúde em várias regiões</li>
+                            <li>Comunidades metodistas em todas as principais cidades moçambicanas</li>
+                        </ul>
+                    </div>
+                    
+                    <h4>A Chegada a Moçambique - Missão, Colonialismo e Enraizamento</h4>
+                    <p>A expansão metodista para a África está intrinsecamente ligada ao contexto do colonialismo europeu do século XIX e ao movimento missionário evangelístico que ele propiciou.</p>
+                    
+                    <h4>Contexto de Chegada a Moçambique (Fim do Século XIX)</h4>
+                    <p>Moçambique era uma colónia portuguesa, com uma presença católica romana centenária, que detinha o padroado (controle do Estado sobre a atividade religiosa). Protestantismos eram vistos com desconfiança, como ameaças à unidade nacional e à "missão civilizadora" portuguesa.</p>
+                    
+                    <h4>Os Primeiros Pioneiros: A Missão Suíça</h4>
+                    <p>A chegada não foi direta da Inglaterra ou dos EUA. O principal vetor inicial foi a Missão Suíça, que já trabalhava na África do Sul, entre o povo Tsonga (ou Shangaan).</p>
+                    
+                    <ul>
+                        <li><strong>1890:</strong> É fundada a Missão Metodista Wesleyana da África do Sul.</li>
+                        <li><strong>A Figura Chave: Rev. Richard Sidwell.</strong> Um missionário britânico que trabalhava para os suíços na África do Sul. Ele cruzou a fronteira e estabeleceu os primeiros contactos no Sul de Moçambique.</li>
+                        <li><strong>1890/1891:</strong> É fundada a primeira missão em Lumbo, na província de Maputo, junto ao Rio Maputo. Esta é considerada a data seminal do metodismo moçambicano.</li>
+                    </ul>
+                    
+                    <h4>Estratégias de Enraizamento</h4>
+                    <p>A missão adotou uma estratégia inteligente para se estabelecer em Moçambique:</p>
+                    
+                    <ul>
+                        <li><strong>Educação:</strong> Fundaram escolas rudimentares (escolas de missão) que, em muitas áreas, eram a única oferta educativa para a população negra.</li>
+                        <li><strong>Saúde:</strong> Criaram postos de saúde e dispensários, atendendo a necessidades básicas de comunidades negligenciadas pelo Estado colonial.</li>
+                        <li><strong>Tradução e Inculturação:</strong> Traduziram a Bíblia e hinos para as línguas locais (como o Xitsonga), valorizando a cultura local.</li>
+                    </ul>
+                    
+                    <h4>A Autonomização: Da Missão à Igreja</h4>
+                    <p>O processo culminou com a autonomia. O que era uma extensão da Igreja Metodista da África do Sul tornou-se uma igreja independente:</p>
+                    
+                    <ul>
+                        <li><strong>1948:</strong> É formado o Distrito da África Oriental da Igreja Metodista Sul-Africana.</li>
+                        <li><strong>1970:</strong> É formada a Conferência Anual de Moçambique.</li>
+                        <li><strong>1976:</strong> No pós-independência, a igreja consegue a sua plena autonomia, tornando-se a Igreja Metodista de Moçambique (IMM).</li>
+                    </ul>
+                    
+                    <h4>Contribuições para a Sociedade Moçambicana</h4>
+                    <ul>
+                        <li>Rede de escolas e instituições educativas</li>
+                        <li>Serviços de saúde e centros médicos</li>
+                        <li>Promoção do desenvolvimento comunitário</li>
+                        <li>Formação de líderes comunitários e religiosos</li>
+                        <li>Contribuição para a educação de muitos líderes nacionalistas moçambicanos</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Seção de Tópicos -->
+        <section class="topics-section">
+            <div class="topics-header">
+                <h2>Tópicos Relacionados</h2>
+            </div>
+            
+            <div class="tabs">
+                <button class="tab-button active" data-tab="tab1">
+                    <i class="fas fa-history"></i> História
+                </button>
+                <button class="tab-button" data-tab="tab2">
+                    <i class="fas fa-map-marked-alt"></i> Distribuição
+                </button>
+                <button class="tab-button" data-tab="tab3">
+                    <i class="fas fa-hands"></i> Práticas
+                </button>
+            </div>
+            
+            <div class="tab-content active" id="tab1">
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <h4>Origens Wesleyanas</h4>
+                        <p>O Metodismo surgiu na Inglaterra do século XVIII como movimento de avivamento dentro da Igreja Anglicana liderado por John Wesley.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Expansão Global</h4>
+                        <p>Da Inglaterra, o Metodismo expandiu-se para a América do Norte e depois para África e outras partes do mundo através do trabalho missionário.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Chegada a África</h4>
+                        <p>O Metodismo chegou a Moçambique através de missionários suíços e sul-africanos no final do século XIX.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="tab2">
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <h4>Províncias do Sul</h4>
+                        <p>Maputo, Gaza e Inhambane concentram a maior parte das comunidades metodistas, devido à chegada inicial pelo sul.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Expansão Central</h4>
+                        <p>A Igreja Metodista expandiu-se significativamente para as províncias centrais como Sofala e Manica.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Presença Nacional</h4>
+                        <p>Atualmente a Igreja Metodista está presente em todas as províncias de Moçambique, com comunidades em crescimento.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="tab3">
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <h4>Culto e Liturgia</h4>
+                        <p>Cultos caracterizados por ordem litúrgica, ênfase na pregação e valorização da música sacra e hinos.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Santificação</h4>
+                        <p>Ênfase na santificação como processo contínuo de crescimento espiritual e aperfeiçoamento em amor.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Ação Social</h4>
+                        <p>Compromisso com a justiça social, educação e saúde como expressão prática da fé cristã.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-church"></i>
+                </div>
+                <nav class="footer-nav">
+                    <a href="index.html">Início</a>
+                    <a href="#">Sobre</a>
+                    <a href="#">Religiões</a>
+                    <a href="#">Contacto</a>
+                    <a href="#">Privacidade</a>
+                </nav>
+                <p class="copyright">© 2023 Um País, Muitas Crenças. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Botão Voltar ao Topo -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <script>
+        // Script para as abas
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+                    
+                    // Remove a classe active de todos os botões e conteúdos
+                    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                    
+                    // Adiciona a classe active ao botão clicado
+                    button.classList.add('active');
+                    
+                    // Mostra o conteúdo correspondente
+                    document.getElementById(targetTab).classList.add('active');
+                });
+            });
+            
+            // Botão voltar ao topo
+            const backToTopButton = document.querySelector('.back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.style.display = 'flex';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            });
+            
+            backToTopButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>

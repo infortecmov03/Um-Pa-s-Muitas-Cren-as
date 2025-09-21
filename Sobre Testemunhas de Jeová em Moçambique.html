@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testemunhas de Jeová em Moçambique</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Menu de navegação */
+        .sobre-menu {
+            background: linear-gradient(to right, #5e5e5e, #8e8e8e);
+            padding: 15px 0;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        
+        .sobre-menu ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .sobre-menu li {
+            margin: 5px 10px;
+        }
+        
+        .sobre-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+            font-weight: 500;
+        }
+        
+        .sobre-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%238e8e8e"/><path d="M0 0L100 100" stroke="%235e5e5e" stroke-width="2"/><path d="M100 0L0 100" stroke="%235e5e5e" stroke-width="2"/></svg>');
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #e53935; /* Vermelho característico */
+        }
+        
+        .logo h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* Conteúdo principal */
+        .religion-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .religion-header {
+            background: linear-gradient(to right, #5e5e5e, #8e8e8e);
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .religion-icon {
+            font-size: 2rem;
+            margin-right: 15px;
+            color: #e53935; /* Vermelho característico */
+        }
+        
+        .religion-title {
+            font-size: 1.8rem;
+        }
+        
+        .religion-content {
+            padding: 30px;
+        }
+        
+        .religion-content h3 {
+            color: #2c5ba3; /* Azul característico */
+            margin: 20px 0 15px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 8px;
+        }
+        
+        .religion-content h4 {
+            color: #5e5e5e; /* Cinza escuro */
+            margin: 18px 0 12px;
+        }
+        
+        .religion-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .beliefs-list, .practices-list, .demographics {
+            background-color: #f9f9f9;
+            border-left: 4px solid #e53935; /* Vermelho característico */
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .beliefs-list h4, .practices-list h4, .demographics h4 {
+            color: #5e5e5e; /* Cinza escuro */
+            margin-top: 0;
+        }
+        
+        .beliefs-list ul, .practices-list ul, .demographics ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        
+        .beliefs-list li, .practices-list li, .demographics li {
+            margin-bottom: 8px;
+        }
+        
+        /* Seção de tópicos */
+        .topics-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .topics-header {
+            background: linear-gradient(to right, #5e5e5e, #8e8e8e);
+            color: white;
+            padding: 15px 20px;
+        }
+        
+        .topics-header h2 {
+            font-size: 1.5rem;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            padding: 0 20px;
+        }
+        
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: 500;
+            color: #666;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+        
+        .tab-button.active {
+            color: #e53935; /* Vermelho característico */
+            border-bottom: 3px solid #e53935; /* Vermelho característico */
+        }
+        
+        .tab-button i {
+            margin-right: 8px;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 20px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .topic-card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            border-top: 3px solid #2c5ba3; /* Azul característico */
+        }
+        
+        .topic-card h4 {
+            color: #5e5e5e; /* Cinza escuro */
+            margin-bottom: 10px;
+        }
+        
+        /* Rodapé */
+        footer {
+            background: linear-gradient(to right, #5e5e5e, #8e8e8e);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #e53935; /* Vermelho característico */
+        }
+        
+        .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px 10px;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-nav a:hover {
+            opacity: 0.8;
+        }
+        
+        .copyright {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* Botão voltar ao topo */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #e53935; /* Vermelho característico */
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s;
+        }
+        
+        .back-to-top:hover {
+            background: #c62828; /* Vermelho mais escuro */
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .logo h1 {
+                font-size: 2rem;
+            }
+            
+            .religion-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .religion-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab-button {
+                justify-content: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="sobre-menu">
+        <ul>
+            <li><a href="Sobre universal.html">Universal</a></li>
+            <li><a href="Sobre Testemunhas de Jeová em Moçambique.html">Testemunhas de Jeová</a></li>
+            <li><a href="Sobre Sara Nossa Terra em Moçambique.html">Sara Nossa Terra</a></li>
+            <li><a href="Sobre Metodista.html">Metodista</a></li>
+            <li><a href="Sobre Igreja Zionista.html">Zionista</a></li>
+            <li><a href="Sobre Igreja Presbiteriana.html">Presbiteriana</a></li>
+            <li><a href="Sobre Igreja de Profetas em Moçambique.html">Profetas</a></li>
+            <li><a href="Sobre Igreja de Deus.html">Igreja de Deus</a></li>
+            <li><a href="Sobre Igreja da Graça em Moçambique.html">Graça</a></li>
+            <li><a href="Sobre Católica.html">Católica</a></li>
+            <li><a href="Sobre Assembleia de Deus.html">Assembleia de Deus</a></li>
+            <li><a href="Sobre Apostólica.html">Apostólica</a></li>
+            <li><a href="Sobre Anglicana.html">Anglicana</a></li>
+            <li><a href="Sobre Adventistas emMoçambique.html">Adventistas</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-book-bible logo-icon"></i>
+                <h1>Testemunhas de Jeová</h1>
+                <p class="subtitle">Conheça a história e influência das Testemunhas de Jeová em Moçambique</p>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <section class="religion-section">
+            <div class="religion-header">
+                <div class="religion-icon">
+                    <i class="fas fa-book-bible"></i>
+                </div>
+                <h2 class="religion-title">Testemunhas de Jeová</h2>
+            </div>
+            
+            <div class="religion-content">
+                <div>
+                    <h3>Origem</h3>
+                    <p>As Testemunhas de Jeová surgiram nos Estados Unidos no final do século XIX, a partir dos estudos bíblicos de Charles Taze Russell.</p>
+                    <p>Caracterizam-se pela rejeição da doutrina da Trindade, pela neutralidade política, pela recusa a transfusões de sangue e pelo intenso trabalho de evangelização de casa em casa.</p>
+                    
+                    <div class="beliefs-list">
+                        <h4>Características Principais</h4>
+                        <ul>
+                            <li>Rejeição da doutrina da Trindade</li>
+                            <li>Neutralidade política e militar</li>
+                            <li>Recusa a transfusões de sangue</li>
+                            <li>Intenso trabalho de evangelização de casa em casa</li>
+                            <li>Uso do nome "Jeová" para Deus</li>
+                        </ul>
+                    </div>
+                    
+                    <h4>O Início: Charles Taze Russell e o "Estudo das Escrituras" (1870-1916)</h4>
+                    <p>Charles Taze Russell, um comerciante de roupas de Pittsburgh, Pensilvânia (EUA), ficou desiludido com as doutrinas do inferno de fogo e da predestinação, pregadas pelas igrejas protestantes de sua época.</p>
+                    
+                    <h4>Grupo de Estudo e Descobertas Doutrinárias</h4>
+                    <p>Por volta de 1870, ele começou a liderar um pequeno grupo de estudo bíblico. O foco principal era decifrar as profecias da Bíblia, especialmente as relacionadas à Segunda Vinda de Cristo e ao fim do mundo.</p>
+                    
+                    <ul>
+                        <li><strong>Fim do Mundo em 1914:</strong> Com base em uma interpretação complexa das "sete vezes" do livro de Daniel, Russell calculou que 1914 seria o ano do Armagedom e do fim do sistema mundial.</li>
+                        <li><strong>A Segunda Vinda "Invisível":</strong> Acreditavam que Cristo retornou invisivelmente em 1874 e começou a reinar nos céus em 1914.</li>
+                        <li><strong>Rejeição da Trindade:</strong> Classificaram a doutrina da Trindade como pagã e não bíblica.</li>
+                        <li><strong>A Cruz é um Símbolo Pagão:</strong> Ensinam que Jesus foi morto em um poste vertical simples (estaca de tortura), não em uma cruz.</li>
+                    </ul>
+                    
+                    <h4>A Institucionalização sob Rutherford (1917-1942)</h4>
+                    <p>Com a morte de Russell em 1916, Joseph Franklin Rutherford, um advogado, assumiu a liderança. Foi ele quem moldou a organização moderna e a identidade de confronto do grupo.</p>
+                    
+                    <ul>
+                        <li><strong>Mudança de Nome:</strong> Em 1931, Rutherford oficializou o nome "Testemunhas de Jeová".</li>
+                        <li><strong>Organização Teocrática:</strong> Rutherford centralizou o poder, estabelecendo uma estrutura rígida e hierárquica.</li>
+                        <li><strong>Doutrina do "Escravo Fiel e Discreto":</strong> Desenvolveram a doutrina de que um pequeno grupo de líderes é o "escravo fiel e discreto" designado por Deus.</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Chegada a Moçambique</h3>
+                    <p>As Testemunhas de Jeová chegaram a Moçambique na década de 1920 através de publicações enviadas pelo correio. O trabalho organizado começou na década de 1930 com a visita de missionários.</p>
+                    <p>Durante o período colonial, enfrentaram restrições e perseguições. Após a independência, cresceram significativamente e hoje mantêm presença em todas as províncias do país.</p>
+                    
+                    <div class="demographics">
+                        <h4>Distribuição Geográfica</h4>
+                        <p>As Testemunhas de Jeová estão presentes em todas as províncias de Moçambique:</p>
+                        <ul>
+                            <li>Maputo: 20%</li>
+                            <li>Gaza: 15%</li>
+                            <li>Sofala: 12%</li>
+                            <li>Nampula: 10%</li>
+                            <li>Zambézia: 10%</li>
+                            <li>Outras províncias: 33%</li>
+                        </ul>
+                    </div>
+                    
+                    <h4>A Chegada e a Perseguição no Período Colonial (Décadas de 1920 - 1974)</h4>
+                    <p>Acredita-se que a literatura das Testemunhas (como a famosa revista A Sentinela) começou a entrar em Moçambique, vinda da África do Sul, ainda na década de 1920, com colonos e imigrantes.</p>
+                    
+                    <h4>Proibição Imediata</h4>
+                    <p>O Estado Novo Português, um regime católico, autoritário e nacionalista, via as Testemunhas de Jeová como uma dupla ameaça:</p>
+                    
+                    <ol>
+                        <li><strong>Ameaça Religiosa:</strong> Por rejeitarem a Igreja Católica.</li>
+                        <li><strong>Ameaça Política:</strong> Por se recusarem a participar em rituais patrióticos, servir o exército e reconhecer a autoridade do Estado.</li>
+                    </ol>
+                    
+                    <h4>Perseguição Ativa</h4>
+                    <p>A polícia secreta (PIDE) perseguiu, prendeu, torturou e deportou Testemunhas de Jeová. Os membros eram forçados a assinar declarações de renúncia à sua fé. As reuniões realizavam-se em absoluto segredo.</p>
+                    
+                    <h4>A Perseguição Continua no Período Socialista (1975 - Década de 1990)</h4>
+                    <p>Paradoxalmente, a situação não melhorou com a independência e a instauração do regime marxista-leninista da FRELIMO.</p>
+                    
+                    <p>O novo governo via as Testemunhas com as mesmas suspeitas que o regime colonial: um grupo que se recusava a participar na construção da nação, a integrar-se nas organizações políticas e a pegar em armas durante a Guerra Civil.</p>
+                    
+                    <h4>Legalização e Crescimento no Período Democrático (1991 em diante)</h4>
+                    <p>A nova constituição moçambicana, que instituiu o multipartidarismo e a liberdade religiosa, abriu caminho para a legalização do grupo.</p>
+                    
+                    <ul>
+                        <li><strong>Reconhecimento Legal (1991):</strong> Após anos de petições e lobby internacional, o governo moçambicano reconheceu legalmente as Testemunhas de Jeová.</li>
+                        <li><strong>Estratégia de Crescimento:</strong> A sede mundial enviou missionários treinados para organizar e expandir a obra.</li>
+                        <li><strong>Campanhas de Pregação Massiva:</strong> Com a liberdade, iniciaram campanhas intensivas de porta em porta e pregação pública.</li>
+                        <li><strong>Construção de "Salões do Reino":</strong> Começaram a construir os seus característicos locais de culto.</li>
+                    </ul>
+                    
+                    <div class="practices-list">
+                        <h4>Práticas e Posturas que Definem o Grupo</h4>
+                        <ul>
+                            <li><strong>Neutralidade Política e Militar:</strong> Recusam-se a votar, prestar serviço militar, fazer saudações a bandeiras ou cantar hinos nacionais.</li>
+                            <li><strong>Rejeição de Transfusões de Sangue:</strong> Interpretam passagens bíblicas como uma proibição absoluta de receber transfusões de sangue.</li>
+                            <li><strong>Cortar Laços com "Mundo Mau":</strong> São encorajados a limitar contatos sociais com não-Testemunhas.</li>
+                            <li><strong>Pregação de Porta em Porta:</strong> É uma atividade obrigatória e central na vida de cada Testemunha.</li>
+                        </ul>
+                    </div>
+                    
+                    <h4>Conclusão</h4>
+                    <p>As Testemunhas de Jeová surgiram de um grupo de estudo bíblico americano obcecado com profecias do fim do mundo. Sua história é marcada por previsões falhadas, doutrinas heterodoxas e uma postura de confronto com governos e sociedades.</p>
+                    
+                    <p>Em Moçambique, sua trajetória foi única: foram perseguidas ferozmente por dois regimes opostos consecutivos – o colonialismo português de direita e o socialismo marxista de esquerda – pela mesma razão: a sua recusa absoluta em se assimilarem a qualquer autoridade terrestre.</p>
+                    
+                    <p>Apenas com a democratização é que puderam sair da clandestinidade e crescer, utilizando sua meticulosa e bem financiada máquina global de pregação para se estabelecerem como uma presença religiosa distinta e frequentemente controversa no panorama moçambicano.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Seção de Tópicos -->
+        <section class="topics-section">
+            <div class="topics-header">
+                <h2>Tópicos Relacionados</h2>
+            </div>
+            
+            <div class="tabs">
+                <button class="tab-button active" data-tab="tab1">
+                    <i class="fas fa-history"></i> História
+                </button>
+                <button class="tab-button" data-tab="tab2">
+                    <i class="fas fa-map-marked-alt"></i> Distribuição
+                </button>
+                <button class="tab-button" data-tab="tab3">
+                    <i class="fas fa-hands"></i> Práticas
+                </button>
+            </div>
+            
+            <div class="tab-content active" id="tab1">
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <h4>Origens nos EUA</h4>
+                        <p>As Testemunhas de Jeová surgiram nos Estados Unidos no final do século XIX, a partir dos estudos bíblicos de Charles Taze Russell.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Desenvolvimento Doutrinário</h4>
+                        <p>Desenvolveram doutrinas distintivas como a rejeição da Trindade, a neutralidade política e a recusa a transfusões de sangue.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Expansão Global</h4>
+                        <p>Expandiu-se globalmente através de um intenso trabalho missionário e distribuição de literatura religiosa.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="tab2">
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <h4>Presença Nacional</h4>
+                        <p>As Testemunhas de Jeová estão presentes em todas as províncias de Moçambique, com congregações organizadas.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Salões do Reino</h4>
+                        <p>Mantêm "Salões do Reino" (locais de culto) em todas as principais cidades e em muitas áreas rurais.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Distribuição Equilibrada</h4>
+                        <p>A distribuição de membros é relativamente equilibrada entre áreas urbanas e rurais.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="tab3">
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <h4>Evangelização</h4>
+                        <p>Prática regular de evangelização de casa em casa e distribuição de literatura religiosa.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Reuniões</h4>
+                        <p>Realizam reuniões regulares para estudo bíblico e fortalecimento espiritual.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Convenções</h4>
+                        <p>Organizam convenções anuais que reúnem membros de várias congregações.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-book-bible"></i>
+                </div>
+                <nav class="footer-nav">
+                    <a href="index.html">Início</a>
+                    <a href="#">Sobre</a>
+                    <a href="#">Religiões</a>
+                    <a href="#">Contacto</a>
+                    <a href="#">Privacidade</a>
+                </nav>
+                <p class="copyright">© 2023 Um País, Muitas Crenças. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Botão Voltar ao Topo -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <script>
+        // Script para as abas
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+                    
+                    // Remove a classe active de todos os botões e conteúdos
+                    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                    
+                    // Adiciona a classe active ao botão clicado
+                    button.classList.add('active');
+                    
+                    // Mostra o conteúdo correspondente
+                    document.getElementById(targetTab).classList.add('active');
+                });
+            });
+            
+            // Botão voltar ao topo
+            const backToTopButton = document.querySelector('.back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.style.display = 'flex';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            });
+            
+            backToTopButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidades Islâmicas - Um País Muitas Crenças</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --islamic-green: #0d8c4d;
+            --gold: #d4af37;
+            --cream: #f8f4e3;
+            --dark-blue: #1a3a5f;
+            --light-gold: #f5e9c9;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: var(--cream);
+            color: #333;
+            line-height: 1.6;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d4af37' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .topic-detail {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .topic-detail:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--islamic-green) 0%, var(--gold) 100%);
+        }
+        
+        .topic-detail:after {
+            content: "";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: var(--light-gold);
+            opacity: 0.2;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Amiri', serif;
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            padding: 25px 25px 10px;
+            color: var(--islamic-green);
+            text-align: center;
+            border-bottom: 1px solid var(--light-gold);
+            margin-bottom: 0;
+            position: relative;
+        }
+        
+        h1:after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 3px;
+            background-color: var(--gold);
+            margin: 15px auto 0;
+            border-radius: 3px;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 30px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--light-gold);
+            color: var(--islamic-green);
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 20px;
+            color: var(--dark-blue);
+        }
+        
+        .topic-meta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 15px 25px;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .topic-meta i {
+            margin-right: 5px;
+            color: var(--islamic-green);
+        }
+        
+        .topic-content {
+            padding: 25px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+        
+        li:before {
+            content: "";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--gold);
+            margin-right: 10px;
+        }
+        
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .image-card {
+            flex: 1 1 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .image-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .image-caption {
+            padding: 10px;
+            background-color: white;
+            font-size: 0.9rem;
+            color: #555;
+            text-align: center;
+            border-top: 3px solid var(--islamic-green);
+        }
+        
+        .islamic-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .navigation-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: var(--islamic-green);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid var(--islamic-green);
+        }
+        
+        .nav-button:hover {
+            background-color: transparent;
+            color: var(--islamic-green);
+        }
+        
+        .quote {
+            font-family: 'Amiri', serif;
+            font-size: 1.2rem;
+            font-style: italic;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: var(--light-gold);
+            border-left: 5px solid var(--gold);
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .quote:before, .quote:after {
+            content: "";
+            font-size: 2rem;
+            color: var(--gold);
+        }
+        
+        @media (max-width: 768px) {
+            .image-gallery {
+                flex-direction: column;
+            }
+            
+            .navigation-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .nav-button {
+                text-align: center;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<!-- Google tag (gtag.js) --> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VJDQ8Z1NQG"></script> 
+<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-VJDQ8Z1NQG'); </script>
+<body>
+    <div class="container">
+        <article class="topic-detail">
+            <h1>Comunidades Islâmicas em Moçambique</h1>
+            
+            <div class="topic-meta">
+                <span><i class="fas fa-clock"></i> Tempo de leitura: 13 minutos</span>
+                <span><i class="fas fa-calendar"></i> Atualizado em: Novembro de 2023</span>
+            </div>
+            
+            <div class="topic-content">
+                <div class="islamic-pattern">
+                    <p>O Islão tem uma longa história em Moçambique, datando da chegada de comerciantes árabes e persas à costa do Índico há mais de mil anos. Estas comunidades desenvolveram-se e integraram-se na tecido social moçambicano, contribuindo significativamente para a cultura e economia do país.</p>
+                </div>
+                
+                <h2>Distribuição Geográfica</h2>
+                <p>As comunidades muçulmanas em Moçambique estão concentradas principalmente nas províncias do norte e ao longo da costa, com significativa presença em:</p>
+                
+                <div class="image-gallery">
+                    <div class="image-card">
+                        <img src="https://images.unsplash.com/photo-1571554204880-7046a9c6068a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Mesquita em Moçambique">
+                        <div class="image-caption">Mesquita na província de Cabo Delgado</div>
+                    </div>
+                    <div class="image-card">
+                        <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Comunidade Islâmica">
+                        <div class="image-caption">Comunidade islâmica em Nampula</div>
+                    </div>
+                </div>
+                
+                <h3>Províncias do Norte</h3>
+                <p>Cabo Delgado, Nampula e Niassa têm as maiores concentrações de muçulmanos, representando a maioria da população em muitos distritos.</p>
+                
+                <h3>Áreas Costeiras</h3>
+                <p>As províncias da Zambézia e Sofala têm comunidades muçulmanas significativas, especialmente em cidades costeiras como Quelimane e Beira.</p>
+                
+                <h3>Centros Urbanos</h3>
+                <p>Maputo e outras cidades maiores têm comunidades muçulmanas diversificadas, incluindo moçambicanos de outras regiões e imigrantes de outros países muçulmanos.</p>
+                
+                <h2>Diversidade de Comunidades</h2>
+                <p>As comunidades islâmicas em Moçambique não são monolíticas, mas incluem diversas tradições e grupos:</p>
+                
+                <div class="image-gallery">
+                    <div class="image-card">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Arquitetura Islâmica">
+                        <div class="image-caption">Influência arquitetónica islâmica</div>
+                    </div>
+                    <div class="image-card">
+                        <img src="https://images.unsplash.com/photo-1591607388349-4bb2f3455c4c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Arte Islâmica">
+                        <div class="image-caption">Arte e caligrafia islâmica</div>
+                    </div>
+                </div>
+                
+                <h3>Sunitas</h3>
+                <p>A grande maioria dos muçulmanos moçambicanos são sunitas, seguindo principalmente a escola Shafi'i de jurisprudência.</p>
+                
+                <h3>Sufistas</h3>
+                <p>As ordens sufistas (tariqas) têm uma presença significativa, especialmente a Qadiriyya e a Shadhiliyya. Estas ordens enfatizam a dimensão espiritual e mística do Islão.</p>
+                
+                <h3>Xiitas</h3>
+                <p>Existe uma pequena minoria xiita, composta principalmente por descendentes de imigrantes do subcontinente indiano e do Médio Oriente.</p>
+                
+                <h3>Reformistas</h3>
+                <p>Nas últimas décadas, surgiram influências reformistas e salafistas, especialmente entre os jovens e nas áreas urbanas.</p>
+                
+                <div class="quote">
+                    "A diversidade dentro da comunidade islâmica moçambicana reflete a riqueza cultural e histórica do país."
+                </div>
+                
+                <h2>Organizações Islâmicas</h2>
+                <p>Várias organizações representam e servem as comunidades muçulmanas em Moçambique:</p>
+                
+                <h3>Conselho Islâmico de Moçambique</h3>
+                <p>A principal organização representativa dos muçulmanos no país, envolvida em questões religiosas, educacionais e sociais.</p>
+                
+                <h3>Associações Locais</h3>
+                <p>Muitas comunidades têm associações locais que gerem mesquitas, escolas islâmicas e projetos comunitários.</p>
+                
+                <h3>Organizações de Ajuda</h3>
+                <p>Organizações islâmicas nacionais e internacionais envolvem-se em trabalho humanitário e de desenvolvimento em comunidades muçulmanas.</p>
+                
+                <div class="image-gallery">
+                    <div class="image-card">
+                        <img src="https://images.unsplash.com/photo-1572883781464-1cb2bb4456f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Educação Islâmica">
+                        <div class="image-caption">Escola islâmica (madrassa) em Moçambique</div>
+                    </div>
+                </div>
+                
+                <h2>Contribuições Sociais</h2>
+                <p>As comunidades islâmicas em Moçambique contribuem significativamente para a sociedade através de:</p>
+                
+                <h3>Educação</h3>
+                <p>Madraças e escolas islâmicas proporcionam educação religiosa e secular para milhares de crianças.</p>
+                
+                <h3>Saúde</h3>
+                <p>Algumas comunidades islâmicas administram centros de saúde e promovem campanhas de saúde pública.</p>
+                
+                <h3>Economia</h3>
+                <p>Muçulmanos estão envolvidos em diversos sectores económicos, desde o comércio tradicional até negócios modernos.</p>
+                
+                <h2>Desafios e Oportunidades</h2>
+                <p>As comunidades islâmicas em Moçambique enfrentam diversos desafios, incluindo:</p>
+                <ul>
+                    <li>Integração nacional e coexistência com outras comunidades religiosas</li>
+                    <li>Desenvolvimento socioeconómico das regiões onde estão majoritariamente presentes</li>
+                    <li>Educação e formação de líderes religiosos</li>
+                    <li>Resposta ao extremismo violento em algumas áreas do norte</li>
+                </ul>
+                
+                <p>Ao mesmo tempo, estas comunidades têm oportunidades únicas para contribuir para o desenvolvimento do país e para o diálogo inter-religioso.</p>
+                
+                <div class="navigation-links">
+                    <a href="islamismo-ramada.html" class="nav-button">Tópico Anterior: Ramadã e Celebrações</a>
+                    <a href="estudos.html" class="nav-button">Voltar para Área de Estudo</a>
+                </div>
+            </div>
+        </article>
+    </div>
+     <script src="seg.js"></script>
+</body>
+</html>

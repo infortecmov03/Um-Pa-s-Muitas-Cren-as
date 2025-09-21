@@ -1,0 +1,13 @@
+seu-site/
+├── index.html
+├── estudos.html
+├── topicos/
+│   ├── topico-cristianismo-historia.html
+│   ├── topico-cristianismo-denominacoes.html
+│   ├── topico-islamismo-chegada.html
+│   └── ... (outras páginas de tópicos)
+├── assets/
+│   ├── css/
+│   ├── js/
+│   └── images/
+└── sobre.html

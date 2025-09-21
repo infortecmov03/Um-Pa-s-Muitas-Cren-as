@@ -5,12 +5,177 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Área de Estudo - Um País Muitas Crenças</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/assets/css/estudos.css">
+    <link rel="stylesheet" href="estudos.css">
     <style>
-       
+        /* Novos estilos adicionados */
+        .search-container {
+            margin: 1.5rem 0;
+            text-align: center;
+        }
         
+        .search-box {
+            display: inline-flex;
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid var(--primary-color);
+            border-radius: 30px;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
+        }
+        
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background: var(--primary-color);
+            border: none;
+            color: white;
+            border-radius: 30px;
+            padding: 7px 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-btn:hover {
+            background: var(--secondary-color);
+        }
+        
+        .progress-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .progress-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            min-width: 120px;
+        }
+        
+        .progress-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        
+        .progress-value {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+        
+        .progress-text {
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        .topic-item, .read-more {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .topic-item::before, .read-more::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.5s ease;
+        }
+        
+        .topic-item:hover::before, .read-more:hover::before {
+            left: 100%;
+        }
+        
+        .resource-item {
+            transition: transform 0.3s ease;
+        }
+        
+        .resource-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        @media (max-width: 768px) {
+            .progress-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .progress-item {
+                width: 100%;
+                max-width: 200px;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
     </style>
 </head>
+<!-- Google tag (gtag.js) --> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VJDQ8Z1NQG"></script> 
+<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-VJDQ8Z1NQG'); </script>
 <body>
     <!-- Header -->
     <header>
@@ -34,10 +199,42 @@
     
     <!-- Main Content -->
     <main class="container">
+        <!-- Barra de pesquisa -->
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="Pesquisar tópicos...">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+        
         <section class="study-section">
             <div class="study-header">
                 <h2>Estudos Detalhados sobre Religiões</h2>
                 <p>Navegue pelos tópicos abaixo para acessar conteúdos aprofundados sobre cada aspecto das religiões praticadas em Moçambique.</p>
+            </div>
+            
+            <!-- Indicadores de progresso -->
+            <div class="progress-container">
+                <div class="progress-item">
+                    <div class="progress-circle">
+                        <span class="progress-value">24</span>
+                    </div>
+                    <span class="progress-text">Tópicos Disponíveis</span>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-circle">
+                        <span class="progress-value">3</span>
+                    </div>
+                    <span class="progress-text">Categorias</span>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-circle">
+                        <span class="progress-value">8</span>
+                    </div>
+                    <span class="progress-text">Recursos</span>
+                </div>
             </div>
             
             <!-- Religion Categories -->
@@ -48,19 +245,19 @@
                         <h3>Cristianismo</h3>
                     </div>
                     <div class="topics-list">
-                        <a href="/topicos/topico-cristianismo-historia.html" class="topic-item">
+                        <a href="História do Cristianismo em Moçambique.html" class="topic-item">
                             <span>História e Desenvolvimento</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
-                        <a href="/topicos/topico-cristianismo-denominacoes.html" class="topic-item">
+                        <a href="Denominações Cristãs em Moçambique.html" class="topic-item">
                             <span>Principais Denominações</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
-                        <a href="topico-cristianismo-festividades.html" class="topic-item">
+                        <a href="Festividades Cristãs em Moçambique e no Mundo.html" class="topic-item">
                             <span>Festividades e Celebrações</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
-                        <a href="topico-cristianismo-influencia.html" class="topic-item">
+                        <a href="Influência Cultural do Cristianismo em Moçambique.html" class="topic-item">
                             <span>Influência Cultural</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
@@ -73,19 +270,19 @@
                         <h3>Islamismo</h3>
                     </div>
                     <div class="topics-list">
-                        <a href="/topicos/topico-islamismo-chegada.html" class="topic-item">
+                        <a href="Chegada do Islamismo a Moçambique.html" class="topic-item">
                             <span>Chegada e Expansão</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
-                        <a href="topico-islamismo-tradicoes.html" class="topic-item">
+                        <a href="Tradições do Islamismo.html" class="topic-item">
                             <span>Tradições e Práticas</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
-                        <a href="topico-islamismo-ramada.html" class="topic-item">
+                        <a href="Ramadã e Celebrações Islâmicas.html" class="topic-item">
                             <span>Ramadã e Outras Celebrações</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
-                        <a href="topico-islamismo-comunidades.html" class="topic-item">
+                        <a href="Comunidades Islâmicas.html" class="topic-item">
                             <span>Comunidades Islâmicas</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
@@ -102,7 +299,7 @@
                             <span>Culto aos Ancestrais</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
-                        <a href="topico-tradicionais-ritos.html" class="topic-item">
+                        <a href="topico-tradicionais-rites.html" class="topic-item">
                             <span>Ritos de Iniciação</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
@@ -132,7 +329,7 @@
                         </div>
                         <div class="topic-card-body">
                             <p>Como diferentes tradições religiosas se misturam e coexistem na cultura moçambicana, criando práticas únicas e diversificadas.</p>
-                            <a href="topico-sincretismo.html" class="read-more">Ler Mais</a>
+                            <a href="Sincretismo Religioso.html" class="read-more">Ler Mais</a>
                         </div>
                     </div>
                     
@@ -142,7 +339,7 @@
                         </div>
                         <div class="topic-card-body">
                             <p>O papel das instituições religiosas durante a luta pela independência de Moçambique e seu impacto no processo de libertação.</p>
-                            <a href="topico-religiao-independencia.html" class="read-more">Ler Mais</a>
+                            <a href="Religião e Independência.html" class="read-more">Ler Mais</a>
                         </div>
                     </div>
                     
@@ -152,7 +349,7 @@
                         </div>
                         <div class="topic-card-body">
                             <p>O papel e a representação feminina nas diferentes tradições religiosas moçambicanas, dos rituais tradicionais às religiões abraâmicas.</p>
-                            <a href="topico-mulheres-religiao.html" class="read-more">Ler Mais</a>
+                            <a href="Mulheres nas Religiões.html" class="read-more">Ler Mais</a>
                         </div>
                     </div>
                 </div>
@@ -168,7 +365,7 @@
                 <div class="resources-grid">
                     <div class="resource-item">
                         <i class="fas fa-book"></i>
-                        <h4>Bibliografia</h4>
+                        <a href="Biblioteca Digital.html"><h4>Biblioteca</h4></a>
                         <p>Lista de livros e publicações recomendadas</p>
                     </div>
                     
@@ -180,7 +377,7 @@
                     
                     <div class="resource-item">
                         <i class="fas fa-map-marked-alt"></i>
-                        <h4>Mapas Interativos</h4>
+                       <a href="Distribuição Religiosa em Moçambique.html"><h4>Mapas Interativos</h4></a> 
                         <p>Distribuição geográfica das religiões</p>
                     </div>
                     
@@ -193,6 +390,11 @@
             </div>
         </section>
     </main>
+    
+    <!-- Botão Voltar ao Topo -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
     
     <!-- Footer -->
     <footer>
@@ -243,8 +445,57 @@
             window.addEventListener('scroll', animateOnScroll);
             // Executa uma vez no carregamento para elementos já visíveis
             animateOnScroll();
+            
+            // Botão Voltar ao Topo
+            const backToTopButton = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Funcionalidade de pesquisa
+            const searchInput = document.querySelector('.search-input');
+            const topicItems = document.querySelectorAll('.topic-item');
+            const topicCards = document.querySelectorAll('.topic-card');
+            
+            searchInput.addEventListener('input', () => {
+                const searchTerm = searchInput.value.toLowerCase();
+                
+                // Filtra os tópicos das categorias
+                topicItems.forEach(item => {
+                    const text = item.textContent.toLowerCase();
+                    if (text.includes(searchTerm)) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+                
+                // Filtra os tópicos em destaque
+                topicCards.forEach(card => {
+                    const title = card.querySelector('h4').textContent.toLowerCase();
+                    const description = card.querySelector('p').textContent.toLowerCase();
+                    
+                    if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
         });
     </script>
-    <script src="/assets/js/seg.js"></script>
+    <script src="seg.js"></script>
 </body>
 </html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mulheres nas Religiões - Um País Muitas Crenças</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #faf7f5;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23e8d6cf' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(rgba(138, 75, 175, 0.4), rgba(94, 44, 165, 0.4)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%238a4baf" fill-opacity="0.3"/><path d="M30,30 Q50,10 70,30 T90,50 T70,70 T30,70 T10,50 T30,30" fill="none" stroke="%23ffffff" stroke-width="2"/><circle cx="50" cy="50" r="20" fill="none" stroke="%23ffffff" stroke-width="2"/></svg>');
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-image::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpath d='M0 0 L80 80 M80 0 L0 80' stroke='%23ffffff' stroke-width='0.5' opacity='0.2'/%3E%3C/svg%3E");
+            opacity: 0.1;
+        }
+        
+        .header-image h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            max-width: 800px;
+            padding: 20px;
+            z-index: 1;
+        }
+        
+        .topic-detail {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .topic-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e8d6cf;
+            flex-wrap: wrap;
+        }
+        
+        .topic-meta span {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+            margin-bottom: 10px;
+            color: #8a4baf;
+            font-size: 0.9rem;
+        }
+        
+        .topic-meta i {
+            margin-right: 8px;
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: #6b2c8e;
+            margin: 25px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e8d6cf;
+            display: flex;
+            align-items: center;
+        }
+        
+        h2 i {
+            margin-right: 10px;
+            background: #f4e9f7;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        h3 {
+            font-family: 'Playfair Display', serif;
+            color: #8a4baf;
+            margin: 20px 0 10px;
+            padding-left: 15px;
+            border-left: 4px solid #e8d6cf;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+        
+        li::before {
+            content: "●";
+            color: #8a4baf;
+            font-size: 0.8rem;
+            position: absolute;
+            left: -20px;
+            top: 2px;
+        }
+        
+        .image-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .image-card {
+            flex: 1;
+            min-width: 250px;
+            background: #f9f4f9;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .image-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .image-placeholder {
+            height: 180px;
+            background-color: #e8d6cf;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b2c8e;
+            font-size: 3rem;
+        }
+        
+        .image-content {
+            padding: 15px;
+        }
+        
+        .image-content h4 {
+            font-family: 'Playfair Display', serif;
+            color: #6b2c8e;
+            margin-bottom: 10px;
+        }
+        
+        .navigation-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e8d6cf;
+            flex-wrap: wrap;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #6b2c8e;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-bottom: 10px;
+        }
+        
+        .nav-button:hover {
+            background: #8a4baf;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(138, 75, 175, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .header-image h1 {
+                font-size: 2rem;
+            }
+            
+            .topic-meta {
+                flex-direction: column;
+            }
+            
+            .navigation-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .nav-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<!-- Google tag (gtag.js) --> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VJDQ8Z1NQG"></script> 
+<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-VJDQ8Z1NQG'); </script>
+<body>
+    <div class="container">
+        <div class="header-image">
+            <h1>Mulheres nas Religiões de Moçambique</h1>
+        </div>
+        
+        <article class="topic-detail">
+            <div class="topic-meta">
+                <span><i class="fas fa-clock"></i> Tempo de leitura: 12 minutos</span>
+                <span><i class="fas fa-calendar"></i> Atualizado em: Novembro de 2023</span>
+            </div>
+            
+            <div class="topic-content">
+                <h2><i class="fas fa-seedling"></i> Introdução</h2>
+                <p>O papel das mulheres nas diferentes tradições religiosas de Moçambique é diverso e complexo, refletindo tanto as tradições culturais africanas quanto as influências das religiões abraâmicas. Este tópico explora a participação, liderança e influência das mulheres nas diversas expressões religiosas do país.</p>
+                
+                <div class="image-section">
+                    <div class="image-card">
+                        <div class="image-placeholder">
+                            <i class="fas fa-church"></i>
+                        </div>
+                        <div class="image-content">
+                            <h4>Mulheres na Fé</h4>
+                            <p>Representação artística da diversidade de papéis femininos nas religiões moçambicanas.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2><i class="fas fa-cross"></i> Mulheres no Cristianismo</h2>
+                <p>No Cristianismo moçambicano, as mulheres desempenham papéis variados conforme a denominação:</p>
+                
+                <h3>Igrejas Históricas</h3>
+                <p>Nas igrejas Católica, Anglicana e Metodista, as mulheres são frequentemente a base das comunidades paroquiais, participando ativamente em grupos de oração, coros e atividades comunitárias. Embora a ordenação sacerdotal de mulheres varie entre denominações, muitas exercem ministérios leigos significativos.</p>
+                
+                <h3>Igrejas Pentecostais e Carismáticas</h3>
+                <p>Estas denominações frequentemente oferecem mais oportunidades para a liderança feminina, com muitas mulheres servindo como pastoras, evangelistas e missionárias. A ênfase nos dons espirituais permite que as mulheres exerçam ministérios baseados em carismas percebidos rather than apenas em estruturas hierárquicas.</p>
+                
+                <h3>Igrejas Africanas Independentes</h3>
+                <p>Muitas igrejas independentes africanas valorizam significativamente as mulheres, que frequentemente servem como profetisas, curandeiras e líderes de culto. Em algumas tradições, as mulheres são consideradas particularmente receptivas à comunicação com o mundo espiritual.</p>
+                
+                <div class="image-section">
+                    <div class="image-card">
+                        <div class="image-placeholder">
+                            <i class="fas fa-pray"></i>
+                        </div>
+                        <div class="image-content">
+                            <h4>Liderança Feminina</h4>
+                            <p>Mulheres exercendo funções de liderança em comunidades cristãs moçambicanas.</p>
+                        </div>
+                    </div>
+                    <div class="image-card">
+                        <div class="image-placeholder">
+                            <i class="fas fa-hands-praying"></i>
+                        </div>
+                        <div class="image-content">
+                            <h4>Celebração Comunitária</h4>
+                            <p>Mulheres participando ativamente nas celebrações e rituais religiosos.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2><i class="fas fa-mosque"></i> Mulheres no Islamismo</h2>
+                <p>Nas comunidades islâmicas moçambicanas, as mulheres desempenham papéis importantes tanto na esfera privada quanto pública:</p>
+                
+                <h3>Educação Religiosa</h3>
+                <p>Muitas mulheres muçulmanas são educadoras religiosas, ensinando o Alcorão e os princípios islâmicos para crianças e outras mulheres. As madraças femininas são espaços importantes de transmissão do conhecimento religioso.</p>
+                
+                <h3>Liderança Comunitária</h3>
+                <p>Embora a liderança formal nas mesquitas seja predominantemente masculina, as mulheres exercem influência significativa através de associações femininas e redes sociais islâmicas. Em algumas comunidades, mulheres idosas são respeitadas como guardiãs da tradição religiosa.</p>
+                
+                <div class="image-section">
+                    <div class="image-card">
+                        <div class="image-placeholder">
+                            <i class="fas fa-book-quran"></i>
+                        </div>
+                        <div class="image-content">
+                            <h4>Estudo Religioso</h4>
+                            <p>Mulheres muçulmanas estudando e ensinando o Alcorão em comunidades moçambicanas.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2><i class="fas fa-leaf"></i> Mulheres nas Religiões Tradicionais</h2>
+                <p>Nas religiões tradicionais africanas, as mulheres frequentemente ocupam posições centrais:</p>
+                
+                <h3>Sacerdotisas e Curandeiras</h3>
+                <p>Muitas mulheres servem como sacerdotisas, médiuns e curandeiras tradicionais, desempenhando papéis cruciais nos rituais de cura, adivinhação e comunicação com os ancestrais.</p>
+                
+                <h3>Guardãs da Tradição</h3>
+                <p>As mulheres são frequentemente as principais transmissoras das tradições orais, mitos e práticas culturais relacionadas com a espiritualidade tradicional.</p>
+                
+                <div class="image-section">
+                    <div class="image-card">
+                        <div class="image-placeholder">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <div class="image-content">
+                            <h4>Rituais Tradicionais</h4>
+                            <p>Mulheres desempenhando papéis centrais em cerimônias de religiões tradicionais.</p>
+                        </div>
+                    </div>
+                    <div class="image-card">
+                        <div class="image-placeholder">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <div class="image-content">
+                            <h4>Conhecimento Ancestral</h4>
+                            <p>Transmissão de saberes tradicionais entre gerações de mulheres.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2><i class="fas fa-hands-helping"></i> Desafios e Avanços</h2>
+                <p>As mulheres religiosas em Moçambique enfrentam diversos desafios, incluindo:</p>
+                <ul>
+                    <li>Limitações ao acesso a posições de liderança em algumas tradições</li>
+                    <li>Tensões entre papéis tradicionais e modernos</li>
+                    <li>Questões de interpretação religiosa e direitos das mulheres</li>
+                </ul>
+                
+                <p>Apesar dos desafios, muitas mulheres têm conseguido avanços significativos, reivindicando espaços de liderança e reinterpretando tradições de formas que valorizem sua participação.</p>
+                
+                <div class="image-section">
+                    <div class="image-card">
+                        <div class="image-placeholder">
+                            <i class="fas fa-fist-raised"></i>
+                        </div>
+                        <div class="image-content">
+                            <h4>Empoderamento</h4>
+                            <p>Mulheres religiosas conquistando espaços de liderança e influência.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-links">
+                    <a href="estudos.html" class="nav-button">Voltar para Área de Estudo</a>
+                    <a href="Religião e Independência.html" class="nav-button">Próximo Tópico: Religião e Independência</a>
+                </div>
+            </div>
+        </article>
+    </div>
+     <script src="seg.js"></script>
+</body>
+</html>
