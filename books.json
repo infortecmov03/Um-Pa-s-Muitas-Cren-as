@@ -1,0 +1,98 @@
+[
+    {
+        "id": 1,
+        "title": "Cristianismo em Moçambique: História e Influência",
+        "author": "Por João M. Silva",
+        "description": "Uma análise profunda da chegada e desenvolvimento do Cristianismo em Moçambique, desde os primeiros missionários até os dias atuais.",
+        "category": "cristianismo",
+        "size": "5.2MB",
+        "rating": 4.8,
+        "cover": "https://via.placeholder.com/250x350/4CAF50/FFFFFF?text=Cristianismo+em+Moçambique",
+        "downloadUrl": "https://drive.google.com/uc?export=download&id=SEU_ID_DO_DRIVE_AQUI",
+        "featured": false
+    },
+    {
+        "id": 2,
+        "title": "Islão na Costa Suaíli: A Presença em Moçambique",
+        "author": "Por Amina Saleh",
+        "description": "Estudo detalhado sobre a história do Islão nas regiões costeiras de Moçambique e sua influência na cultura e sociedade local.",
+        "category": "islamismo",
+        "size": "4.7MB",
+        "rating": 4.6,
+        "cover": "https://via.placeholder.com/250x350/2196F3/FFFFFF?text=Islão+na+Costa+Suaíli",
+        "downloadUrl": "https://drive.google.com/uc?export=download&id=SEU_ID_DO_DRIVE_AQUI",
+        "featured": false
+    },
+    {
+        "id": 3,
+        "title": "Religiões Tradicionais Africanas em Moçambique",
+        "author": "Por Carlos Ngunga",
+        "description": "Exploração das crenças, rituais e práticas das religiões tradicionais africanas nas diferentes etnias moçambicanas.",
+        "category": "tradicionais",
+        "size": "6.1MB",
+        "rating": 4.9,
+        "cover": "https://via.placeholder.com/250x350/FF9800/FFFFFF?text=Religiões+Tradicionais+Africanas",
+        "downloadUrl": "https://drive.google.com/uc?export=download&id=SEU_ID_DO_DRIVE_AQUI",
+        "featured": false
+    },
+    {
+        "id": 4,
+        "title": "Religiões Minoritárias em Moçambique",
+        "author": "Por Maria José & Hassan Farouk",
+        "description": "Panorama das religiões com menor expressão demográfica em Moçambique, incluindo Hinduísmo, Judaísmo e Fé Bahá'í.",
+        "category": "outras",
+        "size": "3.8MB",
+        "rating": 4.5,
+        "cover": "https://via.placeholder.com/250x350/9C27B0/FFFFFF?text=Religiões+Minoritárias+em+Moçambique",
+        "downloadUrl": "https://drive.google.com/uc?export=download&id=SEU_ID_DO_DRIVE_AQUI",
+        "featured": false
+    },
+    {
+        "id": 5,
+        "title": "Igrejas Independentes Africanas: O Caso de Moçambique",
+        "author": "Por Eduardo Mondlane Jr.",
+        "description": "Análise do surgimento e crescimento das igrejas independentes de matriz africana no contexto moçambicano.",
+        "category": "cristianismo",
+        "size": "4.2MB",
+        "rating": 4.7,
+        "cover": "https://via.placeholder.com/250x350/4CAF50/FFFFFF?text=Igrejas+Independentes+Africanas",
+        "downloadUrl": "https://drive.google.com/uc?export=download&id=SEU_ID_DO_DRIVE_AQUI",
+        "featured": false
+    },
+    {
+        "id": 6,
+        "title": "Islão no Norte de Moçambique: Tradição e Modernidade",
+        "author": "Por Abdul Kamal",
+        "description": "Estudo sobre as comunidades islâmicas nas províncias do norte de Moçambique e sua adaptação aos tempos modernos.",
+        "category": "islamismo",
+        "size": "5.5MB",
+        "rating": 4.8,
+        "cover": "https://via.placeholder.com/250x350/2196F3/FFFFFF?text=Islão+no+Norte+de+Moçambique",
+        "downloadUrl": "https://drive.google.com/uc?export=download&id=SEU_ID_DO_DRIVE_AQUI",
+        "featured": false
+    },
+    {
+        "id": 7,
+        "title": "Ritos de Iniciação nas Culturas Moçambicanas",
+        "author": "Por Luisa Chivite",
+        "description": "Análise comparativa dos ritos de passagem em diferentes grupos étnicos de Moçambique e seu significado cultural e espiritual.",
+        "category": "tradicionais",
+        "size": "7.2MB",
+        "rating": 5.0,
+        "cover": "https://via.placeholder.com/250x350/FF9800/FFFFFF?text=Ritos+de+Iniciação",
+        "downloadUrl": "https://drive.google.com/uc?export=download&id=SEU_ID_DO_DRIVE_AQUI",
+        "featured": true
+    },
+    {
+        "id": 8,
+        "title": "Sincretismo Religioso em Moçambique",
+        "author": "Por Ana Muchanga",
+        "description": "Estudo sobre a mistura de elementos de diferentes tradições religiosas na prática espiritual dos moçambicanos.",
+        "category": "outras",
+        "size": "4.9MB",
+        "rating": 4.9,
+        "cover": "https://via.placeholder.com/250x350/9C27B0/FFFFFF?text=Sincretismo+Religioso",
+        "downloadUrl": "https://drive.google.com/file/d/12vRvnD6FfmoEsTk2MVO8R76XOaRJZaTh/view?usp=sharing",
+        "featured": true
+    }
+]
