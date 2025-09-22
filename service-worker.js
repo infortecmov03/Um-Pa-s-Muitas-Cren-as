@@ -4,6 +4,8 @@ const OFFLINE_URL = '/index.html';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
+  '/version.json',
+  '/books.json',
   '/style.css',
   '/Um País Muitas Crenças.css',
   '/Menu Hambúrguer.css',
