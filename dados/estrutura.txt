@@ -1,0 +1,35 @@
+projeto-religiao-mocambique/
+│
+├── index.html
+├── css/
+│   ├── estilo-principal.css
+│   └── componentes.css
+├── js/
+│   ├── main.js
+│   ├── menu-hamburguer.js
+│   └── denominacoes-cristas.js
+├── paginas/
+│   ├── biblioteca.html
+│   ├── chegada-islamismo.html
+│   ├── comunidade-islamica.html
+│   ├── contacto.html
+│   ├── cristianismo.html
+│   ├── denominacoes-cristas-mocambique.html
+│   ├── distribuicao-religiosa.html
+│   ├── estudos.html
+│   ├── festividades.html
+│   ├── historico-cristianismo.html
+│   ├── historico-islamismo.html
+│   ├── influencia-cultural.html
+│   ├── sincretismo.html
+│   ├── adventista.html
+│   ├── testemunhas.html
+│   ├── universal.html
+│   ├── catolica.html
+│   └── mulheres.html
+├── dados/
+│   ├── textos.json
+│   └── content-manifest.json
+├── manifest.json
+├── package.json
+└── service-worker.js
