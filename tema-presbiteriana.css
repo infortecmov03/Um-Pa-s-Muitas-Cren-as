@@ -1,0 +1,7 @@
+/* tema-presbiteriana.css - A ROUPA */
+
+:root {
+    --cor-primaria: #1a5276;       /* Azul escuro sóbrio */
+    --cor-acento: #2e86c1;         /* Azul mais claro para links e detalhes */
+    --cor-texto-primario: #ffffff;   /* Branco para contrastar com o azul */
+}

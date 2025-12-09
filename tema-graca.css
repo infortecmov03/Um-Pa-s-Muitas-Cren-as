@@ -1,0 +1,7 @@
+/* tema-graca.css - A ROUPA */
+
+:root {
+    --cor-primaria: #1a3c6e;       /* Azul escuro, corporativo */
+    --cor-acento: #2c5ba3;         /* Azul mais claro */
+    --cor-texto-primario: #ffffff;   /* Branco para contrastar com o azul */
+}

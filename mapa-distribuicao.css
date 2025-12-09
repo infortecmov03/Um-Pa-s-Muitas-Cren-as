@@ -1,0 +1,104 @@
+
+/* Estilos para a página do mapa de distribuição */
+
+/* Mapa e controles */
+.map-section {
+    padding: 2rem 0;
+}
+
+.map-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.map-header h2 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.map-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#map {
+    height: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 1;
+}
+
+.map-controls {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.religion-legend h3, .province-info h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 3px;
+}
+
+.province-info {
+    background-color: #f5f5f5;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+.stat-bar {
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    margin: 0.5rem 0;
+    overflow: hidden;
+}
+
+.stat-fill {
+    height: 100%;
+    border-radius: 5px;
+}
+
+.stat-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+/* Media Queries para responsividade */
+@media (min-width: 900px) {
+    .map-container {
+        flex-direction: row;
+    }
+    
+    .map-controls {
+        width: 300px;
+    }
+    
+    #map {
+        flex-grow: 1;
+        height: 600px;
+    }
+}
+
+@media (max-width: 768px) {
+    #map {
+        height: 400px;
+    }
+}

@@ -1,534 +1,129 @@
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sincretismo Religioso - Um País Muitas Crenças</title>
+    <title>Sincretismo Religioso: A Alma de Moçambique - Um País Muitas Crenças</title>
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --moz-green: #2c6e24;
-            --moz-yellow: #e2c36b;
-            --moz-red: #d32f2f;
-            --moz-black: #2c3e50;
-            --moz-sand: #e2d6c0;
-            --moz-white: #f9f5eb;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Merriweather', serif;
-        }
-        
-        body {
-            background-color: var(--moz-white);
-            color: var(--moz-black);
-            line-height: 1.6;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23e2d6c0' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header Styles */
-        header {
-            background: linear-gradient(to right, var(--moz-black), var(--moz-green));
-            color: white;
-            padding: 1rem 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-        
-        .logo span {
-            color: var(--moz-yellow);
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 1.5rem;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-        }
-        
-        nav ul li a:hover, nav ul li a.active {
-            color: var(--moz-yellow);
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Breadcrumb */
-        .breadcrumb {
-            padding: 1rem 0;
-            background-color: var(--moz-sand);
-            margin-bottom: 2rem;
-        }
-        
-        .breadcrumb-content {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .breadcrumb a {
-            color: var(--moz-green);
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        .breadcrumb a:hover {
-            text-decoration: underline;
-            color: var(--moz-black);
-        }
-        
-        /* Topic Detail Styles */
-        .topic-detail {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            padding: 2.5rem;
-            margin: 2rem 0;
-            border: 1px solid var(--moz-sand);
-        }
-        
-        .topic-detail h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--moz-green);
-            margin-bottom: 1.5rem;
-            border-bottom: 3px solid var(--moz-yellow);
-            padding-bottom: 0.5rem;
-        }
-        
-        .topic-meta {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .topic-content h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--moz-green);
-            margin: 2rem 0 1rem;
-            font-size: 1.8rem;
-            padding-left: 1rem;
-            border-left: 4px solid var(--moz-yellow);
-        }
-        
-        .topic-content h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--moz-black);
-            margin: 1.5rem 0 0.8rem;
-            font-size: 1.4rem;
-        }
-        
-        .topic-content p {
-            margin-bottom: 1.2rem;
-            text-align: justify;
-        }
-        
-        .topic-content ul {
-            margin: 1rem 0;
-            padding-left: 1.5rem;
-        }
-        
-        .topic-content ul li {
-            margin-bottom: 0.5rem;
-            padding-left: 0.5rem;
-        }
-        
-        /* Image Styles */
-        .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        
-        .image-card {
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-            border: 1px solid var(--moz-sand);
-        }
-        
-        .image-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-        }
-        
-        .image-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            display: block;
-        }
-        
-        .image-caption {
-            padding: 1rem;
-            background: var(--moz-sand);
-            font-style: italic;
-            color: var(--moz-black);
-            text-align: center;
-            font-size: 0.9rem;
-        }
-        
-        /* Highlight Box */
-        .highlight-box {
-            background: linear-gradient(to right, #f8f5ec, #e2d6c0);
-            border-left: 4px solid var(--moz-yellow);
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .highlight-box p {
-            margin: 0;
-            font-style: italic;
-            color: var(--moz-black);
-            text-align: center;
-        }
-        
-        /* Navigation Links */
-        .navigation-links {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--moz-sand);
-        }
-        
-        .nav-button {
-            display: inline-block;
-            padding: 0.8rem 1.5rem;
-            background: var(--moz-green);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-        
-        .nav-button:hover {
-            background: var(--moz-black);
-            transform: translateY(-2px);
-        }
-        
-        /* Footer Styles */
-        footer {
-            background: linear-gradient(135deg, var(--moz-black) 0%, var(--moz-green) 100%);
-            color: white;
-            padding: 2rem 0;
-            margin-top: 3rem;
-        }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-        
-        .footer-section {
-            flex: 1;
-            min-width: 250px;
-            margin-bottom: 1.5rem;
-        }
-        
-        .footer-section h3 {
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 1rem;
-            color: var(--moz-yellow);
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 1.5rem;
-        }
-        
-        /* Cultural Elements */
-        .cultural-pattern {
-            height: 20px;
-            background: linear-gradient(90deg, 
-                var(--moz-green) 0%, 
-                var(--moz-black) 20%, 
-                var(--moz-yellow) 40%, 
-                var(--moz-red) 60%, 
-                var(--moz-white) 80%, 
-                var(--moz-green) 100%);
-            margin: 1rem 0;
-            border-radius: 2px;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            nav ul {
-                margin-top: 1rem;
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-            
-            nav ul li {
-                margin: 0.5rem;
-            }
-            
-            .topic-meta {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            
-            .navigation-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-            }
-        }
-    </style>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Folhas de Estilo -->
+    <link rel="stylesheet" href="Um País Muitas Crenças.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="tema-analise-critica.css">
+    <link rel="stylesheet" href="tema-islamismo.css"> 
+
 </head>
 <body>
-    <header>
-        <div class="container header-content">
-            <div class="logo">Um País <span>Muitas Crenças</span></div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="religioes.html">Religiões</a></li>
-                    <li><a href="sincretismo.html" class="active">Sincretismo</a></li>
-                    <li><a href="estudos.html">Estudos</a></li>
-                    <li><a href="contato.html">Contato</a></li>
-                </ul>
-            </nav>
+    <!-- Menu será injetado aqui -->
+
+    <header class="header-analise" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1558522195-e7f0f519391a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
+        <div class="container">
+            <h1 class="titulo-principal">Sincretismo Religioso: A Alma de Moçambique</h1>
+            <p class="subtitulo-principal">Como a fusão de crenças tradicionais, cristãs e islâmicas criou uma identidade espiritual única no mundo.</p>
         </div>
     </header>
 
-    <div class="breadcrumb">
-        <div class="container breadcrumb-content">
-            <a href="index.html"><i class="fas fa-home"></i> Início</a>
-            <span><i class="fas fa-chevron-right"></i></span>
-            <a href="estudos.html">Estudos</a>
-            <span><i class="fas fa-chevron-right"></i></span>
-            <span>Sincretismo Religioso</span>
-        </div>
-    </div>
+    <main class="container conteudo-analise">
 
-    <div class="container">
-        <article class="topic-detail">
-            <h1>Sincretismo Religioso em Moçambique</h1>
-            
-            <div class="topic-meta">
-                <span><i class="fas fa-clock"></i> Tempo de leitura: 15 minutos</span>
-                <span><i class="fas fa-calendar"></i> Atualizado em: Novembro de 2023</span>
-            </div>
-            
-            <div class="cultural-pattern"></div>
-            
-            <div class="topic-content">
-                <h2>Introdução</h2>
-                <p>O sincretismo religioso - a mistura e combinação de diferentes tradições religiosas - é uma característica marcante do panorama espiritual moçambicano. Este fenómeno reflecte a complexa história de encontros culturais e a capacidade criativa dos moçambicanos em integrar diversas influências nas suas práticas espirituais.</p>
-                
-                <div class="image-gallery">
-                    <div class="image-card">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%234a6580'/%3E%3Cpath d='M200,150 C250,100 300,120 320,170 L280,200 C270,170 240,160 200,190 C160,160 130,170 120,200 L80,170 C100,120 150,100 200,150 Z' fill='%23e2c36b'/%3E%3Ccircle cx='200' cy='130' r='20' fill='%23f9f5eb'/%3E%3C/svg%3E" alt="Símbolo de sincretismo religioso">
-                        <div class="image-caption">Símbolo representando a fusão de diferentes tradições religiosas</div>
-                    </div>
-                </div>
-                
-                <h2>Origens do Sincretismo em Moçambique</h2>
-                <p>O sincretismo religioso em Moçambique tem raízes profundas na história do país:</p>
-                
-                <h3>Encontros Culturais</h3>
-                <p>A localização de Moçambique na costa do Oceano Índico facilitou séculos de contacto com comerciantes árabes, persas, indianos e, posteriormente, europeus, cada um trazendo suas tradições religiosas.</p>
-                
-                <div class="image-gallery">
-                    <div class="image-card">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f8f5ec'/%3E%3Cpath d='M100,250 L300,250 L300,220 C250,200 200,210 150,230 L100,220 Z' fill='%234a6580'/%3E%3Cpath d='M150,150 C180,120 220,120 250,150 C280,180 280,220 250,250 L150,250 C120,220 120,180 150,150 Z' fill='%23e2c36b'/%3E%3Cpath d='M200,100 L220,140 L260,140 L230,170 L240,210 L200,190 L160,210 L170,170 L140,140 L180,140 Z' fill='%232c3e50'/%3E%3C/svg%3E" alt="Mapa de rotas comerciais históricas">
-                        <div class="image-caption">Rotas comerciais históricas que influenciaram o sincretismo religioso</div>
-                    </div>
-                </div>
-                
-                <h3>Adaptação e Resistência</h3>
-                <p>As populações locais frequentemente adaptaram elementos das religiões "importadas" às suas cosmovisões existentes, criando formas religiosas híbridas que permitiam tanto a adopção de novos elementos quanto a preservação de tradições ancestrais.</p>
-                
-                <h2>Formas de Sincretismo</h2>
-                <p>O sincretismo religioso em Moçambique manifesta-se de diversas formas:</p>
-                
-                <h3>Cristianismo e Tradições Africanas</h3>
-                <p>Muitos moçambicanos que se identificam como cristãos continuam a praticar elementos das religiões tradicionais, como:</p>
+        <section class="secao-analise">
+            <h2 class="titulo-secao">O Que é o Sincretismo?</h2>
+            <p>Sincretismo religioso é a fusão de diferentes crenças e práticas. Em Moçambique, não se trata de uma "mistura" confusa, mas de um processo criativo e inteligente. Ao longo dos séculos, os moçambicanos não abandonaram a sua visão de mundo tradicional quando o Cristianismo e o Islamismo chegaram; em vez disso, eles integraram estas novas fés na sua estrutura espiritual já existente, dando novos nomes e novas formas a ideias antigas. O resultado é uma forma de viver a fé que é, ao mesmo tempo, global e profundamente moçambicana.</p>
+        </section>
+
+        <!-- A BASE TRADICIONAL -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao-onda onda-tradicional"><i class="fas fa-tree"></i> A Base: A Visão de Mundo Tradicional</h2>
+            <div class="box-info">
+                <p>Para entender o sincretismo, é preciso primeiro entender a base sobre a qual ele foi construído. A espiritualidade tradicional moçambicana, de forma geral, assenta em três pilares:</p>
                 <ul>
-                    <li>Consulta a curandeiros tradicionais para questões de saúde</li>
-                    <li>Participação em ritos de passagem tradicionais</li>
-                    <li>Uso de medicina tradicional alongside tratamentos modernos</li>
-                    <li>Manutenção de práticas de veneração aos ancestrais</li>
+                    <li><strong>Um Deus Criador Distante:</strong> A crença num Deus supremo, criador de tudo, mas que está demasiado longe para se envolver nos assuntos do dia a dia.</li>
+                    <li><strong>Os Antepassados como Intermediários:</strong> Os espíritos dos antepassados da família são as entidades mais importantes e próximas. Eles protegem, punem e servem de ponte entre o mundo dos vivos e o mundo espiritual. Manter uma boa relação com eles é essencial.</li>
+                    <li><strong>Espíritos da Natureza:</strong> A crença em espíritos que habitam em rios, árvores, montanhas e animais, que precisam de ser respeitados.</li>
                 </ul>
-                
-                <div class="image-gallery">
-                    <div class="image-card">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f8f5ec'/%3E%3Cpath d='M200,100 L250,200 L150,200 Z' fill='%232c3e50'/%3E%3Ccircle cx='200' cy='80' r='30' fill='%23e2c36b'/%3E%3Cpath d='M120,250 C100,230 90,200 100,170 L130,180 C125,200 130,220 140,235 Z' fill='%234a6580'/%3E%3Cpath d='M280,250 C300,230 310,200 300,170 L270,180 C275,200 270,220 260,235 Z' fill='%234a6580'/%3E%3C/svg%3E" alt="Fusão de símbolos cristãos e tradicionais">
-                        <div class="image-caption">Fusão de símbolos cristãos e tradicionais africanos</div>
+                <p>Quando o Cristianismo e o Islamismo chegaram, a questão para muitos não foi "como posso substituir a minha fé?", mas sim "como posso integrar estes novos e poderosos seres espirituais (Jesus, Maria, os santos, o Profeta Muhammad) na minha visão do mundo?"</p>
+            </div>
+        </section>
+
+        <!-- MANIFESTAÇÕES -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">Manifestações do Sincretismo: Exemplos Práticos</h2>
+            <div class="comparacao-guerra-fria">
+                <!-- Sincretismo no Cristianismo -->
+                <div class="modelo-card sincretismo-cristao">
+                    <h3><i class="fas fa-cross"></i> No Cristianismo</h3>
+                    
+                    <div class="exemplo-sincretismo">
+                        <h4>Santos e Antepassados</h4>
+                        <p>A veneração dos santos católicos foi facilmente adaptada. Para muitas comunidades, um "santo" com uma história de proteção ou poder tornou-se uma nova "face" para um espírito ancestral importante. Rezar a Santo António para encontrar algo perdido, por exemplo, é uma continuação da prática de pedir ajuda a um antepassado específico para resolver um problema do quotidiano.</p>
+                    </div>
+
+                    <div class="exemplo-sincretismo">
+                        <h4>As Igrejas Zionistas: O Ápice da Fusão</h4>
+                        <p>As Igrejas Zionistas são talvez o exemplo mais completo de sincretismo. Elas pegaram em elementos do Cristianismo e fundiram-nos totalmente com a cosmologia africana:</p>
+                        <ul>
+                            <li><strong>O Batismo no Rio:</strong> Não é apenas a purificação do pecado, mas um ritual de cura que invoca o poder dos espíritos da água.</li>
+                            <li><strong>O Profeta:</strong> O líder da igreja não é apenas um pastor, ele é um curandeiro e vidente, assumindo o papel do *nyanga* (curandeiro tradicional).</li>
+                            <li><strong>O Espírito Santo:</strong> É frequentemente entendido como a força que se manifesta através da possessão por espíritos (neste caso, "bons" espíritos), um conceito central nas religiões tradicionais.</li>
+                        </ul>
                     </div>
                 </div>
-                
-                <h3>Islamismo e Tradições Africanas</h3>
-                <p>Nas comunidades muçulmanas, especialmente no norte do país, observa-se a integração de elementos tradicionais, como:</p>
-                <ul>
-                    <li>Práticas de cura que combinam elementos islâmicos e tradicionais</li>
-                    <li>Incorporação de músicas e danças tradicionais em celebrações islâmicas</li>
-                    <li>Adaptação de cerimónias de ciclo de vida para incorporar both tradições</li>
-                </ul>
-                
-                <div class="image-gallery">
-                    <div class="image-card">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f8f5ec'/%3E%3Cpath d='M200,80 L230,150 L300,150 L240,190 L260,260 L200,220 L140,260 L160,190 L100,150 L170,150 Z' fill='%232c3e50'/%3E%3Ccircle cx='200' cy='120' r='20' fill='%23e2c36b'/%3E%3Cpath d='M150,250 L250,250 L250,230 L150,230 Z' fill='%234a6580'/%3E%3C/svg%3E" alt="Elementos islâmicos e tradicionais">
-                        <div class="image-caption">Elementos islâmicos integrados com padrões tradicionais africanos</div>
+
+                <!-- Sincretismo no Islamismo -->
+                <div class="modelo-card sincretismo-islao">
+                    <h3><i class="fas fa-moon"></i> No Islamismo</h3>
+                    
+                    <div class="exemplo-sincretismo">
+                        <h4>Sheikhs e Curandeiros</h4>
+                        <p>No Islamismo Sufi, que se espalhou pelo interior de Moçambique, a figura do Sheikh (líder religioso) fundiu-se com a do curandeiro tradicional. Um Sheikh sufi não só ensina o Alcorão, como também realiza rituais de cura que utilizam ervas medicinais locais, amuletos e invocações, um papel que era anteriormente exclusivo do *nyanga*.</p>
                     </div>
-                </div>
-                
-                <div class="highlight-box">
-                    <p>"Em Moçambique, a fé não é uma questão de escolha exclusiva, mas uma tapeçaria onde fios de diferentes tradições se entrelaçam para criar um todo coerente e significativo."</p>
-                </div>
-                
-                <h2>Exemplos Específicos de Sincretismo</h2>
-                <p>Algumas práticas sincréticas específicas de Moçambique incluem:</p>
-                
-                <h3>Igrejas Zionistas e Apostólicas</h3>
-                <p>Estas igrejas independentes africanas combinam elementos do Cristianismo com práticas tradicionais, como uso de vestes ritualísticas, danças, e ênfase em cura divina através de métodos que incorporam tanto a oração quanto o uso de ervas tradicionais.</p>
-                
-                <div class="image-gallery">
-                    <div class="image-card">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f8f5ec'/%3E%3Cpath d='M150,100 L250,100 L250,200 L150,200 Z' fill='%234a6580'/%3E%3Ccircle cx='200' cy='80' r='20' fill='%23e2c36b'/%3E%3Cpath d='M180,120 L220,120 L220,160 L180,160 Z' fill='%23f9f5eb'/%3E%3Cpath d='M130,250 C130,220 160,200 200,200 C240,200 270,220 270,250 L130,250 Z' fill='%232c3e50'/%3E%3C/svg%3E" alt="Igreja Zionista">
-                        <div class="image-caption">Igreja Zionista - exemplo de sincretismo cristão-africano</div>
+
+                    <div class="exemplo-sincretismo">
+                        <h4>Veneração de Túmulos</h4>
+                        <p>O Islão Reformista (Salafista) proíbe estritamente a veneração de túmulos. No entanto, em grande parte de Moçambique, os túmulos de sheikhs famosos são locais de peregrinação, onde as pessoas deixam oferendas e fazem pedidos. Esta prática é uma continuação direta do costume de venerar os túmulos de antepassados importantes para pedir a sua intercessão.</p>
                     </div>
-                </div>
-                
-                <h3>Práticas Funerárias</h3>
-                <p>Muitas famílias moçambicanas combinam ritos funerários cristãos ou islâmicos com práticas tradicionais de homenagem aos antepassados, criando cerimónias que honram both as novas fé e as tradições ancestrais.</p>
-                
-                <h3>Festividades</h3>
-                <p>Celebrações religiosas como o Natal e o Ramadã são frequentemente adaptadas para incluir elementos da cultura local, como comidas tradicionais, músicas e formas específicas de comunhão comunitária.</p>
-                
-                <div class="image-gallery">
-                    <div class="image-card">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f8f5ec'/%3E%3Ccircle cx='200' cy='150' r='80' fill='%23e2c36b'/%3E%3Cpath d='M200,70 L220,130 L280,130 L230,160 L250,220 L200,190 L150,220 L170,160 L120,130 L180,130 Z' fill='%232c3e50'/%3E%3Cpath d='M150,250 L250,250 L250,230 L150,230 Z' fill='%234a6580'/%3E%3C/svg%3E" alt="Celebração festiva">
-                        <div class="image-caption">Celebrações religiosas adaptadas com elementos culturais locais</div>
-                    </div>
-                </div>
-                
-                <div class="cultural-pattern"></div>
-                
-                <h2>Significado Cultural e Social</h2>
-                <p>O sincretismo religioso em Moçambique não é meramente uma sobrevivência de tradições antigas, mas uma expressão dinâmica de criatividade cultural:</p>
-                
-                <h3>Identidade Múltipla</h3>
-                <p>Para muitos moçambicanos, o sincretismo permite negociar identidades múltiplas - sendo simultaneamente modernos e tradicionais, locais e globais.</p>
-                
-                <h3>Resiliência Cultural</h3>
-                <p>A capacidade de integrar influências externas enquanto mantém elementos centrais das tradições locais demonstra a resiliência das culturas moçambicanas.</p>
-                
-                <h3>Diálogo Inter-religioso</h3>
-                <p>O sincretismo facilita formas de diálogo e coexistência entre diferentes tradições religiosas, contribuindo para a coesão social num país diverso.</p>
-                
-                <div class="image-gallery">
-                    <div class="image-card">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f8f5ec'/%3E%3Ccircle cx='150' cy='150' r='50' fill='%234a6580'/%3E%3Ccircle cx='250' cy='150' r='50' fill='%23e2c36b'/%3E%3Cpath d='M180,150 C180,130 200,120 220,130 C240,140 250,160 240,180 C230,200 210,210 190,200 C170,190 160,170 170,150 Z' fill='%232c3e50'/%3E%3C/svg%3E" alt="Diálogo inter-religioso">
-                        <div class="image-caption">Representação do diálogo entre diferentes tradições religiosas</div>
-                    </div>
-                </div>
-                
-                <h2>Desafios e Tensões</h2>
-                <p>O sincretismo religioso também gera tensões:</p>
-                
-                <h3>Críticas de Ortodoxia</h3>
-                <p>Alguns líderes religiosos de tradições mais ortodoxas criticam práticas sincréticas como impuras ou heréticas, levando a tensões dentro das comunidades religiosas.</p>
-                
-                <h3>Comercialização</h3>
-                <p>Em alguns contextos urbanos, elementos das tradições religiosas são apropriados e comercializados de formas que podem esvaziar seu significado original.</p>
-                
-                <h2>Conclusão</h2>
-                <p>O sincretismo religioso em Moçambique é uma expressão viva da capacidade humana de criar significado através da combinação de diferentes tradições. Mais do que uma mera sobrevivência do passado, é um processo dinâmico que continua a evoluir, reflectindo as complexas realidades sociais e culturais do Moçambique contemporâneo.</p>
-                
-                <div class="image-gallery">
-                    <div class="image-card">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f8f5ec'/%3E%3Cpath d='M200,50 C250,50 290,80 300,120 L300,250 L100,250 L100,120 C110,80 150,50 200,50 Z' fill='%234a6580'/%3E%3Ccircle cx='200' cy='120' r='40' fill='%23e2c36b'/%3E%3Cpath d='M180,100 L220,100 L220,140 L180,140 Z' fill='%232c3e50'/%3E%3Cpath d='M150,200 L250,200 L250,180 L150,180 Z' fill='%232c3e50'/%3E%3C/svg%3E" alt="Futuro do sincretismo">
-                        <div class="image-caption">O sincretismo religioso continua a evoluir no Moçambique contemporâneo</div>
-                    </div>
-                </div>
-                
-                <div class="navigation-links">
-                    <a href="religiao-independencia.html" class="nav-button">Tópico Anterior: Religião e Independência</a>
-                    <a href="estudos.html" class="nav-button">Voltar para Área de Estudo</a>
                 </div>
             </div>
-        </article>
-    </div>
-    
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Sobre Nós</h3>
-                    <p>Um projeto dedicado ao estudo e divulgação da diversidade religiosa e cultural de Moçambique.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Links Rápidos</h3>
-                    <ul>
-                        <li><a href="index.html">Início</a></li>
-                        <li><a href="religioes.html">Religiões</a></li>
-                        <li><a href="sincretismo.html">Sincretismo</a></li>
-                        <li><a href="estudos.html">Estudos</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contato</h3>
-                    <p>Email: info@umpaismuitascrencas.org</p>
-                    <p>Telefone: +258 84 123 4567</p>
-                </div>
+        </section>
+
+        <!-- GALERIA -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">O Sincretismo em Imagens</h2>
+            <div class="galeria-fotos">
+                <figure>
+                    <img src="/images/placeholder/sincretismo-zionista.jpg" alt="Membros de uma Igreja Zionista a realizar um batismo no rio.">
+                    <figcaption>O batismo zionista no rio, que une o simbolismo cristão à crença no poder espiritual das águas.</figcaption>
+                </figure>
+                <figure>
+                    <img src="/images/placeholder/sincretismo-tumulo-sheikh.jpg" alt="Túmulo de um sheikh sufi, coberto com panos coloridos.">
+                    <figcaption>O túmulo de um sheikh, venerado como um lugar sagrado, numa prática que espelha o culto aos antepassados.</figcaption>
+                </figure>
+                <figure>
+                    <img src="/images/placeholder/sincretismo-amuleto.jpg" alt="Amuleto islâmico (gris-gris) que contém versos do Alcorão.">
+                    <figcaption>Amuletos que contêm versos do Alcorão são usados para proteção, continuando a tradição de usar objetos com poder espiritual.</figcaption>
+                </figure>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 Um País Muitas Crenças. Todos os direitos reservados.</p>
-            </div>
-        </div>
-    </footer>
-    
-    <script src="seg.js"></script>
+        </section>
+
+        <!-- CONCLUSÃO -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">Conclusão: A Força da Adaptação</h2>
+            <p>Longe de ser uma "corrupção" da fé, o sincretismo é a prova da resiliência e da criatividade da cultura moçambicana. Ele demonstra uma capacidade de olhar para o mundo, absorver novas ideias e integrá-las numa visão própria, sem nunca perder a ligação com as suas raízes. É esta fusão que torna a paisagem religiosa de Moçambique tão complexa, fascinante e única. O sincretismo não é uma nota de rodapé da história religiosa do país; é o seu capítulo principal.</p>
+        </section>
+
+    </main>
+
+    <section class="navegacao-inferior">
+        <a href="estudos.html" class="btn-voltar-estudos">
+            <i class="fas fa-book-open"></i> Voltar à Área de Estudos
+        </a>
+    </section>
+
+    <script src="menu.js"></script>
 </body>
 </html>

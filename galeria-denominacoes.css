@@ -1,0 +1,105 @@
+/* galeria-denominacoes.css */
+
+.galeria-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.cartao-denominacao {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cartao-denominacao:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.cartao-cor-topo {
+    height: 10px;
+    width: 100%;
+}
+
+.cartao-conteudo {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.cartao-conteudo h3 {
+    font-size: 1.4rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--cor-primaria);
+}
+
+.cartao-conteudo p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    flex-grow: 1;
+    margin-bottom: 1rem;
+}
+
+.cartao-link {
+    font-weight: bold;
+    color: var(--cor-acento);
+    text-align: right;
+}
+
+
+/* Cores específicas para cada cartão, usando os temas que já criámos */
+
+.cartao-catolica .cartao-cor-topo { background-color: #f0c000; } /* Amarelo Vaticano */
+.cartao-catolica h3 { color: #f0c000; }
+
+.cartao-anglicana .cartao-cor-topo { background-color: #003c71; } /* Azul escuro */
+.cartao-anglicana h3 { color: #003c71; }
+
+.cartao-metodista .cartao-cor-topo { background-color: #D32F2F; } /* Vermelho */
+.cartao-metodista h3 { color: #D32F2F; }
+
+.cartao-presbiteriana .cartao-cor-topo { background-color: #004a99; } /* Azul */
+.cartao-presbiteriana h3 { color: #004a99; }
+
+.cartao-assembleia .cartao-cor-topo { background-color: #E65100; } /* Laranja */
+.cartao-assembleia h3 { color: #E65100; }
+
+.cartao-universal .cartao-cor-topo { background-color: #8B0000; } /* Vermelho escuro */
+.cartao-universal h3 { color: #8B0000; }
+
+.cartao-apostolica .cartao-cor-topo { background-color: #4A148C; } /* Roxo */
+.cartao-apostolica h3 { color: #4A148C; }
+
+.cartao-deus .cartao-cor-topo { background-color: #f57f17; } /* Amarelo */
+.cartao-deus h3 { color: #f57f17; }
+
+.cartao-zionista .cartao-cor-topo { background-color: #006400; } /* Verde escuro */
+.cartao-zionista h3 { color: #006400; }
+
+.cartao-profetas .cartao-cor-topo { background-color: #1A237E; } /* Azul muito escuro */
+.cartao-profetas h3 { color: #1A237E; }
+
+.cartao-adventista .cartao-cor-topo { background-color: #0d47a1; } /* Azul escuro */
+.cartao-adventista h3 { color: #0d47a1; }
+
+.cartao-testemunhas .cartao-cor-topo { background-color: #5e5e5e; } /* Cinza escuro */
+.cartao-testemunhas h3 { color: #5e5e5e; }
+
+.cartao-graca .cartao-cor-topo { background-color: #0277bd; } /* Azul claro */
+.cartao-graca h3 { color: #0277bd; }
+
+.cartao-sara .cartao-cor-topo { background-color: #01579b; } /* Azul */
+.cartao-sara h3 { color: #01579b; }
+
+.cartao-onorio .cartao-cor-topo { background-color: #00695C; } /* Verde-azulado */
+.cartao-onorio h3 { color: #00695C; }

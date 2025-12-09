@@ -1,20 +1,31 @@
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca Digital - Um País Muitas Crenças</title>
-    <meta name="description" content="Biblioteca digital com livros, artigos e recursos sobre as religiões de Moçambique. Download gratuito de materiais sobre Cristianismo, Islamismo, religiões tradicionais e mais.">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Folhas de Estilo -->
+    <link rel="stylesheet" href="Um País Muitas Crenças.css"> <!-- Estilos Globais -->
+    <link rel="stylesheet" href="menu.css"> <!-- Estilos do Menu -->
+    <link rel="stylesheet" href="biblioteca.css"> <!-- Estilos da Página -->
+
+    <!-- Google tag (gtag.js) --> 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJDQ8Z1NQG"></script> 
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);S}
+      gtag('js', new Date());
+      gtag('config', 'G-VJDQ8Z1NQG');
+    </script>
 </head>
-<!-- Google tag (gtag.js) --> 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VJDQ8Z1NQG"></script> 
-<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-VJDQ8Z1NQG'); </script>
 <body>
+    <!-- Menu Injetado aqui -->
+
     <!-- Header -->
     <header>
         <div class="container">
@@ -26,134 +37,68 @@
         </div>
     </header>
     
-    <!-- Breadcrumb -->
-    <div class="breadcrumb">
-        <div class="container breadcrumb-content">
-            <a href="index.html"><i class="fas fa-home"></i> Página Inicial</a>
-            <span>/</span>
-            <span>Biblioteca Digital</span>
-        </div>
-    </div>
-    
     <!-- Main Content -->
     <main class="container">
         <section class="library-section">
             <div class="library-header">
                 <h2>Acervo de Livros</h2>
-                <p>Explore nossa coleção de livros e recursos sobre as diversas tradições religiosas de Moçambique. Todos os materiais estão disponíveis para download gratuito.</p>
-                
-                <!-- Barra de Pesquisa -->
                 <div class="search-container">
-                    <form class="search-box">
-                        <input type="text" placeholder="Pesquisar por título, autor ou assunto...">
-                        <button type="submit"><i class="fas fa-search"></i></button>
-                    </form>
-                    <div class="search-controls">
-                        <button id="clearSearch" class="clear-btn" title="Limpar busca">Limpar</button>
-                        <label for="sortSelect" class="sort-label">Ordenar por:</label>
-                        <select id="sortSelect" class="sort-select">
-                            <option value="default">Padrão</option>
-                            <option value="title">Título (A-Z)</option>
-                            <option value="author">Autor (A-Z)</option>
-                            <option value="rating">Avaliação (desc)</option>
-                        </select>
-                        <label class="group-toggle">
-                            <input type="checkbox" id="groupByCategory" checked>
-                            Agrupar por religião
-                        </label>
-                    </div>
+                    <input type="text" class="search-input" placeholder="Pesquisar livros...">
+                    <button id="clearSearch" class="clear-btn">Limpar</button>
                 </div>
-                
-                <!-- Filtros -->
-                <div class="filters">
-                    <button class="filter-btn active" data-filter="all">
-                        <i class="fas fa-book"></i> Todos
-                    </button>
-                    <button class="filter-btn" data-filter="cristianismo">
-                        <i class="fas fa-church"></i> Cristianismo
-                    </button>
-                    <button class="filter-btn" data-filter="islamismo">
-                        <i class="fas fa-mosque"></i> Islamismo
-                    </button>
-                    <button class="filter-btn" data-filter="tradicionais">
-                        <i class="fas fa-globe-africa"></i> Tradicionais
-                    </button>
-                    <button class="filter-btn" data-filter="outras">
-                        <i class="fas fa-hands-praying"></i> Outras
-                    </button>
+                 <div class="filters">
+                    <button class="filter-btn active" data-filter="all"><i class="fas fa-book"></i> Todos</button>
+                    <button class="filter-btn" data-filter="cristianismo"><i class="fas fa-church"></i> Cristianismo</button>
+                    <button class="filter-btn" data-filter="islamismo"><i class="fas fa-mosque"></i> Islamismo</button>
+                    <button class="filter-btn" data-filter="tradicionais"><i class="fas fa-globe-africa"></i> Tradicionais</button>
+                    <button class="filter-btn" data-filter="outras"><i class="fas fa-hands-praying"></i> Outras</button>
+                </div>
+                <div class="controls">
+                    <select id="sortSelect">
+                        <option value="default">Ordenar por Padrão</option>
+                        <option value="title">Título (A-Z)</option>
+                        <option value="author">Autor (A-Z)</option>
+                        <option value="rating">Avaliação</option>
+                    </select>
+                    <label><input type="checkbox" id="groupByCategory" checked> Agrupar por Categoria</label>
                 </div>
             </div>
             
-            <!-- Loading -->
-            <div class="loading">
-                <div class="spinner"></div>
-                <p>Carregando livros...</p>
-            </div>
-            
-            <!-- Grid de Livros -->
-            <div class="books-grid">
-                <!-- Os livros serão renderizados via JavaScript -->
-            </div>
-            
-            <!-- Livros em Destaque -->
+            <div class="loading" style="display: none;">Carregando...</div>
+            <div class="books-grid"></div>
             <div class="featured-books">
-                <div class="featured-header">
-                    <h3>Livros em Destaque</h3>
-                    <p>Obras especialmente selecionadas para estudo aprofundado</p>
-                </div>
-                
-                <div class="books-grid">
-                    <!-- Os livros em destaque serão renderizados via JavaScript -->
-                </div>
-            </div>
-            
-            <!-- Newsletter -->
-            <div class="newsletter">
-                <h3>Receba Novas Publicações</h3>
-                <p>Cadastre-se para receber notificações quando novos livros e recursos forem adicionados à nossa biblioteca.</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Seu melhor email" required>
-                    <button type="submit">Inscrever-se</button>
-                </form>
+                <h3>Livros em Destaque</h3>
+                <div class="books-grid"></div>
             </div>
         </section>
     </main>
-    
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">Biblioteca Digital</div>
-                <p>Um projeto dedicado à preservação e disseminação do conhecimento sobre as religiões de Moçambique.</p>
-                
-                <nav class="footer-nav">
-                    <a href="#"><i class="fas fa-home"></i> Início</a>
-                    <a href="#"><i class="fas fa-book"></i> Biblioteca</a>
-                    <a href="#"><i class="fas fa-info-circle"></i> Sobre</a>
-                    <a href="#"><i class="fas fa-envelope"></i> Contato</a>
-                </nav>
-                
-                <p class="copyright">&copy; 2023 Biblioteca Digital - Um País Muitas Crenças. Todos os direitos reservados.</p>
-            </div>
-        </div>
-    </footer>
     
     <!-- Modal de Download -->
     <div class="modal" id="downloadModal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <h3>Confirmar Download</h3>
-            <p>Você está prestes a baixar o livro: <strong id="bookTitle"></strong></p>
-            <p>O download começará automaticamente em alguns segundos.</p>
-            <div class="modal-download-action">
-                <a href="#" id="confirmDownload" class="book-download">
-                    <i class="fas fa-download"></i> Iniciar Download Agora
-                </a>
-            </div>
+            <p>Você está prestes a baixar: <strong id="bookTitle"></strong></p>
+            <a href="#" id="confirmDownload" class="book-download" download><i class="fas fa-download"></i> Iniciar Download</a>
         </div>
     </div>
-    
-    <!-- Scripts -->
-    <script src="script.js"></script>
+
+    <section class="secao-critica-islamica">
+        <h2><i class="fas fa-microphone-alt"></i> A Sua Voz Importa</h2>
+        <p>Este espaço é seu. A sua história, a sua denúncia ou a sua contribuição podem fazer a diferença. Utilizamos um sistema seguro e anónimo para garantir a sua proteção.</p>
+        <ul>
+            <li><a href="denuncia.html"><i class="fas fa-comment-medical"></i> Denuncie abusos (totalmente anónimo)</a></li>
+            <li><a href="denuncia.html?categoria=documento"><i class="fas fa-archive"></i> Contribua com documentos históricos</a></li>
+            <li><a href="denuncia.html?categoria=movimento"><i class="fas fa-hands-helping"></i> Participe em movimentos por transparência</a></li>
+            <li><a href="estudos.html"><i class="fas fa-book"></i> Estude teologia crítica e história religiosa</a></li>
+        </ul>
+    </section>
+
+    <!-- Scripts Centralizados -->
+    <script src="menu.js"></script>
+    <script src="scripts.js"></script>
+    <script src="biblioteca.js"></script>
+    <script src="footer.js"></script>
+
 </body>
 </html>

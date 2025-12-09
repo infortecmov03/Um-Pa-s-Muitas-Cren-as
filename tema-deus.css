@@ -1,0 +1,7 @@
+/* tema-deus.css - A ROUPA */
+
+:root {
+    --cor-primaria: #1a5276;       /* Azul escuro */
+    --cor-acento: #2e86c1;         /* Azul mais claro */
+    --cor-texto-primario: #ffffff;   /* Branco para contrastar com o azul */
+}

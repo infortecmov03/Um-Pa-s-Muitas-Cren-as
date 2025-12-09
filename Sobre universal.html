@@ -3,597 +3,331 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Igreja Universal do Reino de Deus em Moçambique</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Menu de navegação */
-        .sobre-menu {
-            background: linear-gradient(to right, #8B0000, #B22222);
-            padding: 15px 0;
-            overflow-x: auto;
-            white-space: nowrap;
-        }
-        
-        .sobre-menu ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .sobre-menu li {
-            margin: 5px 10px;
-        }
-        
-        .sobre-menu a {
-            color: white;
-            text-decoration: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            transition: background-color 0.3s;
-            font-weight: 500;
-        }
-        
-        .sobre-menu a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-        
-        /* Cabeçalho */
-        header {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23B22222"/><path d="M0 0L100 100" stroke="%238B0000" stroke-width="2"/><path d="M100 0L0 100" stroke="%238B0000" stroke-width="2"/></svg>');
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-            margin-bottom: 30px;
-        }
-        
-        .logo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .logo-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            color: #FFD700;
-        }
-        
-        .logo h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        
-        /* Conteúdo principal */
-        .religion-section {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            margin-bottom: 30px;
-        }
-        
-        .religion-header {
-            background: linear-gradient(to right, #8B0000, #B22222);
-            color: white;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .religion-icon {
-            font-size: 2rem;
-            margin-right: 15px;
-            color: #FFD700;
-        }
-        
-        .religion-title {
-            font-size: 1.8rem;
-        }
-        
-        .religion-content {
-            padding: 30px;
-        }
-        
-        .religion-content h3 {
-            color: #8B0000;
-            margin: 20px 0 15px;
-            border-bottom: 2px solid #f0f0f0;
-            padding-bottom: 8px;
-        }
-        
-        .religion-content h4 {
-            color: #8B0000;
-            margin: 18px 0 12px;
-        }
-        
-        .religion-content p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-        
-        .beliefs-list, .practices-list, .demographics {
-            background-color: #f9f9f9;
-            border-left: 4px solid #B22222;
-            padding: 15px 20px;
-            margin: 20px 0;
-            border-radius: 0 5px 5px 0;
-        }
-        
-        .beliefs-list h4, .practices-list h4, .demographics h4 {
-            color: #8B0000;
-            margin-top: 0;
-        }
-        
-        .beliefs-list ul, .practices-list ul, .demographics ul {
-            padding-left: 20px;
-            margin: 10px 0;
-        }
-        
-        .beliefs-list li, .practices-list li, .demographics li {
-            margin-bottom: 8px;
-        }
-        
-        /* Seção de tópicos */
-        .topics-section {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            margin-bottom: 30px;
-        }
-        
-        .topics-header {
-            background: linear-gradient(to right, #8B0000, #B22222);
-            color: white;
-            padding: 15px 20px;
-        }
-        
-        .topics-header h2 {
-            font-size: 1.5rem;
-        }
-        
-        .tabs {
-            display: flex;
-            border-bottom: 1px solid #eee;
-            padding: 0 20px;
-        }
-        
-        .tab-button {
-            background: none;
-            border: none;
-            padding: 15px 20px;
-            cursor: pointer;
-            font-weight: 500;
-            color: #666;
-            display: flex;
-            align-items: center;
-            transition: color 0.3s;
-        }
-        
-        .tab-button.active {
-            color: #B22222;
-            border-bottom: 3px solid #B22222;
-        }
-        
-        .tab-button i {
-            margin-right: 8px;
-        }
-        
-        .tab-content {
-            display: none;
-            padding: 20px;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        .topic-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
-        .topic-card {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-        }
-        
-        .topic-card h4 {
-            color: #8B0000;
-            margin-bottom: 10px;
-        }
-        
-        /* Rodapé */
-        footer {
-            background: linear-gradient(to right, #8B0000, #B22222);
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .footer-logo {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            color: #FFD700;
-        }
-        
-        .footer-nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        
-        .footer-nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px 10px;
-            transition: opacity 0.3s;
-        }
-        
-        .footer-nav a:hover {
-            opacity: 0.8;
-        }
-        
-        .copyright {
-            opacity: 0.8;
-            font-size: 0.9rem;
-        }
-        
-        /* Botão voltar ao topo */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #B22222;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-            transition: background 0.3s;
-        }
-        
-        .back-to-top:hover {
-            background: #8B0000;
-        }
-        
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .logo h1 {
-                font-size: 2rem;
-            }
-            
-            .religion-header {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .religion-icon {
-                margin-right: 0;
-                margin-bottom: 10px;
-            }
-            
-            .tabs {
-                flex-direction: column;
-            }
-            
-            .tab-button {
-                justify-content: center;
-            }
-        }
-    </style>
+    <title>Análise: Igreja Universal do Reino de Deus em Moçambique - Um País Muitas Crenças</title>
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Folhas de Estilo -->
+    <link rel="stylesheet" href="Um País Muitas Crenças.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="tema-analise-critica.css">
+
 </head>
 <body>
-    <nav class="sobre-menu">
-        <ul>
-            <li><a href="Sobre universal.html" style="background-color: rgba(255, 255, 255, 0.3);">Universal</a></li>
-            <li><a href="Sobre Testemunhas de Jeová em Moçambique.html">Testemunhas de Jeová</a></li>
-            <li><a href="Sobre Sara Nossa Terra em Moçambique.html">Sara Nossa Terra</a></li>
-            <li><a href="Sobre Metodista.html">Metodista</a></li>
-            <li><a href="Sobre Igreja Zionista.html">Zionista</a></li>
-            <li><a href="Sobre Igreja Presbiteriana.html">Presbiteriana</a></li>
-            <li><a href="Sobre Igreja de Profetas em Moçambique.html">Profetas</a></li>
-            <li><a href="Sobre Igreja de Deus.html">Igreja de Deus</a></li>
-            <li><a href="Sobre Igreja da Graça em Moçambique.html">Graça</a></li>
-            <li><a href="Sobre Católica.html">Católica</a></li>
-            <li><a href="Sobre Assembleia de Deus.html">Assembleia de Deus</a></li>
-            <li><a href="Sobre Apostólica.html">Apostólica</a></li>
-            <li><a href="Sobre Anglicana.html">Anglicana</a></li>
-            <li><a href="Sobre Adventistas emMoçambique.html">Adventistas</a></li>
-        </ul>
-    </nav>
-    
-    <!-- Cabeçalho -->
-    <header>
+    <!-- Menu será injetado aqui -->
+
+    <header class="header-analise" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1604797173219-2d4d34f06634?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
         <div class="container">
-            <div class="logo">
-                <i class="fas fa-church logo-icon"></i>
-                <h1>Igreja Universal do Reino de Deus</h1>
-                <p class="subtitle">Conheça a história e influência da Igreja Universal em Moçambique</p>
-            </div>
+            <h1 class="titulo-principal">Análise: A Igreja Universal do Reino de Deus</h1>
+            <p class="subtitulo-principal">Do apoio social e testemunhos de libertação às controvérsias financeiras e à amarga guerra pelo poder em Moçambique.</p>
         </div>
     </header>
-    
-    <!-- Conteúdo Principal -->
-    <main class="container">
-        <section class="religion-section">
-            <div class="religion-header">
-                <div class="religion-icon">
-                    <i class="fas fa-church"></i>
-                </div>
-                <h2 class="religion-title">Igreja Universal do Reino de Deus</h2>
-            </div>
-            
-            <div class="religion-content">
-                <div>
-                    <h3>Origem</h3>
-                    <p>A Igreja Universal do Reino de Deus foi fundada no Brasil em 1977 por Edir Macedo. Caracteriza-se pela teologia da prosperidade, ênfase na batalha espiritual e no exorcismo.</p>
-                    <p>Cresceu rapidamente no Brasil e expandiu-se internacionalmente, tornando-se uma das maiores denominações neopentecostais do mundo.</p>
-                    
-                    <div class="beliefs-list">
-                        <h4>Características Principais</h4>
-                        <ul>
-                            <li>Ênfase na teologia da prosperidade</li>
-                            <li>Batalha espiritual e práticas de exorcismo</li>
-                            <li>Uso intensivo de mídia para evangelização</li>
-                            <li>Cultos dinâmicos com testemunhos e milagres</li>
-                            <li>Estrutura organizacional centralizada e empresarial</li>
-                        </ul>
-                    </div>
-                    
-                    <h4>O Surgimento da Igreja Universal</h4>
-                    <p>A IURD não surgiu de uma dissidência teológica complexa, como a Reforma Protestante, mas sim de uma empreitada empresarial e religiosa voltada para um nicho de mercado específico, usando métodos modernos.</p>
-                    
-                    <h4>Contexto e Fundação: Brasil, Década de 1970</h4>
-                    <ul>
-                        <li><strong>Ambiente Religioso:</strong> O Brasil, tradicionalmente católico, passava por um rápido crescimento das igrejas pentecostais e do espiritismo kardecista. Havia um grande público buscando soluções imediatas para problemas materiais, de saúde e espirituais.</li>
-                        <li><strong>Os Fundadores:</strong> Edir Macedo Bezerra, um ex-funcionário da loteria estadual do Rio de Janeiro, junto com um pequeno grupo de dissidentes da Igreja Nova Vida.</li>
-                        <li><strong>Data e Local Oficial:</strong> 9 de Julho de 1977, no bairro de Abolição, Rio de Janeiro. O primeiro culto foi realizado em um antigo funeral.</li>
-                    </ul>
-                    
-                    <h4>A Doutrina de Negócio: A Teologia da Prosperidade</h4>
-                    <p>A IURD diferenciou-se radicalmente das igrejas pentecostais tradicionais ao adotar e intensificar a Teologia da Prosperidade (ou "Confissão Positiva"). Seus pilares são:</p>
-                    
-                    <ul>
-                        <li><strong>Troca Material:</strong> A fé torna-se uma transação comercial com Deus. O fiel faz um "sacrifício" (doação em dinheiro) e, em troca, recebe bênçãos materiais.</li>
-                        <li><strong>Inimigo Claro:</strong> A teologia é profundamente maniqueísta. Todos os problemas são causados diretamente por demônios específicos.</li>
-                        <li><strong>Poder do Fiel:</strong> O crente, através de sua "fé" (materializada na doação) e de "determinações", pode exigir de Deus as bênçãos que deseja.</li>
-                    </ul>
-                    
-                    <h4>Estratégias de Marketing e Expansão Agressiva</h4>
-                    <p>A IURD operou desde o início como uma corporação, não como uma denominação tradicional:</p>
-                    
-                    <ul>
-                        <li><strong>Uso da Mídia:</strong> Foi a pioneira absoluta na compra massiva de horários em rádios e televisão aberta.</li>
-                        <li><strong>Localização dos Templos:</strong> Estrategicamente colocados em áreas de grande fluxo, como antigos cinemas de bairro e galerias comerciais.</li>
-                        <li><strong>Linguagem Acessível:</strong> Os pastores falavam de forma direta, agressiva e simples, abordando problemas do dia a dia.</li>
-                        <li><strong>Sistema Franchising:</strong> O modelo de expansão permite que pastores abram e administrem templos, compartilhando a arrecadação com a cúpula.</li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3>Chegada a Moçambique</h3>
-                    <p>A Igreja Universal chegou a Moçambique no início dos anos 1990, pouco depois do fim da guerra civil. Estabeleceu-se inicialmente em Maputo e rapidamente expandiu-se para outras cidades.</p>
-                    <p>Sua presença cresceu significativamente graças ao uso intensivo de mídia (rádio, TV) e grandes campanhas evangelísticas. Tornou-se uma das denominações mais visíveis no panorama religioso moçambicano.</p>
-                    
-                    <div class="demographics">
-                        <h4>Presença da Igreja Universal em Moçambique</h4>
-                        <ul>
-                            <li>Presente em todas as principais cidades moçambicanas</li>
-                            <li>Templos em todas as províncias do país</li>
-                            <li>Programação diária em rádios e televisões nacionais</li>
-                            <li>Grandes templos (como a Catedral da Fé em Maputo)</li>
-                            <li>Intensa atividade evangelística e campanhas especiais</li>
-                        </ul>
-                    </div>
-                    
-                    <h4>A Chegada e Expansão da IURD em Moçambique</h4>
-                    <p>A entrada da IURD em Moçambique é um caso de estudo de como o neopentecostalismo brasileiro se globaliza, aproveitando-se de contextos socioeconômicos vulneráveis.</p>
-                    
-                    <h4>Contexto de Chegada: Anos 1990</h4>
-                    <ul>
-                        <li><strong>Pós-Guerra Civil:</strong> Moçambique saía de uma devastadora guerra civil (1977-1992). O país estava fragilizado, com pobreza generalizada e uma população traumatizada.</li>
-                        <li><strong>Abertura Política e Religiosa:</strong> Com o fim do regime socialista, o país adotou uma nova constituição que garantia a liberdade religiosa.</li>
-                    </ul>
-                    
-                    <h4>Estratégia de Entrada e Adaptação</h4>
-                    <ul>
-                        <li><strong>Data de Chegada:</strong> A IURD chegou oficialmente a Moçambique em 1992, precisamente no momento de transição para a paz.</li>
-                        <li><strong>Porta de Entrada:</strong> A estratégia foi idêntica à do Brasil: compra massiva de horários na televisão estatal (TVM) e em rádios nacionais.</li>
-                        <li><strong>Moçambicanização:</strong> Rapidamente, a igreja percebeu a necessidade de ter rostos locais. Pastores moçambicanos foram treinados e colocados à frente dos cultos e programas.</li>
-                        <li><strong>Uso de Línguas Locais:</strong> A IURD também incorporou o uso de línguas bantu em seus cultos para alcançar um público mais amplo.</li>
-                    </ul>
-                    
-                    <h4>Crescimento Explosivo e Conflitos</h4>
-                    <ul>
-                        <li><strong>Aceitação Rápida:</strong> A promessa de soluções rápidas para problemas urgentes levou a um crescimento vertiginoso.</li>
-                        <li><strong>Conflito com as Religiões Tradicionais:</strong> A IURD declarou guerra aberta às crenças e práticas tradicionais moçambicanas.</li>
-                        <li><strong>Acusações de Exploração:</strong> A igreja enfrenta críticas de explorar a pobreza da população, incentivando doações de fiéis que mal têm o que comer.</li>
-                        <li><strong>Poder Econômico e Político:</strong> A IURD tornou-se um player econômico significativo em Moçambique, com investimentos além do setor religioso.</li>
-                    </ul>
-                    
-                    <h4>Contribuições e Impacto</h4>
-                    <ul>
-                        <li>Presença significativa na mídia moçambicana</li>
-                        <li>Oferta de programas sociais e assistenciais</li>
-                        <li>Geração de empregos através de suas atividades</li>
-                        <li>Influência no panorama religioso moçambicano</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Seção de Tópicos -->
-        <section class="topics-section">
-            <div class="topics-header">
-                <h2>Tópicos Relacionados</h2>
-            </div>
-            
-            <div class="tabs">
-                <button class="tab-button active" data-tab="tab1">
-                    <i class="fas fa-history"></i> História
-                </button>
-                <button class="tab-button" data-tab="tab2">
-                    <i class="fas fa-map-marked-alt"></i> Distribuição
-                </button>
-                <button class="tab-button" data-tab="tab3">
-                    <i class="fas fa-hands"></i> Práticas
-                </button>
-            </div>
-            
-            <div class="tab-content active" id="tab1">
-                <div class="topic-grid">
-                    <div class="topic-card">
-                        <h4>Origens Brasileiras</h4>
-                        <p>A IURD foi fundada no Brasil em 1977 por Edir Macedo, tornando-se uma das maiores denominações neopentecostais do mundo.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Expansão Global</h4>
-                        <p>Da origem no Brasil, a IURD expandiu-se para mais de 100 países, incluindo Moçambique e outras nações africanas.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Chegada a África</h4>
-                        <p>A IURD chegou a Moçambique em 1992, aproveitando o contexto pós-guerra civil para estabelecer sua presença.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="tab2">
-                <div class="topic-grid">
-                    <div class="topic-card">
-                        <h4>Presença Nacional</h4>
-                        <p>A Igreja Universal está presente em todas as províncias de Moçambique, com templos nas principais cidades.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Áreas Urbanas</h4>
-                        <p>Forte presença em centros urbanos, com templos estrategicamente localizados em áreas de grande fluxo.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Expansão Contínua</h4>
-                        <p>A IURD continua expandindo sua presença em Moçambique, abrindo novos templos e ampliando sua programação midiática.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="tab3">
-                <div class="topic-grid">
-                    <div class="topic-card">
-                        <h4>Cultos de Libertação</h4>
-                        <p>Ênfase em cultos de libertação, exorcismo e batalha espiritual contra demônios e forças malignas.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Campanhas e Ofertas</h4>
-                        <p>Realização de campanhas específicas com promessas de milagres e bênçãos em troca de ofertas e sacrifícios financeiros.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Uso de Mídia</h4>
-                        <p>Utilização intensiva de rádio, televisão e internet para evangelização e divulgação de testemunhos.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <!-- Rodapé -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <i class="fas fa-church"></i>
-                </div>
-                <nav class="footer-nav">
-                    <a href="index.html">Início</a>
-                    <a href="#">Sobre</a>
-                    <a href="#">Religiões</a>
-                    <a href="#">Contacto</a>
-                    <a href="#">Privacidade</a>
-                </nav>
-                <p class="copyright">© 2023 Um País, Muitas Crenças. Todos os direitos reservados.</p>
+
+    <main class="container conteudo-analise">
+
+        <!-- AVISO DE CONTEÚDO -->
+        <div class="aviso-critico">
+            <i class="fas fa-balance-scale"></i>
+            <div>
+                <strong>Análise Equilibrada:</strong> Este artigo aborda tanto o trabalho social e os testemunhos de vidas transformadas pela IURD, como as acusações sobre a Teologia da Prosperidade e a crise de liderança que marcou a igreja em Moçambique.
             </div>
         </div>
-    </footer>
-    
-    <!-- Botão Voltar ao Topo -->
-    <a href="#" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-    
-    <script>
-        // Script para as abas
-        document.addEventListener('DOMContentLoaded', function() {
-            const tabButtons = document.querySelectorAll('.tab-button');
+
+        <!-- ORIGENS E CHEGADA A MOÇAMBIQUE - ENRIQUECIDO -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">Origens: A Multinacional da Fé Brasileira</h2>
+            <p>Fundada no Brasil em 9 de julho de 1977 por Edir Macedo, a Igreja Universal do Reino de Deus (IURD) cresceu de forma explosiva, tornando-se uma das maiores e mais poderosas organizações pentecostais do mundo, com presença em mais de 100 países. O seu modelo assenta num uso massivo dos meios de comunicação (rádio, televisão, jornais e internet) e numa mensagem pragmática focada na resolução de problemas terrenos: desemprego, doença, problemas familiares e financeiros, sob o emblemático lema "Pare de Sofrer".</p>
             
-            tabButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const targetTab = button.getAttribute('data-tab');
-                    
-                    // Remove a classe active de todos os botões e conteúdos
-                    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-                    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-                    
-                    // Adiciona a classe active ao botão clicado
-                    button.classList.add('active');
-                    
-                    // Mostra o conteúdo correspondente
-                    document.getElementById(targetTab).classList.add('active');
-                });
-            });
+            <div class="box-info">
+                <h3 class="info-titulo">Contexto de Chegada a Moçambique</h3>
+                <p>A IURD chegou a Moçambique em 1992, num momento histórico crucial: o país emergia de uma longa guerra civil (1977-1992) e adotava uma nova constituição que garantia liberdade religiosa. Esta abertura política e social criou um terreno fértil para o crescimento de novas igrejas. A Universal aproveitou este vácuo espiritual e social, estabelecendo-se inicialmente em Maputo e rapidamente expandindo para outras cidades como Beira, Nampula e Quelimane.</p>
+            </div>
+
+            <div class="box-info">
+                <h3 class="info-titulo">Estratégia de Expansão</h3>
+                <p>A igreja adotou uma estratégia agressiva de crescimento baseada em:</p>
+                <ul>
+                    <li><strong>Cultos de Libertação:</strong> Sessões focadas na cura e solução de problemas imediatos</li>
+                    <li><strong>Programação 24/7:</strong> Cultos em horários alternativos para atender diferentes públicos</li>
+                    <li><strong>Compra de Tempo de Antena:</strong> Aquisição de horários em rádios e TVs locais</li>
+                    <li><strong>Proselitismo de Rua:</strong> Evangelização porta-a-porta e em lugares públicos</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- PONTOS POSITIVOS - ENRIQUECIDO -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao positivo"><i class="fas fa-plus-circle"></i> Pontos Positivos: Acolhimento e Restauração de Vidas</h2>
             
-            // Botão voltar ao topo
-            const backToTopButton = document.querySelector('.back-to-top');
+            <div class="box-info">
+                <h3 class="info-titulo">Rede de Apoio Psicossocial</h3>
+                <p>Para muitos moçambicanos, especialmente migrantes rurais nas cidades, a IURD oferece uma rede de apoio e um sentido de comunidade que não encontram em mais nenhum lugar. A igreja funciona como uma família substituta, proporcionando:</p>
+                <ul>
+                    <li>Acompanhamento pessoal através dos "obreiros"</li>
+                    <li>Grupos de apoio por faixa etária e gênero</li>
+                    <li>Oração individualizada para problemas específicos</li>
+                    <li>Mediação em conflitos familiares</li>
+                </ul>
+            </div>
+
+            <div class="galeria-fotos">
+                <figure>
+                    <img src="/images/placeholder/iurd-social.jpg" alt="Ação social da IURD num bairro carenciado (imagem de exemplo)">
+                    <figcaption>Grupo de evangelização da IURD em ação de apoio comunitário (placeholder).</figcaption>
+                </figure>
+                <figure>
+                    <img src="/images/placeholder/catedral-fe.jpg" alt="Catedral da Fé da IURD (imagem de exemplo)">
+                    <figcaption>Uma das imponentes "Catedrais da Fé" da IURD em Moçambique (placeholder).</figcaption>
+                </figure>
+            </div>
+
+            <div class="box-info">
+                <h3 class="info-titulo">Programas Sociais Estruturantes</h3>
+                <p>Através de grupos como a Evangelização (EVG) e o "Força Jovem", a igreja realiza trabalho social organizado:</p>
+                <ul>
+                    <li><strong>Projeto "Cesta Básica":</strong> Distribuição mensal de alimentos a famílias carenciadas</li>
+                    <li><strong>Visitas a Hospitais:</strong> Apoio espiritual a doentes terminais</li>
+                    <li><strong>Programas em Prisões:</strong> Reabilitação de reclusos e apoio à reintegração</li>
+                    <li><strong>Cursos Profissionalizantes:</strong> Formação básica em informática e ofícios</li>
+                </ul>
+            </div>
+
+            <div class="box-info">
+                <h3 class="info-titulo">Testemunhos de Libertação de Vícios</h3>
+                <p>O ponto mais forte da IURD são os testemunhos públicos de transformação pessoal. A igreja é conhecida por acolher pessoas com historial de alcoolismo, toxicodependência e criminalidade, utilizando uma metodologia de três fases:</p>
+                <ol>
+                    <li><strong>Fase de Acólhimento:</strong> Aceitação incondicional sem julgamento</li>
+                    <li><strong>Fase de Disciplina:</strong> Participação obrigatória em cultos e grupos</li>
+                    <li><strong>Fase de Integração:</strong> Atribuição de responsabilidades dentro da igreja</li>
+                </ol>
+                <p>Muitos afirmam ter encontrado na fé a força para abandonar vícios e reconstruir as suas vidas e famílias. A ênfase na "libertação espiritual" ressoa profundamente com quem se sente preso a um ciclo de sofrimento.</p>
+            </div>
+
+            <div class="testemunho">
+                <p>"Eu era um homem perdido no álcool, a minha família estava destruída. Na Universal, ensinaram-me a lutar. Deram-me apoio quando ninguém mais deu. Hoje, sou um empresário, tenho o respeito dos meus filhos e estou livre do vício há dez anos. Devo a minha vida a esta igreja."
+                </p>
+                <cite>— Testemunho de um membro da IURD em Maputo (adaptado).</cite>
+            </div>
+
+            <div class="box-info">
+                <h3 class="info-titulo">Empoderamento Feminino</h3>
+                <p>Paradoxalmente, apesar de sua estrutura hierárquica patriarcal, a IURD tem proporcionado espaço para liderança feminina. Muitas mulheres encontram na igreja oportunidades para desenvolver habilidades de oratória, organização e liderança através dos grupos de senhoras e do "Força Jovem".</p>
+            </div>
+        </section>
+
+        <!-- PONTOS NEGATIVOS - ENRIQUECIDO -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao negativo"><i class="fas fa-minus-circle"></i> Pontos Negativos: A Teologia da Prosperidade e a Guerra pelo Poder</h2>
+
+            <div class="box-info controversia">
+                <h3 class="info-titulo">Teologia da Prosperidade: Mercantilização da Fé</h3>
+                <p>A principal controvérsia em torno da IURD é a sua agressiva Teologia da Prosperidade, que apresenta elementos preocupantes:</p>
+                <ul>
+                    <li><strong>Dízimo como Investimento:</strong> Ensinado como retorno financeiro garantido por Deus (Malaquias 3:10)</li>
+                    <li><strong>Ofertas Específicas:</strong> Diferentes valores para diferentes bênçãos (saúde, emprego, casa própria)</li>
+                    <li><strong>Vítimas do Sistema:</strong> Idosos, desempregados e doentes crónicos são os mais pressionados</li>
+                    <li><strong>Falta de Transparência:</strong> Não há prestação de contas sobre o uso dos recursos arrecadados</li>
+                </ul>
+            </div>
+
+            <div class="box-info controversia">
+                <h3 class="info-titulo">A Pressão da "Fogueira Santa" e Outras Campanhas</h3>
+                <p>Campanhas como a "Fogueira Santa de Israel" representam o ápice da pressão financeira:</p>
+                <ul>
+                    <li><strong>Sacrifícios Extremos:</strong> Fiéis são encorajados a vender bens essenciais</li>
+                    <li><strong>Promessas de Milagres:</strong> Cura de doenças incuráveis é frequentemente prometida</li>
+                    <li><strong>Táticas de Culpa:</strong> Quem não contribui é associado à falta de fé</li>
+                    <li><strong>Ciclo de Dependência:</strong> Novas campanhas surgem antes dos resultados das anteriores</li>
+                </ul>
+            </div>
+
+            <div class="box-info controversia">
+                <h3 class="info-titulo">A Guerra Civil pelo Controlo da Igreja (2015-2018)</h3>
+                <p>A imagem da IURD em Moçambique foi severamente abalada pela amarga disputa pelo controlo da organização:</p>
+                <ul>
+                    <li><strong>Raízes do Conflito:</strong> Bispos moçambicanos exigiam maior autonomia e transparência financeira</li>
+                    <li><strong>Acusações:</strong> Evasão de divisas, discriminação racial na liderança, má gestão</li>
+                    <li><strong>Consequências:</strong> Cisma interno, perda de membros, descrédito público</li>
+                    <li><strong>Desfecho Judicial:</strong> Vitória da liderança brasileira após longa batalha legal</li>
+                    <li><strong>Impacto:</strong> Exposição pública das disputas por poder e recursos financeiros</li>
+                </ul>
+            </div>
+
+            <div class="box-info controversia">
+                <h3 class="info-titulo">Acusações de Práticas Não-Ortodoxas</h3>
+                <p>Ex-membros e observadores críticos apontam para:</p>
+                <ul>
+                    <li><strong>Sincretismo Religioso:</strong> Incorporação de elementos do animismo africano em rituais</li>
+                    <li><strong>Demonização de Outras Religiões:</strong> Católicos e muçulmanos são frequentemente retratados como "endemoninhados"</li>
+                    <li><strong>Isolamento Social:</strong> Encorageamento a romper relações com familiares não-membros</li>
+                    <li><strong>Controle Mental:</strong> Uso de técnicas de repetição e exaustão em retiros espirituais</li>
+                </ul>
+            </div>
             
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    backToTopButton.style.display = 'flex';
-                } else {
-                    backToTopButton.style.display = 'none';
-                }
-            });
+            <div class="testemunho critico">
+                <p>"A minha avó, desesperada para curar a sua diabetes, foi convencida a doar a sua pensão inteira na Fogueira Santa. Diziam que o seu sacrifício provaria a sua fé. A cura nunca veio e ela passou os seus últimos meses de vida dependendo da ajuda dos vizinhos. Sentimo-nos enganados e explorados."
+                </p>
+                <cite>— Testemunho de um familiar de um ex-membro (adaptado).</cite>
+            </div>
+
+            <div class="testemunho critico">
+                <p>"Trabalhei como obreira durante três anos. O que vi por dentro foi chocante. Os pastores vivem em mansões enquanto pedem aos fiéis para sacrificarem o pouco que têm. As campanhas são planeadas psicologicamente para explorar o desespero das pessoas. Saí quando percebi que era parte do sistema."
+                </p>
+                <cite>— Ex-obreira da IURD em Beira (testemunho anónimo).</cite>
+            </div>
+        </section>
+
+        <!-- NOVA SEÇÃO: IMPACTO SOCIAL E CULTURAL -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">Impacto Social e Cultural em Moçambique</h2>
             
-            backToTopButton.addEventListener('click', (e) => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        });
-    </script>
+            <div class="box-info">
+                <h3 class="info-titulo">Transformação do Cenário Religioso</h3>
+                <p>A IURD alterou profundamente o panorama religioso moçambicano:</p>
+                <ul>
+                    <li><strong>Pentecostalização:</strong> Influenciou outras denominações a adotarem estilo pentecostal</li>
+                    <li><strong>Profissionalização:</strong> Introduziu gestão empresarial nas igrejas</li>
+                    <li><strong>Midiáticação:</strong> Tornou o uso intensivo de mídia uma norma evangélica</li>
+                    <li><strong>Urbanização da Fé:</strong> Deslocou o foco religioso das zonas rurais para as cidades</li>
+                </ul>
+            </div>
+
+            <div class="box-info">
+                <h3 class="info-titulo">Influência nos Meios de Comunicação</h3>
+                <p>A IURD possui um império mediático em Moçambique:</p>
+                <ul>
+                    <li><strong>Rede Record África:</strong> Canal de televisão com cobertura nacional</li>
+                    <li><strong>Rádios Comunitárias:</strong> Programação em várias línguas locais</li>
+                    <li><strong>Jornal "Folha Universal":</strong> Distribuição gratuita nos cultos</li>
+                    <li><strong>Redes Sociais:</strong> Presença agressiva no Facebook e WhatsApp</li>
+                </ul>
+                <p>Esta dominância gera debates sobre pluralismo religioso e uso do espaço público.</p>
+            </div>
+
+            <div class="box-info">
+                <h3 class="info-titulo">Impacto Económico</h3>
+                <p>A IURD é também um ator económico significativo:</p>
+                <ul>
+                    <li><strong>Empregadora:</strong> Contrata pastores, obreiros, seguranças e pessoal de limpeza</li>
+                    <li><strong>Movimentação Financeira:</strong> Arrecada milhões de meticais mensalmente</li>
+                    <li><strong>Investimento Imobiliário:</strong> Construção de mega-templos em áreas valorizadas</li>
+                    <li><strong>Efeito Multiplicador:</strong> Gera negócios para gráficas, transportes, etc.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- NOVA SEÇÃO: PERSPECTIVAS DE FUTURO -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">Perspectivas para o Futuro</h2>
+            
+            <div class="box-info">
+                <h3 class="info-titulo">Desafios Internos</h3>
+                <p>A IURD enfrenta vários desafios para sua sustentabilidade:</p>
+                <ul>
+                    <li><strong>Nacionalização da Liderança:</strong> Pressão por mais bispos moçambicanos</li>
+                    <li><strong>Transparência Financeira:</strong> Exigências crescentes por prestação de contas</li>
+                    <li><strong>Formação Teológica:</strong> Críticas ao baixo nível educacional dos pastores</li>
+                    <li><strong>Concorrência:</strong> Surgimento de igrejas locais com mensagens similares</li>
+                </ul>
+            </div>
+
+            <div class="box-info">
+                <h3 class="info-titulo">Oportunidades</h3>
+                <p>Potenciais áreas de crescimento e legitimação:</p>
+                <ul>
+                    <li><strong>Parcerias com o Estado:</strong> Colaboração em projetos sociais</li>
+                    <li><strong>Educação:</strong> Criação de escolas técnicas e profissionalizantes</li>
+                    <li><strong>Saúde:</strong> Estabelecimento de centros de apoio a doentes crónicos</li>
+                    <li><strong>Mediação Social:</strong> Atuação em resolução de conflitos comunitários</li>
+                </ul>
+            </div>
+
+            <div class="box-info">
+                <h3 class="info-titulo">Cenários Possíveis</h3>
+                <p>Três trajetórias prováveis para os próximos anos:</p>
+                <ol>
+                    <li><strong>Cenário Otimista:</strong> Reforma interna, maior transparência e foco em trabalho social</li>
+                    <li><strong>Cenário de Continuidade:</strong> Manutenção do modelo atual com ajustes cosméticos</li>
+                    <li><strong>Cenário de Declínio:</strong> Perda progressiva de membros para igrejas locais</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- BALANÇO FINAL - ENRIQUECIDO -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">Balanço Final: Paradoxo da Esperança e da Exploração</h2>
+            
+            <div class="box-info">
+                <h3 class="info-titulo">O Dilema Moçambicano</h3>
+                <p>A IURD em Moçambique representa um paradoxo complexo. Por um lado, funciona como uma poderosa rede de apoio psicossocial, recuperando vidas que o Estado e a sociedade tradicional haviam abandonado. Sua mensagem de esperança imediata e transformação pessoal é real e tangível para milhares.</p>
+                
+                <p>Por outro lado, opera sob um modelo teológico economicamente predatório, que sistematicamente explora a vulnerabilidade económica e emocional dos mais pobres. A "Teologia da Prosperidade" transforma a fé em transação comercial, onde o valor da oferta determina o tamanho da bênção.</p>
+            </div>
+
+            <div class="box-info">
+                <h3 class="info-titulo">Legado Ambíguo</h3>
+                <p>O legado da IURD em Moçambique é profundamente ambíguo:</p>
+                <div class="tabela-comparativa">
+                    <table>
+                        <tr>
+                            <th>Aspectos Positivos</th>
+                            <th>Aspectos Negativos</th>
+                        </tr>
+                        <tr>
+                            <td>Redes de apoio comunitário</td>
+                            <td>Exploração financeira dos pobres</td>
+                        </tr>
+                        <tr>
+                            <td>Recuperação de dependentes químicos</td>
+                            <td>Promessas de cura não cumpridas</td>
+                        </tr>
+                        <tr>
+                            <td>Empoderamento de marginalizados</td>
+                            <td>Lutas internas por poder e dinheiro</td>
+                        </tr>
+                        <tr>
+                            <td>Preenchimento de vácuos estatais</td>
+                            <td>Falta de transparência financeira</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="box-info conclusao">
+                <h3 class="info-titulo">Conclusão</h3>
+                <p>A Igreja Universal do Reino de Deus em Moçambique é, simultaneamente, um porto de abrigo para os desesperados e uma sofisticada máquina de arrecadação de fundos. Sua história no país é um espelho das contradições do Moçambique contemporâneo: um país onde a fé e a esperança são commodities valiosas, mas também onde a vulnerabilidade é sistematicamente explorada.</p>
+                
+                <p>O futuro da IURD dependerá de sua capacidade de equilibrar sua missão espiritual com práticas éticas, transformando-se de uma organização vista como predatória para uma instituição genuinamente comprometida com o desenvolvimento humano integral dos moçambicanos.</p>
+            </div>
+        </section>
+
+        <!-- NOVA SEÇÃO: REFERÊNCIAS E FONTES -->
+        <section class="secao-analise referencias">
+            <h2 class="titulo-secao">Fontes e Referências</h2>
+            <div class="box-info">
+                <ul>
+                    <li>Dados históricos sobre a expansão da IURD em África</li>
+                    <li>Relatórios de organizações de defesa do consumidor religioso</li>
+                    <li>Entrevistas com ex-membros e obreiros (anonimizadas)</li>
+                    <li>Processos judiciais sobre a disputa interna na IURD-Moçambique</li>
+                    <li>Estudos acadêmicos sobre pentecostalismo em Moçambique</li>
+                    <li>Reportagens investigativas da imprensa moçambicana</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <section class="navegacao-inferior">
+        <a href="estudos.html" class="btn-voltar-estudos">
+            <i class="fas fa-book-open"></i> Voltar à Área de Estudos
+        </a>
+    </section>
+
+    <script src="menu.js"></script>
 </body>
 </html>

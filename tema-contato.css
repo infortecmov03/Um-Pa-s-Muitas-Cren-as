@@ -1,0 +1,113 @@
+
+/* Estilos para a página de Contato */
+
+.contact-container {
+    max-width: 800px;
+    width: 100%;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 2rem auto;
+}
+
+.contact-header {
+    background: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 25px 20px;
+}
+
+.contact-header h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.contact-header p {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.contact-info {
+    padding: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.contact-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    font-size: 24px;
+    color: white;
+}
+
+.phone .icon { background: #25D366; }
+.email .icon { background: #3498db; }
+.whatsapp .icon { background: #128C7E; }
+.facebook .icon { background: #3b5998; }
+
+.content h3 {
+    font-size: 18px;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.content p, .content a {
+    font-size: 16px;
+    color: #7f8c8d;
+    text-decoration: none;
+}
+
+.phone-link {
+    color: #25D366;
+    font-weight: 600;
+}
+
+.content a:hover {
+    color: #3498db;
+    text-decoration: underline;
+}
+
+.contact-footer {
+    text-align: center;
+    padding: 20px;
+    color: #7f8c8d;
+    font-size: 14px;
+    background: #f8f9fa;
+}
+
+@media (max-width: 600px) {
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .icon {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .contact-header h1 {
+        font-size: 24px;
+    }
+}

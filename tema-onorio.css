@@ -1,0 +1,54 @@
+/* TEMA-ONORIO.CSS - Paleta de cores para a análise do Profeta Onório */
+
+:root {
+    /* Paleta baseada na imagem de luxo e poder do Profeta Onório: Preto e Dourado */
+
+    --cor-analise-primaria: #b08d57; /* Dourado/Ouro, cor central da sua marca */
+    --cor-analise-secundaria: #1a1a1a; /* Preto/Grafite escuro, para criar um look premium */
+    
+}
+
+/* Ajustes específicos para o tema Profeta Onório */
+
+.header-analise {
+    border-bottom-color: var(--cor-analise-primaria);
+}
+
+.titulo-secao {
+    color: var(--cor-analise-secundaria);
+}
+
+.box-info.destaque {
+    border-left-color: var(--cor-analise-primaria);
+}
+
+.box-info.destaque .info-titulo {
+    color: var(--cor-analise-primaria);
+}
+
+.box-info.controversia {
+    background-color: #fcf8e3; /* Amarelo muito pálido, quase creme */
+    border-left-color: var(--cor-analise-primaria);
+}
+
+.box-info.controversia .info-titulo {
+    color: var(--cor-analise-primaria);
+}
+
+.citacao-critica {
+    background-color: #f5f5f5; /* Cinza muito claro */
+    border-left-color: var(--cor-analise-secundaria);
+}
+
+.citacao-critica cite {
+    color: #333;
+}
+
+/* Um look mais escuro e "premium" para o botão */
+.btn-voltar-estudos {
+    background-color: var(--cor-analise-secundaria);
+}
+.btn-voltar-estudos:hover {
+    background-color: #000;
+}
+

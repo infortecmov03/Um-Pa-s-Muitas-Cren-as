@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Denúncias - Um País Muitas Crenças</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Folhas de Estilo -->
+    <link rel="stylesheet" href="Um País Muitas Crenças.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="denuncia.css">
+
+</head>
+<body>
+    <!-- Menu será injetado aqui -->
+
+    <header class="header-denuncia">
+        <div class="container">
+            <h1><i class="fas fa-user-secret"></i> Canal de Denúncia</h1>
+            <p>A sua voz pode revelar a verdade. Envie informações de forma segura e anónima.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="form-container">
+
+            <!-- DIRETRIZES DE SEGURANÇA -->
+            <div class="form-guidelines">
+                <h3><i class="fas fa-shield-alt"></i> Antes de Enviar, Leia com Atenção</h3>
+                <ul>
+                    <li><strong>NÃO</strong> use o seu nome verdadeiro ou informações que o possam identificar.</li>
+                    <li>Use um email anónimo (criado para este fim) se desejar ser contactado.</li>
+                    <li>Conecte-se a partir de uma rede segura (não use a rede da igreja ou do seu local de trabalho).</li>
+                    <li>Detalhe os factos: O quê? Quem? Onde? Quando? Como?</li>
+                    <li>Anexe provas sempre que possível: documentos, fotos, gravações.</li>
+                </ul>
+                <p><strong>A sua segurança é a nossa prioridade.</strong> Todas as submissões são tratadas com a máxima confidencialidade.</p>
+            </div>
+
+            <form id="denunciaForm" name="form-denuncia" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data">
+                 <input type="hidden" name="form-name" value="form-denuncia">
+                 <p class="hidden"><label>Don’t fill this out if you're human: <input name="bot-field"></label></p>
+
+                <!-- Título da Denúncia -->
+                <div class="secao-form">
+                    <label for="titulo"><i class="fas fa-heading"></i> Título da Denúncia</label>
+                    <input type="text" id="titulo" name="titulo" class="input-form" placeholder="Ex: Abuso financeiro na igreja X" required>
+                </div>
+
+                <!-- Nome da Igreja/Grupo -->
+                <div class="secao-form">
+                    <label for="igreja"><i class="fas fa-church"></i> Igreja ou Grupo Religioso</label>
+                    <input type="text" id="igreja" name="igreja" class="input-form" placeholder="Ex: Igreja da Luz Divina, Maputo" required>
+                </div>
+
+                <!-- Descrição dos Fatos -->
+                <div class="secao-form">
+                    <label for="descricao"><i class="fas fa-file-alt"></i> Descrição Detalhada dos Fatos</label>
+                    <textarea id="descricao" name="descricao" class="textarea-form" placeholder="Descreva os acontecimentos com o máximo de detalhes possível. Inclua datas, locais e nomes das pessoas envolvidas (se for seguro fazê-lo)." required></textarea>
+                </div>
+
+                <!-- Anexar Provas -->
+                <div class="secao-form">
+                    <label for="anexos"><i class="fas fa-paperclip"></i> Anexar Provas (Documentos, Fotos, Áudios)</label>
+                    <div class="upload-area" id="uploadArea">
+                        <input type="file" id="anexos" name="anexos[]" multiple style="display: none;">
+                        <p>Arraste e solte os ficheiros aqui, ou <strong>clique para selecionar</strong>.</p>
+                    </div>
+                    <div id="file-list" style="margin-top: 10px;"></div>
+                </div>
+
+                <div id="form-feedback" style="margin-top: 1rem; font-weight: bold; text-align: center;"></div>
+
+
+                <!-- Botão de Envio -->
+                <div class="secao-form">
+                    <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Enviar Denúncia de Forma Segura</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="copyright">© 2024 Um País, Muitas Crenças. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="menu.js"></script>
+    <script src="denuncia.js"></script>
+</body>
+</html>

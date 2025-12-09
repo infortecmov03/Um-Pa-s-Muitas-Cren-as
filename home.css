@@ -1,0 +1,176 @@
+/* HOME.CSS - Estilos para a nova página inicial dinâmica */
+
+/* Novo Cabeçalho Principal (Hero Section) */
+.hero-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1554236317-ec9f54855877?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 6rem 1rem;
+}
+
+.hero-header .logo-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-header h1 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.hero-header .mission-statement {
+    font-size: 1.3rem;
+    margin: 1rem auto 2rem auto;
+    max-width: 700px;
+    line-height: 1.6;
+}
+
+/* Botões de Chamada à Ação (CTA) */
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.cta-button {
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 2px solid transparent;
+}
+
+.cta-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.cta-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.cta-secondary {
+    background-color: transparent;
+    color: #fff;
+    border-color: #fff;
+}
+
+.cta-secondary:hover {
+    background-color: #fff;
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255,255,255,0.2);
+}
+
+.cta-denuncia {
+    background-color: #c82333;
+    color: #fff;
+    border-color: #c82333;
+}
+
+.cta-denuncia:hover {
+    background-color: #a71d2a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Secção de Investigações em Destaque */
+.featured-investigations {
+    padding: 4rem 0;
+    background-color: #f8f9fa;
+}
+
+.section-title-home {
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.section-subtitle-home {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.investigations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.investigation-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.investigation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.investigation-card-img {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.investigation-card-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.investigation-card-tag {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.investigation-card-title {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.4rem;
+    margin: 0 0 1rem 0;
+    color: #333;
+}
+
+.investigation-card-desc {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.investigation-card-link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.investigation-card-link:hover {
+    text-decoration: underline;
+}

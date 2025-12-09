@@ -1,0 +1,121 @@
+/* DENUNCIA.CSS - Estilos para a página de denúncias seguras */
+
+.header-denuncia {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 4rem 1rem;
+    text-align: center;
+}
+
+.header-denuncia h1 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 2.8em;
+    margin-bottom: 0.5rem;
+}
+
+.form-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.secao-form {
+    margin-bottom: 2rem;
+}
+
+.secao-form label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.secao-form label i {
+    margin-right: 8px;
+    color: #555;
+}
+
+.input-form, .textarea-form, .select-form {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-form:focus, .textarea-form:focus, .select-form:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0,123,255,0.25);
+}
+
+.textarea-form {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.upload-area {
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.upload-area.dragover {
+    background-color: #f0f8ff;
+    border-color: #007bff;
+}
+
+.upload-area p {
+    margin: 0;
+    color: #666;
+}
+
+.btn-submit {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #c82333; /* Vermelho escuro, cor de alerta/importância */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight: 700;
+    font-family: 'Roboto Slab', serif;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #a71d2a;
+}
+
+.form-guidelines {
+    background-color: #f8f9fa;
+    border-left: 4px solid #007bff;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 0 5px 5px 0;
+}
+
+.form-guidelines h3 {
+    margin-top: 0;
+    font-family: 'Roboto Slab', serif;
+    color: #0056b3;
+}
+
+.form-guidelines ul {
+    padding-left: 20px;
+    margin-bottom: 0;
+}

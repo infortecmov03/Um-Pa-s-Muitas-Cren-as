@@ -1,571 +1,359 @@
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assembleia de Deus em Moçambique</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Menu de navegação */
-        .sobre-menu {
-            background: linear-gradient(to right, #2E7D32, #4CAF50);
-            padding: 15px 0;
-            overflow-x: auto;
-            white-space: nowrap;
-        }
-        
-        .sobre-menu ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .sobre-menu li {
-            margin: 5px 10px;
-        }
-        
-        .sobre-menu a {
-            color: white;
-            text-decoration: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            transition: background-color 0.3s;
-            font-weight: 500;
-        }
-        
-        .sobre-menu a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-        
-        /* Cabeçalho */
-        header {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%234CAF50"/><path d="M0 0L100 100" stroke="%232E7D32" stroke-width="2"/><path d="M100 0L0 100" stroke="%232E7D32" stroke-width="2"/></svg>');
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-            margin-bottom: 30px;
-        }
-        
-        .logo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .logo-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-        
-        .logo h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        
-        /* Conteúdo principal */
-        .religion-section {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            margin-bottom: 30px;
-        }
-        
-        .religion-header {
-            background: linear-gradient(to right, #2E7D32, #4CAF50);
-            color: white;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .religion-icon {
-            font-size: 2rem;
-            margin-right: 15px;
-        }
-        
-        .religion-title {
-            font-size: 1.8rem;
-        }
-        
-        .religion-content {
-            padding: 30px;
-        }
-        
-        .religion-content h3 {
-            color: #2E7D32;
-            margin: 20px 0 15px;
-            border-bottom: 2px solid #f0f0f0;
-            padding-bottom: 8px;
-        }
-        
-        .religion-content h4 {
-            color: #1B5E20;
-            margin: 18px 0 12px;
-        }
-        
-        .religion-content p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-        
-        .beliefs-list, .practices-list, .demographics {
-            background-color: #f9f9f9;
-            border-left: 4px solid #4CAF50;
-            padding: 15px 20px;
-            margin: 20px 0;
-            border-radius: 0 5px 5px 0;
-        }
-        
-        .beliefs-list h4, .practices-list h4, .demographics h4 {
-            color: #2E7D32;
-            margin-top: 0;
-        }
-        
-        .beliefs-list ul, .practices-list ul, .demographics ul {
-            padding-left: 20px;
-            margin: 10px 0;
-        }
-        
-        .beliefs-list li, .practices-list li, .demographics li {
-            margin-bottom: 8px;
-        }
-        
-        /* Seção de tópicos */
-        .topics-section {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            margin-bottom: 30px;
-        }
-        
-        .topics-header {
-            background: linear-gradient(to right, #2E7D32, #4CAF50);
-            color: white;
-            padding: 15px 20px;
-        }
-        
-        .topics-header h2 {
-            font-size: 1.5rem;
-        }
-        
-        .tabs {
-            display: flex;
-            border-bottom: 1px solid #eee;
-            padding: 0 20px;
-        }
-        
-        .tab-button {
-            background: none;
-            border: none;
-            padding: 15px 20px;
-            cursor: pointer;
-            font-weight: 500;
-            color: #666;
-            display: flex;
-            align-items: center;
-            transition: color 0.3s;
-        }
-        
-        .tab-button.active {
-            color: #4CAF50;
-            border-bottom: 3px solid #4CAF50;
-        }
-        
-        .tab-button i {
-            margin-right: 8px;
-        }
-        
-        .tab-content {
-            display: none;
-            padding: 20px;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        .topic-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
-        .topic-card {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-        }
-        
-        .topic-card h4 {
-            color: #2E7D32;
-            margin-bottom: 10px;
-        }
-        
-        /* Rodapé */
-        footer {
-            background: linear-gradient(to right, #1B5E20, #2E7D32);
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .footer-logo {
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-        
-        .footer-nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        
-        .footer-nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px 10px;
-            transition: opacity 0.3s;
-        }
-        
-        .footer-nav a:hover {
-            opacity: 0.8;
-        }
-        
-        .copyright {
-            opacity: 0.8;
-            font-size: 0.9rem;
-        }
-        
-        /* Botão voltar ao topo */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #4CAF50;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-            transition: background 0.3s;
-        }
-        
-        .back-to-top:hover {
-            background: #2E7D32;
-        }
-        
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .logo h1 {
-                font-size: 2rem;
-            }
-            
-            .religion-header {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .religion-icon {
-                margin-right: 0;
-                margin-bottom: 10px;
-            }
-            
-            .tabs {
-                flex-direction: column;
-            }
-            
-            .tab-button {
-                justify-content: center;
-            }
-        }
-    </style>
+    <title>Análise: Assembleia de Deus em Moçambique - Um País Muitas Crenças</title>
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Folhas de Estilo -->
+    <link rel="stylesheet" href="Um País Muitas Crenças.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="tema-analise-critica.css">
+
 </head>
 <body>
-    <nav class="sobre-menu">
-        <ul>
-            <li><a href="Sobre universal.html">Universal</a></li>
-            <li><a href="Sobre Testemunhas de Jeová em Moçambique.html">Testemunhas de Jeová</a></li>
-            <li><a href="Sobre Sara Nossa Terra em Moçambique.html">Sara Nossa Terra</a></li>
-            <li><a href="Sobre Metodista.html">Metodista</a></li>
-            <li><a href="Sobre Igreja Zionista.html">Zionista</a></li>
-            <li><a href="Sobre Igreja Presbiteriana.html">Presbiteriana</a></li>
-            <li><a href="Sobre Igreja de Profetas em Moçambique.html">Profetas</a></li>
-            <li><a href="Sobre Igreja de Deus.html">Igreja de Deus</a></li>
-            <li><a href="Sobre Igreja da Graça em Moçambique.html">Graça</a></li>
-            <li><a href="Sobre Católica.html">Católica</a></li>
-            <li><a href="Sobre Assembleia de Deus.html" style="background-color: rgba(255, 255, 255, 0.3);">Assembleia de Deus</a></li>
-            <li><a href="Sobre Apostólica.html">Apostólica</a></li>
-            <li><a href="Sobre Anglicana.html">Anglicana</a></li>
-            <li><a href="Sobre Adventistas emMoçambique.html">Adventistas</a></li>
-        </ul>
-    </nav>
-    
-    <!-- Cabeçalho -->
-    <header>
+    <!-- Menu será injetado aqui -->
+
+    <header class="header-analise" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1594781021973-5a5ba4c8a4a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
         <div class="container">
-            <div class="logo">
-                <i class="fas fa-church logo-icon"></i>
-                <h1>Assembleia de Deus</h1>
-                <p class="subtitle">Conheça a história e influência da Assembleia de Deus em Moçambique</p>
-            </div>
+            <h1 class="titulo-principal">Análise: A Assembleia de Deus</h1>
+            <p class="subtitulo-principal">O pilar comunitário do pentecostalismo moçambicano, entre a rigidez doutrinária e a crescente influência política.</p>
         </div>
     </header>
-    
-    <!-- Conteúdo Principal -->
-    <main class="container">
-        <section class="religion-section">
-            <div class="religion-header">
-                <div class="religion-icon">
-                    <i class="fas fa-church"></i>
-                </div>
-                <h2 class="religion-title">Assembleia de Deus</h2>
-            </div>
-            
-            <div class="religion-content">
-                <div>
-                    <h3>Origem</h3>
-                    <p>A Assembleia de Deus tem suas origens no movimento pentecostal que surgiu no início do século XX nos Estados Unidos, particularmente no Avivamento da Rua Azusa em Los Angeles (1906-1909).</p>
-                    <p>Caracteriza-se pela ênfase no batismo no Espírito Santo, com a evidência inicial de falar em línguas, e nos dons espirituais.</p>
-                    
-                    <div class="beliefs-list">
-                        <h4>Características Principais</h4>
-                        <ul>
-                            <li>Ênfase no batismo no Espírito Santo com a evidência de falar em línguas</li>
-                            <li>Crença nos dons espirituais (cura, profecia, milagres)</li>
-                            <li>Cultos caracterizados por intensa participação emocional e expressiva</li>
-                            <li>Forte ênfase na evangelização e missões</li>
-                            <li>Valorização da vida de santidade e separação do mundo</li>
-                        </ul>
-                    </div>
-                    
-                    <h4>O Surgimento das Assembleias de Deus</h4>
-                    <p>A Assembleia de Deus é uma denominação cristã evangélica pentecostal que se originou no movimento pentecostal dos Estados Unidos no início do século XX. Sua formação está diretamente ligada ao Avivamento da Rua Azusa, ocorrido entre 1906 e 1909 em Los Angeles, Califórnia.</p>
-                    
-                    <h4>Parte 1: As Raízes no Avivamento da Rua Azusa</h4>
-                    <p>O movimento começou em Los Angeles, EUA, em um humilde prédio na Rua Azusa 312, liderado por um pregador negro, William J. Seymour. Este avivamento foi caracterizado por manifestações intensas e emocionais: falar em línguas estranhas (glossolalia), curas divinas, profecias e um culto extremamente participativo, quebrando barreiras raciais e sociais (pelo menos inicialmente).</p>
-                    
-                    <h4>A Doutrina Central: O Batismo no Espírito Santo</h4>
-                    <p>A crença distintiva do movimento era de que o "Batismo no Espírito Santo" era uma experiência subsequente à conversão, e a evidência inicial física desse batismo era o falar em outras línguas, tal como ocorreu com os apóstolos no dia de Pentecostes (Atos 2:1-4).</p>
-                    
-                    <h4>A Organização Denominacional (1914)</h4>
-                    <p>Com centenas de congregações pentecostais independentes espalhadas, surgiu a necessidade de criar uma rede cooperativa para estabelecer uma doutrina comum e combater heresias. Na Convenção de Hot Springs, Arkansas (1914), cerca de 120 pastores e leigos decidiram formar uma cooperativa de igrejas autônomas, que viria a se chamar Assembleias de Deus (Assemblies of God - AG).</p>
-                </div>
-                
-                <div>
-                    <h3>Chegada e Expansão em Moçambique</h3>
-                    <p>A Assembleia de Deus chegou a Moçambique na década de 1950 através de missionários brasileiros e portugueses. Inicialmente, estabeleceu-se nas áreas urbanas, particularmente em Maputo (então Lourenço Marques).</p>
-                    <p>Cresceu rapidamente durante as décadas de 1970 e 1980, tornando-se uma das maiores denominações pentecostais do país. Expandiu-se para todas as províncias e mantém forte presença tanto em áreas urbanas como rurais.</p>
-                    
-                    <div class="demographics">
-                        <h4>Estatísticas Atuais em Moçambique</h4>
-                        <ul>
-                            <li>Mais de 1.200 igrejas e pontos de pregação em todo o país</li>
-                            <li>Estimativa de mais de 500.000 membros ativos</li>
-                            <li>Presente em todas as 11 províncias de Moçambique</li>
-                            <li>Rede de escolas e instituições de formação teológica</li>
-                            <li>Programas de rádio e televisão de alcance nacional</li>
-                        </ul>
-                    </div>
-                    
-                    <h4>Linha do Tempo Histórica</h4>
-                    <p><strong>Década de 1920:</strong> Primeiros missionários suecos, Fredrik e Anna Lödström, chegam a Lourenço Marques (atual Maputo).</p>
-                    <p><strong>Década de 1950:</strong> Chegam missionários brasileiros e portugueses, estabelecendo-se em áreas urbanas.</p>
-                    <p><strong>1975:</strong> Com a independência, missionários estrangeiros são expulsos, forçando a liderança nacional.</p>
-                    <p><strong>1977-1992:</strong> Período de crescimento explosivo durante a guerra civil, oferecendo esperança e refúgio espiritual.</p>
-                    <p><strong>Pós-1992:</strong> Consolidação como maior denominação evangélica de Moçambique com expansão nacional.</p>
-                    
-                    <h4>A Fase de Perseguição sob o Domínio Colonial</h4>
-                    <p>Portugal, sob o regime do Estado Novo de Salazar, era um estado católico e autoritário. O regime via qualquer religião protestante, especialmente as pentecostais com suas reuniões fervorosas, como uma ameaça à "civilização portuguesa" e à ordem estabelecida. A atividade missionária protestante era oficialmente proibida entre a população "indígena".</p>
-                    
-                    <p>Os missionários inicialmente focaram na pequena comunidade de colonos europeus e sul-africanos. Qualquer tentativa de pregar aos moçambicanos era feita de forma discreta e resultava em perseguição, prisão, espancamentos e expulsões. Os cultos eram realizados em segredo, nas matas (florestas), para evitar a polícia colonial (PIDE).</p>
-                    
-                    <h4>Estratégias de Crescimento e Resistência</h4>
-                    <p>Missionários como Bernhard Johnson (sueco) adotaram uma estratégia diferente. Eles usaram a ação social como uma porta de entrada. Abriram escolas primárias rudimentares e ofereceram assistência médica básica, conquistando a confiança das comunidades. Traduziram porções da Bíblia para línguas locais (como o changana) e focaram no discipulado.</p>
-                    
-                    <h4>Contribuições para a Sociedade Moçambicana</h4>
-                    <ul>
-                        <li>Rede de escolas primárias e secundárias</li>
-                        <li>Programas de assistência social e combate à pobreza</li>
-                        <li>Projetos de desenvolvimento comunitário</li>
-                        <li>Apoio a órfãos e vulneráveis</li>
-                        <li>Programas de combate ao HIV/AIDS</li>
-                        <li>Promoção da paz e reconciliação nacional</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Seção de Tópicos -->
-        <section class="topics-section">
-            <div class="topics-header">
-                <h2>Tópicos Relacionados</h2>
-            </div>
-            
-            <div class="tabs">
-                <button class="tab-button active" data-tab="tab1">
-                    <i class="fas fa-history"></i> História
-                </button>
-                <button class="tab-button" data-tab="tab2">
-                    <i class="fas fa-map-marked-alt"></i> Distribuição
-                </button>
-                <button class="tab-button" data-tab="tab3">
-                    <i class="fas fa-hands"></i> Práticas
-                </button>
-            </div>
-            
-            <div class="tab-content active" id="tab1">
-                <div class="topic-grid">
-                    <div class="topic-card">
-                        <h4>Origens Pentecostais</h4>
-                        <p>A Assembleia de Deus surgiu do movimento pentecostal do início do século XX, com raízes no Avivamento da Rua Azusa em Los Angeles.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Expansão Global</h4>
-                        <p>Das origens norte-americanas, a denominação expandiu-se para todo o mundo, tornando-se uma das maiores igrejas pentecostais.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Chegada a África</h4>
-                        <p>A Assembleia de Deus chegou a Moçambique através de missionários suecos, brasileiros e portugueses ao longo do século XX.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="tab2">
-                <div class="topic-grid">
-                    <div class="topic-card">
-                        <h4>Presença Nacional</h4>
-                        <p>A Assembleia de Deus está presente em todas as 11 províncias de Moçambique, com forte concentração nas áreas urbanas.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Áreas Urbanas</h4>
-                        <p>A denominação tem forte presença em centros urbanos, com grandes templos e estruturas organizadas.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Expansão Rural</h4>
-                        <p>Recentemente, a Assembleia de Deus tem expandido sua atuação para áreas rurais e remotas do país.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="tab3">
-                <div class="topic-grid">
-                    <div class="topic-card">
-                        <h4>Cultos Pentecostais</h4>
-                        <p>Os cultos são caracterizados por intensa participação emocional, cânticos vibrantes e manifestações dos dons espirituais.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Batismo no Espírito Santo</h4>
-                        <p>Ênfase na experiência do batismo no Espírito Santo com a evidência de falar em línguas.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Evangelização</h4>
-                        <p>Forte ênfase na evangelização e missões, com programas de treinamento e envio de missionários.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <!-- Rodapé -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <i class="fas fa-church"></i>
-                </div>
-                <nav class="footer-nav">
-                    <a href="index.html">Início</a>
-                    <a href="#">Sobre</a>
-                    <a href="#">Religiões</a>
-                    <a href="#">Contacto</a>
-                    <a href="#">Privacidade</a>
-                </nav>
-                <p class="copyright">© 2023 Um País, Muitas Crenças. Todos os direitos reservados.</p>
+
+    <main class="container conteudo-analise">
+
+        <!-- AVISO DE CONTEÚDO -->
+        <div class="aviso-critico">
+            <i class="fas fa-balance-scale"></i>
+            <div>
+                <strong>Análise Equilibrada:</strong> Este artigo examina tanto o papel da Assembleia de Deus na construção de comunidades e na promoção de valores morais, como as críticas sobre o seu envolvimento político e a rigidez dos seus "usos e costumes".
             </div>
         </div>
-    </footer>
-    
-    <!-- Botão Voltar ao Topo -->
-    <a href="#" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-    
-    <script>
-        // Script para as abas
-        document.addEventListener('DOMContentLoaded', function() {
-            const tabButtons = document.querySelectorAll('.tab-button');
+
+        <!-- ORIGENS E SURGIMENTO - ENRIQUECIDO -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">Origem e Surgimento: Do Avivamento da Rua Azusa ao Pentecostalismo Global</h2>
             
-            tabButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const targetTab = button.getAttribute('data-tab');
-                    
-                    // Remove a classe active de todos os botões e conteúdos
-                    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-                    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-                    
-                    // Adiciona a classe active ao botão clicado
-                    button.classList.add('active');
-                    
-                    // Mostra o conteúdo correspondente
-                    document.getElementById(targetTab).classList.add('active');
-                });
-            });
+            <div class="box-info">
+                <h3 class="info-titulo">O Avivamento Histórico (1906-1915)</h3>
+                <p>A Assembleia de Deus tem suas raízes no Avivamento da Rua Azusa em Los Angeles, iniciado em 1906 sob a liderança do pastor afro-americano William J. Seymour. Este movimento revolucionário caracterizou-se por:</p>
+                <ul>
+                    <li><strong>Manifestações Carismáticas:</strong> Glossolalia (falar em línguas), curas e profecias</li>
+                    <li><strong>Interracialidade Inédita:</strong> Brancos, negros e hispânicos cultuavam juntos, rompendo barreiras raciais</li>
+                    <li><strong>Anti-Hierarquia:</strong> Ênfase no "sacerdócio universal de todos os crentes"</li>
+                    <li><strong>Egalitarianismo:</strong> Mulheres pregavam e lideravam ao lado dos homens</li>
+                </ul>
+            </div>
+
+            <div class="box-info">
+                <h3 class="info-titulo">Consolidação como Denominação</h3>
+                <p>A partir de 1914, o movimento começou a se organizar formalmente:</p>
+                <ul>
+                    <li><strong>Convenção de Hot Springs (1914):</strong> 300 pastores se reuniram para organizar o movimento</li>
+                    <li><strong>Nome "Assembleia de Deus":</strong> Adotado em 1914, refletindo Atos 2:1</li>
+                    <li><strong>Expansão Internacional:</strong> Missionários foram enviados para todo o mundo nas décadas de 1920-30</li>
+                    <li><strong>Doutrina Consolidada:</strong> Batismo no Espírito Santo como evidência inicial</li>
+                </ul>
+            </div>
+
+            <div class="box-info">
+                <h3 class="info-titulo">Primeiros Missionários em África</h3>
+                <p>Os primeiros missionários da Assembleia de Deus chegaram a África na década de 1920:</p>
+                <ul>
+                    <li><strong>Foco em Países Lusófonos:</strong> Brasil, Portugal e colônias portuguesas</li>
+                    <li><strong>Estratégia de "Indigenização":</strong> Treinar líderes locais rapidamente</li>
+                    <li><strong>Adaptação Cultural:</strong> Uso de línguas locais e respeito por costumes não-contraditórios com a fé</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- CHEGADA A MOÇAMBIQUE - ENRIQUECIDO -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">Chegada e Recepção em Moçambique: Contexto Histórico</h2>
             
-            // Botão voltar ao topo
-            const backToTopButton = document.querySelector('.back-to-top');
+            <div class="box-info">
+                <h3 class="info-titulo">Primeira Fase: Missões Secretas (Década de 1950)</h3>
+                <p>Sob o regime colonial português (até 1975), a evangelização protestante era restrita:</p>
+                <ul>
+                    <li><strong>Missionários Brasileiros:</strong> Primeiros a chegar disfarçados como comerciantes ou professores</li>
+                    <li><strong>Zonas Rurais:</strong> Início nas províncias de Zambézia e Nampula, longe do controle colonial</li>
+                    <li><strong>Encontro com o Islamismo:</strong> Primeiro grande desafio nas regiões norte</li>
+                    <li><strong>Resistência Colonial:</strong> Igreja Católica era religião oficial do Estado</li>
+                </ul>
+            </div>
+
+            <div class="box-info">
+                <h3 class="info-titulo">Período Pós-Independência (1975-1992)</h3>
+                <p>Com a independência em 1975, a igreja enfrentou novos desafios:</p>
+                <ul>
+                    <li><strong>Estado Marxista-Leninista:</strong> Frelimo inicialmente hostil a todas as religiões</li>
+                    <li><strong>Perseguição:</strong> Muitas igrejas fechadas, pastores presos</li>
+                    <li><strong>Resistência Silenciosa:</strong> Cultos em casas particulares, reuniões secretas</li>
+                    <li><strong>Aproximação com a Renamo:</strong> Em algumas áreas rurais, simpatia com o movimento rebelde</li>
+                </ul>
+            </div>
+
+            <div class="box-info">
+                <h3 class="info-titulo">Crescimento Explosivo (Pós-1992)</h3>
+                <p>Após o Acordo de Paz de Roma, a igreja expandiu-se rapidamente:</p>
+                <ul>
+                    <li><strong>Liberdade Religiosa:</strong> Nova constituição permitiu proselitismo aberto</li>
+                    <li><strong>Vácuo Espiritual:</strong> Guerra civil deixou população traumatizada, aberta a novas mensagens</li>
+                    <li><strong>Foco nas Zonas Rurais:</strong> Onde o Estado era ausente, a igreja oferecia estrutura</li>
+                    <li><strong>Autoctonia:</strong> Liderança cada vez mais moçambicana</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- RECEPÇÃO INICIAL - ENRIQUECIDO -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">Recepção Inicial: Aceitação e Resistência</h2>
             
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    backToTopButton.style.display = 'flex';
-                } else {
-                    backToTopButton.style.display = 'none';
-                }
-            });
+            <div class="box-info">
+                <h3 class="info-titulo">Pontos Positivos da Recepção</h3>
+                <p>A igreja foi bem recebida por várias razões:</p>
+                <ul>
+                    <li><strong>Simplicidade da Mensagem:</strong> "Jesus salva, cura e batiza" - fácil de compreender</li>
+                    <li><strong>Prática de Curas:</strong> Em áreas sem acesso a cuidados médicos, as curas atraíam multidões</li>
+                    <li><strong>Contra Feitiçaria:</strong> Oferecia proteção espiritual contra "mau olhado" e feitiços</li>
+                    <li><strong>Educação Básica:</strong> Muitas missões incluíam escolas primárias</li>
+                    <li><strong>Solidariedade Comunitária:</strong> Ajuda mútua em tempos de fome ou doença</li>
+                </ul>
+            </div>
+
+            <div class="box-info controversia">
+                <h3 class="info-titulo">Pontos Negativos da Recepção</h3>
+                <p>A igreja também enfrentou resistência:</p>
+                <ul>
+                    <li><strong>Conflito com Tradições:</strong> Proibição da poligamia, culto aos ancestrais</li>
+                    <li><strong>Desestruturação Social:</strong> Conversão causava divisões familiares</li>
+                    <li><strong>Conflito com Islamismo:</strong> Tensões em regiões muçulmanas</li>
+                    <li><strong>Acusações de "Fé do Branco":</strong> Percebida como estrangeira e colonial</li>
+                    <li><strong>Rigor Excessivo:</strong> Regras muito duras para novos convertidos</li>
+                </ul>
+            </div>
+
+            <div class="galeria-fotos">
+                <figure>
+                    <img src="/images/placeholder/missao-rural-ad.jpg" alt="Missão rural da Assembleia de Deus">
+                    <figcaption>Missão rural típica - combinação de igreja e escola (placeholder)</figcaption>
+                </figure>
+                <figure>
+                    <img src="/images/placeholder/culto-camponeses.jpg" alt="Culto ao ar livre com camponeses">
+                    <figcaption>Cultos ao ar livre eram comuns nas zonas rurais (placeholder)</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- PONTOS POSITIVOS - ENRIQUECIDO -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao positivo"><i class="fas fa-plus-circle"></i> Pontos Positivos: Estrutura, Comunidade e Transformação</h2>
             
-            backToTopButton.addEventListener('click', (e) => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        });
-    </script>
+            <div class="box-info">
+                <h3 class="info-titulo">Uma Forte Rede Comunitária</h3>
+                <p>A força da Assembleia de Deus reside na sua capacidade de criar comunidades coesas e organizadas. Em muitas vilas e aldeias, a igreja é o centro da vida social, oferecendo:</p>
+                <ul>
+                    <li><strong>Redes de Apoio Mútuo:</strong> Sistema de solidariedade em crises (doenças, funerais)</li>
+                    <li><strong>"Círculos de Oração":</strong> Grupos principalmente femininos de apoio espiritual e social</li>
+                    <li><strong>Escolas Dominicais:</strong> Educação religiosa e moral para crianças</li>
+                    <li><strong>Associações por Idade:</strong> Jovens, adultos, idosos - cada grupo com seu espaço</li>
+                    <li><strong>Mediação de Conflitos:</strong> Pastores atuam como conselheiros familiares</li>
+                </ul>
+            </div>
+
+            <div class="testemunho positivo">
+                <p>"Na década de 90, após a guerra, nossa aldeia estava destruída. Não tínhamos escola, posto de saúde, nada. A Assembleia de Deus chegou e não só trouxe a mensagem de Jesus, mas organizou a comunidade. Construímos juntos uma capela, depois uma escola comunitária. O pastor nos ensinou técnicas agrícolas melhores. Hoje, nossa aldeia é modelo na região. A igreja nos deu não apenas fé, mas organização e esperança prática."</p>
+                <cite>— Líder comunitário da província de Manica, 68 anos</cite>
+            </div>
+
+            <div class="box-info">
+                <h3 class="info-titulo">Um Código Moral Estruturante</h3>
+                <p>Para muitas pessoas em situações de caos social, os "usos e costumes" oferecem estrutura:</p>
+                <ul>
+                    <li><strong>Clareza Normativa:</strong> Regras específicas sobre álcool, tabaco, vestuário, lazer</li>
+                    <li><strong>Transformação de Carácter:</strong> Ênfase na disciplina e autocontrole</li>
+                    <li><strong>Reabilitação Social:</strong> Ex-alcoólatras e ex-presidiários encontram nova identidade</li>
+                    <li><strong>Estabilidade Familiar:</strong> Foco na fidelidade conjugal e responsabilidade parental</li>
+                    <li><strong>Ética do Trabalho:</strong> Valorização do trabalho honesto e poupança</li>
+                </ul>
+            </div>
+
+            <div class="testemunho positivo">
+                <p>"Vivia sem rumo, gastava o meu salário em bebida e a minha casa era uma confusão. Quando aceitei Jesus na Assembleia de Deus, tudo mudou. As regras que para outros parecem difíceis, para mim foram uma libertação. Deixei de beber, comecei a poupar, reconquistei o respeito da minha esposa e filhos. Hoje sou presbítero e ajudo outros homens a saírem do mesmo buraco onde eu estava. Encontrei uma comunidade que me apoia de verdade."</p>
+                <cite>— Presbítero da igreja na Zambézia, 45 anos</cite>
+            </div>
+
+            <div class="box-info">
+                <h3 class="info-titulo">Empoderamento Feminino Paradoxal</h3>
+                <p>Apesar da estrutura patriarcal, a igreja oferece espaços de liderança feminina:</p>
+                <ul>
+                    <li><strong>Líderes dos Círculos de Oração:</strong> Mulheres organizam e dirigem estas importantes reuniões</li>
+                    <li><strong>Evangelistas:</strong> Mulheres pregam em cultos femininos e visitas domiciliares</li>
+                    <li><strong>Diaconisas:</strong> Cuidam de necessitados, doentes e órfãos</li>
+                    <li><strong>Educação Religiosa:</strong> Mulheres ensinam nas escolas dominicais</li>
+                    <li><strong>Rede de Solidariedade:</strong> Mulheres apoiam-se mutuamente em crises matrimoniais</li>
+                </ul>
+            </div>
+
+            <div class="galeria-fotos">
+                <figure>
+                    <img src="/images/placeholder/assembleia-rural.jpg" alt="Igreja Assembleia de Deus numa zona rural">
+                    <figcaption>Uma típica igreja da Assembleia de Deus, centro da vida comunitária (placeholder)</figcaption>
+                </figure>
+                <figure>
+                    <img src="/images/placeholder/circulo-oracao.jpg" alt="Círculo de oração de mulheres">
+                    <figcaption>As mulheres do círculo de oração são um pilar da igreja (placeholder)</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- PONTOS NEGATIVOS - ENRIQUECIDO -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao negativo"><i class="fas fa-minus-circle"></i> Pontos Negativos: Controlo, Exclusão e Política</h2>
+
+            <div class="box-info controversia">
+                <h3 class="info-titulo">"Usos e Costumes" como Mecanismo de Controlo</h3>
+                <p>As regras rígidas são criticadas por:</p>
+                <ul>
+                    <li><strong>Foco Excessivo na Aparência:</strong> Comprimento de saias, tipos de cabelo, maquilhagem</li>
+                    <li><strong>Vigilância Mutua:</strong> Membros encorajados a reportar "desvios" dos outros</li>
+                    <li><strong>Exclusão de "Mundanos":</strong> Limitação de relações com não-crentes, incluindo familiares</li>
+                    <li><strong>Culpa e Vergonha:</strong> Quem falha é publicamente disciplinado</li>
+                    <li><strong>Impedimento de Desenvolvimento:</strong> Proibição de certas profissões e estudos</li>
+                </ul>
+            </div>
+
+            <div class="testemunho critico">
+                <p>"Cresci na Assembleia de Deus e era uma prisão dourada. Aos 12 anos, fui proibida de jogar futebol com os meninos. Aos 15, tive que deixar de usar calças, mesmo para andar de bicicleta. Aos 18, queria estudar enfermagem, mas disseram que no hospital veria homens sem roupa e isso era 'pecado'. Meu irmão foi expulso por assistir um filme no cinema. Saímos juntos. Hoje sou enfermeira, uso calças, vou ao cinema e sinto-me mais perto de Deus do que nunca."</p>
+                <cite>— Ex-membro, agora enfermeira em Maputo, 29 anos</cite>
+            </div>
+
+            <div class="box-info controversia">
+                <h3 class="info-titulo">A Estratégia do "Voto de Rebanho"</h3>
+                <p>O envolvimento político gera preocupações:</p>
+                <ul>
+                    <li><strong>Orientação de Voto:</strong> Pastores indicam candidatos "abençoados por Deus"</li>
+                    <li><strong>Troca de Favores:</strong> Terrenos, isenções fiscais, licenças em troca de apoio</li>
+                    <li><strong>Frelimo vs Renamo:</strong> Em diferentes regiões, a igreja alinha-se com o partido local</li>
+                    <li><strong>Silêncio sobre Corrupção:</strong> Não confronta políticos corruptos que são membros</li>
+                    <li><strong>Teologia da Submissão:</strong> "Toda autoridade vem de Deus" para justificar apoio a governantes</li>
+                </ul>
+            </div>
+
+            <div class="testemunho critico">
+                <p>"Meu pai era pastor da Assembleia de Deus. Em 2014, um candidato à presidência municipal nos ofereceu um terreno para construir um novo templo. Em troca, meu pai tinha que orientar os fiéis a votarem nele. Ele recusou. Foi pressionado pelos bispos, chamado de 'rebelde', e acabou sendo transferido para uma congregação minúscula no mato. O novo pastor que veio aceitou o acordo. O templo foi construído, o político ganhou, e a igreja cresceu. Meu pai saiu decepcionado."</p>
+                <cite>— Filho de ex-pastor da AD, professor universitário, 35 anos</cite>
+            </div>
+
+            <div class="box-info controversia">
+                <h3 class="info-titulo">Problemas Internos de Governança</h3>
+                <p>A estrutura hierárquica apresenta desafios:</p>
+                <ul>
+                    <li><strong>Nepotismo:</strong> Filhos de pastores herdarem posições</li>
+                    <li><strong>Falta de Transparência Financeira:</strong> Dízimos e ofertas sem prestação de contas</li>
+                    <li><strong>Centralização de Poder:</strong> Bispos com autoridade quase absoluta</li>
+                    <li><strong>Repressão a Críticas:</strong> Questionar líderes é considerado rebelião espiritual</li>
+                    <li><strong>Divisões Internas:</strong> Cisões por conflitos de personalidade e poder</li>
+                </ul>
+            </div>
+
+            <div class="testemunho critico">
+                <p>"Trabalhei como tesoureiro na nossa congregação por cinco anos. Anualmente, arrecadávamos cerca de 500.000 meticais. Dois terços iam para a sede nacional, mas nunca víamos relatório do que era feito com esse dinheiro. Quando questionei nosso pastor sobre alguns gastos não explicados, fui chamado de 'desconfiado' e 'espírito de Jezabel'. Perdi minha posição. Descobri depois que o pastor estava construindo uma casa de três andares enquanto pedíamos ofertas para 'irmãos necessitados'."</p>
+                <cite>— Ex-tesoureiro de congregação em Nampula, 52 anos</cite>
+            </div>
+        </section>
+
+        <!-- BALANÇO FINAL (REESTRUTURADO) -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">Balanço Final: O Império Comunitário e a Crise da Relevância</h2>
+
+            <div class="box-info">
+                <h3 class="info-titulo">O Dilema Moçambicano</h3>
+                <p>A Assembleia de Deus é, sem dúvida, um dos maiores arquitetos sociais de Moçambique. Onde o Estado falhou, ela construiu. Ergueu não apenas templos, mas comunidades inteiras, oferecendo um código moral estrito que resgatou muitos do alcoolismo e do crime, e uma rede de apoio que providencia segurança social e espiritual. Para milhões, a igreja não é apenas um lugar de culto, mas a principal fonte de identidade, ordem e esperança.</p>
+                <p>No entanto, este gigante comunitário enfrenta uma crise de crescimento. A mesma rigidez que deu estrutura a uma geração, hoje sufoca as aspirações da seguinte. Os "usos e costumes" que antes eram um refúgio, agora são vistos como uma barreira ao desenvolvimento pessoal e profissional. O envolvimento político, antes uma ferramenta de sobrevivência, arrisca-se a tornar-se um pacto de conveniência que corrói a sua autoridade moral, enquanto a falta de transparência e as lutas internas pelo poder minam a sua credibilidade.</p>
+            </div>
+
+            <div class="box-info">
+                <h3 class="info-titulo">Legado Ambíguo</h3>
+                <div class="tabela-comparativa">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Aspectos Positivos</th>
+                                <th>Aspectos Negativos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Criação de fortes redes de apoio comunitário</td>
+                                <td>Rigidez excessiva e controlo social ("usos e costumes")</td>
+                            </tr>
+                            <tr>
+                                <td>Reabilitação de vidas e promoção de valores morais</td>
+                                <td>Instrumentalização política e "voto de rebanho"</td>
+                            </tr>
+                            <tr>
+                                <td>Estrutura e ordem em zonas de abandono estatal</td>
+                                <td>Falta de transparência financeira e nepotismo</td>
+                            </tr>
+                            <tr>
+                                <td>Paradoxal empoderamento feminino em espaços limitados</td>
+                                <td>Fuga de jovens educados e conflito de gerações</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="box-info conclusao">
+                <h3 class="info-titulo">Conclusão</h3>
+                <p>A Assembleia de Deus em Moçambique é um gigante com pés de barro. Construiu um império comunitário sobre a fé e a necessidade, mas agora luta para não ser esmagado pelo seu próprio peso. O seu maior desafio é geracional: como pode uma instituição tão enraizada na tradição manter-se relevante para uma juventude moçambicana cada vez mais educada, conectada e com anseio por liberdade individual?</p>
+                <p>O futuro da Assembleia de Deus dependerá da sua coragem para se reformar. Terá de encontrar um novo equilíbrio entre a pureza doutrinária e a compaixão, entre a autoridade espiritual e a transparência institucional, e entre a separação do "mundo" e o seu dever profético de denunciar as injustiças desse mesmo mundo. Se não o fizer, corre o risco de se tornar um monumento a um passado de glória, mas cada vez mais irrelevante para o futuro de Moçambique.</p>
+            </div>
+        </section>
+
+        <!-- NOVA SEÇÃO: PERSPECTIVAS FUTURAS -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">Perspectivas para o Futuro</h2>
+            
+            <div class="box-info">
+                <h3 class="info-titulo">Desafios Emergentes</h3>
+                <ul>
+                    <li><strong>Modernização vs Tradição:</strong> Pressão para atualizar "usos e costumes"</li>
+                    <li><strong>Educação dos Membros:</strong> Fiéis mais educados questionam mais</li>
+                    <li><strong>Concorrência:</strong> Novas igrejas com regras mais flexíveis</li>
+                    <li><strong>Questões de Gênero:</strong> Pressão por mais espaço para mulheres na liderança</li>
+                    <li><strong>Transparência:</strong> Exigência por gestão financeira aberta</li>
+                </ul>
+            </div>
+
+            <div class="box-info">
+                <h3 class="info-titulo">Cenários Possíveis</h3>
+                <ol>
+                    <li><strong>Reforma Interna:</strong> Adaptação controlada mantendo essência</li>
+                    <li><strong>Cisão Geracional:</strong> Jovens criam igrejas filhas mais liberais</li>
+                    <li><strong>Estagnação:</strong> Perda gradual de membros para igrejas mais dinâmicas</li>
+                    <li><strong>Radicalização:</strong> Endurecimento como reação às mudanças sociais</li>
+                </ol>
+            </div>
+        </section>
+
+    </main>
+
+    <section class="navegacao-inferior">
+        <a href="estudos.html" class="btn-voltar-estudos">
+            <i class="fas fa-book-open"></i> Voltar à Área de Estudos
+        </a>
+    </section>
+
+    <script src="menu.js"></script>
 </body>
 </html>

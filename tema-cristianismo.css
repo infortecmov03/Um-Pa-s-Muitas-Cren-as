@@ -1,0 +1,30 @@
+
+/* Tema para a Secção Cristianismo */
+
+:root {
+    --cor-primaria-tema: #5E35B1; /* Roxo escuro */
+    --cor-secundaria-tema: #673AB7; /* Roxo um pouco mais claro */
+    --cor-acento-tema: #FFC107; /* Amarelo */
+}
+
+/* Aplica o tema ao cabeçalho da página */
+header.tema-cristianismo {
+    background: linear-gradient(135deg, var(--cor-primaria-tema) 0%, var(--cor-secundaria-tema) 100%);
+    border-bottom-color: var(--cor-acento-tema);
+}
+
+/* Ajusta a cor dos títulos de secção para o tema */
+.tema-cristianismo-conteudo h2,
+.tema-cristianismo-conteudo h3 {
+    color: var(--cor-primaria-tema);
+}
+
+/* Ajusta a cor de destaque (bordas, etc.) */
+.tema-cristianismo-conteudo .destaque {
+    border-left-color: var(--cor-acento-tema);
+    background-color: #f3e5f5; /* Um roxo bem claro */
+}
+
+.tema-cristianismo-conteudo blockquote {
+    border-left-color: var(--cor-acento-tema);
+}

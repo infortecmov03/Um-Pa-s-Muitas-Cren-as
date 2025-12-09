@@ -1,0 +1,205 @@
+
+/* =============================================
+   ESTILOS PARA AS PÁGINAS DE DEBATE
+   ============================================= */
+
+/* Secção do Debate Principal */
+.versiculo-debate {
+    background: #ffffff;
+    border-radius: 12px;
+    margin: 2rem 0 3rem 0;
+    padding: 2.5rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+    border: 1px solid #e9ecef;
+}
+
+.versiculo-header {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.titulo-secao-onda {
+    font-size: 2rem; /* Aumentar o título da seção */
+}
+
+.versiculo-citacao {
+    font-size: 1.5rem;
+    padding: 2rem;
+    border-left: 5px solid #667eea;
+    background-color: #f8f9fa;
+}
+
+.interpretacoes-container .interpretacao {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.interpretacoes-container .interpretacao:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.interpretacao-titulo i {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+/* Secção de Comentários */
+.comentarios-secao {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.comentarios-secao h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.comentarios-secao p {
+    text-align: center;
+    color: #6c757d;
+    margin-bottom: 2rem;
+}
+
+#disqus_thread {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+    min-height: 200px;
+}
+
+/* =============================================
+   ARQUIVO DE DEBATES
+   ============================================= */
+
+.arquivo-debates {
+    background-color: #f8f9fa;
+    padding: 2.5rem;
+    border-radius: 12px;
+    margin-top: 3rem;
+}
+
+.arquivo-debates .titulo-secao {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.arquivo-debates .section-subtitle {
+    text-align: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2.5rem;
+}
+
+.lista-arquivo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.arquivo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+}
+
+.arquivo-item:hover {
+    transform: translateY(-3px) scale(1.01);
+    border-color: #667eea;
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+}
+
+.arquivo-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.arquivo-referencia {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #343a40;
+}
+
+.arquivo-titulo {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+.arquivo-tags {
+    display: none; /* Escondido por padrão, aparece em telas maiores */
+}
+
+.arquivo-data {
+    font-size: 0.9rem;
+    color: #6c757d;
+    font-weight: 600;
+    white-space: nowrap;
+    background-color: #e9ecef;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+}
+
+/* Rodapé de navegação na página de arquivo */
+.navegacao-inferior {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.btn-voltar-estudos {
+    display: inline-block;
+    background: #6c757d;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-voltar-estudos:hover {
+    background: #5a6268;
+}
+
+
+/* =============================================
+   MEDIA QUERIES (RESPONSIVIDADE)
+   ============================================= */
+
+@media (min-width: 768px) {
+    .arquivo-item {
+        padding: 1.5rem 2rem;
+    }
+
+    .arquivo-tags {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .arquivo-tags .tag {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .arquivo-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+
+    .arquivo-data {
+        align-self: flex-end;
+    }
+}

@@ -1,0 +1,7 @@
+/* tema-anglicana.css - A ROUPA */
+
+:root {
+    --cor-primaria: #9D2235;       /* Vermelho anglicano */
+    --cor-acento: #C9971D;         /* Dourado */
+    --cor-texto-primario: #ffffff;   /* Branco para contrastar com o vermelho */
+}

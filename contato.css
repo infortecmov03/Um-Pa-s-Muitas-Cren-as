@@ -1,0 +1,130 @@
+/* CONTATO.CSS - Estilos para a página de contato */
+
+.header-contato {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1557853197-a4b3b05a065a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 4rem 1rem;
+    text-align: center;
+}
+
+.header-contato h1 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 2.8em;
+    margin-bottom: 0.5rem;
+}
+
+.contato-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .contato-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+.info-contato, .form-contato {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.info-contato h2, .form-contato h2 {
+    font-family: 'Roboto Slab', serif;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 0.5rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.info-item .icon {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin-right: 1rem;
+    width: 30px;
+    text-align: center;
+}
+
+.info-item p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.info-item p strong {
+    display: block;
+    color: #333;
+}
+
+.social-links {
+    margin-top: 2rem;
+}
+
+.social-links a {
+    font-size: 1.8rem;
+    color: #333;
+    margin-right: 1rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #007bff;
+}
+
+/* Estilos do formulário reutilizados e adaptados */
+.secao-form {
+    margin-bottom: 1.5rem;
+}
+
+.secao-form label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.input-form, .textarea-form, .select-form {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-form:focus, .textarea-form:focus, .select-form:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0,123,255,0.25);
+}
+
+.btn-submit-contato {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-submit-contato:hover {
+    background-color: #0056b3;
+}

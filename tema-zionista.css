@@ -1,0 +1,42 @@
+/* TEMA-ZIONISTA.CSS - Paleta de cores para a análise das Igrejas Zionistas */
+
+:root {
+    /* Paleta baseada na identidade visual das Igrejas Zionistas: Verde, Branco e Azul */
+
+    --cor-analise-primaria: #1e8e3e; /* Verde esperança, cor proeminente nos uniformes e bandeiras Zionistas */
+    --cor-analise-secundaria: #1976d2; /* Azul, frequentemente usado em conjunto com o verde */
+    
+}
+
+/* Ajustes específicos para o tema Zionista */
+
+.header-analise {
+    border-bottom-color: var(--cor-analise-primaria);
+}
+
+.citacao-critica {
+    border-left-color: var(--cor-analise-secundaria);
+}
+
+.tabela-coluna h4 {
+    color: var(--cor-analise-primaria);
+    border-bottom-color: var(--cor-analise-primaria);
+}
+
+.tabela-coluna.critica h4 {
+    color: var(--cor-analise-secundaria);
+    border-bottom-color: var(--cor-analise-secundaria);
+}
+
+.box-info.controversia {
+    background-color: #e8f5e9; /* Verde muito claro para o fundo da controvérsia */
+    border-left-color: var(--cor-analise-primaria);
+}
+
+.box-info.controversia .info-titulo {
+    color: var(--cor-analise-primaria);
+}
+
+.tabela-coluna.critica i {
+    color: var(--cor-analise-secundaria);
+}

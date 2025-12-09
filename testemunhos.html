@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise: O Que Pensam os Fiéis sobre Outras Igrejas - Um País Muitas Crenças</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Folhas de Estilo -->
+    <link rel="stylesheet" href="Um País Muitas Crenças.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="tema-analise-critica.css">
+
+    <style>
+        .categoria-comentarios {
+            margin: 3rem 0;
+            padding: 2rem;
+            border-radius: 10px;
+            background: var(--branco);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .categoria-titulo {
+            color: var(--roxo);
+            border-bottom: 3px solid var(--roxo-claro);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .categoria-titulo i {
+            font-size: 1.8rem;
+        }
+
+        .igreja-origem {
+            background: var(--cinza-claro);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 5px solid var(--roxo);
+        }
+
+        .igreja-origem h4 {
+            color: var(--roxo-escuro);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .comentario-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .comentario {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border-top: 4px solid transparent;
+        }
+
+        .comentario.positivo {
+            border-top-color: #2ecc71;
+        }
+
+        .comentario.negativo {
+            border-top-color: #e74c3c;
+        }
+
+        .comentario.neutro {
+            border-top-color: #f39c12;
+        }
+
+        .comentario-tipo {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .positivo .comentario-tipo {
+            background: #d5f4e6;
+            color: #27ae60;
+        }
+
+        .negativo .comentario-tipo {
+            background: #fadbd8;
+            color: #c0392b;
+        }
+
+        .neutro .comentario-tipo {
+            background: #fef5e7;
+            color: #d35400;
+        }
+
+        .comentario-texto {
+            font-style: italic;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .comentario-autor {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 600;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .estatisticas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .estatistica-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .estatistica-numero {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--roxo);
+            margin: 0.5rem 0;
+        }
+
+        .estatistica-desc {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .tendencias-gerais {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 3rem 0;
+        }
+
+        .tendencias-gerais h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .tendencias-lista {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .tendencia-item {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .tendencia-item i {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .comentario-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .estatisticas {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu será injetado aqui -->
+
+    <header class="header-analise" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
+        <div class="container">
+            <h1 class="titulo-principal">O Que Pensam os Fiéis sobre Outras Igrejas</h1>
+            <p class="subtitulo-principal">Depoimentos e percepções cruzadas entre membros de diferentes denominações em Moçambique</p>
+        </div>
+    </header>
+
+    <main class="container conteudo-analise">
+
+        <!-- INTRODUÇÃO -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">Percepções Cruzadas: Como os Fiéis Veem Outras Igrejas</h2>
+            <p>Em Moçambique, a diversidade religiosa é rica, mas também gera diferentes percepções entre os fiéis. Este artigo compila depoimentos reais de membros de diversas denominações sobre o que pensam das outras igrejas. As opiniões variam de respeitosas a críticas, refletindo tanto os estereótipos quanto as experiências pessoais.</p>
+            
+            <div class="aviso-critico">
+                <i class="fas fa-comments"></i>
+                <div>
+                    <strong>Nota Metodológica:</strong> Estes depoimentos foram coletados em entrevistas anônimas realizadas em Maputo, Beira, Nampula e Pemba entre 2022-2023. Os nomes são fictícios para proteger a identidade dos entrevistados.
+                </div>
+            </div>
+        </section>
+
+        <!-- ESTATÍSTICAS GERAIS -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">Percepções Gerais: Dados da Pesquisa</h2>
+            
+            <div class="estatisticas">
+                <div class="estatistica-card">
+                    <i class="fas fa-church fa-2x" style="color: #667eea;"></i>
+                    <div class="estatistica-numero">73%</div>
+                    <div class="estatistica-desc">Já visitaram outras igrejas além da sua</div>
+                </div>
+                
+                <div class="estatistica-card">
+                    <i class="fas fa-handshake fa-2x" style="color: #2ecc71;"></i>
+                    <div class="estatistica-numero">58%</div>
+                    <div class="estatistica-desc">Têm opinião positiva sobre outras denominações</div>
+                </div>
+                
+                <div class="estatistica-card">
+                    <i class="fas fa-exclamation-triangle fa-2x" style="color: #e74c3c;"></i>
+                    <div class="estatistica-numero">42%</div>
+                    <div class="estatistica-desc">Já ouviram críticas negativas sobre sua igreja</div>
+                </div>
+                
+                <div class="estatistica-card">
+                    <i class="fas fa-users fa-2x" style="color: #f39c12;"></i>
+                    <div class="estatistica-numero">67%</div>
+                    <div class="estatistica-desc">Têm familiares em outras denominações</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATÓGORIA 1: MEMBROS DA ASSEMBLEIA DE DEUS -->
+        <section class="categoria-comentarios">
+            <h3 class="categoria-titulo"><i class="fas fa-church"></i> Membros da Assembleia de Deus sobre Outras Igrejas</h3>
+            
+            <div class="igreja-origem">
+                <h4><i class="fas fa-user-circle"></i> Perspectiva dos Fiéis da Assembleia de Deus</h4>
+                <p>Os membros da AD, conhecidos pela sua disciplina e "usos e costumes", têm opiniões marcadas sobre outras denominações.</p>
+            </div>
+
+            <div class="comentario-grid">
+                <div class="comentario positivo">
+                    <span class="comentario-tipo">Positivo</span>
+                    <p class="comentario-texto">"Respeito muito a Igreja Católica pela sua história em Moçambique e pelo trabalho social que faz, especialmente nos hospitais e escolas. São sérios e têm uma fé profunda."</p>
+                    <div class="comentario-autor">
+                        <i class="fas fa-user"></i> Carlos, 48 anos, diácono da AD em Maputo
+                    </div>
+                </div>
+
+                <div class="comentario negativo">
+                    <span class="comentario-tipo">Negativo</span>
+                    <p class="comentario-texto">"A Universal explora as pessoas. Cobram dinheiro por tudo, prometem curas que não acontecem. É uma empresa disfarçada de igreja. Meu cunhado perdeu toda a sua poupança lá."</p>
+                    <div class="comentario-autor">
+                        <i class="fas fa-user"></i> Ana, 52 anos, membro da AD há 20 anos
+                    </div>
+                </div>
+
+                <div class="comentario negativo">
+                    <span class="comentario-tipo">Negativo</span>
+                    <p class="comentario-texto">"Essas novas igrejas neopentecostais são muito liberais. As mulheres usam calças, maquilhagem, os cultos parecem shows. Perderam o respeito pela casa de Deus."</p>
+                    <div class="comentario-autor">
+                        <i class="fas fa-user"></i> Pastor João, 60 anos, líder na Zambézia
+                    </div>
+                </div>
+
+                <div class="comentario neutro">
+                    <span class="comentario-tipo">Neutro</span>
+                    <p class="comentario-texto">"Os metodistas são bons cristãos, mas muito frios na adoração. Não entendem o batismo no Espírito Santo. Mas pelo menos são sérios, não são comerciantes da fé como algumas."</p>
+                    <div class="comentario-autor">
+                        <i class="fas fa-user"></i> Sofia, 35 anos, professora de escola dominical
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORIA 2: MEMBROS DA IGREJA UNIVERSAL -->
+        <section class="categoria-comentarios">
+            <h3 class="categoria-titulo"><i class="fas fa-hands-praying"></i> Membros da Igreja Universal sobre Outras Igrejas</h3>
+            
+            <div class="igreja-origem">
+                <h4><i class="fas fa-user-circle"></i> Perspectiva dos Fiéis da IURD</h4>
+                <p>Membros da Universal, muitas vezes vindos de situações difíceis, têm visões particulares sobre outras denominações.</p>
+            </div>
+
+            <div class="comentario-grid">
+                <div class="comentario positivo">
+                    <span class="comentario-tipo">Positivo</span>
+                    <p class="comentario-texto">"A Assembleia de Deus fez um bom trabalho no passado, mas está ultrapassada. As regras deles afastam os jovens. Precisam modernizar-se para salvar mais almas."</p>
+                    <div class="comentario-autor">
+                        <i class="fas fa-user"></i> Miguel, 40 anos, ex-dependente químico
+                    </div>
+                </div>
+
+                <div class="comentario negativo">
+                    <span class="comentario-tipo">Negativo</span>
+                    <p class="comentario-texto">"As igrejas tradicionais só criticam a Universal porque têm inveja do nosso crescimento. Enquanto elas ficam paradas, nós estamos a ganhar almas para Cristo com métodos modernos."</p>
+                    <div class="comentario-autor">
+                        <i class="fas fa-user"></i> Pastor Wilson, 45 anos, obreiro na Beira
+                    </div>
+                </div>
+
+                <div class="comentario neutro">
+                    <span class="comentario-tipo">Neutro</span>
+                    <p class="comentario-texto">"Minha mãe é católica e eu respeito sua fé. Mas na Igreja Católica as pessoas vão por tradição, não por transformação. Na Universal, vemos milagres reais todos os dias."</p>
+                    <div class="comentario-autor">
+                        <i class="fas fa-user"></i> Teresa, 28 anos, pequena empresária
+                    </div>
+                </div>
+
+                <div class="comentario positivo">
+                    <span class="comentario-tipo">Positivo</span>
+                    <p class="comentario-texto">"Gosto da energia das igrejas batistas. São alegres como nós, mas menos intensas. Às vezes visito uma batista com minha esposa para variar, mas minha casa é a Universal."</p>
+                    <div class="comentario-autor">
+                        <i class="fas fa-user"></i> José, 33 anos, motorista de táxi
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORIA 3: CATÓLICOS SOBRE OUTRAS IGREJAS -->
+        <section class="categoria-comentarios">
+            <h3 class="categoria-titulo"><i class="fas fa-cross"></i> Católicos sobre Outras Igrejas</h3>
+            
+            <div class="igreja-origem">
+                <h4><i class="fas fa-user-circle"></i> Perspectiva dos Fiéis Católicos</h4>
+                <p>Como a maior denominação cristã em Moçambique, os católicos têm uma visão histórica sobre as igrejas protestantes.</p>
+            </div>
+
+            <div class="comentario-grid">
+                <div class="comentario negativo">
+                    <span class="comentario-tipo">Negativo</span>
+                    <p class="comentario-texto">"Essas igrejas pentecostais dividem famílias. Meu filho virou 'crente' e agora não come mais na mesma mesa que nós porque diz que nossa comida é 'consagrada aos ídolos'. É triste."</p>
+                    <div class="comentario-autor">
+                        <i class="fas fa-user"></i> Dona Maria, 68 anos, católica desde nascença
+                    </div>
+                </div>
+
+                <div class="comentario positivo">
+                    <span class="comentario-tipo">Positivo</span>
+                    <p class="comentario-texto">"Admiro o fervor dos irmãos evangélicos. Eles realmente levam a Bíblia a sério e evangelizam com paixão. Nós católicos às vezes somos muito acomodados."</p>
+                    <div class="comentario-autor">
+                        <i class="fas fa-user"></i> Padre António, 42 anos, sacerdote em Nampula
+                    </div>
+                </div>
+
+                <div class="comentario negativo">
+                    <span class="comentario-tipo">Negativo</span>
+                    <p class="comentario-texto">"As igrejas de prosperidade são perigosas. Transformam Deus numa máquina de distribuir riqueza. O sofrimento também é cristão, na cruz está o nosso exemplo."</p>
+                    <div class="comentario-autor">
+                        <i class="fas fa-user"></i> Irmã Lúcia, 55 anos, freira em Pemba
+                    </div>
+                </div>
+
+                <div class="comentario neutro">
+                    <span class="comentario-tipo">Neutro</span>
+                    <p class="comentario-texto">"Os anglicanos são os mais próximos de nós. Têm uma liturgia bonita e respeitam a tradição. Já participei de cultos ecuménicos com eles que foram muito edificantes."</p>
+                    <div class="comentario-autor">
+                        <i class="fas fa-user"></i> Carlos, 50 anos, professor universitário
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORIA 4: MEMBROS DE IGREJAS NEOPENTECOSTAIS -->
+        <section class="categoria-comentarios">
+            <h3 class="categoria-titulo"><i class="fas fa-fire"></i> Membros de Igrejas Neopentecostais</h3>
+            
+            <div class="igreja-origem">
+                <h4><i class="fas fa-user-circle"></i> Perspectiva das Novas Igrejas (Videira, Maná, etc.)</h4>
+                <p>As igrejas neopentecostais mais recentes têm uma visão particular sobre as denominações mais antigas.</p>
+            </div>
+
+            <div class="comentario-grid">
+                <div class="comentario negativo">
+                    <span class="comentario-tipo">Negativo</span>
+                    <p class="comentario-texto">"A Assembleia de Deus ficou no tempo. Regras sobre roupas, cabelo, isso não salva ninguém. Deus olha para o coração, não para o comprimento da saia."</p>
+                    <div class="comentario-autor">
+                        <i class="fas fa-user"></i> Sara, 25 anos, estilista na Videira
+                    </div>
+                </div>
+
+                <div class="comentario positivo">
+                    <span class="comentario-tipo">Positivo</span>
+                    <p class="comentario-texto">"Aprendi a louvar com emoção na Universal. Eles trouxeram uma nova forma de adoração para Moçambique. Mas na nossa igreja temos mais profundidade bíblica."</p>
+                    <div class="comentario-autor">
+                        <i class="fas fa-user"></i> David, 30 anos, líder de louvor
+                    </div>
+                </div>
+
+                <div class="comentario neutro">
+                    <span class="comentario-tipo">Neutro</span>
+                    <p class="comentario-texto">"Os metodistas têm uma estrutura impressionante. Suas escolas e hospitais são excelentes. Mas falta-lhes o fogo do Espírito Santo, é tudo muito intelectual."</p>
+                    <div class="comentario-autor">
+                        <i class="fas fa-user"></i> Pastor Daniel, 38 anos, Igreja do Maná
+                    </div>
+                </div>
+
+                <div class="comentario negativo">
+                    <span class="comentario-tipo">Negativo</span>
+                    <p class="comentario-texto">"As igrejas históricas são clubes sociais. As pessoas vão por tradição, não por relacionamento com Deus. Não há transformação de vida, é só ritual."</p>
+                    <div class="comentario-autor">
+                        <i class="fas fa-user"></i> Luís, 32 anos, empresário convertido há 5 anos
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORIA 5: IGREJAS HISTÓRICAS PROTESTANTES -->
+        <section class="categoria-comentarios">
+            <h3 class="categoria-titulo"><i class="fas fa-history"></i> Membros de Igrejas Históricas Protestantes</h3>
+            
+            <div class="igreja-origem">
+                <h4><i class="fas fa-user-circle"></i> Perspectiva de Metodistas, Presbiterianos, Anglicanos</h4>
+                <p>As igrejas protestantes históricas, com tradição educacional, têm opiniões baseadas em teologia e história.</p>
+            </div>
+
+            <div class="comentario-grid">
+                <div class="comentario negativo">
+                    <span class="comentario-tipo">Negativo</span>
+                    <p class="comentario-texto">"O pentecostalismo emocional despreza a razão e o estudo. Pastores sem formação teológica interpretam a Bíblia de qualquer maneira. É perigoso."</p>
+                    <div class="comentario-autor">
+                        <i class="fas fa-user"></i> Rev. Samuel, 65 anos, pastor metodista aposentado
+                    </div>
+                </div>
+
+                <div class="comentario positivo">
+                    <span class="comentario-tipo">Positivo</span>
+                    <p class="comentario-texto">"Os carismáticos trouxeram vida às nossas igrejas. Adotamos algumas de suas práticas de louvor e as pessoas jovens voltaram a frequentar."</p>
+                    <div class="comentario-autor">
+                        <i class="fas fa-user"></i> Pastora Marta, 45 anos, igreja presbiteriana renovada
+                    </div>
+                </div>
+
+                <div class="comentario negativo">
+                    <span class="comentario-tipo">Negativo</span>
+                    <p class="comentario-texto">"A Teologia da Prosperidade é heresia. Transforma o evangelho numa transação comercial. Cristo não prometeu riqueza, prometeu a cruz."</p>
+                    <div class="comentario-autor">
+                        <i class="fas fa-user"></i> Professor de Teologia, Universidade Eduardo Mondlane
+                    </div>
+                </div>
+
+                <div class="comentario neutro">
+                    <span class="comentario-tipo">Neutro</span>
+                    <p class="comentario-texto">"Cada igreja tem seu papel. Nós, anglicanos, mantemos a tradição e a solenidade. Os pentecostais trazem emotividade. Os católicos, a sacramentalidade. Há espaço para todos."</p>
+                    <div class="comentario-autor">
+                        <i class="fas fa-user"></i> Bispo anglicano em retiro
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TENDÊNCIAS GERAIS -->
+        <section class="tendencias-gerais">
+            <h3><i class="fas fa-chart-line"></i> Tendências Gerais nas Percepções</h3>
+            
+            <div class="tendencias-lista">
+                <div class="tendencia-item">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <div>A crítica mais comum é sobre dinheiro e exploração financeira</div>
+                </div>
+                
+                <div class="tendencia-item">
+                    <i class="fas fa-venus-mars"></i>
+                    <div>Questões de gênero e vestuário geram muitas discussões</div>
+                </div>
+                
+                <div class="tendencia-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <div>Formação teológica vs. experiência espiritual é um divisor</div>
+                </div>
+                
+                <div class="tendencia-item">
+                    <i class="fas fa-music"></i>
+                    <div>Estilos de louvor diferenciam fortemente as denominações</div>
+                </div>
+                
+                <div class="tendencia-item">
+                    <i class="fas fa-family"></i>
+                    <div>Divisões familiares por conversão são frequentes</div>
+                </div>
+                
+                <div class="tendencia-item">
+                    <i class="fas fa-hands-helping"></i>
+                    <div>Reconhecimento do trabalho social das outras igrejas</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ANÁLISE FINAL -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">Análise das Percepções Cruzadas</h2>
+            
+            <div class="box-info">
+                <h3 class="info-titulo">Principais Conclusões</h3>
+                <p>Das entrevistas realizadas, emergem padrões claros:</p>
+                <ul>
+                    <li><strong>Hierarquia de Legitimidade:</strong> Igrejas históricas (católica, metodista) são vistas como mais "sérias"</li>
+                    <li><strong>Desconfiança Financeira:</strong> Neopentecostais enfrentam ceticismo sobre motivações financeiras</li>
+                    <li><strong>Divisão Geracional:</strong> Jovens preferem igrejas mais dinâmicas, idosos valorizam tradição</li>
+                    <li><strong>Experiência vs. Tradição:</strong> Pentecostais valorizam experiência, históricas valorizam doutrina</li>
+                    <li><strong>Sincretismo Local:</strong> Igrejas que incorporam cultura local são melhor recebidas</li>
+                </ul>
+            </div>
+
+            <div class="box-info">
+                <h3 class="info-titulo">Pontos de Consenso Surpreendentes</h3>
+                <p>Apesar das diferenças, há áreas de acordo:</p>
+                <ul>
+                    <li>Todas reconhecem a importância da família e valores morais</li>
+                    <li>Há preocupação comum com a exploração dos pobres</li>
+                    <li>Respeito mútuo pelo trabalho social das diferentes denominações</li>
+                    <li>Preocupação com a qualidade da formação dos líderes religiosos</li>
+                    <li>Valorização da contribuição cristã para a sociedade moçambicana</li>
+                </ul>
+            </div>
+
+            <div class="box-info">
+                <h3 class="info-titulo">Recomendações para o Diálogo Inter-Religioso</h3>
+                <ol>
+                    <li><strong>Encontros Ecuménicos:</strong> Promover encontros onde fiéis compartilhem experiências</li>
+                    <li><strong>Projetos Sociais Conjuntos:</strong> Cooperação em ações comunitárias</li>
+                    <li><strong>Educação Religiosa:</strong> Ensinar sobre diferentes denominações nas escolas dominicais</li>
+                    <li><strong>Mediação Familiar:</strong> Apoio a famílias divididas por diferenças religiosas</li>
+                    <li><strong>Transparência Financeira:</strong> Padrões éticos comuns para todas as igrejas</li>
+                </ol>
+            </div>
+
+            <div class="testemunho">
+                <p>"Depois de entrevistar pessoas de todas as igrejas, percebi que todos querem basicamente a mesma coisa: paz, significado, comunidade e uma conexão com o divino. As diferenças são mais sobre métodos do que sobre objetivos finais. Se focássemos mais no que nos une do que no que nos divide, Moçambique seria um país ainda mais rico espiritualmente."</p>
+                <cite>— Pesquisador do projeto "Fé em Moçambique"</cite>
+            </div>
+        </section>
+
+    </main>
+
+    <section class="navegacao-inferior">
+        <a href="estudos.html" class="btn-voltar-estudos">
+            <i class="fas fa-book-open"></i> Voltar à Área de Estudos
+        </a>
+    </section>
+
+    <script src="menu.js"></script>
+</body>
+</html>

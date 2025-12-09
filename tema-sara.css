@@ -1,0 +1,47 @@
+/* TEMA-SARA.CSS - Paleta de cores para a análise da Sara Nossa Terra */
+
+:root {
+    /* Paleta baseada na identidade visual da Sara Nossa Terra: Amarelo, Preto e Roxo */
+
+    --cor-analise-primaria: #5a189a; /* Roxo escuro, associado à marca "Arena Jovem" */
+    --cor-analise-secundaria: #ffdd00; /* Amarelo vibrante, cor principal da marca SNT */
+    
+}
+
+/* Ajustes específicos para o tema Sara Nossa Terra */
+
+.header-analise {
+    border-bottom-color: var(--cor-analise-secundaria);
+}
+
+/* Usar o Roxo para os títulos principais para um look mais moderno */
+.titulo-secao {
+    color: var(--cor-analise-primaria);
+}
+
+.box-info.destaque {
+    border-left-color: var(--cor-analise-primaria);
+}
+
+.box-info.destaque .info-titulo {
+    color: var(--cor-analise-primaria);
+}
+
+/* A controvérsia usa o amarelo para se destacar, em contraste com o fundo escuro */
+.box-info.controversia {
+    background-color: #fffde7; /* Amarelo muito pálido */
+    border-left-color: var(--cor-analise-secundaria);
+}
+
+.box-info.controversia .info-titulo {
+    color: #c7a500; /* Um tom de amarelo mais escuro para a legibilidade */
+}
+
+.citacao-critica {
+    background-color: #f3e5f5; /* Fundo lilás claro */
+    border-left-color: var(--cor-analise-primaria);
+}
+
+.citacao-critica cite {
+    color: var(--cor-analise-primaria);
+}

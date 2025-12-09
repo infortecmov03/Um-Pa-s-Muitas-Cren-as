@@ -1,618 +1,117 @@
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Igreja Presbiteriana em Moçambique</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Menu de navegação */
-        .sobre-menu {
-            background: linear-gradient(to right, #1a5276, #2e86c1);
-            padding: 15px 0;
-            overflow-x: auto;
-            white-space: nowrap;
-        }
-        
-        .sobre-menu ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .sobre-menu li {
-            margin: 5px 10px;
-        }
-        
-        .sobre-menu a {
-            color: white;
-            text-decoration: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            transition: background-color 0.3s;
-            font-weight: 500;
-        }
-        
-        .sobre-menu a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-        
-        /* Cabeçalho */
-        header {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232e86c1"/><path d="M0 0L100 100" stroke="%231a5276" stroke-width="2"/><path d="M100 0L0 100" stroke="%231a5276" stroke-width="2"/></svg>');
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-            margin-bottom: 30px;
-        }
-        
-        .logo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .logo-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-        
-        .logo h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        
-        /* Conteúdo principal */
-        .religion-section {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            margin-bottom: 30px;
-        }
-        
-        .religion-header {
-            background: linear-gradient(to right, #1a5276, #2e86c1);
-            color: white;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .religion-icon {
-            font-size: 2rem;
-            margin-right: 15px;
-        }
-        
-        .religion-title {
-            font-size: 1.8rem;
-        }
-        
-        .religion-content {
-            padding: 30px;
-        }
-        
-        .religion-content h3 {
-            color: #2e86c1;
-            margin: 20px 0 15px;
-            border-bottom: 2px solid #f0f0f0;
-            padding-bottom: 8px;
-        }
-        
-        .religion-content h4 {
-            color: #1a5276;
-            margin: 18px 0 12px;
-        }
-        
-        .religion-content p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-        
-        .beliefs-list, .practices-list, .demographics {
-            background-color: #f9f9f9;
-            border-left: 4px solid #2e86c1;
-            padding: 15px 20px;
-            margin: 20px 0;
-            border-radius: 0 5px 5px 0;
-        }
-        
-        .beliefs-list h4, .practices-list h4, .demographics h4 {
-            color: #1a5276;
-            margin-top: 0;
-        }
-        
-        .beliefs-list ul, .practices-list ul, .demographics ul {
-            padding-left: 20px;
-            margin: 10px 0;
-        }
-        
-        .beliefs-list li, .practices-list li, .demographics li {
-            margin-bottom: 8px;
-        }
-        
-        /* Seção de tópicos */
-        .topics-section {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            margin-bottom: 30px;
-        }
-        
-        .topics-header {
-            background: linear-gradient(to right, #1a5276, #2e86c1);
-            color: white;
-            padding: 15px 20px;
-        }
-        
-        .topics-header h2 {
-            font-size: 1.5rem;
-        }
-        
-        .tabs {
-            display: flex;
-            border-bottom: 1px solid #eee;
-            padding: 0 20px;
-        }
-        
-        .tab-button {
-            background: none;
-            border: none;
-            padding: 15px 20px;
-            cursor: pointer;
-            font-weight: 500;
-            color: #666;
-            display: flex;
-            align-items: center;
-            transition: color 0.3s;
-        }
-        
-        .tab-button.active {
-            color: #2e86c1;
-            border-bottom: 3px solid #2e86c1;
-        }
-        
-        .tab-button i {
-            margin-right: 8px;
-        }
-        
-        .tab-content {
-            display: none;
-            padding: 20px;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        .topic-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
-        .topic-card {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-        }
-        
-        .topic-card h4 {
-            color: #1a5276;
-            margin-bottom: 10px;
-        }
-        
-        /* Rodapé */
-        footer {
-            background: linear-gradient(to right, #1a5276, #2e86c1);
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .footer-logo {
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-        
-        .footer-nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        
-        .footer-nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px 10px;
-            transition: opacity 0.3s;
-        }
-        
-        .footer-nav a:hover {
-            opacity: 0.8;
-        }
-        
-        .copyright {
-            opacity: 0.8;
-            font-size: 0.9rem;
-        }
-        
-        /* Botão voltar ao topo */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #2e86c1;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-            transition: background 0.3s;
-        }
-        
-        .back-to-top:hover {
-            background: #1a5276;
-        }
-        
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .logo h1 {
-                font-size: 2rem;
-            }
-            
-            .religion-header {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .religion-icon {
-                margin-right: 0;
-                margin-bottom: 10px;
-            }
-            
-            .tabs {
-                flex-direction: column;
-            }
-            
-            .tab-button {
-                justify-content: center;
-            }
-        }
-    </style>
+    <title>Análise Crítica: Igreja Presbiteriana em Moçambique - Um País Muitas Crenças</title>
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Folhas de Estilo -->
+    <link rel="stylesheet" href="Um País Muitas Crenças.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="tema-analise-critica.css">
+
 </head>
 <body>
-    <nav class="sobre-menu">
-        <ul>
-            <li><a href="Sobre universal.html">Universal</a></li>
-            <li><a href="Sobre Testemunhas de Jeová em Moçambique.html">Testemunhas de Jeová</a></li>
-            <li><a href="Sobre Sara Nossa Terra em Moçambique.html">Sara Nossa Terra</a></li>
-            <li><a href="Sobre Metodista.html">Metodista</a></li>
-            <li><a href="Sobre Igreja Zionista.html">Zionista</a></li>
-            <li><a href="Sobre Igreja Presbiteriana.html">Presbiteriana</a></li>
-            <li><a href="Sobre Igreja de Profetas em Moçambique.html">Profetas</a></li>
-            <li><a href="Sobre Igreja de Deus.html">Igreja de Deus</a></li>
-            <li><a href="Sobre Igreja da Graça em Moçambique.html">Graça</a></li>
-            <li><a href="Sobre Católica.html">Católica</a></li>
-            <li><a href="Sobre Assembleia de Deus.html">Assembleia de Deus</a></li>
-            <li><a href="Sobre Apostólica.html">Apostólica</a></li>
-            <li><a href="Sobre Anglicana.html">Anglicana</a></li>
-            <li><a href="Sobre Adventistas emMoçambique.html">Adventistas</a></li>
-        </ul>
-    </nav>
-    
-    <!-- Cabeçalho -->
-    <header>
+    <!-- Menu será injetado aqui -->
+
+    <header class="header-analise" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1489224399788-58004f53cdef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
         <div class="container">
-            <div class="logo">
-                <i class="fas fa-church logo-icon"></i>
-                <h1>Igreja Presbiteriana</h1>
-                <p class="subtitle">Conheça a história e influência da Igreja Presbiteriana em Moçambique</p>
-            </div>
+            <h1 class="titulo-principal">Análise Crítica: A Igreja Presbiteriana</h1>
+            <p class="subtitulo-principal">O Paradoxo de Criar um Revolucionário: Eduardo Mondlane, a FRELIMO e o Legado Ambíguo da Missão Suíça.</p>
         </div>
     </header>
-    
-    <!-- Conteúdo Principal -->
-    <main class="container">
-        <section class="religion-section">
-            <div class="religion-header">
-                <div class="religion-icon">
-                    <i class="fas fa-church"></i>
-                </div>
-                <h2 class="religion-title">Igreja Presbiteriana</h2>
-            </div>
-            
-            <div class="religion-content">
-                <div>
-                    <h3>Origem</h3>
-                    <p>A Igreja Presbiteriana tem suas raízes na Reforma Protestante do século XVI, particularmente no trabalho de João Calvino em Genebra, Suíça.</p>
-                    <p>Caracteriza-se pela forma de governo presbiterial (governo por anciãos) e pela ênfase na soberania de Deus, na autoridade das Escrituras e na predestinação.</p>
-                    
-                    <div class="beliefs-list">
-                        <h4>Características Principais</h4>
-                        <ul>
-                            <li>Governo por presbíteros (sistema representativo)</li>
-                            <li>Ênfase na soberania de Deus e predestinação</li>
-                            <li>Autoridade suprema das Escrituras</li>
-                            <li>Teologia reformada e sacramental</li>
-                        </ul>
-                    </div>
-                    
-                    <h4>O Surgimento da Igreja Presbiteriana</h4>
-                    <p>A origem do Presbiterianismo não é meramente a fundação de uma nova denominação, mas um dos pilares da Revolução Protestante do século XVI, diretamente ligada à figura de João Calvino.</p>
-                    
-                    <h4>Contexto: A Reforma Protestante (Século XVI)</h4>
-                    <p>Após Martinho Lutero desafiar a autoridade papal em 1517, a Europa foi varrida por um movimento de reforma religiosa. Na Suíça, lideranças como Ulrico Zuínglio e depois João Calvino avançaram com ideias ainda mais radicais de reorganização da igreja e da sociedade.</p>
-                    
-                    <h4>João Calvino e a Teocracia em Genebra</h4>
-                    <p>Calvino foi o arquiteto intelectual do que se tornaria o Presbiterianismo. Seus pontos-chave, expostos na obra As Institutas da Religião Cristã, são:</p>
-                    
-                    <ul>
-                        <li><strong>Predestinação e Soberania de Deus:</strong> Calvino enfatizou a absoluta soberania de Deus sobre toda a criação.</li>
-                        <li><strong>Governo por Presbíteros (Política Eclesiástica):</strong> A contribuição mais prática e distintiva de Calvino foi o modelo de governo da igreja.</li>
-                        <li><strong>O Sistema de Concílios:</strong> Este modelo é escalonado em concílios: o Session (governo local da igreja), o Presbitério, o Sínodo e a Assembleia Geral.</li>
-                    </ul>
-                    
-                    <h4>Expansão: Da Escócia ao Mundo</h4>
-                    <p>O Presbiterianismo floresceu como força política e social em vários países:</p>
-                    <ol>
-                        <li><strong>Escócia:</strong> Sob a liderança feroz de John Knox, um discípulo de Calvino, o Presbiterianismo tornou-se a religião nacional da Escócia.</li>
-                        <li><strong>Inglaterra:</strong> Os "Puritanos" eram, em sua maioria, presbiterianos que queriam "purificar" a Igreja Anglicana.</li>
-                        <li><strong>EUA:</strong> Imigrantes presbiterianos (escoceses e irlandês) foram fundamentais na formação dos EUA.</li>
-                    </ol>
-                </div>
-                
-                <div>
-                    <h3>Chegada a Moçambique</h3>
-                    <p>A Igreja Presbiteriana chegou a Moçambique no início do século XX através de missionários suíços e escoceses. Estabeleceu-se principalmente na região central do país.</p>
-                    <p>Desenvolveu importante trabalho educacional, fundando escolas e promovendo a alfabetização. Atualmente, mantém presença significativa em várias províncias moçambicanas.</p>
-                    
-                    <div class="demographics">
-                        <h4>Distribuição Geográfica</h4>
-                        <p>A Igreja Presbiteriana está presente em várias províncias de Moçambique, com maior concentração:</p>
-                        <ul>
-                            <li>Maputo: 25%</li>
-                            <li>Gaza: 20%</li>
-                            <li>Inhambane: 18%</li>
-                            <li>Sofala: 15%</li>
-                            <li>Manica: 12%</li>
-                            <li>Outras províncias: 10%</li>
-                        </ul>
-                    </div>
-                    
-                    <h4>A Chegada a Moçambique - Missão Suíça, Colonialismo Português</h4>
-                    <p>A implantação do Presbiterianismo em Moçambique é um caso clássico de como as missões protestantes navegaram no complexo e hostil cenário do colonialismo português.</p>
-                    
-                    <h4>Contexto: A Barreira Católica em Moçambique</h4>
-                    <p>Como colônia portuguesa, Moçambique operava sob o regime do Padroado Régio, onde o Estado português e a Igreja Católica Romana eram uma entidade quase indivisível. O catolicismo era a religião oficial, e qualquer outra expressão religiosa, especialmente protestante, era vista como uma ameaça.</p>
-                    
-                    <h4>Os Pioneiros: A Missão Suíça (Missão Suíça aos Shangaan)</h4>
-                    <p>Diferente de outras denominações que entraram via África do Sul, a Igreja Presbiteriana em Moçambique tem uma origem específica e direta: a Missão Suíça.</p>
-                    
-                    <ul>
-                        <li><strong>Os Fundadores:</strong> Em 1887, o pastor Paul Berthoud e o médico Ernest Creux, da Mission Romande (Missão das Igrejas Livres da Suíça Francesa), chegaram à região do Transvaal, na África do Sul.</li>
-                        <li><strong>A Estratégia de Entrada:</strong> Barrados de entrar diretamente em Moçambique, eles estabeleceram uma base missionária estratégica em Shiluvane (África do Sul), bem na fronteira com Moçambique.</li>
-                        <li><strong>O Método Missionário Presbiteriano:</strong> A missão suíça trouxe consigo a marca clássica do presbiterianismo calvinista: ênfase na educação, no trabalho médico e na formação de uma liderança local autóctone.</li>
-                    </ul>
-                    
-                    <h4>A Relação Ambígua com o Colonialismo</h4>
-                    <p>A missão suíça manteve uma relação complexa e por vezes contraditória com o poder colonial português.</p>
-                    
-                    <ul>
-                        <li><strong>Confronto e Desconfiança:</strong> Inicialmente, as autoridades portuguesas viam os missionários suíços com enorme desconfiança.</li>
-                        <li><strong>Adaptação e Cooperação Tácita:</strong> Para sobreviver, a missão precisou se adaptar. Em alguns momentos, adotaram uma postura de não-envolvimento político explícito.</li>
-                    </ul>
-                    
-                    <h4>Crescimento e a Figura de Eduardo Mondlane</h4>
-                    <p>A Igreja Presbiteriana tornou-se profundamente enraizada entre o povo Tsonga do sul de Moçambique. Sua ênfase na educação produziu a primeira geração de intelectuais moçambicanos.</p>
-                    
-                    <p><strong>O Aluno Mais Famoso: Eduardo Mondlane.</strong> O pai da nação moçambicana, o fundador e primeiro presidente da FRELIMO, foi educado em escolas da Missão Suíça. Ele foi mesmo um membro ativo e um professor da igreja antes de se dedicar totalmente à luta de libertação.</p>
-                    
-                    <h4>O Período Pós-Independência e a Guerra Civil</h4>
-                    <p>Com a Independência em 1975, a igreja enfrentou novos desafios.</p>
-                    
-                    <ul>
-                        <li><strong>Regime Marxista:</strong> O governo da FRELIMO, inicialmente, adotou uma linha marxista-leninista, declarando-se ateu e hostil à religião.</li>
-                        <li><strong>Guerra Civil:</strong> Durante a guerra entre FRELIMO e RENAMO, a Igreja Presbiteriana, com sua forte base no sul, encontrou-se em um território devastado pelo conflito.</li>
-                        <li><strong>Crescimento na Adversidade:</strong> Paradoxalmente, o período pós-guerra civil viu um crescimento significativo.</li>
-                    </ul>
-                    
-                    <div class="practices-list">
-                        <h4>Contribuições da Igreja Presbiteriana para Moçambique</h4>
-                        <ul>
-                            <li>Pioneira na educação formal para a população nativa</li>
-                            <li>Tradução da Bíblia para línguas locais</li>
-                            <li>Desenvolvimento de serviços de saúde comunitária</li>
-                            <li>Formação de lideranças nacionais</li>
-                            <li>Promoção de valores democráticos e de governança</li>
-                        </ul>
-                    </div>
-                    
-                    <h4>Conclusão</h4>
-                    <p>A história da Igreja Presbiteriana em Moçambique é um microcosmo das complexidades da história africana do século XX:</p>
-                    
-                    <ol>
-                        <li><strong>Agência Externa e Interna:</strong> Foi implantada por missionários estrangeiros, mas foi imediatamente apropriada e liderada por moçambicanos.</li>
-                        <li><strong>Educação como Arma de Duplo Fio:</strong> O foco na educação foi a chave do seu sucesso.</li>
-                        <li><strong>Ambiguidade Colonial:</strong> A missão não foi uma heroína anticolonial explícita, mas também não foi uma mera serva do colonialismo.</li>
-                        <li><strong>Legado Duradouro:</strong> O legado mais profundo do Presbiterianismo em Moçambique não é apenas religioso.</li>
-                    </ol>
-                    
-                    <p>A Igreja Presbiteriana de Moçambique hoje é uma igreja robusta e autónoma, um farol de educação e desenvolvimento social que carrega consigo o peso e a glória de uma história profundamente entrelaçada com a própria história do país.</p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Seção de Tópicos -->
-        <section class="topics-section">
-            <div class="topics-header">
-                <h2>Tópicos Relacionados</h2>
-            </div>
-            
-            <div class="tabs">
-                <button class="tab-button active" data-tab="tab1">
-                    <i class="fas fa-history"></i> História
-                </button>
-                <button class="tab-button" data-tab="tab2">
-                    <i class="fas fa-map-marked-alt"></i> Distribuição
-                </button>
-                <button class="tab-button" data-tab="tab3">
-                    <i class="fas fa-hands"></i> Doutrinas
-                </button>
-            </div>
-            
-            <div class="tab-content active" id="tab1">
-                <div class="topic-grid">
-                    <div class="topic-card">
-                        <h4>Origens na Reforma</h4>
-                        <p>A Igreja Presbiteriana tem suas raízes na Reforma Protestante do século XVI, particularmente no trabalho de João Calvino em Genebra, Suíça.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Expansão Mundial</h4>
-                        <p>Da Europa, o Presbiterianismo expandiu-se para a América, África e Ásia através de missionários e imigrantes.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Chegada a África</h4>
-                        <p>O Presbiterianismo chegou à África através de missionários europeus no século XIX, estabelecendo-se em várias colônias.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="tab2">
-                <div class="topic-grid">
-                    <div class="topic-card">
-                        <h4>Províncias do Sul</h4>
-                        <p>Maputo, Gaza e Inhambane concentram a maior parte dos fiéis presbiterianos, devido à penetração inicial a partir da África do Sul.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Áreas Urbanas</h4>
-                        <p>A igreja mantém forte presença em centros urbanos, com ênfase em educação e serviços sociais.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Expansão Recente</h4>
-                        <p>Recentemente, a denominação tem expandido sua presença para províncias do centro e norte de Moçambique.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="tab3">
-                <div class="topic-grid">
-                    <div class="topic-card">
-                        <h4>Governo Presbiterial</h4>
-                        <p>Sistema de governo por presbíteros (anciãos), tanto docentes (pastores) quanto regentes (leigos).</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Teologia Reformada</h4>
-                        <p>Ênfase na soberania de Deus, autoridade das Escrituras e doutrinas da graça (predestinação).</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Sacramentos</h4>
-                        <p>Reconhece dois sacramentos: Batismo e Santa Ceia, como meios de graça instituídos por Cristo.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <!-- Rodapé -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <i class="fas fa-church"></i>
-                </div>
-                <nav class="footer-nav">
-                    <a href="index.html">Início</a>
-                    <a href="#">Sobre</a>
-                    <a href="#">Religiões</a>
-                    <a href="#">Contacto</a>
-                    <a href="#">Privacidade</a>
-                </nav>
-                <p class="copyright">© 2023 Um País, Muitas Crenças. Todos os direitos reservados.</p>
+
+    <main class="container conteudo-analise">
+
+        <!-- AVISO DE CONTEÚDO -->
+        <div class="aviso-critico">
+            <i class="fas fa-exclamation-triangle"></i>
+            <div>
+                <strong>Análise Sem Censura:</strong> Este artigo analisa como a teologia e a prática educacional da Igreja Presbiteriana contribuíram para a formação da liderança nacionalista moçambicana, resultando num conflito ideológico direto com o Estado que ajudou a criar.
             </div>
         </div>
-    </footer>
-    
-    <!-- Botão Voltar ao Topo -->
-    <a href="#" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-    
-    <script>
-        // Script para as abas
-        document.addEventListener('DOMContentLoaded', function() {
-            const tabButtons = document.querySelectorAll('.tab-button');
+
+        <!-- ORIGENS: A TEOLOGIA DO PENSAMENTO CRÍTICO -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">Origens: A Soberania de Deus e a Semente da Rebelião</h2>
+            <p>As raízes da Igreja Presbiteriana estão na Reforma de João Calvino em Genebra, no século XVI. A sua teologia, que enfatiza a **soberania absoluta de Deus** sobre todas as esferas da vida, incluindo as autoridades terrenas, e a necessidade de cada crente ler e interpretar as Escrituras, continha uma semente revolucionária. Se Deus é o soberano final, então nenhum rei, governo ou poder colonial é absoluto.</p>
             
-            tabButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const targetTab = button.getAttribute('data-tab');
-                    
-                    // Remove a classe active de todos os botões e conteúdos
-                    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-                    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-                    
-                    // Adiciona a classe active ao botão clicado
-                    button.classList.add('active');
-                    
-                    // Mostra o conteúdo correspondente
-                    document.getElementById(targetTab).classList.add('active');
-                });
-            });
-            
-            // Botão voltar ao topo
-            const backToTopButton = document.querySelector('.back-to-top');
-            
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    backToTopButton.style.display = 'flex';
-                } else {
-                    backToTopButton.style.display = 'none';
-                }
-            });
-            
-            backToTopButton.addEventListener('click', (e) => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        });
-    </script>
+            <div class="box-info destaque">
+                <h3 class="info-titulo"><i class="fas fa-book-reader"></i> A Educação como Ferramenta de Libertação</h3>
+                <p>Para os presbiterianos, a educação não era apenas um serviço social, mas um imperativo teológico. Um crente que não sabe ler não tem acesso direto à Palavra de Deus. Esta ênfase na alfabetização e no pensamento crítico, levada para Moçambique pela Missão Suíça, provou ser uma força muito mais desestabilizadora do que os missionários poderiam ter previsto.</p>
+            </div>
+        </section>
+
+        <!-- O PARADOXO DE EDUARDO MONDLANE -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">O Paradoxo de Mondlane: O Filho Pródigo da Missão</h2>
+            <p>A história da Igreja Presbiteriana em Moçambique é indissociável de seu mais famoso (e problemático) aluno: **Eduardo Chivambo Mondlane**. Filho de um chefe tribal, Mondlane foi educado em escolas da Missão Suíça, onde não só aprendeu a ler e a escrever, mas também absorveu uma visão de mundo que valorizava a dignidade individual e o questionamento da autoridade injusta.</p>
+
+             <div class="citacao-critica">
+                <blockquote>
+                    "A Missão deu-me as ferramentas para ver a injustiça do colonialismo. Eles ensinaram-me que todos os homens são iguais perante Deus. Como poderia eu, então, aceitar um sistema que nos tratava como sub-humanos?"
+                </blockquote>
+                <cite>— Eduardo Mondlane, numa interpretação livre do seu percurso.</cite>
+            </div>
+
+            <div class="box-info controversia">
+                <h3 class="info-titulo"><i class="fas fa-fire"></i> Criando o Inimigo do Estado (e da Igreja)</h3>
+                <p>Ao investir em Mondlane, a Missão Suíça, inadvertidamente, criou o arquiteto da FRELIMO, o movimento revolucionário marxista-leninista que não só lutaria contra Portugal, mas que, após a independência, marginalizaria e suprimiria as instituições religiosas, incluindo a própria Igreja Presbiteriana. É o paradoxo supremo: a igreja que semeou a libertação na mente do seu aluno mais brilhante foi, mais tarde, vista como uma erva daninha pelo jardim revolucionário que ele plantou.</p>
+            </div>
+        </section>
+
+        <!-- O CONFLITO COM A FRELIMO -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">Colisão Ideológica: Presbiterianismo vs. Marxismo</h2>
+            <p>Após a independência em 1975, a FRELIMO, no poder, implementou uma política de Estado ateu, inspirada no marxismo-leninismo. As igrejas, incluindo a Presbiteriana, foram vistas como vestígios do colonialismo e centros de ideologia contrarrevolucionária.</p>
+
+            <div class="tabela-comparativa-wrapper">
+                <div class="tabela-coluna critica">
+                    <h4>Visão da FRELIMO sobre a Igreja</h4>
+                    <ul>
+                        <li><i class="fas fa-times-circle"></i> "Ópio do povo", que desvia a atenção da luta de classes.</li>
+                        <li><i class="fas fa-times-circle"></i> Associada ao poder colonial e à influência ocidental.</li>
+                        <li><i class="fas fa-times-circle"></i> Uma estrutura de poder rival que ameaçava a hegemonia do Partido.</li>
+                    </ul>
+                </div>
+                <div class="tabela-coluna">
+                    <h4>Realidade da Ação da Igreja</h4>
+                     <ul>
+                        <li><i class="fas fa-check-circle"></i> Principal agente de educação e saúde em muitas áreas rurais.</li>
+                        <li><i class="fas fa-check-circle"></i> Formadora da elite intelectual que liderou a independência.</li>
+                        <li><i class="fas fa-check-circle"></i> Rede de apoio social e comunitário fora do controlo do Estado.</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="mt-4">A nacionalização de escolas e hospitais, embora justificada pelo Estado como uma necessidade revolucionária, foi para a Igreja Presbiteriana um ataque direto à sua identidade e missão, forçando-a a operar nas margens da sociedade que ajudou a moldar.</p>
+        </section>
+
+        <!-- LEGADO E DESAFIOS ATUAIS -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">Legado e os Desafios do Século XXI</h2>
+            <p>O legado da Igreja Presbiteriana é complexo. É a igreja do "Pai da Nação", mas também uma vítima do seu projeto político. Hoje, a Igreja Presbiteriana de Moçambique, autónoma e totalmente nacional, enfrenta novos desafios. O seu Ethos de debate teológico e educação formal luta para competir com a emocionalidade e as promessas de prosperidade imediata das igrejas neopentecostais, que dominam o cenário religioso urbano.</p>
+             <div class="box-info">
+                <h3 class="info-titulo"><i class="fas fa-users-cog"></i> O Desafio da Relevância</h3>
+                <p>Numa sociedade onde a maioria procura soluções rápidas para problemas urgentes, como o desemprego e a doença, o modelo presbiteriano, focado no crescimento espiritual a longo prazo e no desenvolvimento comunitário, corre o risco de ser visto como lento ou intelectualizado demais. Manter a sua identidade histórica e, ao mesmo tempo, responder às necessidades imediatas da população é o seu grande desafio atual.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Rodapé de Navegação -->
+    <section class="navegacao-inferior">
+        <a href="estudos.html" class="btn-voltar-estudos">
+            <i class="fas fa-book-open"></i> Voltar à Área de Estudos
+        </a>
+    </section>
+
+    <script src="menu.js"></script>
 </body>
 </html>

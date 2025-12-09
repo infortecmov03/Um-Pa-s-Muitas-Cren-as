@@ -1,612 +1,116 @@
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Igreja Zionista em Moçambique</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Menu de navegação */
-        .sobre-menu {
-            background: linear-gradient(to right, #1a3c6e, #2c5ba3);
-            padding: 15px 0;
-            overflow-x: auto;
-            white-space: nowrap;
-        }
-        
-        .sobre-menu ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .sobre-menu li {
-            margin: 5px 10px;
-        }
-        
-        .sobre-menu a {
-            color: white;
-            text-decoration: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            transition: background-color 0.3s;
-            font-weight: 500;
-        }
-        
-        .sobre-menu a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-        
-        /* Cabeçalho */
-        header {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232c5ba3"/><path d="M0 0L100 100" stroke="%231a3c6e" stroke-width="2"/><path d="M100 0L0 100" stroke="%231a3c6e" stroke-width="2"/></svg>');
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-            margin-bottom: 30px;
-        }
-        
-        .logo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .logo-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-        
-        .logo h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        
-        /* Conteúdo principal */
-        .religion-section {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            margin-bottom: 30px;
-        }
-        
-        .religion-header {
-            background: linear-gradient(to right, #1a3c6e, #2c5ba3);
-            color: white;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .religion-icon {
-            font-size: 2rem;
-            margin-right: 15px;
-        }
-        
-        .religion-title {
-            font-size: 1.8rem;
-        }
-        
-        .religion-content {
-            padding: 30px;
-        }
-        
-        .religion-content h3 {
-            color: #2c5ba3;
-            margin: 20px 0 15px;
-            border-bottom: 2px solid #f0f0f0;
-            padding-bottom: 8px;
-        }
-        
-        .religion-content h4 {
-            color: #1a3c6e;
-            margin: 18px 0 12px;
-        }
-        
-        .religion-content p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-        
-        .beliefs-list, .practices-list, .demographics {
-            background-color: #f9f9f9;
-            border-left: 4px solid #2c5ba3;
-            padding: 15px 20px;
-            margin: 20px 0;
-            border-radius: 0 5px 5px 0;
-        }
-        
-        .beliefs-list h4, .practices-list h4, .demographics h4 {
-            color: #1a3c6e;
-            margin-top: 0;
-        }
-        
-        .beliefs-list ul, .practices-list ul, .demographics ul {
-            padding-left: 20px;
-            margin: 10px 0;
-        }
-        
-        .beliefs-list li, .practices-list li, .demographics li {
-            margin-bottom: 8px;
-        }
-        
-        /* Seção de tópicos */
-        .topics-section {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            margin-bottom: 30px;
-        }
-        
-        .topics-header {
-            background: linear-gradient(to right, #1a3c6e, #2c5ba3);
-            color: white;
-            padding: 15px 20px;
-        }
-        
-        .topics-header h2 {
-            font-size: 1.5rem;
-        }
-        
-        .tabs {
-            display: flex;
-            border-bottom: 1px solid #eee;
-            padding: 0 20px;
-        }
-        
-        .tab-button {
-            background: none;
-            border: none;
-            padding: 15px 20px;
-            cursor: pointer;
-            font-weight: 500;
-            color: #666;
-            display: flex;
-            align-items: center;
-            transition: color 0.3s;
-        }
-        
-        .tab-button.active {
-            color: #2c5ba3;
-            border-bottom: 3px solid #2c5ba3;
-        }
-        
-        .tab-button i {
-            margin-right: 8px;
-        }
-        
-        .tab-content {
-            display: none;
-            padding: 20px;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        .topic-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
-        .topic-card {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-        }
-        
-        .topic-card h4 {
-            color: #1a3c6e;
-            margin-bottom: 10px;
-        }
-        
-        /* Rodapé */
-        footer {
-            background: linear-gradient(to right, #1a3c6e, #2c5ba3);
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .footer-logo {
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-        
-        .footer-nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        
-        .footer-nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px 10px;
-            transition: opacity 0.3s;
-        }
-        
-        .footer-nav a:hover {
-            opacity: 0.8;
-        }
-        
-        .copyright {
-            opacity: 0.8;
-            font-size: 0.9rem;
-        }
-        
-        /* Botão voltar ao topo */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #2c5ba3;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-            transition: background 0.3s;
-        }
-        
-        .back-to-top:hover {
-            background: #1a3c6e;
-        }
-        
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .logo h1 {
-                font-size: 2rem;
-            }
-            
-            .religion-header {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .religion-icon {
-                margin-right: 0;
-                margin-bottom: 10px;
-            }
-            
-            .tabs {
-                flex-direction: column;
-            }
-            
-            .tab-button {
-                justify-content: center;
-            }
-        }
-    </style>
+    <title>Análise: As Igrejas Zionistas em Moçambique - Um País Muitas Crenças</title>
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Folhas de Estilo -->
+    <link rel="stylesheet" href="Um País Muitas Crenças.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="tema-analise-critica.css">
+
 </head>
 <body>
-    <nav class="sobre-menu">
-        <ul>
-            <li><a href="Sobre universal.html">Universal</a></li>
-            <li><a href="Sobre Testemunhas de Jeová em Moçambique.html">Testemunhas de Jeová</a></li>
-            <li><a href="Sobre Sara Nossa Terra em Moçambique.html">Sara Nossa Terra</a></li>
-            <li><a href="Sobre Metodista.html">Metodista</a></li>
-            <li><a href="Sobre Igreja Zionista.html">Zionista</a></li>
-            <li><a href="Sobre Igreja Presbiteriana.html">Presbiteriana</a></li>
-            <li><a href="Sobre Igreja de Profetas em Moçambique.html">Profetas</a></li>
-            <li><a href="Sobre Igreja de Deus.html">Igreja de Deus</a></li>
-            <li><a href="Sobre Igreja da Graça em Moçambique.html">Graça</a></li>
-            <li><a href="Sobre Católica.html">Católica</a></li>
-            <li><a href="Sobre Assembleia de Deus.html">Assembleia de Deus</a></li>
-            <li><a href="Sobre Apostólica.html">Apostólica</a></li>
-            <li><a href="Sobre Anglicana.html">Anglicana</a></li>
-            <li><a href="Sobre Adventistas emMoçambique.html">Adventistas</a></li>
-        </ul>
-    </nav>
-    
-    <!-- Cabeçalho -->
-    <header>
+    <!-- Menu será injetado aqui -->
+
+    <header class="header-analise" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1508272362242-233c2999e716?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
         <div class="container">
-            <div class="logo">
-                <i class="fas fa-hands-praying logo-icon"></i>
-                <h1>Igreja Zionista</h1>
-                <p class="subtitle">Conheça a história e influência das Igrejas Zionistas em Moçambique</p>
-            </div>
+            <h1 class="titulo-principal">Análise: As Igrejas Zionistas</h1>
+            <p class="subtitulo-principal">O "Hospital de Deus" da África Austral: entre a cura autêntica e o risco da exploração profética.</p>
         </div>
     </header>
-    
-    <!-- Conteúdo Principal -->
-    <main class="container">
-        <section class="religion-section">
-            <div class="religion-header">
-                <div class="religion-icon">
-                    <i class="fas fa-church"></i>
-                </div>
-                <h2 class="religion-title">Igreja Zionista</h2>
-            </div>
-            
-            <div class="religion-content">
-                <div>
-                    <h3>Origem</h3>
-                    <p>As Igrejas Zionistas têm suas origens no movimento Zion Christian que surgiu na África do Sul no início do século XX, combinando elementos do cristianismo pentecostal com tradições culturais africanas.</p>
-                    <p>Caracterizam-se pelo uso de vestes brancas, pela ênfase na cura divina e pela prática de rituais de purificação.</p>
-                    
-                    <div class="beliefs-list">
-                        <h4>Características Principais</h4>
-                        <ul>
-                            <li>Uso de vestes brancas durante cerimônias</li>
-                            <li>Ênfase na cura divina e milagres</li>
-                            <li>Prática de rituais de purificação com água</li>
-                            <li>Combinação de cristianismo com tradições africanas</li>
-                        </ul>
-                    </div>
-                    
-                    <h4>O Surgimento das Igrejas Zionistas</h4>
-                    <p>É crucial entender desde o início: "Igreja Zionista" não se refere a uma denominação única, mas a um <strong>vastíssimo movimento</strong> de igrejas independentes africanas (ACIEs - African Independent Churches) que compartilham características comuns. Sua história é inextricavelmente ligada à colonização, à resistência cultural e à busca por uma identidade espiritual autenticamente africana.</p>
-                    
-                    <h4>Parte 1: Sincretismo, Resistência e Cura na África do Sul</h4>
-                    <p>A origem do movimento Zionista é um processo em camadas, envolvendo missionários americanos, opressão colonial e uma reinterpretação africana radical do cristianismo.</p>
-                    
-                    <h4>Camada 1: A Semente Americana</h4>
-                    <p><strong>John Alexander Dowie (1896):</strong> Em Zion, Illinois, nos EUA, um pregador curador divino chamado John Alexander Dowie fundou a "Igreja Cristã Católica Apostólica". Ele criou uma utopia teocrática, enfatizando a cura divina, a vida comunitária e a rejeição à medicina moderna. Ele chamou sua cidade de "Zion" (Sião), um nome carregado de simbolismo bíblico (a Cidade de Deus).</p>
-                    
-                    <p><strong>Daniel Bryant e o Pentecostes:</strong> Após a morte de Dowie, a comunidade de Zion foi impactada pelo Avivamento da Rua Azusa (1906), que enfatizava o batismo no Espírito Santo e falar em línguas. Um membro, <strong>Daniel Bryant</strong>, viajou para a África do Sul em 1904 e depois em 1908, fundando a <strong>Missão Cristã Apostólica de Zion</strong> na Cidade do Cabo. Esta missão americana trouxe as doutrinas distintivas: uso de túnicas brancas, ênfase na cura divina, batismo por imersão e a observância do sábado como dia de repouso.</p>
-                    
-                    <h4>Camada 2: A Apropriação e Reinterpretação Africana</h4>
-                    <p>Os missionários americanos inicialmente trabalharam com uma mentalidade segregacionista. A verdadeira explosão do Zionismo veio quando <strong>líderes africanos romperam com este controle branco</strong> e reinterpretaram a mensagem à sua própria imagem.</p>
-                    
-                    <p><strong>A Ruptura de Petros Limba (1917):</strong> Um pregador Xhosa, <strong>Petros Limba</strong>, foi ordenado pela missão americana, mas rapidamente entrou em conflito com a liderança branca, que queria controlar suas atividades. Limba rompeu e fundou a <strong>Igreja Zionista da África do Sul</strong>, a primeira grande igreja Zionista <em>independente</em> e liderada por negros. Este acto de autonomia foi um grito de liberdade religiosa e cultural.</p>
-                    
-                    <p><strong>Engenas Lekganyane e a Zion Christian Church (ZCC - 1925):</strong> A figura mais emblemática do Zionismo sul-africano é <strong>Engenas Barnabas Lekganyane</strong>, um homem do povo Sotho-Pedi. Após uma experiência de cura divina, he juntou-se a uma missão Zionista, mas, como Limba, rapidamente se tornou independente, fundando a <strong>Zion Christian Church (ZCC)</strong>. Sob sua liderança carismática, a ZCC cresceu exponencialmente, tornando-se a maior igreja do movimento.</p>
-                    
-                    <div class="practices-list">
-                        <h4>Sincretismo Prático</h4>
-                        <p>Lekganyane e outros líderes fizeram algo revolucionário: <strong>sincretizaram</strong> as doutrinas cristãs americanas (curas, túnicas brancas, uso de água sagrada) com <strong>elementos fundamentais da espiritualidade e cultura africana tradicional</strong>:</p>
-                        <ul>
-                            <li><strong>Cura Divina vs. Medicina Tradicional:</strong> A ênfase na cura pelo Espírito Santo ressoou perfeitamente com o papel central do <em>sangoma</em> (curandeiro tradicional) na sociedade africana.</li>
-                            <li><strong>Sonhos e Revelações:</strong> A valorização de visões e sonhos como canal de comunicação com o divino ecoava as tradições ancestrais.</li>
-                            <li><strong>Ancestralidade e Comunidade:</strong> O forte sentido de comunidade e o respeito pelos líderes espelhavam as estruturas sociais tradicionais.</li>
-                            <li><strong>Símbolos e Rituais:</strong> O uso de emblemas, cordões coloridos e água abençoada substituíam, de forma cristianizada, os amuletos e ritos de proteção tradicionais.</li>
-                        </ul>
-                    </div>
-                    
-                    <p>O Zionismo, portanto, não foi uma importação passiva. Foi uma <strong>criação activa</strong> de africanos que usaram símbolos cristãos para construir uma religião que falava diretamente às suas necessidades espirituais, físicas e sociais sob o regime opressivo do colonialismo e do <em>Apartheid</em>.</p>
-                </div>
-                
-                <div>
-                    <h3>Chegada a Moçambique</h3>
-                    <p>As Igrejas Zionistas chegaram a Moçambique através de contatos transfronteiriços com a África do Sul e Suazilândia, principalmente a partir da década de 1950.</p>
-                    <p>Estabeleceram-se inicialmente nas províncias do sul e gradualmente expandiram-se para o centro do país. Tornaram-se particularmente populares em áreas rurais, onde incorporaram elementos das culturas locais.</p>
-                    
-                    <h4>Parte 2: A Chegada a Moçambique - Migração, Mineração e Resistência Cultural</h4>
-                    <p>A expansão para Moçambique não foi obra de missionários estrangeiros, mas um movimento orgânico e popular, inextricavelmente ligado à história económica e social da região.</p>
-                    
-                    <h4>O Canal Principal: Os Mineiros Moçambicanos na África do Sul</h4>
-                    <p>O mecanismo principal de disseminação foi o sistema de <strong>migração laboral</strong> para as minas de ouro e carvão da África do Sul.</p>
-                    
-                    <div class="demographics">
-                        <h4>Distribuição Geográfica</h4>
-                        <p>As Igrejas Zionistas estão presentes em todo Moçambique, mas são mais concentradas nas províncias do sul:</p>
-                        <ul>
-                            <li>Maputo: 35%</li>
-                            <li>Gaza: 28%</li>
-                            <li>Inhambane: 22%</li>
-                            <li>Outras províncias: 15%</li>
-                        </ul>
-                    </div>
-                    
-                    <p><strong>O Acordo de Mão-de-Obra:</strong> Durante décadas, centenas de milhares de homens moçambicanos (principalmente das etnias Shangaan, Ronga e Chope do sul de Moçambique) eram recrutados para trabalhar nas minas sul-africanas através de acordos formais entre Portugal e o governo sul-africano.</p>
-                    
-                    <p><strong>Experiência nas <em>Compounds</em>:</strong> Nestes alojamentos superlotados e desumanos nas minas, os trabalhadores moçambicanos entraram em contacto com a cultura Nguni e Sotho, e com as Igrejas Zionistas. Para estes homens, longe de casa, num ambiente perigoso e de exploração, a igreja Zionista oferecia:</p>
-                    
-                    <ul>
-                        <li><strong>Proteção Espiritual:</strong> Ritos de purificação e água sagrada para proteção contra acidentes e doenças.</li>
-                        <li><strong>Comunidade e Identidade:</strong> Um grupo de apoio que falava sua língua e entendia sua cultura.</li>
-                        <li><strong>Cura para o <em>Saudade</em> (Nostalgia):</strong> Um conforto espiritual para a dor de estar longe da família.</li>
-                    </ul>
-                    
-                    <p><strong>O Retorno e a Plantação:</strong> Quando estes mineiros regressavam às suas aldeias em Moçambique (especialmente nas províncias de Maputo, Gaza e Inhambane), eles não voltavam de mãos vazias. Trouxeram consigo as suas novas crenças e fundaram <strong>congregações Zionistas nas suas próprias comunidades</strong>. Eles eram os evangelistas leigos, os fundadores, os <em>Bishops</em>. Este foi um movimento de <strong>baixo para cima</strong>.</p>
-                    
-                    <h4>A Relação Ambígua com o Poder Colonial e Pós-Colonial</h4>
-                    <p>A penetração Zionista criou dinâmicas complexas com as autoridades.</p>
-                    
-                    <p><strong>Sob o Domínio Português:</strong> Inicialmente, as autoridades coloniais portuguesas e a Igreja Católica viam estas igrejas com <strong>desprezo e desconfiança</strong>. Eram classificadas como "seitas", "feitiçaria disfarçada" ou "superstição". No entanto, por serem apolíticas e focadas no bem-estar espiritual e comunitário, muitas vezes foram <strong>toleradas</strong> ou simplesmente ignoradas.</p>
-                    
-                    <p><strong>Sob o Regime Marxista da FRELIMO (Pós-1975):</strong> O governo pós-independência, de orientação marxista-leninista, era oficialmente ateu e hostil a todas as religiões, que considerava "ópio do povo". As Igrejas Zionistas, com suas práticas muito visíveis (danças, vestes brancas, reuniões ao ar livre), foram particularmente perseguidas. Seus líderes foram presos, acusados de charlatanismo e de atrasar o desenvolvimento do "Homem Novo" socialista.</p>
-                    
-                    <p><strong>Sob a Guerra Civil:</strong> Durante a guerra, as comunidades Zionistas, muitas vezes localizadas em zonas rurais, sofreram imensamente. A sua apolitização não os poupou da violência de ambos os lados.</p>
-                    
-                    <h4>A Explosão Pós-Guerra e a Autenticidade Cultural</h4>
-                    <p>Com o fim da Guerra Civil em 1992 e a introdução da liberdade religiosa, o movimento Zionista explodiu em Moçambique. As razões para o seu crescimento massivo são profundas:</p>
-                    
-                    <ol>
-                        <li><strong>Resposta ao Trauma:</strong> A guerra deixou um rasto de trauma espiritual e físico. As Igrejas Zionistas ofereceram explicações e soluções espirituais para o sofrimento.</li>
-                        <li><strong>Sincretismo Cultural Perfeito:</strong> O Zionismo não exige que os convertidos abandonem completamente o seu universo cultural.</li>
-                        <li><strong>Acessibilidade e Agency:</strong> Qualquer pessoa com carisma e uma "chamada" pode fundar a sua própria igreja.</li>
-                    </ol>
-                    
-                    <h4>Conclusão</h4>
-                    <p>A história da Igreja Zionista em Moçambique é a antítese da história missionária clássica. É uma história de:</p>
-                    
-                    <ul>
-                        <li><strong>Appropriação e não Imposição:</strong> Foi adotada e adaptada por moçambicanos de acordo com seus próprios termos.</li>
-                        <li><strong>Migração e Economia:</strong> Foi disseminada não por missionários, mas por trabalhadores migrantes.</li>
-                        <li><strong>Resistência Cultural Passiva:</strong> Foi uma forma de os africanos dizerem: "Nós aceitamos o cristianismo, mas vamos moldá-lo à nossa própria imagem".</li>
-                        <li><strong>Resiliência Popular:</strong> Sobreviveu à perseguição colonial e marxista porque estava enraizada nas camadas mais profundas da sociedade.</li>
-                    </ul>
-                    
-                    <p>Hoje, estima-se que até <strong>40% ou mais</strong> da população moçambicana se identifique com alguma forma de Zionismo ou igreja semelhante (como as igrejas "Apostólicas"). É o movimento religioso mais vibrante e de crescimento mais rápido no país, uma prova viva do poder duradouro da espiritualidade africana e da sua capacidade de se reinventar sob as condições mais adversas. É, acima de tudo, uma expressão profunda da alma moçambicana.</p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Seção de Tópicos -->
-        <section class="topics-section">
-            <div class="topics-header">
-                <h2>Tópicos Relacionados</h2>
-            </div>
-            
-            <div class="tabs">
-                <button class="tab-button active" data-tab="tab1">
-                    <i class="fas fa-history"></i> História
-                </button>
-                <button class="tab-button" data-tab="tab2">
-                    <i class="fas fa-map-marked-alt"></i> Distribuição
-                </button>
-                <button class="tab-button" data-tab="tab3">
-                    <i class="fas fa-hands"></i> Práticas
-                </button>
-            </div>
-            
-            <div class="tab-content active" id="tab1">
-                <div class="topic-grid">
-                    <div class="topic-card">
-                        <h4>Origens Sul-Africanas</h4>
-                        <p>O movimento Zionista surgiu na África do Sul no início do século XX, combinando elementos do cristianismo pentecostal com tradições culturais africanas.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Expansão Regional</h4>
-                        <p>Da África do Sul, o movimento expandiu-se para países vizinhos como Moçambique, Zimbabwe e Essuatíni através de migrantes trabalhadores.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Adaptação Cultural</h4>
-                        <p>Em cada país, o Zionismo adaptou-se às culturas locais, incorporando elementos linguísticos, simbólicos e ritualísticos específicos.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="tab2">
-                <div class="topic-grid">
-                    <div class="topic-card">
-                        <h4>Províncias do Sul</h4>
-                        <p>Maputo, Gaza e Inhambane concentram a maior parte dos fiéis Zionistas, devido à proximidade com a África do Sul.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Áreas Rurais</h4>
-                        <p>O Zionismo é particularmente forte em comunidades rurais, onde incorpora elementos das culturas locais.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Expansão Urbana</h4>
-                        <p>Recentemente, o movimento tem crescido em áreas urbanas, adaptando-se aos contextos citadinos.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="tab3">
-                <div class="topic-grid">
-                    <div class="topic-card">
-                        <h4>Vestes Brancas</h4>
-                        <p>Os fiéis usam vestes brancas durante as cerimônias, simbolizando pureza e conexão espiritual.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Cura Divina</h4>
-                        <p>Ênfase na cura através da fé e rituals de purificação, substituindo em parte a medicina tradicional.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Rituais com Água</h4>
-                        <p>Uso de água abençoada para purificação e proteção contra males espirituais.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <!-- Rodapé -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <i class="fas fa-hands-praying"></i>
-                </div>
-                <nav class="footer-nav">
-                    <a href="index.html">Início</a>
-                    <a href="#">Sobre</a>
-                    <a href="#">Religiões</a>
-                    <a href="#">Contacto</a>
-                    <a href="#">Privacidade</a>
-                </nav>
-                <p class="copyright">© 2023 Um País, Muitas Crenças. Todos os direitos reservados.</p>
+
+    <main class="container conteudo-analise">
+
+        <!-- AVISO DE CONTEÚDO -->
+        <div class="aviso-critico">
+            <i class="fas fa-balance-scale"></i>
+            <div>
+                <strong>Análise Equilibrada:</strong> Este artigo aborda o papel vital das Igrejas Zionistas como centros de cura e comunidade, mas também examina os perigos da falta de controlo, que pode levar à exploração financeira e ao abuso de poder por parte de falsos profetas.
             </div>
         </div>
-    </footer>
-    
-    <!-- Botão Voltar ao Topo -->
-    <a href="#" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-    
-    <script>
-        // Script para as abas
-        document.addEventListener('DOMContentLoaded', function() {
-            const tabButtons = document.querySelectorAll('.tab-button');
+
+        <!-- ORIGENS E IDENTIDADE -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">Origens: Uma Resposta Africana ao Cristianismo Missionário</h2>
+            <p>Nascidas na África do Sul no início do século XX, as Igrejas Zionistas são o maior e mais influente movimento religioso de base popular da África Austral. Surgiram como uma resposta ao cristianismo missionário, que muitas vezes rejeitava a cultura local. O Zionismo, pelo contrário, criou uma forma de cristianismo profundamente africana, que dialoga com a crença nos sonhos, nos espíritos e na necessidade de uma cura que abrange corpo, alma e vida social.</p>
+        </section>
+
+        <!-- PONTOS POSITIVOS -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao positivo"><i class="fas fa-plus-circle"></i> Pontos Positivos: O Refúgio dos Aflitos</h2>
             
-            tabButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const targetTab = button.getAttribute('data-tab');
-                    
-                    // Remove a classe active de todos os botões e conteúdos
-                    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-                    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-                    
-                    // Adiciona a classe active ao botão clicado
-                    button.classList.add('active');
-                    
-                    // Mostra o conteúdo correspondente
-                    document.getElementById(targetTab).classList.add('active');
-                });
-            });
+            <div class="box-info">
+                <h3 class="info-titulo">O "Hospital de Deus": Cura para a Pessoa Inteira</h3>
+                <p>O grande sucesso do Zionismo reside na sua oferta de cura holística. O profeta zionista não trata apenas a doença física; ele lida com as causas espirituais (maus espíritos, feitiçaria) e os problemas sociais (conflitos familiares, desemprego) que afligem a pessoa. A igreja funciona como um "Hospital de Deus", um refúgio onde todas as dimensões do sofrimento humano são levadas a sério e tratadas através da oração, da água benta e do aconselhamento profético.</p>
+            </div>
+
+            <div class="galeria-fotos">
+                <figure>
+                    <img src="/images/placeholder/zionista-batismo.jpg" alt="Cerimónia de batismo zionista num rio (imagem de exemplo)">
+                    <figcaption>O batismo em rios é um ritual central, simbolizando purificação e cura (placeholder).</figcaption>
+                </figure>
+                <figure>
+                    <img src="/images/placeholder/zionista-profeta.jpg" alt="Profeta zionista a orar por um membro (imagem de exemplo)">
+                    <figcaption>O profeta é a figura central, o mediador da cura divina (placeholder).</figcaption>
+                </figure>
+            </div>
+
+            <div class="box-info">
+                <h3 class="info-titulo">Uma Fé Culturalmente Relevante</h3>
+                <p>Ao contrário de muitas igrejas missionárias, o Zionismo não pede aos seus seguidores que abandonem a sua cosmovisão africana. Pelo contrário, integra-a. A crença em profecias, visões e no mundo espiritual não é rejeitada, mas reinterpretada. O profeta zionista afirma ter poder sobre as forças que as pessoas já temem, como a feitiçaria, oferecendo uma solução cristã para problemas tradicionalmente africanos, o que torna a sua mensagem poderosa e relevante.</p>
+            </div>
+
+            <div class="testemunho">
+                <p>"Andei em hospitais durante anos com dores de cabeça que nenhum médico curava. Diziam que não era nada. No primeiro dia que cheguei à igreja Zion, o profeta olhou para mim e disse: 'O problema não está na sua cabeça, está na sua casa. Há um espírito de conflito enviado por um vizinho'. Ele orou por mim, fez um ritual de purificação na minha casa e as dores desapareceram. Aqui, eles entendem os nossos problemas de verdade."
+                </p>
+                <cite>— Testemunho de uma membro da igreja em Gaza (adaptado).</cite>
+            </div>
+        </section>
+
+        <!-- PONTOS NEGATIVOS -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao negativo"><i class="fas fa-minus-circle"></i> Pontos Negativos: A Sombra da Exploração</h2>
+
+            <div class="box-info controversia">
+                <h3 class="info-titulo">Fragmentação e Ausência de Controlo</h3>
+                <p>O movimento Zionista é extremamente fragmentado, composto por milhares de igrejas independentes. Não existe uma liderança central ou um órgão regulador. Esta anarquia organizacional, embora permita uma grande liberdade, também significa que não há controlo de qualidade ou responsabilização. Qualquer pessoa pode autoproclamar-se profeta e abrir uma igreja, o que abre a porta a charlatães e oportunistas.</p>
+            </div>
+
+            <div class="box-info controversia">
+                <h3 class="info-titulo">A "Economia da Profecia" e Abuso de Poder</h3>
+                <p>A autoridade absoluta do profeta cria um ambiente propício à exploração. Em muitos casos, a "consulta" profética é paga, e os fiéis são pressionados a dar dinheiro e bens para "selar" a sua bênção. Pior, há inúmeros relatos de profetas que abusam da sua autoridade para explorar sexualmente mulheres, convencendo-as de que o ato sexual é uma ordem divina para curar a infertilidade ou quebrar uma maldição. A vulnerabilidade dos fiéis e o poder do profeta criam uma combinação perigosa.</p>
+            </div>
             
-            // Botão voltar ao topo
-            const backToTopButton = document.querySelector('.back-to-top');
-            
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    backToTopButton.style.display = 'flex';
-                } else {
-                    backToTopButton.style.display = 'none';
-                }
-            });
-            
-            backToTopButton.addEventListener('click', (e) => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        });
-    </script>
+            <div class="testemunho critico">
+                <p>"Fui com a minha mãe, que estava doente. O profeta pediu 10.000 meticais para uma 'oração forte'. Depois, pediu o telemóvel dela como sacrifício. Na semana seguinte, pediu mais dinheiro para comprar um bode para um ritual. A minha mãe gastou tudo o que tinha e a doença só piorou. Ele não era um homem de Deus, era um ladrão que se aproveitava do nosso desespero."
+                </p>
+                <cite>— Testemunho de um jovem de Nampula (adaptado).</cite>
+            </div>
+        </section>
+
+        <!-- BALANÇO FINAL -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">Balanço Final: O Dilema do Profeta</h2>
+            <p>As Igrejas Zionistas são um pilar da vida espiritual e social de Moçambique. Para milhões, representam um espaço vital de cura, comunidade e identidade cultural. O problema não reside no modelo Zionista em si, mas na sua falta de estrutura. Num movimento que depende totalmente da integridade de um profeta, como se distingue o verdadeiro homem de Deus do explorador carismático? Este é o dilema central do Zionismo. É um movimento que oferece uma cura poderosa, mas que, pela sua própria natureza, deixa os seus fiéis vulneráveis ao engano, tornando difícil separar o sagrado do profano.</p>
+        </section>
+
+    </main>
+
+    <section class="navegacao-inferior">
+        <a href="estudos.html" class="btn-voltar-estudos">
+            <i class="fas fa-book-open"></i> Voltar à Área de Estudos
+        </a>
+    </section>
+
+    <script src="menu.js"></script>
 </body>
 </html>

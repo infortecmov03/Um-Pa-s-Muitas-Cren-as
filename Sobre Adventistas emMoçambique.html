@@ -1,793 +1,171 @@
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adventistas do Sétimo Dia em Moçambique</title>
+    <title>Análise Crítica: Adventistas do Sétimo Dia em Moçambique - Um País Muitas Crenças</title>
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #2E7D32;
-            --secondary-color: #4CAF50;
-            --accent-color: #FFC107;
-            --light-bg: #f9f9f9;
-            --dark-text: #333;
-            --light-text: #fff;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: var(--light-bg);
-            color: var(--dark-text);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Menu de navegação */
-        .sobre-menu {
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            padding: 15px 0;
-            overflow-x: auto;
-            white-space: nowrap;
-        }
-        
-        .sobre-menu ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .sobre-menu li {
-            margin: 5px 10px;
-        }
-        
-        .sobre-menu a {
-            color: white;
-            text-decoration: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            transition: background-color 0.3s;
-            font-weight: 500;
-        }
-        
-        .sobre-menu a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-        
-        /* Cabeçalho */
-        header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: var(--light-text);
-            text-align: center;
-            padding: 60px 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        .logo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .logo-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-        
-        .logo h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 800px;
-        }
-        
-        .breadcrumb {
-            padding: 15px 0;
-            background-color: #e8f5e9;
-            margin-bottom: 20px;
-        }
-        
-        .breadcrumb-content {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .breadcrumb a {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-        
-        .breadcrumb a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Conteúdo principal */
-        .religion-section {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            margin-bottom: 30px;
-        }
-        
-        .religion-header {
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .religion-icon {
-            font-size: 2rem;
-            margin-right: 15px;
-        }
-        
-        .religion-title {
-            font-size: 1.8rem;
-        }
-        
-        .religion-content {
-            padding: 30px;
-        }
-        
-        .religion-content h3 {
-            color: var(--primary-color);
-            margin: 20px 0 15px;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 8px;
-        }
-        
-        .religion-content h4 {
-            color: var(--primary-color);
-            margin: 18px 0 12px;
-        }
-        
-        .religion-content p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-        
-        .beliefs-list, .practices-list, .statistics {
-            background-color: #f0f8f0;
-            border-left: 4px solid var(--primary-color);
-            padding: 15px 20px;
-            margin: 20px 0;
-            border-radius: 0 5px 5px 0;
-        }
-        
-        .beliefs-list h4, .practices-list h4, .statistics h4 {
-            color: var(--primary-color);
-            margin-top: 0;
-        }
-        
-        .beliefs-list ul, .practices-list ul, .statistics ul {
-            padding-left: 20px;
-            margin: 10px 0;
-        }
-        
-        .beliefs-list li, .practices-list li, .statistics li {
-            margin-bottom: 8px;
-        }
-        
-        .quote {
-            background: #f9f9f9;
-            border-left: 4px solid var(--accent-color);
-            margin: 20px 0;
-            padding: 15px 20px;
-            font-style: italic;
-        }
-        
-        .quote-source {
-            text-align: right;
-            font-weight: bold;
-            margin-top: 10px;
-            color: #666;
-        }
-        
-        .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 25px 0;
-        }
-        
-        .gallery-item {
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            position: relative;
-            height: 200px;
-            background: linear-gradient(45deg, #e6e6e6 25%, #f0f0f0 25%, #f0f0f0 50%, #e6e6e6 50%, #e6e6e6 75%, #f0f0f0 75%, #f0f0f0);
-            background-size: 20px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #777;
-            font-style: italic;
-        }
-        
-        .timeline {
-            border-left: 3px solid var(--primary-color);
-            border-bottom-right-radius: 4px;
-            border-top-right-radius: 4px;
-            margin: 25px 0;
-            padding-left: 25px;
-        }
-        
-        .timeline-item {
-            margin-bottom: 25px;
-            position: relative;
-        }
-        
-        .timeline-item:before {
-            content: "";
-            position: absolute;
-            left: -26px;
-            top: 8px;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: var(--accent-color);
-            border: 3px solid var(--primary-color);
-        }
-        
-        .timeline-date {
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-        
-        /* Seção de tópicos */
-        .topics-section {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            margin-bottom: 30px;
-        }
-        
-        .topics-header {
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 15px 20px;
-        }
-        
-        .topics-header h2 {
-            font-size: 1.5rem;
-        }
-        
-        .tabs {
-            display: flex;
-            border-bottom: 1px solid #eee;
-            padding: 0 20px;
-        }
-        
-        .tab-button {
-            background: none;
-            border: none;
-            padding: 15px 20px;
-            cursor: pointer;
-            font-weight: 500;
-            color: #666;
-            display: flex;
-            align-items: center;
-            transition: color 0.3s;
-        }
-        
-        .tab-button.active {
-            color: var(--primary-color);
-            border-bottom: 3px solid var(--primary-color);
-        }
-        
-        .tab-button i {
-            margin-right: 8px;
-        }
-        
-        .tab-content {
-            display: none;
-            padding: 20px;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        .topic-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
-        .topic-card {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-        }
-        
-        .topic-card h4 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-        
-        /* Rodapé */
-        footer {
-            background: linear-gradient(135deg, #1B5E20 0%, var(--primary-color) 100%);
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-            margin-top: 40px;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .footer-logo {
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-        
-        .footer-nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 20px;
-            gap: 15px;
-        }
-        
-        .footer-nav a {
-            color: #c8e6c9;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-nav a:hover {
-            color: white;
-        }
-        
-        .copyright {
-            opacity: 0.8;
-            font-size: 0.9rem;
-        }
-        
-        /* Botão voltar ao topo */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--primary-color);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-            transition: background 0.3s;
-            display: none;
-        }
-        
-        .back-to-top:hover {
-            background: #1B5E20;
-        }
-        
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .logo h1 {
-                font-size: 2rem;
-            }
-            
-            .religion-header {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .religion-icon {
-                margin-right: 0;
-                margin-bottom: 10px;
-            }
-            
-            .tabs {
-                flex-direction: column;
-            }
-            
-            .tab-button {
-                justify-content: center;
-            }
-            
-            .image-gallery {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Folhas de Estilo -->
+    <link rel="stylesheet" href="Um País Muitas Crenças.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="tema-analise-critica.css">
+
 </head>
 <body>
-    <nav class="sobre-menu">
-        <ul>
-            <li><a href="Sobre universal.html">Universal</a></li>
-            <li><a href="Sobre Testemunhas de Jeová em Moçambique.html">Testemunhas de Jeová</a></li>
-            <li><a href="Sobre Sara Nossa Terra em Moçambique.html">Sara Nossa Terra</a></li>
-            <li><a href="Sobre Metodista.html">Metodista</a></li>
-            <li><a href="Sobre Igreja Zionista.html">Zionista</a></li>
-            <li><a href="Sobre Igreja Presbiteriana.html">Presbiteriana</a></li>
-            <li><a href="Sobre Igreja de Profetas em Moçambique.html">Profetas</a></li>
-            <li><a href="Sobre Igreja de Deus.html">Igreja de Deus</a></li>
-            <li><a href="Sobre Igreja da Graça em Moçambique.html">Graça</a></li>
-            <li><a href="Sobre Católica.html">Católica</a></li>
-            <li><a href="Sobre Assembleia de Deus.html">Assembleia de Deus</a></li>
-            <li><a href="Sobre Apostólica.html">Apostólica</a></li>
-            <li><a href="Sobre Anglicana.html">Anglicana</a></li>
-            <li><a href="Sobre Adventistas emMoçambique.html">Adventistas</a></li>
-        </ul>
-    </nav>
+    <!-- Menu será injetado aqui -->
 
-    <div class="breadcrumb">
+    <header class="header-analise" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1530908295393-357e6589244d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
         <div class="container">
-            <div class="breadcrumb-content">
-                <a href="#">Início</a>
-                <span>></span>
-                <a href="#">Denominações</a>
-                <span>></span>
-                <span>Adventistas do Sétimo Dia</span>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Cabeçalho -->
-    <header>
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-church logo-icon"></i>
-                <h1>Adventistas do Sétimo Dia</h1>
-                <p class="subtitle">Conheça a história e influência da Igreja Adventista do Sétimo Dia em Moçambique</p>
-            </div>
+            <h1 class="titulo-principal">Análise Crítica: Os Adventistas do Sétimo Dia</h1>
+            <p class="subtitulo-principal">O Império da Saúde, a Profetisa Controversa e a Criação de uma Sociedade Paralela em Moçambique.</p>
         </div>
     </header>
-    
-    <!-- Conteúdo Principal -->
-    <main class="container">
-        <section class="religion-section">
-            <div class="religion-header">
-                <div class="religion-icon">
-                    <i class="fas fa-church"></i>
-                </div>
-                <h2 class="religion-title">Igreja Adventista do Sétimo Dia</h2>
-            </div>
-            
-            <div class="religion-content">
-                <div>
-                    <h3>Origem Global</h3>
-                    <p>A Igreja Adventista do Sétimo Dia surgiu nos Estados Unidos no século XIX, a partir do movimento millerita que pregava a iminente segunda vinda de Cristo.</p>
-                    <p>Caracteriza-se pela observância do sábado como dia de repouso, pela ênfase na saúde integral e por uma escatologia distintiva.</p>
-                    
-                    <h4>O Movimento Millerita e o "Grande Desapontamento"</h4>
-                    <p>No início do século XIX, os EUA foram varridos por um fervor religioso revivalista conhecido como o Segundo Grande Despertar. William Miller, um pregador leigo, após intenso estudo da Bíblia, concluiu que poderia prever a date da Segunda Vinda de Cristo. Usando a profecia de Daniel 8:14, calculou que Cristo retornaria por volta de 22 de outubro de 1844.</p>
-                    
-                    <div class="quote">
-                        "O dia chegou e passou. Cristo não voltou. A decepção foi catastrófica. O evento ficou gravado na psique do grupo como 'O Grande Desapontamento'."
-                        <div class="quote-source">— Historiador Religioso</div>
-                    </div>
-                    
-                    <h4>Reformação e Novas Doutrinas</h4>
-                    <p>Deste grupo de "desapontados" surgiram os líderes que reformularam as crenças e fundaram o que se tornaria a Igreja Adventista do Sétimo Dia. As figuras centrais foram Ellen G. White (considerada profetiza), seu marido Tiago White, e Joseph Bates.</p>
-                    
-                    <p>Eles desenvolveram uma nova interpretação para o desapontamento, que se tornou a base doutrinária única do Adventismo:</p>
-                    
-                    <div class="beliefs-list">
-                        <h4>Princípios Fundamentais</h4>
-                        <ul>
-                            <li><strong>O Santuário Celestial:</strong> A profecia de Daniel 8:14 não se referia à purificação da Terra, mas à purificação do Santuário Celestial. Cristo iniciou no Céu um trabalho de "julgamento investigativo" antes de seu retorno final.</li>
-                            <li><strong>O Sábado como Dia de Repouso:</strong> Joseph Bates foi fundamental na adoção da guarda do sétimo dia (sábado) como mandamento divino, diferenciando-os dos demais cristãos.</li>
-                            <li><strong>O Dom Profético de Ellen G. White:</strong> Suas visões guiaram a organização, a teologia (ênfase na saúde, educação e dieta vegetariana) e a missão da igreja.</li>
-                        </ul>
-                    </div>
-                    
-                    <p>A igreja foi organizada formalmente em 1863, em Battle Creek, Michigan, EUA, adotando o nome "Igreja Adventista do Sétimo Dia".</p>
-                </div>
-                
-                <div class="image-gallery">
-                    <div class="gallery-item">
-                        [Imagem: William Miller pregando]
-                    </div>
-                    <div class="gallery-item">
-                        [Imagem: Ellen G. White]
-                    </div>
-                    <div class="gallery-item">
-                        [Imagem: Primeira sede adventista em Battle Creek]
-                    </div>
-                </div>
-                
-                <div>
-                    <h3>Chegada e Expansão em Moçambique</h3>
-                    <p>Os Adventistas do Sétimo Dia chegaram a Moçambique no início do século XX através de missionários sul-africanos e americanos. Estabeleceram-se inicialmente na região sul do país.</p>
-                    <p>Desenvolveram significativo trabalho educativo e de saúde, fundando escolas e centros médicos. Cresceram substancialmente ao longo do século XX e mantêm forte presença em todo o país.</p>
-                    
-                    <h4>Linha do Tempo Histórica</h4>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-date">1903</div>
-                            <p>Primeira tentativa frustrada: William Harrison Anderson, missionário afro-americano, é barrado pelas autoridades portuguesas em Lourenço Marques.</p>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">1905</div>
-                            <p>Estratégia alternativa: Missionários baseados na África do Sul, como G. W. Petterson, começam a trabalhar junto à fronteira, na região sul de Moçambique.</p>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">1908</div>
-                            <p>Primeiro converso e mártir: Chief Mudzeki converte-se ao Adventismo, é perseguido e morre devido aos ferimentos. Seu filho, Timothy, continua seu trabalho.</p>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">Décadas de 1920-1970</div>
-                            <p>Consolidação e expansão com ênfase em educação e saúde, sempre sob vigilância das autoridades coloniais.</p>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">1975</div>
-                            <p>Nacionalização pós-independência: Todas as institutições adventistas são nacionalizadas pelo governo socialista.</p>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">Pós-1992</div>
-                            <p>Crescimento explosivo após o fim da Guerra Civil, com reabertura de instituições e expansão por todo o país.</p>
-                        </div>
-                    </div>
-                    
-                    <h4>Perseguição e Estratégias de Sobrevivência</h4>
-                    <p>No contexto do colonialismo português, Moçambique era uma colônia onde a Igreja Católica Romana era a religião oficial do Estado. Qualquer atividade protestante era vista com desconfiança e frequentemente reprimida.</p>
-                    
-                    <p>Os missionários inicialmente focaram em estabelecer escolas e clínicas de saúde como estratégia para ganhar aceitação perante o governo colonial, que via valor na educação, mesmo que controlada.</p>
-                    
-                    <div class="quote">
-                        "A semente foi plantada com sofrimento e perseguição. Chief Mudzeki foi preso, espancado e forçado a fugir para a África do Sul, onde morreu mais tarde devido aos ferimentos."
-                        <div class="quote-source">— Historiador da Igreja Adventista</div>
-                    </div>
-                </div>
-                
-                <div class="image-gallery">
-                    <div class="gallery-item">
-                        [Imagem: Primeiros missionários adventistas em Moçambique]
-                    </div>
-                    <div class="gallery-item">
-                        [Imagem: Escola missionária adventista no início do século XX]
-                    </div>
-                    <div class="gallery-item">
-                        [Imagem: Culto adventista durante o período colonial]
-                    </div>
-                </div>
-                
-                <div class="statistics">
-                    <h4>Estatísticas Atuais em Moçambique</h4>
-                    <ul>
-                        <li>Mais de 900 igrejas e congregações em todo o território nacional</li>
-                        <li>Estimativa de mais de 300.000 membros batizados</li>
-                        <li>Presente em todas as 11 províncias de Moçambique</li>
-                        <li>Rede educacional com mais de 100 escolas de diversos níveis</li>
-                        <li>Vários centros de saúde e um hospital (Clínica Central da Missão em Maputo)</li>
-                        <li>Universidade Adventista de Moçambique (UniAdventista)</li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3>Características Doutrinárias e Práticas</h3>
-                    <div class="practices-list">
-                        <h4>Principais Crenças e Práticas</h4>
-                        <ul>
-                            <li>Observância do sábado como dia sagrado de repouso e adoração</li>
-                            <li>Ênfase na saúde integral e estilo de vida saudável (muitos adventistas são vegetarianos)</li>
-                            <li>Crença no ministério de Ellen G. White como mensageira divina</li>
-                            <li>Forte ênfase na educação e no trabalho missionário</li>
-                            <li>Expectativa da breve volta de Jesus Cristo</li>
-                            <li>Prática do batismo por imersão</li>
-                            <li>Celebração trimestral da Santa Ceia com cerimônia de lava-pés</li>
-                        </ul>
-                    </div>
-                    
-                    <h4>Ênfase na Saúde e Educação</h4>
-                    <p>Os adventistas são conhecidos por sua ênfase na saúde integral - física, mental e espiritual. Esta abordagem tem sido um fator significativo em seu crescimento em Moçambique, onde oferecem:</p>
-                    
-                    <ul>
-                        <li>Programas de prevenção e tratamento de doenças</li>
-                        <li>Promoção de estilo de vida saudável (abstenção de álcool, tabaco e outras drogas)</li>
-                        <li>Instituições educacionais desde o ensino básico ao superior</li>
-                        <li>Programas de desenvolvimento comunitário</li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3>Contribuições para a Sociedade Moçambicana</h3>
-                    <ul>
-                        <li>Rede de escolas primárias e secundárias de qualidade</li>
-                        <li>Universidade Adventista de Moçambique formando profissionais em diversas áreas</li>
-                        <li>Serviços de saúde através de clínicas e unidades móveis</li>
-                        <li>Programas de assistência social e combate à pobreza</li>
-                        <li>Apoio a comunidades rurais através de projetos de desenvolvimento</li>
-                        <li>Promoção de valores éticos e morais na sociedade</li>
-                        <li>Ajuda humanitária em tempos de crise e desastres naturais</li>
-                    </ul>
-                </div>
-                
-                <div class="image-gallery">
-                    <div class="gallery-item">
-                        [Imagem: Universidade Adventista de Moçambique]
-                    </div>
-                    <div class="gallery-item">
-                        [Imagem: Clínica Adventista em área rural]
-                    </div>
-                    <div class="gallery-item">
-                        [Imagem: Projeto social adventista em comunidade]
-                    </div>
-                </div>
-                
-                <div>
-                    <h3>Desafios Contemporâneos</h3>
-                    <ul>
-                        <li>Concorrência com igrejas neopentecostais com mensagens de prosperidade</li>
-                        <li>Manutenção da identidade denominacional distintiva em um contexto religioso em transformação</li>
-                        <li>Expansão e consolidação em áreas remotas do país com infraestrutura limitada</li>
-                        <li>Formação e manutenção de líderes qualificados para uma igreja em crescimento</li>
-                        <li>Equilíbrio entre tradição doutrinária e contextualização cultural</li>
-                        <li>Engajamento com a geração mais jovem em um mundo em rápida mudança</li>
-                    </ul>
-                    
-                    <div class="quote">
-                        "A igreja em Moçambique hoje é muito mais moçambicana do que estrangeira. É uma igreja vibrante, jovem e em crescimento, que superou suas origens traumáticas globais e suas dificuldades locais."
-                        <div class="quote-source">— Analista Religioso</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Seção de Tópicos -->
-        <section class="topics-section">
-            <div class="topics-header">
-                <h2>Tópicos Relacionados</h2>
-            </div>
-            
-            <div class="tabs">
-                <button class="tab-button active" data-tab="tab1">
-                    <i class="fas fa-history"></i> História
-                </button>
-                <button class="tab-button" data-tab="tab2">
-                    <i class="fas fa-map-marked-alt"></i> Distribuição
-                </button>
-                <button class="tab-button" data-tab="tab3">
-                    <i class="fas fa-hands"></i> Práticas
-                </button>
-            </div>
-            
-            <div class="tab-content active" id="tab1">
-                <div class="topic-grid">
-                    <div class="topic-card">
-                        <h4>Origens Americanas</h4>
-                        <p>O movimento Adventista surgiu nos EUA no século XIX a partir do movimento millerita, que pregava a iminente segunda vinda de Cristo.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Expansão Global</h4>
-                        <p>Da América do Norte, o movimento expandiu-se para a Europa, África, Ásia e Oceania através de missionários dedicados.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Chegada a África</h4>
-                        <p>Os primeiros missionários adventistas chegaram à África do Sul em 1887, expandindo depois para outros países africanos incluindo Moçambique.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="tab2">
-                <div class="topic-grid">
-                    <div class="topic-card">
-                        <h4>Presença Nacional</h4>
-                        <p>Presente em todas as 11 províncias de Moçambique, com maior concentração nas áreas urbanas e no sul do país.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Instituições Educacionais</h4>
-                        <p>Rede de mais de 100 escolas, desde o ensino básico até a Universidade Adventista de Moçambique.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Serviços de Saúde</h4>
-                        <p>Clínicas e unidades móveis de saúde que servem comunidades urbanas e rurais em todo o país.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="tab3">
-                <div class="topic-grid">
-                    <div class="topic-card">
-                        <h4>Observância do Sábado</h4>
-                        <p>Os adventistas guardam o sétimo dia (sábado) como dia de repouso e adoração, diferenciando-se da maioria dos cristãos.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Ênfase na Saúde</h4>
-                        <p>Promoção de estilo de vida saudável, incluindo alimentação vegetariana e abstinência de álcool e tabaco.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Educação Integral</h4>
-                        <p>Forte investimento em educação como parte integral da missão religiosa e serviço comunitário.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <!-- Rodapé -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-nav">
-                    <a href="index.html">Início</a>
-                    <a href="#">Sobre</a>
-                    <a href="#">Denominações</a>
-                    <a href="#">Contactos</a>
-                    <a href="#">Recursos</a>
-                </div>
-                <p class="copyright">© 2023 Denominações Cristãs em Moçambique. Todos os direitos reservados.</p>
+
+    <main class="container conteudo-analise">
+
+        <!-- AVISO DE CONTEÚDO -->
+        <div class="aviso-critico">
+            <i class="fas fa-exclamation-triangle"></i>
+            <div>
+                <strong>Análise Sem Censura:</strong> Este artigo analisa as controvérsias em torno de Ellen G. White, o uso da "mensagem de saúde" como mecanismo de separação social e o modelo de autossuficiência institucional da Igreja Adventista.
             </div>
         </div>
-    </footer>
-    
-    <!-- Botão Voltar ao Topo -->
-    <a href="#" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-    
-    <script>
-        // Script para as abas
-        document.addEventListener('DOMContentLoaded', function() {
-            const tabButtons = document.querySelectorAll('.tab-button');
+
+        <!-- ORIGENS: UMA PROFECIA FRUSTRADA -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">Origens: A Profecia Que Falhou e a Profetisa Que a Salvou</h2>
+            <p>A Igreja Adventista nasceu das cinzas de uma desilusão massiva. Em 1844, milhares de seguidores de William Miller nos EUA abandonaram as suas posses, convencidos de que Jesus voltaria a 22 de outubro. Quando a data passou e nada aconteceu, o movimento colapsou no que ficou conhecido como "O Grande Desapontamento". Foi neste vácuo de fé que surgiu a figura de <strong>Ellen G. White</strong>.</p>
             
-            tabButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const targetTab = button.getAttribute('data-tab');
-                    
-                    // Remove a classe active de todos os botões e conteúdos
-                    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-                    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-                    
-                    // Adiciona a classe active ao botão clicado
-                    button.classList.add('active');
-                    
-                    // Mostra o conteúdo correspondente
-                    document.getElementById(targetTab).classList.add('active');
-                });
-            });
+            <div class="box-info controversia">
+                <h3 class="info-titulo"><i class="fas fa-book-dead"></i> Ellen G. White: Profetisa ou Plagiadora?</h3>
+                <p>Através de uma série de "visões", White re-interpretou a profecia: Jesus não deveria voltar à Terra, mas sim entrar num novo compartimento do santuário celestial. Esta nova teologia salvou um remanescente do movimento e deu origem à Igreja Adventista. Os seus extensos escritos (o "Espírito de Profecia") são considerados divinamente inspirados por muitos adventistas, mas também são o centro de uma controvérsia esmagadora, com críticos a apresentarem provas documentais de <strong>plágio sistemático</strong> de outros autores da sua época.</p>
+            </div>
+        </section>
+
+        <!-- O EVANGELHO DA SAÚDE -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">O Evangelho da Saúde: Salvação ou Segregação?</h2>
+            <p>A ênfase na saúde é, talvez, a característica mais marcante da identidade adventista. A promoção do vegetarianismo e a abstinência de álcool, tabaco e cafeína não são apenas conselhos de bem-estar; são um pilar da sua teologia, o "braço direito do evangelho". No entanto, esta "mensagem de saúde" funciona também como um poderoso mecanismo de <strong>separação social</strong>.</p>
+
+             <div class="citacao-critica">
+                <blockquote>
+                    "Quando não podes partilhar uma refeição, beber um café ou participar nas mesmas celebrações sociais que a tua comunidade, crias uma fronteira invisível, mas poderosa. A mensagem de saúde, intencionalmente ou não, segrega o 'povo remanescente' do resto do mundo."
+                </blockquote>
+                <cite>— Sociólogo da religião, análise adaptada.</cite>
+            </div>
+
+            <div class="box-info destaque">
+                <h3 class="info-titulo"><i class="fas fa-apple-alt"></i> Uma Identidade Comestível</h3>
+                <p>Em Moçambique, onde a partilha de comida é central para a vida social, as restrições alimentares adventistas criam uma identidade distinta e, por vezes, um isolamento prático. Esta separação reforça a ideia de ser um "povo peculiar", distinto do mundo que os rodeia, em preparação para o fim dos tempos.</p>
+            </div>
+        </section>
+
+        <!-- UM ESTADO DENTRO DO ESTADO -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">O Império Adventista: Um Estado Dentro do Estado</h2>
+            <p>A Igreja Adventista não se contenta em construir templos. A sua estratégia global é criar um <strong>ecossistema social completo e autossuficiente</strong>. Em Moçambique, como noutros lugares, isto traduz-se numa vasta e impressionante rede de instituições que cobre quase todos os aspetos da vida.</p>
+
+            <div class="tabela-comparativa-wrapper">
+                <div class="tabela-coluna">
+                    <h4>Serviços do Estado Secular</h4>
+                    <ul>
+                        <li><i class="fas fa-school"></i> Escolas Públicas</li>
+                        <li><i class="fas fa-hospital"></i> Hospitais Públicos</li>
+                        <li><i class="fas fa-university"></i> Universidades Públicas</li>
+                        <li><i class="fas fa-industry"></i> Empresas Alimentares</li>
+                    </ul>
+                </div>
+                <div class="tabela-coluna critica">
+                    <h4>Instituições Paralelas Adventistas</h4>
+                     <ul>
+                        <li><i class="fas fa-check-circle"></i> Rede de Escolas Adventistas</li>
+                        <li><i class="fas fa-check-circle"></i> Hospitais e Clínicas Adventistas</li>
+                        <li><i class="fas fa-check-circle"></i> Universidade Adventista (UniAdventista)</li>
+                        <li><i class="fas fa-check-circle"></i> Fábricas de Alimentos Saudáveis (Ex: Cevada)</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="mt-4">Este modelo cria um "mundo Adventista" onde um membro pode nascer num hospital adventista, estudar em escolas adventistas, formar-se numa universidade adventista, trabalhar numa instituição adventista e comer comida produzida por adventistas. O resultado é uma comunidade de alta coesão, mas com um risco significativo de <strong>elitismo e isolamento social</strong> da restante sociedade moçambicana.</p>
+        </section>
+
+        <!-- POLÍTICA DO FIM DO MUNDO -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">A Política do Fim do Mundo</h2>
+            <p>A teologia adventista é profundamente apocalíptica, centrada numa batalha cósmica final (o "Grande Conflito") entre Cristo e Satanás. Nesta narrativa, os vilões do fim dos tempos são uma coligação entre o poder papal (a "Besta") e o governo dos EUA, que imporá um decreto dominical global, perseguindo os guardadores do sábado. Esta visão de mundo leva a uma posição de <strong>estrita neutralidade política</strong>.</p>
+
+             <div class="box-info">
+                <h3 class="info-titulo"><i class="fas fa-balance-scale-left"></i> Neutralidade: Princípio ou Pragmatismo?</h3>
+                <p>Os Adventistas não votam nem participam em política partidária, vendo os governos terrenos como temporários e corruptos. Embora apresentada como uma posição de princípio, esta neutralidade é também altamente pragmática. Permite que o seu império institucional global opere em qualquer regime político — democrático, comunista ou ditatorial — sem ser visto como uma ameaça, protegendo assim os seus vastos ativos (hospitais, universidades) de nacionalizações e conflitos políticos.</p>
+            </div>
+        </section>
+
+        <!-- BALANÇO FINAL -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">Balanço Final: O Paradoxo da Saúde e do Isolamento</h2>
             
-            // Botão voltar ao topo
-            const backToTopButton = document.querySelector('.back-to-top');
-            
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    backToTopButton.style.display = 'flex';
-                } else {
-                    backToTopButton.style.display = 'none';
-                }
-            });
-            
-            backToTopButton.addEventListener('click', (e) => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        });
-    </script>
-    <script src="seg.js"></script>
+            <div class="box-info">
+                <h3 class="info-titulo">O Dilema Moçambicano</h3>
+                <p>A Igreja Adventista em Moçambique oferece um modelo de vida disciplinado e saudável que é inegavelmente atraente. As suas instituições de saúde e educação são frequentemente vistas como exemplos de excelência e contribuem de forma concreta para o desenvolvimento do país. É um caminho que promete bem-estar físico e uma comunidade coesa.</p>
+                
+                <p>No entanto, este caminho é construído sobre uma teologia de separação. A ênfase num estilo de vida restrito e a criação de um ecossistema social autossuficiente, embora fortaleçam a identidade do grupo, fazem-no à custa da integração social mais ampla. A sua neutralidade política, por mais pragmática que seja, arrisca-se a ser percebida como indiferença perante os desafios cívicos que todos os moçambicanos enfrentam.</p>
+            </div>
+
+            <div class="box-info">
+                <h3 class="info-titulo">Legado Ambíguo</h3>
+                <div class="tabela-comparativa">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Aspectos Positivos</th>
+                                <th>Aspectos Negativos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Promoção de saúde e bem-estar</td>
+                                <td>Isolamento e segregação social</td>
+                            </tr>
+                            <tr>
+                                <td>Rede educacional e de saúde de alta qualidade</td>
+                                <td>Elitismo institucional</td>
+                            </tr>
+                            <tr>
+                                <td>Comunidade disciplinada e de alta coesão</td>
+                                <td>Fundamentos teológicos controversos</td>
+                            </tr>
+                            <tr>
+                                <td>Estilo de vida sóbrio e produtivo</td>
+                                <td>Distanciamento da vida cívica e política</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="box-info conclusao">
+                <h3 class="info-titulo">Conclusão</h3>
+                <p>A Igreja Adventista do Sétimo Dia é um império de bem-estar construído sobre uma teologia de separação. Ela constrói corpos saudáveis, mentes disciplinadas e instituições robustas, mas fá-lo dentro de uma bolha que a isola do tecido social mais vasto de Moçambique.</p>
+                
+                <p>O desafio futuro para a igreja será encontrar um equilíbrio: manter os seus valiosos princípios de saúde e disciplina sem que estes se tornem barreiras de segregação. A questão é se os Adventistas conseguirão abrir as suas portas, não apenas como prestadores de serviços de excelência, mas como parceiros genuínos e integrados na construção da nação moçambicana.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Rodapé de Navegação -->
+    <section class="navegacao-inferior">
+        <a href="estudos.html" class="btn-voltar-estudos">
+            <i class="fas fa-book-open"></i> Voltar à Área de Estudos
+        </a>
+    </section>
+
+    <script src="menu.js"></script>
 </body>
 </html>

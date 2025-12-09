@@ -1,495 +1,109 @@
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chegada do Islamismo a Moçambique - Um País Muitas Crenças</title>
+    <title>A Chegada do Islamismo a Moçambique - Um País Muitas Crenças</title>
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --islamic-green: #0d8c4d;
-            --islamic-gold: #d4af37;
-            --islamic-blue: #0066b2;
-            --cream: #f8f4e3;
-            --dark-text: #333;
-            --light-text: #fff;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: var(--cream);
-            color: var(--dark-text);
-            line-height: 1.6;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%230d8c4d' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Cabeçalho com estilo islâmico */
-        .islamic-header {
-            background: linear-gradient(to right, var(--islamic-green), var(--islamic-blue));
-            color: var(--light-text);
-            text-align: center;
-            padding: 40px 20px;
-            margin-bottom: 30px;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 5px solid var(--islamic-gold);
-        }
-        
-        .islamic-header::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            z-index: 0;
-        }
-        
-        .islamic-header h1 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            position: relative;
-            z-index: 1;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        
-        .islamic-header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* Navegação */
-        .breadcrumb {
-            background-color: rgba(13, 140, 77, 0.1);
-            padding: 15px 0;
-            margin-bottom: 30px;
-        }
-        
-        .breadcrumb-content {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        
-        .breadcrumb a {
-            color: var(--islamic-green);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .breadcrumb a:hover {
-            color: var(--islamic-blue);
-            text-decoration: underline;
-        }
-        
-        .breadcrumb span {
-            color: #777;
-        }
-        
-        /* Conteúdo principal */
-        .topic-detail {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            margin-bottom: 40px;
-        }
-        
-        .topic-meta {
-            background: linear-gradient(to right, rgba(13, 140, 77, 0.1), rgba(0, 102, 178, 0.1));
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 15px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .topic-meta span {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #555;
-        }
-        
-        .topic-content {
-            padding: 30px;
-        }
-        
-        .topic-content h2 {
-            color: var(--islamic-green);
-            margin: 25px 0 15px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid var(--islamic-gold);
-            position: relative;
-        }
-        
-        .topic-content h2:first-child {
-            margin-top: 0;
-        }
-        
-        .topic-content p {
-            margin-bottom: 20px;
-            text-align: justify;
-            font-size: 1.05rem;
-        }
-        
-        .topic-content ul {
-            margin-left: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .topic-content li {
-            margin-bottom: 10px;
-            position: relative;
-            padding-left: 20px;
-        }
-        
-        .topic-content li::before {
-            content: "•";
-            color: var(--islamic-green);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-        
-        /* Galeria de imagens */
-        .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-        
-        .gallery-item {
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: relative;
-            height: 250px;
-            background-color: #e9e9e9;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .gallery-image {
-            height: 180px;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .gallery-caption {
-            padding: 12px;
-            background: white;
-            font-size: 0.9rem;
-            color: #555;
-            text-align: center;
-        }
-        
-        /* Citação com estilo islâmico */
-        .islamic-quote {
-            background: linear-gradient(to right, rgba(13, 140, 77, 0.05), rgba(0, 102, 178, 0.05));
-            border-left: 4px solid var(--islamic-green);
-            margin: 25px 0;
-            padding: 20px;
-            font-style: italic;
-            position: relative;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .islamic-quote::before {
-            content: "";
-            font-family: Georgia, serif;
-            font-size: 4rem;
-            color: var(--islamic-green);
-            opacity: 0.2;
-            position: absolute;
-            top: -10px;
-            left: 10px;
-        }
-        
-        .quote-source {
-            text-align: right;
-            font-weight: bold;
-            margin-top: 10px;
-            color: var(--islamic-blue);
-            font-style: normal;
-        }
-        
-        /* Navegação entre tópicos */
-        .navigation-links {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 40px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .nav-button {
-            background: linear-gradient(to right, var(--islamic-green), var(--islamic-blue));
-            color: white;
-            text-decoration: none;
-            padding: 12px 20px;
-            border-radius: 5px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .nav-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        /* Rodapé */
-        .islamic-footer {
-            background: linear-gradient(to right, var(--islamic-green), var(--islamic-blue));
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-            margin-top: 50px;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .footer-logo {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-        
-        .footer-nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin: 20px 0;
-        }
-        
-        .footer-nav a {
-            color: white;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-        
-        .footer-nav a:hover {
-            opacity: 0.8;
-        }
-        
-        .copyright {
-            opacity: 0.8;
-            font-size: 0.9rem;
-            margin-top: 15px;
-        }
-        
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .islamic-header h1 {
-                font-size: 2.2rem;
-            }
-            
-            .topic-meta {
-                flex-direction: column;
-            }
-            
-            .navigation-links {
-                flex-direction: column;
-            }
-            
-            .nav-button {
-                justify-content: center;
-            }
-            
-            .image-gallery {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Folhas de Estilo -->
+    <link rel="stylesheet" href="Um País Muitas Crenças.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="tema-analise-critica.css">
+    <link rel="stylesheet" href="tema-islamismo.css">
+
 </head>
-<!-- Google tag (gtag.js) --> 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VJDQ8Z1NQG"></script> 
-<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-VJDQ8Z1NQG'); </script>
 <body>
-    <!-- Cabeçalho com tema islâmico -->
-    <header class="islamic-header">
+    <!-- Menu será injetado aqui -->
+
+    <header class="header-analise" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1604581143924-c8b0a9a8d380?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
         <div class="container">
-            <h1>Chegada e Expansão do Islamismo em Moçambique</h1>
-            <p>Uma jornada histórica através dos séculos da presença islâmica na costa do Índico</p>
+            <h1 class="titulo-principal">As Três Ondas: A Chegada do Islão a Moçambique</h1>
+            <p class="subtitulo-principal">Um processo gradual de comércio, sincretismo e influências globais que moldou a fé ao longo de doze séculos.</p>
         </div>
     </header>
-    
-    <div class="breadcrumb">
-        <div class="container">
-            <div class="breadcrumb-content">
-                <a href="index.html">Início</a>
-                <span>></span>
-                <a href="religioes.html">Religiões</a>
-                <span>></span>
-                <a href="islamismo.html">Islamismo</a>
-                <span>></span>
-                <span>Chegada a Moçambique</span>
-            </div>
-        </div>
-    </div>
 
-    <div class="container">
-        <article class="topic-detail">
-            <div class="topic-meta">
-                <span><i class="fas fa-clock"></i> Tempo de leitura: 10 minutos</span>
-                <span><i class="fas fa-calendar"></i> Atualizado em: Novembro de 2023</span>
-                <span><i class="fas fa-share-alt"></i> Partilhar</span>
-            </div>
-            
-            <div class="topic-content">
-                <h2>Primeiros Contactos</h2>
-                <p>O Islamismo chegou à costa de Moçambique antes do Cristianismo, através do comércio marítimo no Oceano Índico. Mercadores árabes e persas muçulmanos estabeleceram entrepostos comerciais ao longo da costa a partir do século VIII, especialmente nas ilhas de Moçambique e Quíloa.</p>
-                
-                <div class="image-gallery">
-                    <div class="gallery-item">
-                        <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1618678901176-6edf9c46c099?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
-                        <div class="gallery-caption">Rota de comércio histórico no Oceano Índico</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1570352564893-6fface38e80f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
-                        <div class="gallery-caption">Antigo dhow - embarcação de comerciantes árabes</div>
-                    </div>
-                </div>
-                
-                <h2>Sultanatos Costeiros</h2>
-                <p>Entre os séculos X e XV, formaram-se vários sultanatos e cidades-estado islamizadas ao longo da costa de Moçambique, incluindo Sofala, Angoche e Quíloa. Estas cidades tornaram-se centros importantes de comércio de ouro, marfim e escravos.</p>
-                
-                <div class="islamic-quote">
-                    "As cidades-estado da costa africana do Índico não eram meros entrepostos comerciais, mas centros de uma civilização sofisticada que combinava elementos africanos, árabes e persas."
-                    <div class="quote-source">— Historiador Eduardo Medeiros</div>
-                </div>
-                
-                <div class="image-gallery">
-                    <div class="gallery-item">
-                        <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1610108131737-97ca4d19d77d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
-                        <div class="gallery-caption">Ruínas da cidade de Quíloa Kisiwani</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1580502304784-8985b7eb7260?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
-                        <div class="gallery-caption">Arquitetura swahili com influência islâmica</div>
-                    </div>
-                </div>
-                
-                <h2>Expansão para o Interior</h2>
-                <p>A partir dos séculos XVIII e XIX, o Islamismo começou a expandir-se para o interior de Moçambique, especialmente através de:</p>
+    <main class="container conteudo-analise">
+
+        <section class="secao-analise">
+            <h2 class="titulo-secao">Um Processo de Camadas Históricas</h2>
+            <p>A chegada do Islamismo a Moçambique não foi um evento único, mas um longo processo de mais de mil anos, ocorrido em diferentes "ondas" ou "camadas". Cada onda trouxe uma nova interpretação da fé, novos atores e novas dinâmicas, que se sobrepuseram sem apagar completamente a anterior. Compreender estas camadas é essencial para entender a diversidade e as tensões do Islão moçambicano atual.</p>
+        </section>
+
+        <!-- ONDA 1 -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao-onda"><i class="fas fa-ship"></i> 1ª Onda: O Islão dos Comerciantes Swahili (Séc. VIII-XV)</h2>
+            <div class="box-info">
+                <h3 class="info-titulo">Comércio, Não Conquista</h3>
+                <p>A primeira chegada do Islão foi pacífica, trazida pelos ventos das monções que impulsionavam os dhows de comerciantes árabes e persas. Eles não vieram como conquistadores, mas como parceiros de negócio. Estabeleceram-se ao longo da costa, casaram-se com mulheres das elites locais e deram origem a uma nova cultura e língua: a cultura Swahili, uma fusão afro-islâmica.</p>
                 <ul>
-                    <li>Comerciantes caravanianos que levavam o Islão para as rotas comerciais</li>
-                    <li>Líderes religiosos e mestres sufistas que estabeleciam centros de ensino</li>
-                    <li>Alianças com chefes locais que se convertiam ao Islão</li>
+                    <li><strong>Atores Principais:</strong> Comerciantes, marinheiros, artesãos.</li>
+                    <li><strong>Forma de Islão:</strong> Um Islão social e comercial, focado nas regras para trocas justas e na identidade comunitária.</li>
+                    <li><strong>Impacto:</strong> Fundação de cidades-estado costeiras como Sofala, Angoche e a Ilha de Moçambique, que se tornaram centros de uma próspera rede comercial no Oceano Índico. A conversão era, muitas vezes, uma decisão económica e política para as elites locais.</li>
                 </ul>
-                
-                <h2>Período Colonial</h2>
-                <p>Durante o período colonial português (séculos XIX-XX), as comunidades muçulmanas mantiveram suas tradições religiosas, embora sob certas restrições. Os portugueses geralmente toleravam o Islão, mas privilegiavam o Catolicismo.</p>
-                
-                <div class="image-gallery">
-                    <div class="gallery-item">
-                        <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1598979341340-a470cf86f098?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
-                        <div class="gallery-caption">Mesquita antiga na Ilha de Moçambique</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1601593346746-80cc83942c08?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
-                        <div class="gallery-caption">Comunidade muçulmana no período colonial</div>
-                    </div>
-                </div>
-                
-                <h2>Pós-Independência</h2>
-                <p>Após a independência em 1975, as comunidades islâmicas de Moçambique experimentaram um renascimento, com a construção de novas mesquitas, escolas islâmicas e um maior engajamento com a comunidade muçulmana global.</p>
-                
-                <h2>Expansão Contemporânea</h2>
-                <p>Nas últimas décadas, o Islão continuou a expandir-se em Moçambique, tanto através do crescimento natural das comunidades existentes como através de novas conversões, especialmente nas províncias do norte.</p>
-                
-                <div class="image-gallery">
-                    <div class="gallery-item">
-                        <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1580336277520-b7bb8063c9e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
-                        <div class="gallery-caption">Mesquita moderna em Maputo</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1519375588596-bc1b76bce7f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
-                        <div class="gallery-caption">Estudantes do Alcorão no norte de Moçambique</div>
-                    </div>
-                </div>
-                
-                <div class="navigation-links">
-                    <a href="História do Islamismo.html" class="nav-button">
-                        <i class="fas fa-arrow-left"></i> Tópico Anterior: História do Islamismo
-                    </a>
-                    <a href="Tradições do Islamismo.html" class="nav-button">
-                        Próximo Tópico: Tradições e Práticas <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
             </div>
-        </article>
-    </div>
-    
-    <!-- Rodapé com tema islâmico -->
-    <footer class="islamic-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <i class="fas fa-mosque"></i>
-                </div>
-                <nav class="footer-nav">
-                    <a href="index.html">Início</a>
-                    <a href="sobre.html">Sobre</a>
-                    <a href="religioes.html">Religiões</a>
-                    <a href="contacto.html">Contacto</a>
-                    <a href="privacidade.html">Privacidade</a>
-                </nav>
-                <p class="copyright">© 2023 Um País, Muitas Crenças. Todos os direitos reservados.</p>
+        </section>
+
+        <!-- ONDA 2 -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao-onda onda-sufi"><i class="fas fa-praying-hands"></i> 2ª Onda: O Islão Místico dos Sufis (Séc. XIX)</h2>
+            <div class="box-info">
+                <h3 class="info-titulo">A Expansão para o Interior</h3>
+                <p>Durante séculos, o Islão permaneceu um fenómeno costeiro. A sua expansão para o interior de Moçambique foi impulsionada pelas irmandades Sufi (Tariqas), como a Qadiriyya e a Shadhiliyya. Os sheikhs sufis eram mestres na adaptação cultural.</p>
+                <ul>
+                    <li><strong>Atores Principais:</strong> Sheikhs, pregadores itinerantes, curandeiros.</li>
+                    <li><strong>Forma de Islão:</strong> Místico, flexível e sincrético. Os sheikhs incorporavam elementos das tradições locais, como o culto aos antepassados (reinterpretado como veneração de "santos" islâmicos) e o uso de práticas de cura.</li>
+                    <li><strong>Impacto:</strong> Levaram um Islão que não exigia uma rutura total com a cultura africana, o que facilitou a sua aceitação massiva. Esta é a origem do "Islão popular" que ainda hoje é maioritário em Moçambique, centrado na figura do sheikh como guia espiritual e social.</li>
+                </ul>
             </div>
-        </div>
-    </footer>
-    
-    <script>
-        // Script simples para funcionalidades básicas
-        document.addEventListener('DOMContentLoaded', function() {
-            // Adicionar ano atual no copyright
-            const yearElement = document.querySelector('.copyright');
-            if (yearElement) {
-                const currentYear = new Date().getFullYear();
-                yearElement.textContent = yearElement.textContent.replace('2023', currentYear);
-            }
-            
-            // Adicionar smooth scroll para links internos
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-        });
-    </script>
+        </section>
+
+        <!-- ONDA 3 -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao-onda onda-salafista"><i class="fas fa-book-open"></i> 3ª Onda: O Islão Reformista e Global (Pós-1980)</h2>
+            <div class="box-info controversia">
+                <h3 class="info-titulo">A Influência dos Petrodólares</h3>
+                <p>Após a independência e, principalmente, com a abertura do país, uma nova onda islâmica chegou, financiada por países do Golfo (como Arábia Saudita e Qatar). Esta onda trouxe uma ideologia reformista, conhecida como Salafismo ou Wahhabismo, que se opõe diretamente ao Islão Sufi tradicional.</p>
+                <ul>
+                    <li><strong>Atores Principais:</strong> Jovens moçambicanos formados em universidades islâmicas no estrangeiro, ONGs financiadas pelo Golfo.</li>
+                    <li><strong>Forma de Islão:</strong> "Purista", literalista e universalista. Prega a necessidade de "limpar" o Islão das "inovações" e do sincretismo sufi, para regressar a uma fé "pura" e global, igual em todo o mundo.</li>
+                    <li><strong>Impacto:</strong> Construção de novas mesquitas e madrassas que competem com as instituições sufis. Criação de uma elite religiosa que vê o Islão tradicional como "atrasado" ou mesmo "herético", gerando uma profunda divisão e conflito no seio da comunidade muçulmana moçambicana.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- MAPA SIMPLIFICADO -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">Mapa das Ondas de Expansão</h2>
+            <div class="galeria-fotos">
+                 <figure>
+                    <img src="/images/placeholder/mapa-islamismo-mocambique.jpg" alt="Mapa mostrando as três ondas de expansão do Islamismo em Moçambique."/>
+                    <figcaption>As setas ilustram a 1ª Onda (costeira), a 2ª Onda (interior) e a 3ª Onda (global/urbana).</figcaption>
+                </figure>
+            </div>
+        </section>
+        
+        <!-- CONCLUSÃO -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">Conclusão: Um Palimpsesto Religioso</h2>
+            <p>A história da chegada do Islão a Moçambique é um palimpsesto, um manuscrito onde novas escritas são feitas sobre as antigas sem as apagar por completo. O Islão Swahili da costa, o Islão Sufi do interior e o Islão Reformista global coexistem hoje em Moçambique, muitas vezes em tensão. Esta sobreposição de camadas históricas é a chave para entender tanto a riqueza e a diversidade do Islão moçambicano como as raízes dos conflitos contemporâneos que marcam a comunidade.</p>
+        </section>
+
+    </main>
+
+    <section class="navegacao-inferior">
+        <a href="islamismo.html" class="btn-voltar-estudos">
+            <i class="fas fa-star-and-crescent"></i> Voltar à Análise do Islamismo
+        </a>
+    </section>
+
+    <script src="menu.js"></script>
+    <script src="footer.js"></script>
 </body>
 </html>

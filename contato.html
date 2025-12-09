@@ -1,209 +1,94 @@
+
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informações de Contato</title>
+    <title>Contato - Um País Muitas Crenças</title>
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #6e8efb, #a777e3);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 800px;
-            width: 100%;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-        }
-        
-        header {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 25px 20px;
-        }
-        
-        header h1 {
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
-        
-        header p {
-            font-size: 16px;
-            opacity: 0.9;
-        }
-        
-        .contact-info {
-            padding: 30px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            padding: 20px;
-            margin-bottom: 15px;
-            border-radius: 10px;
-            background: #f8f9fa;
-            transition: all 0.3s ease;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-        }
-        
-        .contact-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .icon {
-            width: 60px;
-            height: 60px;
-            min-width: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 20px;
-            font-size: 24px;
-            color: white;
-        }
-        
-        .phone .icon { background: #25D366; }
-        .email .icon { background: #3498db; }
-        .whatsapp .icon { background: #128C7E; }
-        .facebook .icon { background: #3b5998; }
-        
-        .content h3 {
-            font-size: 18px;
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
-        
-        .content p, .content a {
-            font-size: 16px;
-            color: #7f8c8d;
-            text-decoration: none;
-        }
-        
-        .phone-link {
-            color: #25D366;
-            font-weight: 600;
-        }
-        
-        .content a:hover {
-            color: #3498db;
-            text-decoration: underline;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: #7f8c8d;
-            font-size: 14px;
-            background: #f8f9fa;
-        }
-        
-        @media (max-width: 600px) {
-            .contact-item {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .icon {
-                margin-right: 0;
-                margin-bottom: 15px;
-            }
-            
-            header h1 {
-                font-size: 24px;
-            }
-        }
-    </style>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Folhas de Estilo -->
+    <link rel="stylesheet" href="Um País Muitas Crenças.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="contato.css">
+
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Entre em Contato</h1>
-            <p>Estou disponível através dos seguintes canais</p>
-            <p> No caso de houver uma sugestão ou algo por retificar é só entrar em contato através das opções abaixo segundo o teu critério</p>
-        </header>
-        
-        <div class="contact-info">
-            <div class="contact-item phone">
-                <div class="icon">
-                    <i class="fas fa-phone"></i>
+    <!-- Menu será injetado aqui -->
+
+    <header class="header-contato">
+        <div class="container">
+            <h1><i class="fas fa-envelope-open-text"></i> Entre em Contato</h1>
+            <p>A sua opinião é importante. Estamos abertos a sugestões, correções e propostas de colaboração.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="contato-wrapper">
+            <!-- Informações de Contato -->
+            <div class="info-contato">
+                <h2>Nossos Canais</h2>
+                <div class="info-item">
+                    <div class="icon"><i class="fas fa-envelope"></i></div>
+                    <p><strong>Email Geral</strong><a href="mailto:info@umpaismuitascrencas.mz">info@umpaismuitascrencas.mz</a></p>
                 </div>
-                <div class="content">
-                    <h3>Telefone</h3>
-                    <a href="tel:+258855920773" class="phone-link">contacto pessoal</a>
+                <div class="info-item">
+                    <div class="icon"><i class="fas fa-newspaper"></i></div>
+                    <p><strong>Assessoria de Imprensa</strong><a href="mailto:imprensa@umpaismuitascrencas.mz">imprensa@umpaismuitascrencas.mz</a></p>
                 </div>
-            </div>
-            
-            <div class="contact-item email">
-                <div class="icon">
-                    <i class="fas fa-envelope"></i>
+                <div class="info-item">
+                    <div class="icon"><i class="fas fa-user-secret"></i></div>
+                    <p><strong>Denúncias Seguras</strong>Para enviar denúncias, por favor use o nosso <a href="denuncia.html">canal seguro e anónimo</a>.</p>
                 </div>
-                <div class="content">
-                    <h3>E-mail</h3>
-                    <a href="mailto: fernandojonantonio@gmail.com"> clique aquí pra pra correio eletrônico</a>
-                </div>
-            </div>
-            
-            <div class="contact-item whatsapp">
-                <div class="icon">
-                    <i class="fab fa-whatsapp"></i>
-                </div>
-                <div class="content">
-                    <h3>WhatsApp</h3>
-                    <a href="https://wa.me/+258855920773" target="_blank">Envie uma mensagem</a>
+
+                <div class="social-links">
+                    <h2>Siga-nos</h2>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-            
-            <div class="contact-item facebook">
-                <div class="icon">
-                    <i class="fab fa-facebook-f"></i>
-                </div>
-                <div class="content">
-                    <h3>Facebook</h3>
-                    <a href="https://www.facebook.com/profile.php?id=100064050310805" target="_blank">/Fernando Antônio</a>
-                </div>
+
+            <!-- Formulário de Contato -->
+            <div class="form-contato">
+                <h2>Envie-nos uma Mensagem</h2>
+                <form id="contatoForm" name="form-contato" method="POST" data-netlify="true">
+                    <input type="hidden" name="form-name" value="form-contato">
+                    <div class="secao-form">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" class="input-form" required>
+                    </div>
+                    <div class="secao-form">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="input-form" required>
+                    </div>
+                    <div class="secao-form">
+                        <label for="assunto">Assunto</label>
+                        <input type="text" id="assunto" name="assunto" class="input-form" required>
+                    </div>
+                    <div class="secao-form">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" name="mensagem" class="textarea-form" rows="6" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit-contato">Enviar Mensagem</button>
+                </form>
+                 <div id="form-feedback" style="margin-top: 1rem; font-weight: bold;"></div>
             </div>
         </div>
-        
-        <footer>
-            <p>Sinta-se à vontade para entrar em contato a qualquer momento. Retornarei o mais breve possível!</p>
-        </footer>
-    </div>
+    </main>
 
-    <script>
-        // Efeito de animação suave ao carregar a página
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactItems = document.querySelectorAll('.contact-item');
-            
-            contactItems.forEach((item, index) => {
-                item.style.opacity = 0;
-                item.style.transform = 'translateY(20px)';
-                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                
-                setTimeout(() => {
-                    item.style.opacity = 1;
-                    item.style.transform = 'translateY(0)';
-                }, 200 * index);
-            });
-        });
-    </script>
+    <footer>
+        <div class="container">
+            <p class="copyright">© 2024 Um País, Muitas Crenças. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="menu.js"></script>
+    <script src="contato.js"></script>
 </body>
 </html>

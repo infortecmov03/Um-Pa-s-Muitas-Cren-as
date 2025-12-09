@@ -1,268 +1,232 @@
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Um País Muitas Crenças - Moçambique</title>
+    <title>Um País Muitas Crenças - Explorando o Panorama Religioso de Moçambique</title>
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#2196F3">
     <link rel="apple-touch-icon" href="/icons/icon-192.png">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="Menu Hambúrguer.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Folhas de Estilo -->
     <link rel="stylesheet" href="Um País Muitas Crenças.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="home.css">
+
+    <!-- Google tag (gtag.js) --> 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJDQ8Z1NQG"></script> 
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VJDQ8Z1NQG');
+    </script>
+    
     <style>
-        /* Estilos adicionais para garantir a compatibilidade */
-        .nav-icon {
-            margin-right: 12px;
-            font-size: 1.2rem;
-            width: 24px;
-            text-align: center;
+        /* Estilos para a seção Debate do Dia */
+        .debate-do-dia {
+            background-color: #f0f7ff; /* Um azul claro e suave */
+            padding: 2rem 0;
+            border-bottom: 2px solid #ddeaf6;
+            border-top: 2px solid #ddeaf6;
+        }
+        .debate-do-dia .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .debate-icon {
+            font-size: 3rem;
+            color: #0056b3; /* Um azul mais escuro */
+        }
+        .debate-content {
+            flex-grow: 1;
+        }
+        .debate-titulo {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.8rem;
+            margin: 0 0 0.5rem 0;
+            color: #333;
+        }
+        .debate-versiculo {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #555;
+            margin: 0 0 0.5rem 0;
+        }
+        .debate-convite {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            color: #555;
+            margin: 0;
+        }
+        .cta-debate {
+            background-color: #0056b3;
+            color: #fff;
+            white-space: nowrap; /* Impede que o botão quebre a linha */
+        }
+        .cta-debate:hover {
+            background-color: #004494;
+        }
+        /* Media Query para telas menores */
+        @media (max-width: 768px) {
+            .debate-do-dia .container {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
         }
     </style>
 </head>
-<!-- Google tag (gtag.js) --> 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VJDQ8Z1NQG"></script> 
-<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-VJDQ8Z1NQG'); </script>
 <body>
-    <!-- Menu Hambúrguer -->
-    <div class="hamburger-menu">
-        <i class="fas fa-bars"></i>
-    </div>
-    
-    <!-- Menu Lateral -->
-    <div class="sidebar">
-        <div class="sidebar-header">
-            <h3><i class="fas fa-hands-praying"></i> Navegação</h3>
-        </div>
-        <nav class="sidebar-nav">
-            <ul>
-                <li><a href="#introducao" class="active"><i class="fas fa-home nav-icon"></i> Introdução</a></li>
-                <li><a href="#cristianismo"><i class="fas fa-church nav-icon"></i> Cristianismo</a></li>
-                <li><a href="#islamismo"><i class="fas fa-mosque nav-icon"></i> Islamismo</a></li>
-                <li><a href="#tradicionais"><i class="fas fa-globe-africa nav-icon"></i> Religiões Tradicionais</a></li>
-                <li><a href="estudos.html"><i class="fas fa-book nav-icon"></i> Area de estudos</a></li>
-                <li><a href="contato.html"><i class="fas fa-envelope nav-icon"></i> Contato</a></li>
-            </ul>
-        </nav>
-        <div class="sidebar-footer">
-            Um País Muitas Crenças © 2025
-        </div>
-    </div>
-    
-    <!-- Overlay para fechar o menu -->
-    <div class="overlay"></div>
-    
-    <!-- Cabeçalho -->
-    <header>
+    <!-- O menu será injetado aqui pelo menu.js -->
+
+    <!-- Cabeçalho Hero -->
+    <header class="hero-header">
         <div class="container">
-            <div class="logo">
-                <div class="logo-icon"><i class="fas fa-hands-praying"></i></div>
-                <h1>Um País Muitas Crenças</h1>
+            <div class="logo-icon"><i class="fas fa-praying-hands"></i></div>
+            <h1>Um País, Muitas Crenças</h1>
+            <p class="mission-statement">Uma plataforma dedicada a explorar a complexa paisagem religiosa de Moçambique através de análises aprofundadas, equilibradas e visualmente claras.</p>
+            <div class="cta-buttons">
+                <a href="estudos.html" class="cta-button cta-primary"><i class="fas fa-book-open"></i> Iniciar Exploração</a>
+                <a href="#destaques" class="cta-button cta-secondary"><i class="fas fa-star"></i> Ver Destaques</a>
             </div>
-            <p class="subtitle">Explorando a diversidade religiosa de Moçambique com respeito e neutralidade</p>
         </div>
     </header>
     
-    <!-- Conteúdo Principal -->
-    <main class="container">
-        <!-- Introdução -->
-        <section id="introducao" class="religion-section">
-            <h2>Diversidade Religiosa em Moçambique</h2>
-            <p>Moçambique é um país caracterizado por uma notável diversidade religiosa, onde diferentes crenças e tradições coexistem há séculos. Esta plataforma tem como objetivo apresentar informações detalhadas sobre as principais religiões praticadas no país, mantendo sempre uma postura neutra, respeitosa e informativa.</p>
-            <p>Nosso compromisso é promover o entendimento mútuo e celebrar a riqueza cultural que esta diversidade proporciona à nação moçambicana.</p>
-            <div class="demographics">
-                <h4>Distribuição Religiosa Aproximada em Moçambique</h4>
-                <p>De acordo com os últimos dados disponíveis:</p>
-                <ul>
-                    <li>Cristianismo: aproximadamente 56% da população</li>
-                    <li>Islamismo: aproximadamente 18% da população</li>
-                    <li>Religiões Africanas Tradicionais: aproximadamente 26% da população</li>
-                </ul>
-            </div>
-        </section>
-        
-        <!-- Cristianismo -->
-        <section id="cristianismo" class="religion-section">
-            <div class="religion-header">
-                <div class="religion-icon"><i class="fas fa-church"></i></div>
-                <h2 class="religion-title">Cristianismo em Moçambique</h2>
-            </div>
-            
-            <div class="religion-content">
-                <div>
-                    <h3>História e Presença</h3>
-                    <p>O Cristianismo chegou a Moçambique no século XV avec os exploradores portugueses, mas a evangelização mais significativa ocorreu durante o período colonial. Após a independência em 1975, muitas denominações cristãs estabeleceram-se no país.</p>
-                    <p>Atualmente, o Cristianismo é a religião com o maior número de seguidores em Moçambique, com representantes em todas as províncias do país.</p>
-                </div>
-                
-                <div>
-                    <h3>Principais Denominações</h3>
-                    <ul>
-                        <li>Igreja Católica Romana (maior denominação cristã)</li>
-                        <li>Igrejas Protestantes históricas (Anglicana, Metodista, Presbiteriana)</li>
-                        <li>Igrejas Pentecostais e Carismáticas (de rápido crescimento)</li>
-                        <li>Igrejas Africanas Independentes (Zionistas, Apostólicas)</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Islamismo -->
-        <section id="islamismo" class="religion-section">
-            <div class="religion-header">
-                <div class="religion-icon"><i class="fas fa-mosque"></i></div>
-                <h2 class="religion-title">Islamismo em Moçambique</h2>
-            </div>
-            
-            <div class="religion-content">
-                <div>
-                    <h3>História e Presença</h3>
-                    <p>O Islamismo chegou a Moçambique antes do Cristianismo, através do comércio costeiro com os árabes a partir do século VIII. Estabeleceu-se principalmente nas regiões litorais do norte e centro do país.</p>
-                    <p>Durante o período colonial, a comunidade muçulmana manteve suas tradições, e após a independência, experimentou um crescimento significativo.</p>
-                </div>
-                
-                <div>
-                    <h3>Principais Tradições Islâmicas</h3>
-                    <ul>
-                        <li>Sunismo (maioria dos muçulmanos moçambicanos)</li>
-                        <li>Sufismo (práticas místicas e irmandades sufistas)</li>
-                        <li>Comunidades xiitas (pequena minoria)</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Nova Seção de Tópicos Relacionados -->
-        <section id="topicos" class="topics-section">
-            <div class="topics-header">
-                <h2>Tópicos Relacionados às Religiões</h2>
-                <p>Explore temas específicos relacionados a cada tradição religiosa em Moçambique</p>
-            </div>
-            
-            <div class="tabs">
-                <button class="tab-button active" data-tab="cristianismo-topicos">
-                    <i class="fas fa-church"></i> Cristianismo
-                </button>
-                <button class="tab-button" data-tab="islamismo-topicos">
-                    <i class="fas fa-mosque"></i> Islamismo
-                </button>
-                <button class="tab-button" data-tab="tradicionais-topicos">
-                    <i class="fas fa-globe-africa"></i> Religiões Tradicionais
-                </button>
-                <button class="tab-button" data-tab="outras-topicos">
-                    <i class="fas fa-hands-praying"></i> Outras Religiões
-                </button>
-            </div>
-            
-            <div class="tab-content active" id="cristianismo-topicos">
-                <h3>Tópicos Relacionados ao Cristianismo</h3>
-                <div class="topic-grid">
-                    <div class="topic-card">
-                        <h4>Festividades Cristãs</h4>
-                        <p>Como o Natal, Páscoa e outras datas importantes são celebradas pelas diferentes denominações cristãs em Moçambique.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Influência na Educação</h4>
-                        <p>O papel das missões cristãs no desenvolvimento do sistema educacional moçambicano.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Arquitetura Religiosa</h4>
-                        <p>As características das igrejas e catedrals construídas em diferentes períodos da história de Moçambique.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Música Sacra</h4>
-                        <p>Como a música religiosa cristã se adaptou aos contextos culturais moçambicanos.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="islamismo-topicos">
-                <h3>Tópicos Relacionados ao Islamismo</h3>
-                <div class="topic-grid">
-                    <div class="topic-card">
-                        <h4>Ramadã em Moçambique</h4>
-                        <p>Como o mês sagrado do Ramadã é observado pelas comunidades muçulmanas em diferentes regiões do país.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Arquitetura de Mesquitas</h4>
-                        <p>As características distintivas das mesquitas moçambicanas e sua evolução ao longo do tempo.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Influência na Língua</h4>
-                        <p>Palavras de origem árabe incorporadas nas línguas moçambicanas através do Islão.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Educação Islâmica</h4>
-                        <p>O papel das madraças e outras instituições educacionais islâmicas em Moçambique.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="tradicionais-topicos">
-                <h3>Tópicos Relacionados às Religiões Tradicionais</h3>
-                <div class="topic-grid">
-                    <div class="topic-card">
-                        <h4>Ritos de Iniciação</h4>
-                        <p>Cerimônias de passagem em diferentes grupos étnicos moçambicanos e seu significado cultural.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Medicina Tradicional</h4>
-                        <p>O papel dos curandeiros e o uso de plantas medicinais nas práticas tradicionais de cura.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Culto aos Ancestrais</h4>
-                        <p>Como diferentes comunidades honram e mantêm conexão com seus antepassados.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Cosmovisão Tradicional</h4>
-                        <p>Conceitos de criação, natureza e espiritualidade nas religiões tradicionais africanas de Moçambique.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="outras-topicos">
-                <h3>Tópicos Relacionados a Outras Religiões</h3>
-                <div class="topic-grid">
-                    <div class="topic-card">
-                        <h4>Comunidade Hindu</h4>
-                        <p>A presença e contribuições da comunidade hindu em Moçambique, particularmente nas áreas urbanas.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Fé Bahá'í</h4>
-                        <p>Os princípios da Fé Bahá'í e suas atividades de promoção da unidade e educação em Moçambique.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Novos Movimentos Religiosos</h4>
-                        <p>O surgimento e crescimento de novas expressões religiosas no contexto moçambicano contemporâneo.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Liberdade Religiosa</h4>
-                        <p>O quadro legal e a prática da liberdade religiosa em Moçambique.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Adicione as outras seções conforme necessário -->
-        
-    </main>
-    
-    <!-- Rodapé -->
-    <footer>
+    <!-- DEBATE DO DIA -->
+    <section class="debate-do-dia">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">Um País Muitas Crenças</div>
-                <p>Promovendo entendimento e respeito pela diversidade religiosa moçambicana</p>
-                <p class="copyright">© 2025 Um País Muitas Crenças. Todos os direitos reservados.</p>
+            <div class="debate-icon">
+                <i class="fas fa-comments"></i>
+            </div>
+            <div class="debate-content">
+                <h2 class="debate-titulo">Debate do Dia</h2>
+                <p class="debate-versiculo">"Porque Deus amou o mundo de tal maneira que deu o seu Filho unigénito, para que todo aquele que nele crê não pereça, mas tenha a vida eterna." - <strong>João 3:16</strong></p>
+                <p class="debate-convite">Analisamos este versículo hoje. Qual o seu verdadeiro significado? Junte-se à conversa!</p>
+            </div>
+            <div class="debate-action">
+                <a href="debate.html" class="cta-button cta-debate">Participar do Debate <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
-    </footer>
-    
-    <!-- Botão Voltar ao Topo -->
-    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+    </section>
 
-    <script src="hamburgerMenu.js"></script>
-    <script src="Um País Muitas Crenças.js"></script>
-    <script src="seg.js"></script>
+    <!-- Conteúdo Principal -->
+    <main>
+
+        <!-- 1. NAVEGUE PELAS GRANDES RELIGIÕES -->
+        <section class="major-religions">
+            <div class="container">
+                <h2 class="section-title-home">Navegue Pelas Grandes Religiões</h2>
+                <p class="section-subtitle-home">Comece a sua exploração com as nossas análises detalhadas sobre o Cristianismo e o Islamismo em Moçambique.</p>
+                <div class="religions-grid">
+                    <!-- Card Cristianismo -->
+                    <div class="religion-card">
+                        <div class="religion-card-icon cristianismo">
+                            <i class="fas fa-cross"></i>
+                        </div>
+                        <div class="religion-card-content">
+                            <h3>Cristianismo</h3>
+                            <p>Do catolicismo histórico à explosão neopentecostal e às igrejas zionistas, explore o mosaico da fé cristã, a religião maioritária do país.</p>
+                            <a href="Cristianismo.html" class="religion-card-button">Analisar Cristianismo</a>
+                        </div>
+                    </div>
+                    <!-- Card Islamismo -->
+                    <div class="religion-card">
+                        <div class="religion-card-icon islamismo">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                        <div class="religion-card-content">
+                            <h3>Islamismo</h3>
+                            <p>Com mais de mil anos de história, o Islão moçambicano é uma complexa teia de influências sufis, sunitas e reformistas. Conheça as suas facetas.</p>
+                            <a href="islamismo.html" class="religion-card-button">Analisar Islamismo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. ANÁLISES EM DESTAQUE -->
+        <section id="destaques" class="featured-investigations">
+            <div class="container">
+                <h2 class="section-title-home">Análises em Destaque</h2>
+                <p class="section-subtitle-home">Mergulhe nos temas transversais que definem a identidade e os desafios da paisagem religiosa moçambicana.</p>
+
+                <div class="investigations-grid">
+                    <!-- Card: Sincretismo -->
+                    <a href="Sincretismo Religioso.html" class="investigation-card">
+                        <div class="investigation-card-img" style="background-image: url('/images/placeholder/sincretismo-thumb.jpg');"></div>
+                        <div class="investigation-card-content">
+                            <span class="investigation-card-tag">Conceito-Chave</span>
+                            <h3 class="investigation-card-title">Sincretismo: A Alma de Moçambique</h3>
+                            <p class="investigation-card-desc">Descubra como a fusão de crenças tradicionais, cristãs e islâmicas criou uma identidade espiritual única no mundo.</p>
+                            <span class="investigation-card-link">Ler Análise <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Card: Conflito -->
+                    <a href="Guerras Religiosas em Moçambique.html" class="investigation-card">
+                        <div class="investigation-card-img" style="background-image: url('/images/placeholder/guerra-thumb.jpg');"></div>
+                        <div class="investigation-card-content">
+                            <span class="investigation-card-tag">Contexto Crítico</span>
+                            <h3 class="investigation-card-title">Religião em Conflito</h3>
+                            <p class="investigation-card-desc">Uma análise do papel da fé na Guerra Civil e na insurgência de Cabo Delgado, mostrando como a religião mobiliza o descontentamento.</p>
+                            <span class="investigation-card-link">Ler Análise <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                      <!-- Card Cristianismo -->
+                      <div class="religion-card">
+                        <div class="religion-card-icon cristianismo">
+                            <i class="fas fa-cross"></i>
+                        </div>
+                        <div class="religion-card-content">
+                            <h3>Cristianismo</h3>
+                            <p>Do catolicismo histórico à explosão neopentecostal e às igrejas zionistas, explore o mosaico da fé cristã, a religião maioritária do país.</p>
+                            <a href="testemunhos.html" class="religion-card-button">Analisar Cristianismo</a>
+                        </div>
+                    </div>
+
+                    <!-- Card: Mulheres -->
+                    <a href="Mulheres nas Religiões.html" class="investigation-card">
+                        <div class="investigation-card-img" style="background-image: url('/images/placeholder/mulheres-thumb.jpg');"></div>
+                        <div class="investigation-card-content">
+                            <span class="investigation-card-tag">Perspetiva Social</span>
+                            <h3 class="investigation-card-title">O Poder Feminino na Fé</h3>
+                            <p class="investigation-card-desc">Matronas, profetisas, sheikhas. Conheça os papéis centrais, e muitas vezes invisíveis, que as mulheres desempenham na vida religiosa.</p>
+                            <span class="investigation-card-link">Ler Análise <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. EXPLORE O ARQUIVO -->
+        <section class="explore-archive">
+            <div class="container">
+                <div class="explore-content">
+                    <i class="fas fa-archive"></i>
+                    <h2>Explore o Nosso Arquivo Completo</h2>
+                    <p>Acesse o nosso Portal de Estudos para encontrar análises detalhadas sobre dezenas de igrejas, movimentos e conceitos específicos da paisagem religiosa de Moçambique.</p>
+                    <a href="estudos.html" class="cta-button cta-primary">Ir para o Portal de Estudos</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Scripts Centralizados -->
+    <script src="menu.js"></script>
+    <script src="footer.js"></script>
 </body>
 </html>

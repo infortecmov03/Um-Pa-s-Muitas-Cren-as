@@ -1,0 +1,7 @@
+/* tema-adventista.css - A ROUPA */
+
+:root {
+    --cor-primaria: #2E7D32;       /* Verde escuro, sóbrio */
+    --cor-acento: #FFC107;         /* Amarelo, para detalhes */
+    --cor-texto-primario: #ffffff;   /* Branco para contrastar com o verde */
+}

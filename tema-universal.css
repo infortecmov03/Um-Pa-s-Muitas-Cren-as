@@ -1,0 +1,36 @@
+/* TEMA-UNIVERSAL.CSS - Paleta de cores para a análise da IURD */
+
+:root {
+    /* Paleta baseada na identidade visual da IURD: Vermelho, Dourado, Branco e Preto */
+
+    --cor-analise-primaria: #c00000; /* Vermelho forte, muito usado na marca IURD */
+    --cor-analise-secundaria: #daa520; /* Dourado, representando o 'ouro de ofir' e a prosperidade */
+    
+}
+
+/* Ajustes específicos para o tema IURD */
+
+/* O cabeçalho terá a borda dourada, remetendo à arca e ao valor */
+.header-analise {
+    border-bottom: 5px solid var(--cor-analise-secundaria);
+}
+
+/* A citação crítica terá a borda dourada para um contraste mais forte */
+.citacao-critica {
+    border-left: 5px solid var(--cor-analise-secundaria);
+}
+
+/* Os títulos da tabela usarão o dourado na coluna crítica para se destacar */
+.tabela-coluna.critica h4 {
+    color: var(--cor-analise-secundaria);
+    border-bottom-color: var(--cor-analise-secundaria);
+}
+
+.box-info.controversia {
+    background-color: #fff5f5; /* Um rosa muito claro para o fundo da controvérsia */
+    border-left: 4px solid var(--cor-analise-primaria);
+}
+
+.box-info.controversia .info-titulo {
+    color: var(--cor-analise-primaria);
+}

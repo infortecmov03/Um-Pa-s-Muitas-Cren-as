@@ -1,805 +1,159 @@
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Igreja Missão Apostólica em Moçambique</title>
+    <title>Análise: Igrejas Apostólicas (Vapostori) - Um País Muitas Crenças</title>
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #C41E3A; /* Vermelho apostólico - fogo do Espírito */
-            --secondary-color: #E67E22; /* Laranja - entusiasmo e energia */
-            --accent-color: #F1C40F; /* Dourado - realeza e glória */
-            --light-bg: #f9f9f9;
-            --dark-text: #333;
-            --light-text: #fff;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: var(--light-bg);
-            color: var(--dark-text);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Menu de navegação */
-        .sobre-menu {
-            background: linear-gradient(to right, var(--primary-color), #D35400);
-            padding: 15px 0;
-            overflow-x: auto;
-            white-space: nowrap;
-        }
-        
-        .sobre-menu ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .sobre-menu li {
-            margin: 5px 10px;
-        }
-        
-        .sobre-menu a {
-            color: white;
-            text-decoration: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            transition: background-color 0.3s;
-            font-weight: 500;
-        }
-        
-        .sobre-menu a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-        
-        /* Cabeçalho */
-        header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #D35400 100%);
-            color: var(--light-text);
-            text-align: center;
-            padding: 60px 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        .logo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .logo-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-        
-        .logo h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 800px;
-        }
-        
-        .breadcrumb {
-            padding: 15px 0;
-            background-color: #FBEEE6;
-            margin-bottom: 20px;
-        }
-        
-        .breadcrumb-content {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .breadcrumb a {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-        
-        .breadcrumb a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Conteúdo principal */
-        .religion-section {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            margin-bottom: 30px;
-        }
-        
-        .religion-header {
-            background: linear-gradient(to right, var(--primary-color), #D35400);
-            color: white;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .religion-icon {
-            font-size: 2rem;
-            margin-right: 15px;
-        }
-        
-        .religion-title {
-            font-size: 1.8rem;
-        }
-        
-        .religion-content {
-            padding: 30px;
-        }
-        
-        .religion-content h3 {
-            color: var(--primary-color);
-            margin: 20px 0 15px;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 8px;
-        }
-        
-        .religion-content h4 {
-            color: var(--secondary-color);
-            margin: 18px 0 12px;
-        }
-        
-        .religion-content p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-        
-        .beliefs-list, .practices-list, .statistics {
-            background-color: #FBEEE6;
-            border-left: 4px solid var(--primary-color);
-            padding: 15px 20px;
-            margin: 20px 0;
-            border-radius: 0 5px 5px 0;
-        }
-        
-        .beliefs-list h4, .practices-list h4, .statistics h4 {
-            color: var(--primary-color);
-            margin-top: 0;
-        }
-        
-        .beliefs-list ul, .practices-list ul, .statistics ul {
-            padding-left: 20px;
-            margin: 10px 0;
-        }
-        
-        .beliefs-list li, .practices-list li, .statistics li {
-            margin-bottom: 8px;
-        }
-        
-        .quote {
-            background: #f9f9f9;
-            border-left: 4px solid var(--accent-color);
-            margin: 20px 0;
-            padding: 15px 20px;
-            font-style: italic;
-        }
-        
-        .quote-source {
-            text-align: right;
-            font-weight: bold;
-            margin-top: 10px;
-            color: #666;
-        }
-        
-        .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 25px 0;
-        }
-        
-        .gallery-item {
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            position: relative;
-            height: 200px;
-            background: linear-gradient(45deg, #e6e6e6 25%, #f0f0f0 25%, #f0f0f0 50%, #e6e6e6 50%, #e6e6e6 75%, #f0f0f0 75%, #f0f0f0);
-            background-size: 20px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #777;
-            font-style: italic;
-        }
-        
-        .timeline {
-            border-left: 3px solid var(--primary-color);
-            border-bottom-right-radius: 4px;
-            border-top-right-radius: 4px;
-            margin: 25px 0;
-            padding-left: 25px;
-        }
-        
-        .timeline-item {
-            margin-bottom: 25px;
-            position: relative;
-        }
-        
-        .timeline-item:before {
-            content: "";
-            position: absolute;
-            left: -26px;
-            top: 8px;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: var(--accent-color);
-            border: 3px solid var(--primary-color);
-        }
-        
-        .timeline-date {
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-        
-        /* Seção de tópicos */
-        .topics-section {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            margin-bottom: 30px;
-        }
-        
-        .topics-header {
-            background: linear-gradient(to right, var(--primary-color), #D35400);
-            color: white;
-            padding: 15px 20px;
-        }
-        
-        .topics-header h2 {
-            font-size: 1.5rem;
-        }
-        
-        .tabs {
-            display: flex;
-            border-bottom: 1px solid #eee;
-            padding: 0 20px;
-        }
-        
-        .tab-button {
-            background: none;
-            border: none;
-            padding: 15px 20px;
-            cursor: pointer;
-            font-weight: 500;
-            color: #666;
-            display: flex;
-            align-items: center;
-            transition: color 0.3s;
-        }
-        
-        .tab-button.active {
-            color: var(--primary-color);
-            border-bottom: 3px solid var(--primary-color);
-        }
-        
-        .tab-button i {
-            margin-right: 8px;
-        }
-        
-        .tab-content {
-            display: none;
-            padding: 20px;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        .topic-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
-        .topic-card {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-        }
-        
-        .topic-card h4 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-        
-        /* Rodapé */
-        footer {
-            background: linear-gradient(135deg, #A11C2F 0%, var(--primary-color) 100%);
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-            margin-top: 40px;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .footer-logo {
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-        
-        .footer-nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 20px;
-            gap: 15px;
-        }
-        
-        .footer-nav a {
-            color: #FADBD8;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-nav a:hover {
-            color: white;
-        }
-        
-        .copyright {
-            opacity: 0.8;
-            font-size: 0.9rem;
-        }
-        
-        /* Botão voltar ao topo */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--primary-color);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-            transition: background 0.3s;
-            display: none;
-        }
-        
-        .back-to-top:hover {
-            background: #A11C2F;
-        }
-        
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .logo h1 {
-                font-size: 2rem;
-            }
-            
-            .religion-header {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .religion-icon {
-                margin-right: 0;
-                margin-bottom: 10px;
-            }
-            
-            .tabs {
-                flex-direction: column;
-            }
-            
-            .tab-button {
-                justify-content: center;
-            }
-            
-            .image-gallery {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Folhas de Estilo -->
+    <link rel="stylesheet" href="Um País Muitas Crenças.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="tema-analise-critica.css">
+
 </head>
 <body>
-    <nav class="sobre-menu">
-        <ul>
-            <li><a href="Sobre universal.html">Universal</a></li>
-            <li><a href="Sobre Testemunhas de Jeová em Moçambique.html">Testemunhas de Jeová</a></li>
-            <li><a href="Sobre Sara Nossa Terra em Moçambique.html">Sara Nossa Terra</a></li>
-            <li><a href="Sobre Metodista.html">Metodista</a></li>
-            <li><a href="Sobre Igreja Zionista.html">Zionista</a></li>
-            <li><a href="Sobre Igreja Presbiteriana.html">Presbiteriana</a></li>
-            <li><a href="Sobre Igreja de Profetas em Moçambique.html">Profetas</a></li>
-            <li><a href="Sobre Igreja de Deus.html">Igreja de Deus</a></li>
-            <li><a href="Sobre Igreja da Graça em Moçambique.html">Graça</a></li>
-            <li><a href="Sobre Católica.html">Católica</a></li>
-            <li><a href="Sobre Assembleia de Deus.html">Assembleia de Deus</a></li>
-            <li><a href="Sobre Apostólica.html">Apostólica</a></li>
-            <li><a href="Sobre Anglicana.html">Anglicana</a></li>
-            <li><a href="Sobre Adventistas emMoçambique.html">Adventistas</a></li>
-        </ul>
-    </nav>
+    <!-- Menu será injetado aqui -->
 
-    <div class="breadcrumb">
+    <header class="header-analise" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1543419519-d8c9a353974a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
         <div class="container">
-            <div class="breadcrumb-content">
-                <a href="#">Início</a>
-                <span>></span>
-                <a href="#">Denominações</a>
-                <span>></span>
-                <span>Igreja Missão Apostólica</span>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Cabeçalho -->
-    <header>
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-fire logo-icon"></i>
-                <h1>Igreja Missão Apostólica</h1>
-                <p class="subtitle">Conheça a história e influência da Igreja Missão Apostólica em Moçambique</p>
-            </div>
+            <h1 class="titulo-principal">Análise: Os Vapostori (Igrejas Apostólicas)</h1>
+            <p class="subtitulo-principal">Entre a autossuficiência de uma nação espiritual e o conflito com a saúde e os direitos da modernidade.</p>
         </div>
     </header>
-    
-    <!-- Conteúdo Principal -->
-    <main class="container">
-        <section class="religion-section">
-            <div class="religion-header">
-                <div class="religion-icon">
-                    <i class="fas fa-fire"></i>
-                </div>
-                <h2 class="religion-title">Igreja Missão Apostólica</h2>
-            </div>
-            
-            <div class="religion-content">
-                <div>
-                    <h3>Origem Global</h3>
-                    <p>A Igreja Missão Apostólica tem suas origens no movimento apostólico moderno que surgiu no final do século XX, enfatizando a restauração do ministério quíntuplo (apóstolos, profetas, evangelistas, pastores e mestres).</p>
-                    <p>Caracteriza-se pela ênfase na obra missionária, nos dons espirituais e na autoridade apostólica.</p>
-                    
-                    <h4>O Avivamento de Gales (1904-1905) e as Origens</h4>
-                    <p>A origem da Igreja Apostólica está ligada ao avivamento pentecostal do início do século XX e a uma profunda insatisfação com a estrutura das igrejas históricas.</p>
-                    
-                    <p>Antes do famoso Avivamento da Rua Azusa (1906) nos EUA, o Reino Unido foi abalado por um poderoso avivamento no País de Gales, liderado por um jovem mineiro, <strong>Evan Roberts</strong>. Este avivamento era caracterizado por:</p>
-                    
-                    <ul>
-                        <li>Ênfase emocional intensa na oração e no arrependimento</li>
-                        <li>Manifestações espontâneas de louvor</li>
-                        <li>Experiências religiosas profundamente pessoais</li>
-                        <li>Ausência de uma liderança clerical tradicional; era um movimento leigo</li>
-                    </ul>
-                    
-                    <div class="image-gallery">
-                        <div class="gallery-item">
-                            [Imagem: Evan Roberts e o Avivamento de Gales]
-                        </div>
-                        <div class="gallery-item">
-                            [Imagem: Reunião de avivamento no País de Gales]
-                        </div>
-                        <div class="gallery-item">
-                            [Imagem: William Oliver Hutchinson]
-                        </div>
-                    </div>
-                    
-                    <h4>A Fundação: A Revolta contra a Burocracia Eclesiástica</h4>
-                    <p>A figura central para o surgimento da denominação foi <strong>William Oliver Hutchinson</strong>, um ex-policial galês. Por volta de 1911, Hutchinson e um grupo de irmãos em Gales, que haviam experimentado o batismo no Espírito Santo (com a evidência de falar em línguas), sentiam-se restringidos pela estrutura da denominação batista à qual pertenciam.</p>
-                    
-                    <p>O cerne da sua insatisfação era teológico e prático: eles acreditavam que Deus estava <strong>restaurando a "Ordem Apostólica"</strong> da igreja do primeiro século. Isso significava:</p>
-                    
-                    <div class="beliefs-list">
-                        <h4>Princípios Fundadores</h4>
-                        <ul>
-                            <li><strong>Os Cinco Ministérios de Efésios 4:11:</strong> A crença de que Cristo ainda dava à igreja, de forma sobrenatural e contínua, apóstolos, profetas, evangelistas, pastores e mestres.</li>
-                            <li><strong>Governo Teocrático:</strong> Acreditavam que a igreja deveria ser governada diretamente pelo Espírito Santo através destes ministérios, e não por comitês, assembleias ou hierarquias humanas.</li>
-                            <li><strong>Dons Espirituais (Carismas):</strong> Ênfase absoluta na operação contínua e ativa de todos os dons do Espírito Santo, como profecia, cura divina, milagres e línguas.</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="quote">
-                        "Em 1916, esse grupo, liderado por Hutchinson, formalizou a ruptura e constituiu-se como 'The Apostolic Church' (A Igreja Apostólica). Eles entenderam que não estavam fundando uma nova seita, mas sim 'restaurando' a igreja primitiva."
-                        <div class="quote-source">— Historiador Eclesiástico</div>
-                    </div>
-                    
-                    <h4>A Expansão Internacional e a Mentalidade Missionária</h4>
-                    <p>A Igreja Apostólica, desde o seu nascimento, tinha um <strong>zelo missionário agressivo</strong>. Acreditando possuir a "plenitude" da verdade apostólica, sentiam-se obrigados a levá-la ao mundo todo. Seus primeiros missionários foram enviados ainda na década de 1920 para a França, Índia, África do Sul e, crucialmente, para a Rodésia (atual Zimbábue).</p>
-                </div>
-                
-                <div>
-                    <h3>Chegada e Expansão em Moçambique</h3>
-                    <p>A Igreja Missão Apostólica chegou a Moçambique na década de 1990, através de missionários brasileiros e sul-africanos. Estabeleceu-se inicialmente nas principais cidades.</p>
-                    <p>Desenvolveu trabalho evangelístico e plantação de igrejas, com foco especial em áreas urbanas. Cresceu moderadamente e mantém presença em várias províncias do país.</p>
-                    
-                    <h4>Contexto: A Barreira Colonial Portuguesa</h4>
-                    <p>Tal como aconteceu com outras denominações, Moçambique era uma colônia portuguesa, dengan a Igreja Católica como religião de estado. Qualquer atividade protestante, especialmente de origem britânica, era vista com extrema desconfiança e sujeita a severas restrições.</p>
-                    
-                    <h4>A Estratégia de Entrada: A Porta dos Fundos da África do Sul</h4>
-                    <p>A estratégia da Igreja Apostólica foi entrar via <strong>África do Sul</strong>. Especificamente, o trabalho começou a partir da <strong>Província de Limpopo</strong> (então Transvaal), que faz fronteira com Moçambique.</p>
-                    
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-date">Décadas de 1930-1940</div>
-                            <p>Primeiros evangelistas leigos moçambicanos convertidos na África do Sul trazem a fé apostólica para Moçambique</p>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">1955</div>
-                            <p>Estabelecimento da Missão de Valdezia no Transvaal, tornando-se centro de treinamento para expansão em Moçambique</p>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">Décadas de 1950-1970</div>
-                            <p>Missionários sul-africanos brancos começam a supervisionar congregações em Moçambique</p>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">1975</div>
-                            <p>Independência de Moçambique e perseguição religiosa sob regime marxista</p>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">1990</div>
-                            <p>Fim da guerra e liberdade religiosa, levando a crescimento explosivo</p>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">Década de 1990</div>
-                            <p>Chegada de missionários brasileiros e consolidação da presença em áreas urbanas</p>
-                        </div>
-                    </div>
-                    
-                    <h4>Os Primeiros Evangelistas</h4>
-                    <p>A penetração inicial não foi feita por missionários europeus, mas por <strong>evangelistas leigos moçambicanos</strong> que haviam migrado para trabalhar nas minas e fazendas da África do Sul. Lá, eles converteram-se à Igreja Apostólica e, ao retornarem para suas aldeias em Moçambique (principalmente nas províncias de Gaza e Maputo), trouxeram consigo a nova fé.</p>
-                    
-                    <p><strong>Figuras Chave:</strong> Líderes leigos como <strong>Richard Ngwenya</strong> e <strong>Isaac Mahlangu</strong> são nomes fundacionais, praticamente desconhecidos fora dos círculos da igreja, mais que foram os verdadeiros pioneiros, plantando as primeiras congregações de forma orgânica e muitas vezes clandestina.</p>
-                    
-                    <div class="image-gallery">
-                        <div class="gallery-item">
-                            [Imagem: Trabalhadores moçambicanos nas minas da África do Sul]
-                        </div>
-                        <div class="gallery-item">
-                            [Imagem: Primeiras congregações apostólicas em Moçambique]
-                        </div>
-                        <div class="gallery-item">
-                            [Imagem: Missionários sul-africanos com comunidades locais]
-                        </div>
-                    </div>
-                    
-                    <h4>Consolidação e o Papel do Regime do Apartheid</h4>
-                    <p>Este é um ponto crucial e "sem filtro". O crescimento da Igreja Apostólica em Moçambique teve uma relação complexa e ambígua com o regime do <em>Apartheid</em> na África do Sul.</p>
-                    
-                    <ul>
-                        <li><strong>A Teologia da Separação:</strong> A estrutura de governo da Igreja Apostólica, com sua ênfase em autoridade vertical e separação do mundo, paradoxalmente ressoava com a filosofia do <em>Apartheid</em> ("desenvolvimento separado").</li>
-                        <li><strong>A Missão de Valdezia:</strong> Um marco fundamental foi o estabelecimento, em 1955, de uma missão oficial da Igreja Apostólica em <strong>Valdezia</strong>, no Transvaal. Esta missão tornou-se o <strong>centro de treinamento e o quartel-general</strong> para o trabalho de expansão para Moçambique.</li>
-                        <li><strong>Missionários Sul-Africanos Brancos:</strong> A partir de Valdezia, missionários sul-africanos brancos (como o Pastor <strong>E. G. Barton</strong>) começaram a fazer viagens regulares para Moçambique para supervisionar, batizar e organizar as congregações.</li>
-                    </ul>
-                    
-                    <div class="quote">
-                        "Esta dinâmica colocava a igreja em uma posição delicada. Por um lado, ela crescia entre a população negra moçambicana devido ao seu trabalho leigo. Por outro, sua estrutura de supervisão estava ligada a um aparato missionário sul-africano que operava sob a égide de um estado racista."
-                        <div class="quote-source">— Analista Histórico</div>
-                    </div>
-                    
-                    <h4>Sobrevivência e Crescimento no Moçambique Independente</h4>
-                    <p>A Independência de Moçambique em 1975 e a subsequente Guerra Civil (1977-1992) foram períodos extremamente difíceis.</p>
-                    
-                    <ul>
-                        <li><strong>Regime Marxista-Leninista:</strong> O novo governo da FRELIMO era oficialmente ateu e hostil a todas as religiões. A Igreja Apostólica, com suas ligações sul-africanas, era duplamente suspeita.</li>
-                        <li><strong>Resiliência Leiga:</strong> As congregações continuaram a reunir-se secretamente em casas, florestas e à noite, mantendo a fé viva.</li>
-                        <li><strong>Explosão Pós-Guerra:</strong> Com o fim da guerra e a adoção de uma constituição multipartidária em 1990, veio a liberdade religiosa. A Igreja Apostólica experimentou um <strong>crescimento explosivo</strong>.</li>
-                    </ul>
-                    
-                    <div class="statistics">
-                        <h4>Dados Atuais da Igreja Missão Apostólica em Moçambique</h4>
-                        <ul>
-                            <li>Presente em todas as províncias de Moçambique</li>
-                            <li>Centenas de congregações e pontos de pregação</li>
-                            <li>Dezenas de milhares de membros ativos</li>
-                            <li>Forte presença em áreas urbanas e peri-urbanas</li>
-                            <li>Rede de instituições de formação teológica</li>
-                            <li>Programas de ação social e desenvolvimento comunitário</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="image-gallery">
-                        <div class="gallery-item">
-                            [Imagem: Celebração contemporânea da Igreja Apostólica]
-                        </div>
-                        <div class="gallery-item">
-                            [Imagem: Liderança atual moçambicana]
-                        </div>
-                        <div class="gallery-item">
-                            [Imagem: Projetos sociais da igreja]
-                        </div>
-                    </div>
-                    
-                    <h4>Características Doutrinárias e Práticas Atuais</h4>
-                    <div class="practices-list">
-                        <h4>Principais Práticas e Crenças</h4>
-                        <ul>
-                            <li>Ênfase no ministério quíntuplo de Efésios 4:11</li>
-                            <li>Cultos caracterizados por expressiva adoração e exercício de dons espirituais</li>
-                            <li>Forte ênfase em cura divina e milagres</li>
-                            <li>Governo apostólico com estrutura de autoridade vertical</li>
-                            <li>Intensa atividade missionária e evangelística</li>
-                            <li>Valorização da vida de santidade e separação do mundo</li>
-                        </ul>
-                    </div>
-                    
-                    <h4>Contribuições para a Sociedade Moçambicana</h4>
-                    <ul>
-                        <li>Programas de assistência social e combate à pobreza</li>
-                        <li>Apoio a comunidades carentes através de projetos de desenvolvimento</li>
-                        <li>Promoção de valores familiares e comunitários</li>
-                        <li>Formação de líderes comunitários e religiosos</li>
-                        <li>Contribuição para a diversidade religiosa do país</li>
-                    </ul>
-                    
-                    <div class="quote">
-                        "A história da Igreja Apostólica em Moçambique é uma tapeçaria complexa de fé autêntica, iniciativa leiga, estratégia geopolítica, resiliência sob perseguição e adaptação cultural."
-                        <div class="quote-source">— Estudioso de Religiões Africanas</div>
-                    </div>
-                    
-                    <h4>Desafios Contemporâneos</h4>
-                    <ul>
-                        <li>Superar a associação histórica com o regime do Apartheid</li>
-                        <li>Manter a identidade distintiva em um mercado religioso competitivo</li>
-                        <li>Equilibrar governo apostólico com participação leiga</li>
-                        <li>Contextualizar a mensagem cristã para a realidade moçambicana</li>
-                        <li>Expandir para áreas rurais remotas com recursos limitados</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Seção de Tópicos -->
-        <section class="topics-section">
-            <div class="topics-header">
-                <h2>Tópicos Relacionados</h2>
-            </div>
-            
-            <div class="tabs">
-                <button class="tab-button active" data-tab="tab1">
-                    <i class="fas fa-history"></i> História
-                </button>
-                <button class="tab-button" data-tab="tab2">
-                    <i class="fas fa-map-marked-alt"></i> Distribuição
-                </button>
-                <button class="tab-button" data-tab="tab3">
-                    <i class="fas fa-hands"></i> Práticas
-                </button>
-            </div>
-            
-            <div class="tab-content active" id="tab1">
-                <div class="topic-grid">
-                    <div class="topic-card">
-                        <h4>Origens no Reino Unido</h4>
-                        <p>A Igreja Apostólica surgiu no País de Gales no início do século XX, a partir do avivamento galês e da liderança de William Oliver Hutchinson.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Expansão Global</h4>
-                        <p>Expandiu-se rapidamente para a África, Ásia e Américas através de missionários dedicados, chegando a Moçambique via África do Sul.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Restauração Apostólica</h4>
-                        <p>Movimento que enfatiza a restauração do ministério quíntuplo e dos dons espirituais da igreja primitiva.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="tab2">
-                <div class="topic-grid">
-                    <div class="topic-card">
-                        <h4>Presença Nacional</h4>
-                        <p>Presente em todas as províncias de Moçambique, com maior concentração nas áreas urbanas e no sul do país.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Áreas Urbanas</h4>
-                        <p>Forte atuação em centros urbanos, com estratégias de evangelização direcionadas para a população das cidades.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Expansão Rural</h4>
-                        <p>Crescimento gradual em áreas rurais, adaptando a mensagem apostólica aos contextos comunitários tradicionais.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="tab3">
-                <div class="topic-grid">
-                    <div class="topic-card">
-                        <h4>Ministério Quíntuplo</h4>
-                        <p>Ênfase nos cinco ministérios de Efésios 4:11 (apóstolos, profetas, evangelistas, pastores e mestres) como fundamento da igreja.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Dons Espirituais</h4>
-                        <p>Prática ativa dos dons do Espírito Santo, incluindo profecia, cura divina, milagres e variedade de línguas.</p>
-                    </div>
-                    <div class="topic-card">
-                        <h4>Governo Apostólico</h4>
-                        <p>Estrutura de liderança com autoridade vertical, sob direção de apóstolos e profetas reconhecidos.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <!-- Rodapé -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-nav">
-                    <a href="index.html">Início</a>
-                    <a href="#">Sobre</a>
-                    <a href="#">Denominações</a>
-                    <a href="#">Contactos</a>
-                    <a href="#">Recursos</a>
-                </div>
-                <p class="copyright">© 2023 Denominações Cristãs em Moçambique. Todos os direitos reservados.</p>
+
+    <main class="container conteudo-analise">
+
+        <!-- AVISO DE CONTEÚDO -->
+        <div class="aviso-critico">
+            <i class="fas fa-balance-scale"></i>
+            <div>
+                <strong>Análise Equilibrada:</strong> Este artigo explora tanto a impressionante resiliência e o modelo social dos Vapostori, como as graves consequências da sua rejeição da medicina e da educação formal para os seus membros, especialmente mulheres e crianças.
             </div>
         </div>
-    </footer>
-    
-    <!-- Botão Voltar ao Topo -->
-    <a href="#" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-    
-    <script>
-        // Script para as abas
-        document.addEventListener('DOMContentLoaded', function() {
-            const tabButtons = document.querySelectorAll('.tab-button');
+
+        <!-- ORIGENS E IDENTIDADE -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">Origens: Uma Nação Espiritual Sem Fronteiras</h2>
+            <p>O movimento apostólico, popularmente conhecido como "Vapostori", surgiu no Zimbabwe colonial no início do século XX com profetas como Johane Marange. Mais do que uma igreja, é uma nação espiritual transnacional que se espalha pela África Austral. A sua identidade não se baseia na nacionalidade, mas na pertença a uma comunidade unida por uma doutrina de pureza radical, que rejeita as instituições do mundo moderno em favor das leis de Deus, interpretadas pelos seus profetas.</p>
+        </section>
+
+        <!-- PONTOS POSITIVOS -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao positivo"><i class="fas fa-plus-circle"></i> Pontos Positivos: Autonomia, Identidade e Comunidade</h2>
             
-            tabButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const targetTab = button.getAttribute('data-tab');
-                    
-                    // Remove a classe active de todos os botões e conteúdos
-                    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-                    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-                    
-                    // Adiciona a classe active ao botão clicado
-                    button.classList.add('active');
-                    
-                    // Mostra o conteúdo correspondente
-                    document.getElementById(targetTab).classList.add('active');
-                });
-            });
+            <div class="box-info">
+                <h3 class="info-titulo">Uma Sociedade Paralela e Autossuficiente</h3>
+                <p>Os Vapostori desenvolveram um notável sistema de autonomia económica e social. Muitos vivem em comunidades semi-isoladas onde praticam ofícios como a latoaria, a cestaria e a agricultura, criando uma economia interna vibrante. Esta autossuficiência é um pilar da sua identidade e uma fonte de grande orgulho, permitindo-lhes viver à margem de um sistema que consideram "impuro".</p>
+            </div>
+
+            <div class="galeria-fotos">
+                <figure>
+                    <img src="/images/placeholder/vapostori-culto.jpg" alt="Membros dos Vapostori em culto ao ar livre (imagem de exemplo)">
+                    <figcaption>O culto ao ar livre, nas "Nzirah", é um marco da sua identidade (placeholder).</figcaption>
+                </figure>
+                <figure>
+                    <img src="/images/placeholder/vapostori-oficios.jpg" alt="Artesão Vapostori a trabalhar (imagem de exemplo)">
+                    <figcaption>Os ofícios manuais são a base da sua economia autónoma (placeholder).</figcaption>
+                </figure>
+            </div>
+
+            <div class="box-info">
+                <h3 class="info-titulo">Um Porto Seguro de Identidade e Pertença</h3>
+                <p>Num mundo em rápida mudança, a comunidade apostólica oferece uma identidade forte e um profundo sentido de pertença. A estética visual (vestes brancas, cabeças rapadas, ausência de sapatos no culto) e as regras claras de conduta criam um poderoso sentimento de unidade. Para os seus membros, a igreja é uma grande família que oferece apoio, segurança e um propósito claro de vida, centrado na busca da pureza espiritual.</p>
+            </div>
+
+            <div class="testemunho">
+                <p>"No mundo, eu não era nada. Aqui, sou um filho de Deus, tenho a minha comunidade que me protege. Se fico doente, os irmãos oram por mim e sou curado. Se preciso de ajuda, a comunidade ajuda-me. Não precisamos das coisas do mundo, porque temos a nós mesmos e temos a Deus."
+                </p>
+                <cite>— Testemunho de um membro da comunidade em Manica (adaptado).</cite>
+            </div>
+        </section>
+
+        <!-- PONTOS NEGATIVOS -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao negativo"><i class="fas fa-minus-circle"></i> Pontos Negativos: Saúde em Risco e Direitos Violados</h2>
+
+            <div class="box-info controversia">
+                <h3 class="info-titulo">Rejeição da Medicina e Consequências Fatais</h3>
+                <p>A consequência mais trágica da sua doutrina de pureza é a rejeição total da medicina moderna. A recusa em aceitar vacinas, transfusões de sangue ou tratamento hospitalar para doenças como sarampo, cólera e malária resulta em surtos recorrentes e taxas de mortalidade materna e infantil devastadoramente altas. O direito à vida, especialmente das crianças, entra em conflito direto com o direito à liberdade religiosa.</p>
+            </div>
+
+            <div class="box-info controversia">
+                <h3 class="info-titulo">Casamento Infantil e Falta de Educação</h3>
+                <p>A prática da poligamia e a retirada das crianças, especialmente meninas, do sistema de educação formal para serem preparadas para o casamento são outras graves violações de direitos. Meninas de 12 ou 13 anos são frequentemente entregues em casamento a homens mais velhos, perpetuando um ciclo de pobreza, falta de autonomia e gravidez precoce. A ausência de registo civil torna muitas destas crianças "invisíveis" para o Estado, dificultando qualquer tipo de proteção.</p>
+            </div>
             
-            // Botão voltar ao topo
-            const backToTopButton = document.querySelector('.back-to-top');
-            
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    backToTopButton.style.display = 'flex';
-                } else {
-                    backToTopButton.style.display = 'none';
-                }
-            });
-            
-            backToTopButton.addEventListener('click', (e) => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        });
-    </script>
+            <div class="testemunho critico">
+                <p>"Perdi a minha primeira filha no parto porque o profeta disse que ir ao hospital era falta de fé. O bebé nasceu em casa, houve complicações e ela sangrou até morrer. Tinha apenas 16 anos. Só saí da igreja quando a minha segunda filha ficou doente e a levei ao centro de saúde às escondidas. Eles salvaram-na. A fé não pode custar a vida dos nossos filhos."
+                </p>
+                <cite>— Testemunho de uma mulher que abandonou o movimento (adaptado).</cite>
+            </div>
+        </section>
+
+        <!-- BALANÇO FINAL -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">Balanço Final: O Preço Humano da Pureza</h2>
+
+            <div class="box-info">
+                <h3 class="info-titulo">O Dilema Moçambicano</h3>
+                <p>Os Vapostori representam um dos mais impressionantes modelos de engenharia social de base em Moçambique. Eles construíram uma sociedade paralela funcional, com uma economia interna, um forte sentido de identidade e redes de apoio comunitário que envergonham, muitas vezes, as do próprio Estado. Oferecem uma ordem e um propósito que são profundamente atraentes para muitos que se sentem perdidos na desordem do mundo moderno.</p>
+                <p>No entanto, esta utopia de pureza é construída sobre um alicerce de práticas perigosas e violadoras dos direitos humanos. A rejeição da ciência médica não é uma simples escolha de estilo de vida; é uma sentença de morte para muitos, especialmente para as crianças. A negação da educação formal e a promoção do casamento infantil, particularmente para as meninas, perpetuam um ciclo de subjugação que é socialmente devastador. É uma comunidade que cuida dos seus, mas que o faz a um custo inaceitável para os mais vulneráveis dentro dela.</p>
+            </div>
+
+            <div class="box-info">
+                <h3 class="info-titulo">Legado Ambíguo</h3>
+                <div class="tabela-comparativa">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Aspectos Positivos</th>
+                                <th>Aspectos Negativos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Forte coesão social e redes de apoio mútuo</td>
+                                <td>Rejeição da medicina com consequências fatais</td>
+                            </tr>
+                            <tr>
+                                <td>Autonomia económica e valorização de ofícios</td>
+                                <td>Casamento infantil e violação dos direitos das meninas</td>
+                            </tr>
+                            <tr>
+                                <td>Identidade cultural e espiritual muito forte</td>
+                                <td>Negação da educação formal e isolamento do mundo</td>
+                            </tr>
+                            <tr>
+                                <td>Comunidade livre de álcool e outros vícios sociais</td>
+                                <td>Controlo autoritário dos profetas sobre a vida dos fiéis</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="box-info conclusao">
+                <h3 class="info-titulo">Conclusão</h3>
+                <p>A existência dos Vapostori em Moçambique é um espelho das falhas do Estado e, ao mesmo tempo, um desafio frontal aos seus princípios. Eles prosperam onde o Estado falha em providenciar segurança económica e social, mas fazem-no através de práticas que o mesmo Estado tem o dever de combater.</p>
+                <p>O futuro da relação entre os Vapostori e a sociedade moçambicana não é um de conversão, mas de negociação. É um diálogo tenso entre o direito à crença e o direito à vida. A questão fundamental para Moçambique é como proteger os cidadãos vulneráveis que vivem dentro desta nação espiritual, sem destruir o tecido comunitário que, para muitos, é a única coisa que lhes dá sentido e dignidade.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <section class="navegacao-inferior">
+        <a href="estudos.html" class="btn-voltar-estudos">
+            <i class="fas fa-book-open"></i> Voltar à Área de Estudos
+        </a>
+    </section>
+
+    <script src="menu.js"></script>
 </body>
 </html>

@@ -1,501 +1,191 @@
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Área de Estudo - Um País Muitas Crenças</title>
+    <title>Portal de Estudos - A Paisagem Religiosa de Moçambique</title>
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Folhas de Estilo -->
+    <link rel="stylesheet" href="Um País Muitas Crenças.css">
+    <link rel="stylesheet" href="menu.css">
     <link rel="stylesheet" href="estudos.css">
-    <style>
-        /* Novos estilos adicionados */
-        .search-container {
-            margin: 1.5rem 0;
-            text-align: center;
-        }
-        
-        .search-box {
-            display: inline-flex;
-            max-width: 500px;
-            width: 100%;
-            position: relative;
-        }
-        
-        .search-input {
-            width: 100%;
-            padding: 12px 20px;
-            border: 2px solid var(--primary-color);
-            border-radius: 30px;
-            font-size: 1rem;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-        
-        .search-input:focus {
-            box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
-        }
-        
-        .search-btn {
-            position: absolute;
-            right: 5px;
-            top: 5px;
-            background: var(--primary-color);
-            border: none;
-            color: white;
-            border-radius: 30px;
-            padding: 7px 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .search-btn:hover {
-            background: var(--secondary-color);
-        }
-        
-        .progress-container {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-        
-        .progress-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: white;
-            padding: 1rem;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            min-width: 120px;
-        }
-        
-        .progress-circle {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: #f0f0f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 0.5rem;
-            position: relative;
-        }
-        
-        .progress-value {
-            font-weight: bold;
-            font-size: 1.2rem;
-            color: var(--primary-color);
-        }
-        
-        .progress-text {
-            text-align: center;
-            font-size: 0.9rem;
-        }
-        
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--primary-color);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            cursor: pointer;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-        
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .back-to-top:hover {
-            background: var(--secondary-color);
-            transform: translateY(-5px);
-        }
-        
-        .topic-item, .read-more {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .topic-item::before, .read-more::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: all 0.5s ease;
-        }
-        
-        .topic-item:hover::before, .read-more:hover::before {
-            left: 100%;
-        }
-        
-        .resource-item {
-            transition: transform 0.3s ease;
-        }
-        
-        .resource-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        @media (max-width: 768px) {
-            .progress-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .progress-item {
-                width: 100%;
-                max-width: 200px;
-            }
-            
-            .back-to-top {
-                bottom: 20px;
-                right: 20px;
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
-        }
-    </style>
 </head>
-<!-- Google tag (gtag.js) --> 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VJDQ8Z1NQG"></script> 
-<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-VJDQ8Z1NQG'); </script>
 <body>
-    <!-- Header -->
-    <header>
+    <!-- O menu será injetado aqui pelo menu.js -->
+
+    <header class="header-estudos">
         <div class="container">
-            <div class="logo">
-                <div class="logo-icon">📚</div>
-                <h1>Área de Estudo</h1>
+            <h1>Portal de Estudos</h1>
+            <p>O seu ponto de partida para explorar a complexa e fascinante paisagem religiosa de Moçambique.</p>
+            
+            <!-- Barra de Pesquisa -->
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Pesquisar por tema, religião, igreja...">
+                <button aria-label="Pesquisar"><i class="fas fa-search"></i></button>
             </div>
-            <p class="subtitle">Explore tópicos detalhados sobre as religiões de Moçambique</p>
         </div>
     </header>
-    
-    <!-- Breadcrumb -->
-    <div class="breadcrumb">
-        <div class="container breadcrumb-content">
-            <a href="index.html"><i class="fas fa-home"></i> Página Inicial</a>
-            <span>/</span>
-            <span>Área de Estudo</span>
-        </div>
-    </div>
-    
-    <!-- Main Content -->
+
     <main class="container">
-        <!-- Barra de pesquisa -->
-        <div class="search-container">
-            <div class="search-box">
-                <input type="text" class="search-input" placeholder="Pesquisar tópicos...">
-                <button class="search-btn">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
-        </div>
-        
-        <section class="study-section">
-            <div class="study-header">
-                <h2>Estudos Detalhados sobre Religiões</h2>
-                <p>Navegue pelos tópicos abaixo para acessar conteúdos aprofundados sobre cada aspecto das religiões praticadas em Moçambique.</p>
-            </div>
-            
-            <!-- Indicadores de progresso -->
-            <div class="progress-container">
-                <div class="progress-item">
-                    <div class="progress-circle">
-                        <span class="progress-value">24</span>
-                    </div>
-                    <span class="progress-text">Tópicos Disponíveis</span>
-                </div>
-                <div class="progress-item">
-                    <div class="progress-circle">
-                        <span class="progress-value">3</span>
-                    </div>
-                    <span class="progress-text">Categorias</span>
-                </div>
-                <div class="progress-item">
-                    <div class="progress-circle">
-                        <span class="progress-value">8</span>
-                    </div>
-                    <span class="progress-text">Recursos</span>
+
+        <!-- 1. TEMAS TRANSVERSAIS -->
+        <h2 class="section-title">Temas Transversais</h2>
+        <p class="section-subtitle">Conceitos fundamentais para compreender a dinâmica religiosa em Moçambique.</p>
+        <section id="estudos-grid" class="grid-temas">
+
+            <div class="card-estudo" data-tags="sincretismo fusao cultural tradicional">
+                <div class="card-estudo-img" style="background-image: url('/images/placeholder/sincretismo-thumb.jpg');"></div>
+                <div class="card-estudo-content">
+                    <span class="card-estudo-categoria transversal">Conceito-Chave</span>
+                    <h3 class="card-estudo-titulo">Sincretismo Religioso</h3>
+                    <p class="card-estudo-desc">Explore como a fusão de crenças tradicionais com o Cristianismo e o Islamismo criou a alma espiritual única de Moçambique.</p>
+                    <a href="Sincretismo Religioso.html" class="card-estudo-link">Ler Análise <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-            
-            <!-- Religion Categories -->
-            <div class="religion-categories">
-                <div class="religion-category">
-                    <div class="category-header">
-                        <i class="fas fa-church"></i>
-                        <h3>Cristianismo</h3>
-                    </div>
-                    <div class="topics-list">
-                        <a href="História do Cristianismo em Moçambique.html" class="topic-item">
-                            <span>História e Desenvolvimento</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="Denominações Cristãs em Moçambique.html" class="topic-item">
-                            <span>Principais Denominações</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="Festividades Cristãs em Moçambique e no Mundo.html" class="topic-item">
-                            <span>Festividades e Celebrações</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="Influência Cultural do Cristianismo em Moçambique.html" class="topic-item">
-                            <span>Influência Cultural</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="religion-category">
-                    <div class="category-header">
-                        <i class="fas fa-mosque"></i>
-                        <h3>Islamismo</h3>
-                    </div>
-                    <div class="topics-list">
-                        <a href="Chegada do Islamismo a Moçambique.html" class="topic-item">
-                            <span>Chegada e Expansão</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="Tradições do Islamismo.html" class="topic-item">
-                            <span>Tradições e Práticas</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="Ramadã e Celebrações Islâmicas.html" class="topic-item">
-                            <span>Ramadã e Outras Celebrações</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="Comunidades Islâmicas.html" class="topic-item">
-                            <span>Comunidades Islâmicas</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="religion-category">
-                    <div class="category-header">
-                        <i class="fas fa-globe-africa"></i>
-                        <h3>Religiões Tradicionais</h3>
-                    </div>
-                    <div class="topics-list">
-                        <a href="topico-tradicionais-culto.html" class="topic-item">
-                            <span>Culto aos Ancestrais</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="topico-tradicionais-rites.html" class="topic-item">
-                            <span>Ritos de Iniciação</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="topico-tradicionais-medicina.html" class="topic-item">
-                            <span>Medicina Tradicional</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="topico-tradicionais-cosmologia.html" class="topic-item">
-                            <span>Cosmologia e Crenças</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
+
+            <div class="card-estudo" data-tags="mulheres genero feminismo zionista sheikha">
+                <div class="card-estudo-img" style="background-image: url('/images/placeholder/mulheres-thumb.jpg');"></div>
+                <div class="card-estudo-content">
+                    <span class="card-estudo-categoria transversal">Sociedade</span>
+                    <h3 class="card-estudo-titulo">O Papel da Mulher</h3>
+                    <p class="card-estudo-desc">Uma análise sobre a posição, o poder e os desafios das mulheres, desde as pastoras neopentecostais às sheikhas sufis.</p>
+                    <a href="Mulheres nas Religiões.html" class="card-estudo-link">Ler Análise <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-            
-            <!-- Featured Topics -->
-            <div class="featured-topics">
-                <div class="featured-header">
-                    <h3>Tópicos em Destaque</h3>
-                    <p>Alguns dos nossos conteúdos mais populares e relevantes</p>
-                </div>
-                
-                <div class="topics-grid">
-                    <div class="topic-card">
-                        <div class="topic-card-header">
-                            <h4>Sincretismo Religioso</h4>
-                        </div>
-                        <div class="topic-card-body">
-                            <p>Como diferentes tradições religiosas se misturam e coexistem na cultura moçambicana, criando práticas únicas e diversificadas.</p>
-                            <a href="Sincretismo Religioso.html" class="read-more">Ler Mais</a>
-                        </div>
-                    </div>
-                    
-                    <div class="topic-card">
-                        <div class="topic-card-header">
-                            <h4>Religião e Independência</h4>
-                        </div>
-                        <div class="topic-card-body">
-                            <p>O papel das instituições religiosas durante a luta pela independência de Moçambique e seu impacto no processo de libertação.</p>
-                            <a href="Religião e Independência.html" class="read-more">Ler Mais</a>
-                        </div>
-                    </div>
-                    
-                    <div class="topic-card">
-                        <div class="topic-card-header">
-                            <h4>Mulheres nas Religiões</h4>
-                        </div>
-                        <div class="topic-card-body">
-                            <p>O papel e a representação feminina nas diferentes tradições religiosas moçambicanas, dos rituais tradicionais às religiões abraâmicas.</p>
-                            <a href="Mulheres nas Religiões.html" class="read-more">Ler Mais</a>
-                        </div>
-                    </div>
+
+            <div class="card-estudo" data-tags="guerra civil conflito religioso frelimo renamo">
+                <div class="card-estudo-img" style="background-image: url('/images/placeholder/guerra-thumb.jpg');"></div>
+                <div class="card-estudo-content">
+                    <span class="card-estudo-categoria transversal">História</span>
+                    <h3 class="card-estudo-titulo">Religião e Guerra Civil</h3>
+                    <p class="card-estudo-desc">Como a religião foi usada como arma e como refúgio durante os anos da guerra civil e as suas cicatrizes hoje.</p>
+                    <a href="Guerras Religiosas em Moçambique.html" class="card-estudo-link">Ler Análise <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-            
-            <!-- Resources Section -->
-            <div class="resources-section">
-                <div class="resources-header">
-                    <h3>Recursos de Estudo</h3>
-                    <p>Materiais adicionais para aprofundar seu conhecimento</p>
+
+        </section>
+
+        <!-- 2. AS GRANDES RELIGIÕES -->
+        <h2 class="section-title">As Grandes Religiões</h2>
+        <p class="section-subtitle">Visão geral e análises detalhadas sobre o Cristianismo e o Islamismo em Moçambique.</p>
+        <section class="grid-religioes">
+            <!-- CRISTIANISMO -->
+            <div class="card-religiao cristianismo" data-tags="cristianismo catolica protestante zionista neopentecostal">
+                <div class="card-religiao-header">
+                    <i class="fas fa-cross"></i>
+                    <h2>Cristianismo</h2>
                 </div>
-                
-                <div class="resources-grid">
-                    <div class="resource-item">
-                        <i class="fas fa-book"></i>
-                        <a href="Biblioteca Digital.html"><h4>Biblioteca</h4></a>
-                        <p>Lista de livros e publicações recomendadas</p>
-                    </div>
-                    
-                    <div class="resource-item">
-                        <i class="fas fa-film"></i>
-                        <h4>Documentários</h4>
-                        <p>Indicações de filmes e documentários relevantes</p>
-                    </div>
-                    
-                    <div class="resource-item">
-                        <i class="fas fa-map-marked-alt"></i>
-                       <a href="Distribuição Religiosa em Moçambique.html"><h4>Mapas Interativos</h4></a> 
-                        <p>Distribuição geográfica das religiões</p>
-                    </div>
-                    
-                    <div class="resource-item">
-                        <i class="fas fa-graduation-cap"></i>
-                        <h4>Cursos Online</h4>
-                        <p>Recursos para estudo aprofundado</p>
-                    </div>
+                <div class="card-religiao-content">
+                    <p>A religião maioritária, um mosaico de tradições que vai desde o catolicismo histórico às vibrantes igrejas neopentecostais e ao sincretismo zionista.</p>
+                    <a href="Cristianismo.html" class="btn-religiao-principal">Ver Análise Geral</a>
+                    <h4 class="sub-links-titulo">Explorar Tópicos:</h4>
+                    <ul class="sub-links">
+                        <li><a href="História do Cristianismo em Moçambique.html"><i class="fas fa-landmark"></i> História do Cristianismo</a></li>
+                        <li><a href="catolicismo.html"><i class="fas fa-church"></i> A Igreja Católica</a></li>
+                        <li><a href="igrejas-brasileiras.html"><i class="fas fa-globe-americas"></i> A Ascensão das Igrejas Brasileiras</a></li>
+                        <li><a href="igrejas-zionistas.html"><i class="fas fa-water"></i> As Igrejas Zionistas</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ISLAMISMO -->
+            <div class="card-religiao islamismo" data-tags="islamismo sufi salafista swahili muculmano">
+                <div class="card-religiao-header">
+                    <i class="fas fa-moon"></i>
+                    <h2>Islamismo</h2>
+                </div>
+                <div class="card-religiao-content">
+                    <p>Com mais de mil anos de história no país, o Islão moçambicano é uma complexa teia de influências comerciais, místicas e, mais recentemente, globais.</p>
+                    <a href="islamismo.html" class="btn-religiao-principal">Ver Análise Geral</a>
+                    <h4 class="sub-links-titulo">Explorar Tópicos:</h4>
+                    <ul class="sub-links">
+                        <li><a href="Chegada do Islamismo a Moçambique.html"><i class="fas fa-ship"></i> A Chegada do Islão</a></li>
+                         <li><a href="História do Islamismo.html"><i class="fas fa-history"></i> Breve História Global</a></li>
+                        <li><a href="Comunidades Islâmicas.html"><i class="fas fa-users"></i> O Mosaico de Comunidades</a></li>
+                        <li><a href="Tradições do Islamismo.html
+"><i class="fas fa-book-quran"></i> Tradições e Práticas</a></li>
+                        <li><a href="Ramadã e Celebrações Islâmicas.html"><i class="fas fa-calendar-alt"></i> Ramadão e Celebrações</a></li>
+                    </ul>
                 </div>
             </div>
         </section>
+
+        <!-- 3. ESTUDOS DE CASO -->
+        <h2 class="section-title">Estudos de Caso Aprofundados</h2>
+        <p class="section-subtitle">Análises detalhadas de igrejas e movimentos específicos que marcam a paisagem religiosa do país.</p>
+        <section class="indice-completo">
+            <ul id="lista-indice-completa" class="lista-indice">
+                <!-- Neopentecostais -->
+                <li class="analysis-item" data-tags="universal iurd fogueira santa neopentecostal prosperidade"> 
+                    <a href="Sobre universal.html"><i class="fas fa-fire-alt"></i> Igreja Universal do Reino de Deus: A Multinacional da Fé</a>
+                </li>
+                 <li class="analysis-item" data-tags="igreja da graca rr soares neopentecostal prosperidade"> 
+                    <a href="Sobre Igreja da Graça em Moçambique.html"><i class="fas fa-gem"></i> Igreja da Graça: A Prosperidade 'Light'</a>
+                </li>
+                <li class="analysis-item" data-tags="mana g12 apostolo tadeu neopentecostal"> 
+                    <a href="Sobre Maná.html"><i class="fas fa-satellite"></i> Igreja Maná: O Modelo G12 e a Franquia da Fé</a>
+                </li>
+                 <li class="analysis-item" data-tags="sara nossa terra marketing neopentecostal prosperidade"> 
+                    <a href="Sobre Sara Nossa Terra em Moçambique.html"><i class="fas fa-bullhorn"></i> Sara Nossa Terra: O Marketing da Salvação</a>
+                </li>
+                 <li class="analysis-item" data-tags="profeta onorio milagres cura sida neopentecostal"> 
+                    <a href="Igreja Nações para Cristo Onório.html"><i class="fas fa-star"></i> O Fenómeno do Profeta Onório e o Culto da Personalidade</a>
+                </li>
+
+                <!-- Igrejas de Pureza / Apostólicas -->
+                <li class="analysis-item" data-tags="apostolica vapostori pureza poligamia"> 
+                    <a href="Sobre Apostólica.html"><i class="fas fa-hands-praying"></i> Vapostori (Igrejas Apostólicas): A Recusa da Modernidade</a>
+                </li>
+                <li class="analysis-item" data-tags="testemunhas de jeova tj ostracismo sangue"> 
+                    <a href="Sobre Testemunhas de Jeová.html"><i class="fas fa-book"></i> Testemunhas de Jeová: O Isolamento e o Ostracismo</a>
+                </li>
+
+                <!-- Pentecostais Históricas -->
+                <li class="analysis-item" data-tags="assembleia de deus pentecostal frelimo renamo politica"> 
+                    <a href="Sobre Assembleia de Deus.html"><i class="fas fa-gavel"></i> Assembleia de Deus: Entre a Fé e o Poder Político</a>
+                </li>
+
+                 <!-- Igrejas Históricas / Missão -->
+                 <li class="analysis-item" data-tags="catolica concordata vaticano politica"> 
+                    <a href="Sobre Católica.html"><i class="fas fa-cross"></i> A Igreja Católica: Do Estado Colonial à Influência Atual</a>
+                </li>
+                 <li class="analysis-item" data-tags="anglicana lebomos sul africa missao"> 
+                    <a href="Sobre Anglicana.html"><i class="fas fa-church"></i> A Igreja Anglicana: A Herança da Missão de Lebombos</a>
+                </li>
+                 <li class="analysis-item" data-tags="metodista educacao saude metodismo"> 
+                    <a href="Sobre Metodista.html"><i class="fas fa-school"></i> A Igreja Metodista: O Foco na Educação e Saúde</a>
+                </li>
+                 <li class="analysis-item" data-tags="presbiteriana suica missao calvinismo"> 
+                    <a href="Sobre Igreja Presbiteriana.html"><i class="fas fa-landmark"></i> A Igreja Presbiteriana e a Missão Suíça</a>
+                </li>
+                 <li class="analysis-item" data-tags="adventista setimo dia sabado saude"> 
+                    <a href="Sobre Adventista.html"><i class="fas fa-calendar-day"></i> Adventistas do Sétimo Dia: A Mensagem de Saúde</a>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Mensagem de Nenhum Resultado -->
+        <div id="no-results" class="is-hidden">
+            <h3>Nenhum resultado encontrado</h3>
+            <p>Tente pesquisar com termos diferentes.</p>
+        </div>
     </main>
-    
-    <!-- Botão Voltar ao Topo -->
-    <div class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
-    </div>
-    
-    <!-- Footer -->
+
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">Um País Muitas Crenças</div>
-                <p>Promovendo entendimento e respeito pela diversidade religiosa moçambicana</p>
-                
-                <div class="footer-nav">
-                    <a href="index.html">Página Inicial</a>
-                    <a href="estudos.html">Área de Estudo</a>
-                    <a href="sobre.html">Sobre o Projeto</a>
-                    <a href="contato.html">Contato</a>
-                </div>
-                
-                <p class="copyright">© 2023 Um País Muitas Crenças. Todos os direitos reservados.</p>
-            </div>
+            <p class="copyright">© 2024 Um País, Muitas Crenças. Todos os direitos reservados.</p>
         </div>
     </footer>
 
-    <script>
-        // Simulação de carregamento de conteúdo (para demonstração)
-        document.addEventListener('DOMContentLoaded', function() {
-            // Adiciona classes de animação para os elementos
-            const animateOnScroll = function() {
-                const elements = document.querySelectorAll('.religion-category, .topic-card, .resource-item');
-                
-                elements.forEach(element => {
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const screenPosition = window.innerHeight / 1.3;
-                    
-                    if (elementPosition < screenPosition) {
-                        element.style.opacity = 1;
-                        element.style.transform = 'translateY(0)';
-                    }
-                });
-            };
-            
-            // Inicializa elementos com opacidade 0 para animação
-            const elementsToAnimate = document.querySelectorAll('.religion-category, .topic-card, .resource-item');
-            elementsToAnimate.forEach(element => {
-                element.style.opacity = 0;
-                element.style.transform = 'translateY(20px)';
-                element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            });
-            
-            // Anima os elementos no scroll
-            window.addEventListener('scroll', animateOnScroll);
-            // Executa uma vez no carregamento para elementos já visíveis
-            animateOnScroll();
-            
-            // Botão Voltar ao Topo
-            const backToTopButton = document.getElementById('backToTop');
-            
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    backToTopButton.classList.add('visible');
-                } else {
-                    backToTopButton.classList.remove('visible');
-                }
-            });
-            
-            backToTopButton.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-            
-            // Funcionalidade de pesquisa
-            const searchInput = document.querySelector('.search-input');
-            const topicItems = document.querySelectorAll('.topic-item');
-            const topicCards = document.querySelectorAll('.topic-card');
-            
-            searchInput.addEventListener('input', () => {
-                const searchTerm = searchInput.value.toLowerCase();
-                
-                // Filtra os tópicos das categorias
-                topicItems.forEach(item => {
-                    const text = item.textContent.toLowerCase();
-                    if (text.includes(searchTerm)) {
-                        item.style.display = 'flex';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-                
-                // Filtra os tópicos em destaque
-                topicCards.forEach(card => {
-                    const title = card.querySelector('h4').textContent.toLowerCase();
-                    const description = card.querySelector('p').textContent.toLowerCase();
-                    
-                    if (title.includes(searchTerm) || description.includes(searchTerm)) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-    </script>
-    <script src="seg.js"></script>
+    <!-- Scripts -->
+    <script src="menu.js"></script>
+    <script src="estudos.js"></script>
 </body>
 </html>

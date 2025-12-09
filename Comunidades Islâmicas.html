@@ -1,384 +1,143 @@
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comunidades Islâmicas - Um País Muitas Crenças</title>
+    <title>O Mosaico Humano: As Comunidades do Islão em Moçambique - Um País Muitas Crenças</title>
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --islamic-green: #0d8c4d;
-            --gold: #d4af37;
-            --cream: #f8f4e3;
-            --dark-blue: #1a3a5f;
-            --light-gold: #f5e9c9;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Raleway', sans-serif;
-            background-color: var(--cream);
-            color: #333;
-            line-height: 1.6;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d4af37' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        .topic-detail {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-        
-        .topic-detail:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, var(--islamic-green) 0%, var(--gold) 100%);
-        }
-        
-        .topic-detail:after {
-            content: "";
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 24px;
-            color: var(--light-gold);
-            opacity: 0.2;
-        }
-        
-        h1, h2, h3 {
-            font-family: 'Amiri', serif;
-            color: var(--dark-blue);
-            margin-bottom: 15px;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            padding: 25px 25px 10px;
-            color: var(--islamic-green);
-            text-align: center;
-            border-bottom: 1px solid var(--light-gold);
-            margin-bottom: 0;
-            position: relative;
-        }
-        
-        h1:after {
-            content: "";
-            display: block;
-            width: 100px;
-            height: 3px;
-            background-color: var(--gold);
-            margin: 15px auto 0;
-            border-radius: 3px;
-        }
-        
-        h2 {
-            font-size: 1.8rem;
-            margin-top: 30px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--light-gold);
-            color: var(--islamic-green);
-        }
-        
-        h3 {
-            font-size: 1.4rem;
-            margin-top: 20px;
-            color: var(--dark-blue);
-        }
-        
-        .topic-meta {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 15px 25px;
-            background-color: #f9f9f9;
-            border-bottom: 1px solid #eee;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        .topic-meta i {
-            margin-right: 5px;
-            color: var(--islamic-green);
-        }
-        
-        .topic-content {
-            padding: 25px;
-        }
-        
-        p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-        
-        ul {
-            margin: 15px 0;
-            padding-left: 20px;
-        }
-        
-        li {
-            margin-bottom: 8px;
-            position: relative;
-        }
-        
-        li:before {
-            content: "";
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            color: var(--gold);
-            margin-right: 10px;
-        }
-        
-        .image-gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 20px 0;
-        }
-        
-        .image-card {
-            flex: 1 1 300px;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-        
-        .image-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
-        }
-        
-        .image-caption {
-            padding: 10px;
-            background-color: white;
-            font-size: 0.9rem;
-            color: #555;
-            text-align: center;
-            border-top: 3px solid var(--islamic-green);
-        }
-        
-        .islamic-pattern {
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-        
-        .navigation-links {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-        }
-        
-        .nav-button {
-            display: inline-block;
-            padding: 12px 20px;
-            background-color: var(--islamic-green);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border: 1px solid var(--islamic-green);
-        }
-        
-        .nav-button:hover {
-            background-color: transparent;
-            color: var(--islamic-green);
-        }
-        
-        .quote {
-            font-family: 'Amiri', serif;
-            font-size: 1.2rem;
-            font-style: italic;
-            padding: 20px;
-            margin: 20px 0;
-            background-color: var(--light-gold);
-            border-left: 5px solid var(--gold);
-            border-radius: 5px;
-            text-align: center;
-        }
-        
-        .quote:before, .quote:after {
-            content: "";
-            font-size: 2rem;
-            color: var(--gold);
-        }
-        
-        @media (max-width: 768px) {
-            .image-gallery {
-                flex-direction: column;
-            }
-            
-            .navigation-links {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .nav-button {
-                text-align: center;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            h2 {
-                font-size: 1.6rem;
-            }
-            
-            h3 {
-                font-size: 1.2rem;
-            }
-        }
-    </style>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Folhas de Estilo -->
+    <link rel="stylesheet" href="Um País Muitas Crenças.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="tema-analise-critica.css">
+    <link rel="stylesheet" href="tema-islamismo.css">
+
 </head>
-<!-- Google tag (gtag.js) --> 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VJDQ8Z1NQG"></script> 
-<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-VJDQ8Z1NQG'); </script>
 <body>
-    <div class="container">
-        <article class="topic-detail">
-            <h1>Comunidades Islâmicas em Moçambique</h1>
+    <!-- Menu será injetado aqui -->
+
+    <header class="header-analise" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1596524430615-b46475ddff6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
+        <div class="container">
+            <h1 class="titulo-principal">O Mosaico Humano: As Comunidades do Islão</h1>
+            <p class="subtitulo-principal">Um olhar sobre os diferentes povos, culturas e geografias que compõem o universo muçulmano em Moçambique.</p>
+        </div>
+    </header>
+
+    <main class="container conteudo-analise">
+
+        <section class="secao-analise">
+            <h2 class="titulo-secao">Para Além da Religião: Povo, Cultura e Lugar</h2>
+            <p>Em Moçambique, a identidade muçulmana nunca é uma só. Ela é profundamente moldada pela etnia, pela língua e pela geografia. Ser muçulmano na Ilha de Moçambique é uma experiência culturalmente diferente de ser muçulmano numa aldeia macua no interior de Nampula ou num bairro comercial de Maputo. Esta página explora esse mosaico humano, focando-se nas principais comunidades que vivem o Islão no seu dia a dia.</p>
+        </section>
+
+        <!-- COMUNIDADES ÉTNICO-LINGUÍSTICAS -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao-onda"><i class="fas fa-users"></i> As Comunidades Étnico-Linguísticas do Islão</h2>
             
-            <div class="topic-meta">
-                <span><i class="fas fa-clock"></i> Tempo de leitura: 13 minutos</span>
-                <span><i class="fas fa-calendar"></i> Atualizado em: Novembro de 2023</span>
-            </div>
-            
-            <div class="topic-content">
-                <div class="islamic-pattern">
-                    <p>O Islão tem uma longa história em Moçambique, datando da chegada de comerciantes árabes e persas à costa do Índico há mais de mil anos. Estas comunidades desenvolveram-se e integraram-se na tecido social moçambicano, contribuindo significativamente para a cultura e economia do país.</p>
-                </div>
-                
-                <h2>Distribuição Geográfica</h2>
-                <p>As comunidades muçulmanas em Moçambique estão concentradas principalmente nas províncias do norte e ao longo da costa, com significativa presença em:</p>
-                
-                <div class="image-gallery">
-                    <div class="image-card">
-                        <img src="https://images.unsplash.com/photo-1571554204880-7046a9c6068a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Mesquita em Moçambique">
-                        <div class="image-caption">Mesquita na província de Cabo Delgado</div>
-                    </div>
-                    <div class="image-card">
-                        <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Comunidade Islâmica">
-                        <div class="image-caption">Comunidade islâmica em Nampula</div>
-                    </div>
-                </div>
-                
-                <h3>Províncias do Norte</h3>
-                <p>Cabo Delgado, Nampula e Niassa têm as maiores concentrações de muçulmanos, representando a maioria da população em muitos distritos.</p>
-                
-                <h3>Áreas Costeiras</h3>
-                <p>As províncias da Zambézia e Sofala têm comunidades muçulmanas significativas, especialmente em cidades costeiras como Quelimane e Beira.</p>
-                
-                <h3>Centros Urbanos</h3>
-                <p>Maputo e outras cidades maiores têm comunidades muçulmanas diversificadas, incluindo moçambicanos de outras regiões e imigrantes de outros países muçulmanos.</p>
-                
-                <h2>Diversidade de Comunidades</h2>
-                <p>As comunidades islâmicas em Moçambique não são monolíticas, mas incluem diversas tradições e grupos:</p>
-                
-                <div class="image-gallery">
-                    <div class="image-card">
-                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Arquitetura Islâmica">
-                        <div class="image-caption">Influência arquitetónica islâmica</div>
-                    </div>
-                    <div class="image-card">
-                        <img src="https://images.unsplash.com/photo-1591607388349-4bb2f3455c4c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Arte Islâmica">
-                        <div class="image-caption">Arte e caligrafia islâmica</div>
-                    </div>
-                </div>
-                
-                <h3>Sunitas</h3>
-                <p>A grande maioria dos muçulmanos moçambicanos são sunitas, seguindo principalmente a escola Shafi'i de jurisprudência.</p>
-                
-                <h3>Sufistas</h3>
-                <p>As ordens sufistas (tariqas) têm uma presença significativa, especialmente a Qadiriyya e a Shadhiliyya. Estas ordens enfatizam a dimensão espiritual e mística do Islão.</p>
-                
-                <h3>Xiitas</h3>
-                <p>Existe uma pequena minoria xiita, composta principalmente por descendentes de imigrantes do subcontinente indiano e do Médio Oriente.</p>
-                
-                <h3>Reformistas</h3>
-                <p>Nas últimas décadas, surgiram influências reformistas e salafistas, especialmente entre os jovens e nas áreas urbanas.</p>
-                
-                <div class="quote">
-                    "A diversidade dentro da comunidade islâmica moçambicana reflete a riqueza cultural e histórica do país."
-                </div>
-                
-                <h2>Organizações Islâmicas</h2>
-                <p>Várias organizações representam e servem as comunidades muçulmanas em Moçambique:</p>
-                
-                <h3>Conselho Islâmico de Moçambique</h3>
-                <p>A principal organização representativa dos muçulmanos no país, envolvida em questões religiosas, educacionais e sociais.</p>
-                
-                <h3>Associações Locais</h3>
-                <p>Muitas comunidades têm associações locais que gerem mesquitas, escolas islâmicas e projetos comunitários.</p>
-                
-                <h3>Organizações de Ajuda</h3>
-                <p>Organizações islâmicas nacionais e internacionais envolvem-se em trabalho humanitário e de desenvolvimento em comunidades muçulmanas.</p>
-                
-                <div class="image-gallery">
-                    <div class="image-card">
-                        <img src="https://images.unsplash.com/photo-1572883781464-1cb2bb4456f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Educação Islâmica">
-                        <div class="image-caption">Escola islâmica (madrassa) em Moçambique</div>
-                    </div>
-                </div>
-                
-                <h2>Contribuições Sociais</h2>
-                <p>As comunidades islâmicas em Moçambique contribuem significativamente para a sociedade através de:</p>
-                
-                <h3>Educação</h3>
-                <p>Madraças e escolas islâmicas proporcionam educação religiosa e secular para milhares de crianças.</p>
-                
-                <h3>Saúde</h3>
-                <p>Algumas comunidades islâmicas administram centros de saúde e promovem campanhas de saúde pública.</p>
-                
-                <h3>Economia</h3>
-                <p>Muçulmanos estão envolvidos em diversos sectores económicos, desde o comércio tradicional até negócios modernos.</p>
-                
-                <h2>Desafios e Oportunidades</h2>
-                <p>As comunidades islâmicas em Moçambique enfrentam diversos desafios, incluindo:</p>
+            <div class="box-info">
+                <h3 class="info-titulo">Os Povos da Costa: A Cultura Swahili e Mwani</h3>
+                <p>Estes são os descendentes diretos das primeiras interações entre os povos bantu da costa e os comerciantes árabes e persas. A sua identidade é uma fusão afro-islâmica. O Islão não é apenas a sua religião, é o pilar da sua cultura.</p>
                 <ul>
-                    <li>Integração nacional e coexistência com outras comunidades religiosas</li>
-                    <li>Desenvolvimento socioeconómico das regiões onde estão majoritariamente presentes</li>
-                    <li>Educação e formação de líderes religiosos</li>
-                    <li>Resposta ao extremismo violento em algumas áreas do norte</li>
+                    <li><strong>Geografia:</strong> Litoral e ilhas de Cabo Delgado e Nampula (ex: Ilha de Moçambique, Ibo, Angoche).</li>
+                    <li><strong>Línguas:</strong> Kimwani, Kiswahili, com forte influência do árabe.</li>
+                    <li><strong>Islão Praticado:</strong> Tradicionalmente Sufi (Shafi'i), com grande respeito pelos sheikhs e pelas linhagens familiares. A vida é marcada pelo ritmo das marés e do comércio marítimo.</li>
+                    <li><strong>Identidade:</strong> Sentem-se parte de uma cultura Swahili transfronteiriça, com laços com a Tanzânia, Quénia e Comores.</li>
                 </ul>
-                
-                <p>Ao mesmo tempo, estas comunidades têm oportunidades únicas para contribuir para o desenvolvimento do país e para o diálogo inter-religioso.</p>
-                
-                <div class="navigation-links">
-                    <a href="islamismo-ramada.html" class="nav-button">Tópico Anterior: Ramadã e Celebrações</a>
-                    <a href="estudos.html" class="nav-button">Voltar para Área de Estudo</a>
+            </div>
+
+            <div class="box-info">
+                <h3 class="info-titulo">Os Macuas: O Coração do Islão no Interior</h3>
+                <p>O povo Macua é o maior grupo étnico de Moçambique, e a sua adesão ao Islão (principalmente a partir do século XIX) transformou a demografia religiosa do país. Eles não adotaram o Islão costeiro, mas adaptaram-no.</p>
+                <ul>
+                    <li><strong>Geografia:</strong> Vasto interior das províncias de Nampula, Zambézia e Niassa.</li>
+                    <li><strong>Língua:</strong> Emakhuwa.</li>
+                    <li><strong>Islão Praticado:</strong> Predominantemente Sufi, com uma forte componente de sincretismo. O sheikh local assume frequentemente o papel que antes pertencia ao chefe tradicional ou ao curandeiro, misturando práticas de cura com orações islâmicas.</li>
+                    <li><strong>Identidade:</strong> A sua identidade principal é Macua, e o Islão foi integrado na sua estrutura social, particularmente na sua organização matrilinear.</li>
+                </ul>
+            </div>
+
+            <div class="box-info">
+                <h3 class="info-titulo">Os Yao: O Islão das Rotas de Caravana</h3>
+                <p>Os Yao são um povo do interior cuja islamização está ligada ao seu papel dominante nas rotas de caravanas do século XIX, que conectavam o Lago Niassa à costa. Para eles, o Islão era um marcador de prestígio e uma ferramenta essencial para o comércio.</p>
+                <ul>
+                    <li><strong>Geografia:</strong> Província do Niassa, com fortes ligações ao Malawi e à Tanzânia.</li>
+                    <li><strong>Língua:</strong> Chiyao.</li>
+                    <li><strong>Islão Praticado:</strong> Um Islão Sufi (principalmente da ordem Qadiriyya) com grande ênfase na educação e na alfabetização em árabe. Historicamente, os chefes Yao eram também os líderes religiosos.</li>
+                    <li><strong>Identidade:</strong> Possuem uma forte e orgulhosa identidade islâmica que os distingue dos seus vizinhos.</li>
+                </ul>
+            </div>
+
+            <div class="box-info">
+                <h3 class="info-titulo">Os "Indianos": O Islão Urbano e Transnacional</h3>
+                <p>As comunidades de origem sul-asiática, referidas localmente como "indianos", "paquistaneses" ou "monhés", desempenham um papel central na economia urbana. Embora minoritários, a sua influência económica e as suas formas distintas de Islão são muito visíveis.</p>
+                <ul>
+                    <li><strong>Geografia:</strong> Centros urbanos, especialmente Maputo, Beira e Nampula.</li>
+                    <li><strong>Correntes Principais:</strong> Xiitas (Ismailis, Khojas) e Sunitas (Barelvi, Deobandi). Estas comunidades mantêm fortes laços transnacionais com as suas redes globais.</li>
+                    <li><strong>Islão Praticado:</strong> Frequentemente mais ortodoxo e menos sincrético que o das comunidades africanas. As suas mesquitas e centros comunitários são marcos importantes nas cidades.</li>
+                    <li><strong>Identidade:</strong> Operam em redes familiares e comerciais fechadas, com um papel desproporcional na economia formal.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- MOSAICO GEOGRÁFICO -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao-onda"><i class="fas fa-map-marker-alt"></i> Viver o Islão: Um Mosaico Geográfico</h2>
+             <div class="galeria-fotos">
+                <figure>
+                    <img src="/images/placeholder/vida-islam-costa.jpg" alt="Cena do quotidiano numa cidade costeira islâmica.">
+                    <figcaption>No litoral, a vida é regida pelas marés, pelo comércio e pela mesquita.</figcaption>
+                </figure>
+                <figure>
+                    <img src="/images/placeholder/vida-islam-interior.jpg" alt="Família muçulmana numa aldeia do interior.">
+                    <figcaption>No interior, o Islão mistura-se com os ritmos da agricultura e as tradições locais.</figcaption>
+                </figure>
+                 <figure>
+                    <img src="/images/placeholder/vida-islam-urbano.jpg" alt="Jovens muçulmanos num centro urbano.">
+                    <figcaption>Nas cidades, a juventude muçulmana navega entre a tradição e as influências globais.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- PERFIS SOCIAIS -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">Três Retratos: Quem é o Muçulmano Moçambicano?</h2>
+            <div class="comparacao-guerra-fria">
+                <div class="modelo-card sufi">
+                    <h3>A Anciã Sufi de Nampula</h3>
+                    <p>Fátima é uma agricultora Macua de 65 anos. O seu Islão está ligado ao sheikh da sua aldeia, que também é o seu primo. Ele benze as sementes antes da plantação e cura as crianças com ervas e versos do Alcorão. Ela participa nos cânticos (dhikr) e celebra o Mawlid (nascimento do Profeta) com grandes festas comunitárias. Nunca ouviu falar de "Salafismo" e vê os seus antepassados como "santos" que intercedem por si junto de Deus.</p>
+                </div>
+                <div class="modelo-card salafista">
+                    <h3>O Jovem Reformista de Pemba</h3>
+                    <p>Abdul, de 22 anos, recebeu uma bolsa para estudar o Alcorão no Qatar. Voltou convencido de que o Islão da sua avó Fátima é "idolatria". Para ele, o Islão deve ser "puro", sem música, sem veneração de santos e sem sincretismo. Comunica-se pelo WhatsApp com pregadores de todo o mundo e acredita que a sua missão é "limpar" a sua comunidade das "inovações". Vê o Estado como corrupto e o Ocidente como inimigo da fé.</p>
+                </div>
+                <div class="modelo-card moderno">
+                    <h3>O Empresário de Maputo</h3>
+                    <p>Salim, 45 anos, é um empresário de origem indiana. A sua família é Xiita Ismaili e segue o Aga Khan. O seu Islão é vivido como um código ético para os negócios e um forte compromisso com a filantropia através da Fundação Aga Khan. Ele reza diariamente, mas veste fatos ocidentais e a sua mulher não usa véu. Vê tanto o Islão de Fátima como o de Abdul como "atrasados" e defende uma interpretação moderna e secular da fé.</p>
                 </div>
             </div>
-        </article>
-    </div>
-     <script src="seg.js"></script>
+        </section>
+
+        <!-- CONCLUSÃO -->
+        <section class="secao-analise">
+            <h2 class="titulo-secao">Conclusão: Uma Comunidade, Muitas Realidades</h2>
+            <p>Falar do "Islão em Moçambique" no singular é ignorar a sua imensa diversidade interna. A Ummah (comunidade global de crentes) moçambicana é um mosaico complexo de etnias, culturas, classes sociais e, mais recentemente, ideologias. Estas diferentes comunidades, que durante séculos coexistiram, encontram-se hoje numa encruzilhada, pressionadas por forças globais que ameaçam fragmentar este rico tecido humano.</p>
+        </section>
+
+    </main>
+
+    <section class="navegacao-inferior">
+        <a href="islamismo.html" class="btn-voltar-estudos">
+            <i class="fas fa-star-and-crescent"></i> Voltar à Análise do Islamismo
+        </a>
+    </section>
+
+    <script src="menu.js"></script>
+    <script src="footer.js"></script>
 </body>
 </html>

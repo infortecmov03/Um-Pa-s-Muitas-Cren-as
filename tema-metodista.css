@@ -1,0 +1,7 @@
+/* tema-metodista.css - A ROUPA */
+
+:root {
+    --cor-primaria: #2E7D32;       /* Verde escuro */
+    --cor-acento: #4CAF50;         /* Verde mais claro */
+    --cor-texto-primario: #ffffff;   /* Branco para contrastar com o verde */
+}
