@@ -1,74 +1,127 @@
-const CACHE_NAME = 'um-pais-muitas-crencas-v1';
-const OFFLINE_URL = '/index.html';
 
-const PRECACHE_ASSETS = [
+const CACHE_NAME = 'um-pais-muitas-crencas-v1';
+const urlsToCache = [
   '/',
   '/index.html',
-  '/version.json',
-  '/books.json',
-  '/style.css',
+  '/Biblioteca Digital.html',
+  '/Chegada do Islamismo a Moçambique.html',
+  '/Comunidades Islâmicas.html',
+  '/Cristianismo.html',
+  '/Denominações Cristãs em Moçambique.html',
+  '/Distribuição Religiosa em Moçambique.html',
+  '/Festividades Cristãs em Moçambique e no Mundo.html',
+  '/Guerras Religiosas em Moçambique.html',
+  '/História do Cristianismo em Moçambique.html',
+  '/História do Islamismo.html',
+  '/Igreja Nações para Cristo Onório.html',
+  '/Influência Cultural do Cristianismo em Moçambique.html',
+  '/Mulheres nas Religiões.html',
+  '/Ramadã e Celebrações Islâmicas.html',
+  '/Religião e Independência.html',
+  '/Sincretismo Religioso.html',
+  '/Sobre Adventistas emMoçambique.html',
+  '/Sobre Anglicana.html',
+  '/Sobre Apostólica.html',
+  '/Sobre Assembleia de Deus.html',
+  '/Sobre Católica.html',
+  '/Sobre Igreja Presbiteriana.html',
+  '/Sobre Igreja Zionista.html',
+  '/Sobre Igreja da Graça em Moçambique.html',
+  '/Sobre Igreja de Deus.html',
+  '/Sobre Igreja de Profetas em Moçambique.html',
+  '/Sobre Maná.html',
+  '/Sobre Metodista.html',
+  '/Sobre Sara Nossa Terra em Moçambique.html',
+  '/Sobre Testemunhas de Jeová em Moçambique.html',
+  '/Sobre testemunhas de jeova.html',
+  '/Sobre universal.html',
+  '/Tradições do Islamismo.html',
   '/Um País Muitas Crenças.css',
-  '/Menu Hambúrguer.css',
-  '/script.js',
-  '/hamburgerMenu.js',
   '/Um País Muitas Crenças.js',
-  '/seg.js',
-  '/manifest.json'
+  '/biblioteca.css',
+  '/biblioteca.js',
+  '/books.json',
+  '/contato.css',
+  '/contato.html',
+  '/contato.js',
+  '/debate.css',
+  '/debate.html',
+  '/debate_exodo_20_5.html',
+  '/denuncia.css',
+  '/denuncia.html',
+  '/denuncia.js',
+  '/dossie-testemunhas-de-jeova.html',
+  '/estudos.css',
+  '/estudos.html',
+  '/estudos.js',
+  '/footer.js',
+  '/galeria-denominacoes.css',
+  '/home.css',
+  '/islamismo.html',
+  '/mapa-distribuicao.css',
+  '/mapa-distribuicao.js',
+  '/menu.css',
+  '/menu.js',
+  '/scripts.js',
+  '/sobre.css',
+  '/sobre.html',
+  '/tema-adventista.css',
+  '/tema-analise-critica.css',
+  '/tema-anglicana.css',
+  '/tema-apostolica.css',
+  '/tema-assembleia.css',
+  '/tema-catolica.css',
+  '/tema-contato.css',
+  '/tema-cristianismo.css',
+  '/tema-deus.css',
+  '/tema-festividades.css',
+  '/tema-graca.css',
+  '/tema-historia.css',
+  '/tema-islamismo.css',
+  '/tema-metodista.css',
+  '/tema-onorio.css',
+  '/tema-presbiteriana.css',
+  '/tema-profetas.css',
+  '/tema-sara.css',
+  '/tema-testemunhas.css',
+  '/tema-universal.css',
+  '/tema-zionista.css',
+  '/testemunhos.html'
 ];
 
-self.addEventListener('install', event => {
+self.addEventListener('install', function(event) {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(PRECACHE_ASSETS).catch(err => {
-        console.warn('Some assets failed to cache on install', err);
-      });
-    }).then(() => self.skipWaiting())
+    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        console.log('Opened cache');
+        return cache.addAll(urlsToCache);
+      })
   );
 });
 
-self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys().then(keys => Promise.all(
-      keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))
-    )).then(() => self.clients.claim())
-  );
-});
-
-self.addEventListener('fetch', event => {
-  if (event.request.method !== 'GET') return;
-
+self.addEventListener('fetch', function(event) {
   event.respondWith(
-    caches.match(event.request).then(cached => {
-      if (cached) {
-        // return cached response, but in background try to update cache
-        fetch(event.request).then(response => {
-          if (response && response.ok) {
-            caches.open(CACHE_NAME).then(cache => cache.put(event.request, response.clone()));
-          }
-        }).catch(() => {});
-        return cached;
-      }
+    caches.match(event.request)
+      .then(function(response) {
+        if (response) {
+          return response;
+        }
+        return fetch(event.request);
+      })
+  );
+});
 
-      return fetch(event.request).then(response => {
-        // cache new resources for offline use
-        if (response && response.ok && event.request.url.startsWith(self.location.origin)) {
-          const copy = response.clone();
-          caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
-        }
-        return response;
-      }).catch(() => {
-        // fallback to offline page for navigation requests
-        if (event.request.mode === 'navigate') {
-          return caches.match(OFFLINE_URL);
-        }
-      });
+self.addEventListener('activate', function(event) {
+  var cacheWhitelist = [CACHE_NAME];
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.map(function(cacheName) {
+          if (cacheWhitelist.indexOf(cacheName) === -1) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
     })
   );
-});
-
-// Listen for skipWaiting message from the client
-self.addEventListener('message', event => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting();
-  }
 });

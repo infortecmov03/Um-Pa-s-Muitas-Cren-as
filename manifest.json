@@ -1,20 +1,22 @@
+
 {
-  "name": "Um País Muitas Crenças",
+  "name": "Um País, Muitas Crenças",
   "short_name": "Muitas Crenças",
-  "start_url": "/",
+  "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#2196F3",
+  "background_color": "#fff",
+  "theme_color": "#333",
+  "description": "Uma plataforma para a exploração e debate da diversidade religiosa em Moçambique.",
   "icons": [
     {
-      "src": "/icons/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
+      "src": "icons/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
     },
     {
-      "src": "/icons/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "src": "icons/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
   ]
 }

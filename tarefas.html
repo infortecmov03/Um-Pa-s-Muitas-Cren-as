@@ -1,0 +1,67 @@
+
+Copie e cole o seguinte bloco de código dentro da tag <head> de cada página HTML. O ideal é que fique logo abaixo da tag <title>.
+
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#2196F3">
+    <link rel="apple-touch-icon" href="/icons/icon-192.png">
+    
+    
+    Copie e cole este script no final de cada página HTML, imediatamente antes da tag de fecho </body>.
+    
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function(err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
+    
+    
+    Aqui está a lista de ficheiros que ainda precisam dessas alterações:
+    
+    Cristianismo.html
+    Denominações Cristãs em Moçambique.html
+    Distribuição Religiosa em Moçambique.html
+    Festividades Cristãs em Moçambique e no Mundo.html
+    Guerras Religiosas em Moçambique.html
+    História do Cristianismo em Moçambique.html (Vejo que já começou neste!)
+    História do Islamismo.html
+    Igreja Nações para Cristo Onório.html
+    Influência Cultural do Cristianismo em Moçambique.html
+    Mulheres nas Religiões.html
+    Ramadã e Celebrações Islâmicas.html
+    Religião e Independência.html
+    Sincretismo Religioso.html
+    Sobre Adventistas emMoçambique.html
+    Sobre Anglicana.html
+    Sobre Apostólica.html
+    Sobre Assembleia de Deus.html
+    Sobre Católica.html
+    Sobre Igreja Presbiteriana.html
+    Sobre Igreja Zionista.html
+    Sobre Igreja da Graça em Moçambique.html
+    Sobre Igreja de Deus.html
+    Sobre Igreja de Profetas em Moçambique.html
+    Sobre Maná.html
+    Sobre Metodista.html
+    Sobre Sara Nossa Terra em Moçambique.html
+    Sobre Testemunhas de Jeová em Moçambique.html
+    Sobre testemunhas de jeova.html
+    Sobre universal.html
+    Tradições do Islamismo.html
+    contato.html
+    debate.html
+    debate_exodo_20_5.html
+    denuncia.html
+    dossie-testemunhas-de-jeova.html
+    estudos.html
+    islamismo.html
+    sobre.html
+    testemunhos.html
+    Lembrete Final: Não se esqueça de criar e adicionar os seus ícones icon-192.png e icon-512.png na pasta icons/.
+    
+    Quando terminar estas tarefas, o seu site estará totalmente funcional como um Progressive Web App. Bom trabalho
