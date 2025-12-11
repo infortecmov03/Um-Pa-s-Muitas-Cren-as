@@ -467,6 +467,9 @@
     </style>
 </head>
 <body>
+
+    <!-- O menu dinâmico será injetado aqui -->
+    <script src="menu.js"></script>
     <!-- Header -->
     <header class="header-mapa">
         <div class="container">
@@ -576,45 +579,10 @@
     </main>
     
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <div class="footer-logo">
-                        <i class="fas fa-praying-hands"></i> Um País, Muitas Crenças
-                    </div>
-                    <p>Projeto dedicado ao mapeamento e estudo da diversidade religiosa em Moçambique, promovendo o entendimento e respeito entre diferentes tradições religiosas.</p>
-                </div>
-                
-                <div class="footer-links">
-                    <h4>Recursos</h4>
-                    <ul>
-                        <li><a href="#"><i class="fas fa-book"></i> Documentação</a></li>
-                        <li><a href="#"><i class="fas fa-database"></i> Base de Dados</a></li>
-                        <li><a href="#"><i class="fas fa-map"></i> Mapas Regionais</a></li>
-                        <li><a href="#"><i class="fas fa-chart-bar"></i> Estatísticas</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h4>Contato</h4>
-                    <ul>
-                        <li><a href="#"><i class="fas fa-envelope"></i> info@umpaismuitascrencas.co.mz</a></li>
-                        <li><a href="#"><i class="fas fa-phone"></i> +258 84 123 4567</a></li>
-                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Maputo, Moçambique</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                © 2024 <strong>Um País, Muitas Crenças - Moçambique</strong>. Todos os direitos reservados. | 
-                <a href="#" style="color: var(--secondary-color);">Política de Privacidade</a> | 
-                <a href="#" style="color: var(--secondary-color);">Termos de Uso</a>
-            </div>
-        </div>
-    </footer>
+   
 
     <!-- Scripts -->
+    <script src="footer.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
     
@@ -1047,6 +1015,18 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-VJDQ8Z1NQG');
+    </script>
+
+     <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function(err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
     </script>
 </body>
 </html>
