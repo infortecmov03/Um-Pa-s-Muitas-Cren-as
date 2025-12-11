@@ -1,0 +1,362 @@
+/* RESPONSIVIDADE - MOBILE FIRST */
+@media (max-width: 768px) {
+    :root {
+        --espacamento-xl: 2rem;
+        --espacamento-lg: 1.5rem;
+        --espacamento-md: 1rem;
+        --espacamento-sm: 0.75rem;
+        --espacamento-xs: 0.5rem;
+    }
+
+    html {
+        font-size: 14px;
+    }
+
+    /* HEADER RESPONSIVO */
+    .header-tema {
+        min-height: 50vh;
+        padding: var(--espacamento-lg) 0;
+    }
+
+    .titulo-principal {
+        font-size: 2rem;
+    }
+
+    .subtitulo-principal {
+        font-size: 1.1rem;
+    }
+
+    .meta-info {
+        flex-direction: column;
+        gap: var(--espacamento-sm);
+        align-items: center;
+    }
+
+    .meta-info span {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+
+    /* NAVEGAÇÃO MOBILE */
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--verde-principal);
+        flex-direction: column;
+        padding: var(--espacamento-md);
+        gap: 0;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all var(--transicao-normal);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-link {
+        padding: 1rem;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-link:last-child {
+        border-bottom: none;
+    }
+
+    /* CONTEÚDO RESPONSIVO */
+    .container {
+        padding: 0 var(--espacamento-sm);
+    }
+
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: 1fr;
+    }
+
+    .mapa-container {
+        grid-template-columns: 1fr;
+        gap: var(--espacamento-md);
+    }
+
+    .mapa-legenda {
+        position: static;
+    }
+
+    .provincias-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* ESTATÍSTICAS MOBILE */
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        padding: var(--espacamento-md);
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+    }
+
+    /* TABELAS RESPONSIVAS */
+    .tabela-tematica {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .tabela-tematica th,
+    .tabela-tematica td {
+        min-width: 120px;
+        padding: 0.75rem;
+    }
+
+    /* BOTÕES MOBILE */
+    .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 1rem;
+    }
+
+    /* FORMULÁRIOS */
+    input, select, textarea {
+        font-size: 16px; /* Previne zoom no iOS */
+    }
+
+    /* ANIMAÇÕES MOBILE */
+    .animar-entrada,
+    .animar-subida {
+        animation-duration: 0.4s;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        max-width: 90%;
+    }
+
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mapa-container {
+        grid-template-columns: 250px 1fr;
+    }
+
+    .provincias-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ORIENTAÇÃO LANDSCAPE */
+@media (max-height: 600px) and (orientation: landscape) {
+    .header-tema {
+        min-height: 100vh;
+    }
+
+    .titulo-principal {
+        font-size: 2rem;
+    }
+
+    .subtitulo-principal {
+        font-size: 1rem;
+        margin-bottom: var(--espacamento-md);
+    }
+
+    .meta-info {
+        margin-top: var(--espacamento-md);
+    }
+
+    .meta-info span {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* DISPOSITIVOS DE ALTA RESOLUÇÃO */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    .titulo-principal {
+        font-size: 4rem;
+    }
+}
+
+/* IMPRESSÃO */
+@media print {
+    .nav-principal,
+    .menu-toggle,
+    .navegacao-inferior,
+    .btn,
+    .floating-bookmark,
+    .floating-export {
+        display: none !important;
+    }
+
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+        color: #000;
+        background: #fff;
+    }
+
+    .container {
+        width: 100%;
+        max-width: none;
+        padding: 0;
+    }
+
+    .header-tema {
+        min-height: auto;
+        background: none !important;
+        color: #000;
+        padding: 1cm 0;
+    }
+
+    .header-tema::before {
+        display: none;
+    }
+
+    .titulo-principal,
+    .subtitulo-principal {
+        color: #000;
+        text-shadow: none;
+    }
+
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+
+    a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.9em;
+        color: #666;
+    }
+
+    .box-info,
+    .card,
+    .stat-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+
+    .grafico-container {
+        break-inside: avoid;
+    }
+
+    @page {
+        margin: 2cm;
+    }
+
+    @page :first {
+        margin-top: 3cm;
+    }
+}
+
+/* DARK MODE SUPPORT */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --branco: #121212;
+        --cinza-claro: #1e1e1e;
+        --cinza-medio: #2d2d2d;
+        --cinza-escuro: #b0b0b0;
+        --preto: #f0f0f0;
+    }
+
+    body {
+        background-color: var(--branco);
+        color: var(--preto);
+    }
+
+    .card,
+    .box-info,
+    .stat-card {
+        background: var(--cinza-claro);
+        color: var(--preto);
+    }
+
+    .box {
+        background: var(--cinza-medio);
+    }
+
+    .tabela-tematica tr:nth-child(even) {
+        background: var(--cinza-medio);
+    }
+
+    .tabela-tematica tr:hover {
+        background: var(--cinza-claro);
+    }
+}
+
+/* ACESSIBILIDADE - REDUÇÃO DE MOVIMENTO */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* SUPORTE PARA TELA TÁTIL */
+@media (hover: none) and (pointer: coarse) {
+    .tooltip-container:hover .tooltip {
+        display: none;
+    }
+
+    .card:hover,
+    .box-info:hover,
+    .stat-card:hover {
+        transform: none;
+    }
+
+    .provincia-card:hover {
+        transform: translateY(0);
+    }
+
+    .barra:hover {
+        transform: scale(1);
+    }
+
+    /* Aumenta áreas de toque */
+    .btn,
+    .nav-link,
+    .legenda-botao {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}

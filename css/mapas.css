@@ -1,0 +1,264 @@
+/* ESTILOS PARA MAPAS E GEOGRAFIA */
+.secao-mapa {
+    background: var(--cinza-claro);
+    padding: var(--espacamento-xl) var(--espacamento-sm);
+    border-radius: var(--borda-redonda);
+    margin: var(--espacamento-xl) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.secao-mapa::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--verde-principal), var(--verde-secundario));
+}
+
+.mapa-container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: var(--espacamento-lg);
+    margin-top: var(--espacamento-lg);
+}
+
+.mapa-legenda {
+    background: var(--branco);
+    padding: var(--espacamento-md);
+    border-radius: var(--borda-redonda);
+    box-shadow: var(--sombra-media);
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+}
+
+.mapa-legenda h3 {
+    color: var(--verde-principal);
+    margin-bottom: var(--espacamento-md);
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--cinza-medio);
+}
+
+.legenda-item {
+    display: flex;
+    align-items: center;
+    gap: var(--espacamento-sm);
+    margin: var(--espacamento-sm) 0;
+    padding: 0.5rem;
+    border-radius: var(--borda-redonda);
+    transition: background var(--transicao-normal);
+}
+
+.legenda-item:hover {
+    background: var(--cinza-claro);
+}
+
+.legenda-cor {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    border: 2px solid rgba(0,0,0,0.1);
+}
+
+.legenda-cor.alta {
+    background: linear-gradient(135deg, #1a472a, #2e8b57);
+}
+
+.legenda-cor.media {
+    background: linear-gradient(135deg, #2e8b57, #3cb371);
+}
+
+.legenda-cor.baixa {
+    background: linear-gradient(135deg, #90ee90, #98fb98);
+}
+
+/* MAPA INTERATIVO */
+.mapa-interativo {
+    background: var(--branco);
+    border-radius: var(--borda-redonda);
+    padding: var(--espacamento-md);
+    box-shadow: var(--sombra-media);
+    min-height: 500px;
+    position: relative;
+    overflow: hidden;
+}
+
+.mapa-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.provincia {
+    fill: #e9ecef;
+    stroke: var(--branco);
+    stroke-width: 2;
+    cursor: pointer;
+    transition: all var(--transicao-normal);
+}
+
+.provincia:hover {
+    fill: #dee2e6;
+    stroke-width: 3;
+}
+
+.provincia.ativa {
+    fill: var(--verde-secundario);
+    stroke: var(--verde-principal);
+    stroke-width: 3;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+
+/* CARDS DE PROVÍNCIAS */
+.provincias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espacamento-md);
+}
+
+.provincia-card {
+    background: var(--branco);
+    padding: var(--espacamento-md);
+    border-radius: var(--borda-redonda);
+    box-shadow: var(--sombra-leve);
+    cursor: pointer;
+    transition: all var(--transicao-normal);
+    position: relative;
+    overflow: hidden;
+    border-top: 4px solid;
+}
+
+.provincia-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: currentColor;
+    opacity: 0.1;
+}
+
+.provincia-card[data-concentracao="alta"] {
+    border-top-color: var(--verde-principal);
+    color: var(--verde-principal);
+}
+
+.provincia-card[data-concentracao="media"] {
+    border-top-color: var(--verde-secundario);
+    color: var(--verde-secundario);
+}
+
+.provincia-card[data-concentracao="baixa"] {
+    border-top-color: var(--verde-claro);
+    color: var(--verde-claro);
+}
+
+.provincia-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--sombra-forte);
+}
+
+.provincia-card h4 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: var(--espacamento-sm);
+    color: inherit;
+}
+
+.provincia-card p {
+    margin: 0.5rem 0;
+    color: var(--cinza-escuro);
+}
+
+.provincia-card strong {
+    color: inherit;
+    font-size: 1.2rem;
+}
+
+/* TOOLTIP DO MAPA */
+.mapa-tooltip {
+    position: absolute;
+    background: var(--verde-principal);
+    color: var(--branco);
+    padding: 1rem 1.5rem;
+    border-radius: var(--borda-redonda);
+    font-size: 0.9rem;
+    pointer-events: none;
+    z-index: 100;
+    box-shadow: var(--sombra-forte);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all var(--transicao-normal);
+    max-width: 300px;
+}
+
+.mapa-tooltip.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mapa-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+    border-top-color: var(--verde-principal);
+}
+
+/* LEGENDA INTERATIVA */
+.legenda-interativa {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espacamento-sm);
+    margin-top: var(--espacamento-md);
+}
+
+.legenda-botao {
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--cinza-medio);
+    background: var(--branco);
+    border-radius: var(--borda-arredondada);
+    cursor: pointer;
+    font-weight: 500;
+    transition: all var(--transicao-normal);
+}
+
+.legenda-botao.ativo {
+    background: var(--verde-secundario);
+    color: var(--branco);
+    border-color: var(--verde-secundario);
+}
+
+.legenda-botao:hover:not(.ativo) {
+    background: var(--cinza-claro);
+    border-color: var(--verde-secundario);
+}
+
+/* ANIMAÇÕES DO MAPA */
+@keyframes pulseProvincia {
+    0% {
+        stroke-width: 2;
+        stroke-opacity: 0.5;
+    }
+    50% {
+        stroke-width: 8;
+        stroke-opacity: 0;
+    }
+    100% {
+        stroke-width: 2;
+        stroke-opacity: 0.5;
+    }
+}
+
+.provincia.destaque {
+    animation: pulseProvincia 2s infinite;
+    stroke: var(--dourado);
+}

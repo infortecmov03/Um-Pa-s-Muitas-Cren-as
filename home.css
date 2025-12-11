@@ -174,3 +174,60 @@
 .investigation-card-link:hover {
     text-decoration: underline;
 }
+
+/* Estilos para a seção Debate do Dia */
+.debate-do-dia {
+    background-color: #f0f7ff; /* Um azul claro e suave */
+    padding: 2rem 0;
+    border-bottom: 2px solid #ddeaf6;
+    border-top: 2px solid #ddeaf6;
+}
+.debate-do-dia .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+.debate-icon {
+    font-size: 3rem;
+    color: #0056b3; /* Um azul mais escuro */
+}
+.debate-content {
+    flex-grow: 1;
+}
+.debate-titulo {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.8rem;
+    margin: 0 0 0.5rem 0;
+    color: #333;
+}
+.debate-versiculo {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #555;
+    margin: 0 0 0.5rem 0;
+}
+.debate-convite {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    color: #555;
+    margin: 0;
+}
+.cta-debate {
+    background-color: #0056b3;
+    color: #fff;
+    white-space: nowrap; /* Impede que o botão quebre a linha */
+}
+.cta-debate:hover {
+    background-color: #004494;
+}
+/* Media Query para telas menores */
+@media (max-width: 768px) {
+    .debate-do-dia .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+}
