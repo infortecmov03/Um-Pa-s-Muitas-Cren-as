@@ -1,0 +1,564 @@
+
+:root {
+    --cor-catolica: #8b0000;
+    --cor-protestante: #0056b3;
+    --cor-pentecostal: #ff6b00;
+    --cor-africana: #2e8b57;
+    --cor-construtiva: #2c3e50;
+    --cor-destaque: #1a365d;
+    --cor-neutral: #34495e;
+    --cor-dados: #8e44ad;
+    --cor-historia: #16a085;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    color: #2d3748;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header-completo {
+    background: linear-gradient(rgba(44, 62, 80, 0.92), rgba(44, 62, 80, 0.92)), 
+                url('https://images.unsplash.com/photo-1518834103328-92b890a5d24d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1300&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+    border-bottom: 6px solid var(--cor-construtiva);
+}
+
+.header-completo h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.header-completo .subtitle {
+    font-size: 1.4rem;
+    opacity: 0.95;
+    max-width: 900px;
+    margin: 0 auto 1.5rem;
+}
+
+.destaque-header {
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 1.5rem;
+    margin: 2rem auto;
+    border-radius: 10px;
+    max-width: 900px;
+    backdrop-filter: blur(10px);
+}
+
+.box-info {
+    background: white;
+    border: 2px solid;
+    padding: 2rem;
+    margin: 2rem auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.box-info.dados { border-color: var(--cor-dados); }
+.box-info.historica { border-color: var(--cor-historia); }
+.box-info.economica { border-color: #e74c3c; }
+.box-info.social { border-color: #3498db; }
+
+.nav-denominacoes {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 3rem 0;
+    flex-wrap: wrap;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.denominacao-btn {
+    background: white;
+    border: 3px solid;
+    padding: 1.2rem 2.5rem;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    min-width: 220px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.denominacao-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.denominacao-btn:hover::before {
+    left: 100%;
+}
+
+.denominacao-btn.catolica {
+    border-color: var(--cor-catolica);
+    color: var(--cor-catolica);
+}
+
+.denominacao-btn.protestante {
+    border-color: var(--cor-protestante);
+    color: var(--cor-protestante);
+}
+
+.denominacao-btn.pentecostal {
+    border-color: var(--cor-pentecostal);
+    color: var(--cor-pentecostal);
+}
+
+.denominacao-btn.africana {
+    border-color: var(--cor-africana);
+    color: var(--cor-africana);
+}
+
+.denominacao-btn:hover,
+.denominacao-btn.ativo {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.denominacao-btn.ativo {
+    color: white;
+}
+
+.denominacao-btn.catolica.ativo { background: var(--cor-catolica); }
+.denominacao-btn.protestante.ativo { background: var(--cor-protestante); }
+.denominacao-btn.pentecostal.ativo { background: var(--cor-pentecostal); }
+.denominacao-btn.africana.ativo { background: var(--cor-africana); }
+
+.secao-analise {
+    background: white;
+    border-radius: 15px;
+    padding: 3rem;
+    margin: 3rem 0;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.1);
+    border-top: 6px solid var(--cor-construtiva);
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.secao-analise.ativo {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    animation: aparecer 0.6s ease-out;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.cabecalho-analise {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 3px solid #eee;
+}
+
+.cabecalho-analise .icone-grande {
+    font-size: 4rem;
+}
+
+.cabecalho-analise h2 {
+    font-family: 'Merriweather', serif;
+    font-size: 2.5rem;
+    margin: 0;
+    color: var(--cor-construtiva);
+}
+
+.cabecalho-analise .subtitulo {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 0.5rem;
+}
+
+.grid-dados {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.card-dado {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    border: 1px solid #e0e0e0;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-dado::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+}
+
+.card-dado.catolica::after { background: var(--cor-catolica); }
+.card-dado.protestante::after { background: var(--cor-protestante); }
+.card-dado.pentecostal::after { background: var(--cor-pentecostal); }
+.card-dado.africana::after { background: var(--cor-africana); }
+
+.card-dado:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.card-dado .valor {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin: 1rem 0;
+    font-family: 'Merriweather', serif;
+    line-height: 1;
+}
+
+.card-dado.catolica .valor { color: var(--cor-catolica); }
+.card-dado.protestante .valor { color: var(--cor-protestante); }
+.card-dado.pentecostal .valor { color: var(--cor-pentecostal); }
+.card-dado.africana .valor { color: var(--cor-africana); }
+
+.card-dado .fonte {
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+.tabela-expandida {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 3rem 0;
+    background: white;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.tabela-expandida th {
+    background: linear-gradient(135deg, var(--cor-construtiva) 0%, #1a365d 100%);
+    color: white;
+    padding: 1.5rem;
+    text-align: left;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.tabela-expandida th:last-child {
+    border-right: none;
+}
+
+.tabela-expandida td {
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee;
+    vertical-align: top;
+}
+
+.tabela-expandida td:last-child {
+    border-right: none;
+}
+
+.tabela-expandida tr:nth-child(even) {
+    background: #fafafa;
+}
+
+.tabela-expandida tr:hover {
+    background: #f0f8ff;
+}
+
+.container-detalhes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    margin: 3rem 0;
+}
+
+.painel-detalhe {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    border-top: 4px solid;
+}
+
+.painel-detalhe.historico { border-color: var(--cor-historia); }
+.painel-detalhe.demografico { border-color: var(--cor-dados); }
+.painel-detalhe.economico { border-color: #e74c3c; }
+.painel-detalhe.social { border-color: #3498db; }
+.painel-detalhe.geografico { border-color: #2ecc71; }
+
+.painel-detalhe h3 {
+    color: #2c3e50;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.4rem;
+}
+
+.painel-detalhe .conteudo {
+    margin-top: 1.5rem;
+}
+
+.painel-detalhe .conteudo ul {
+    padding-left: 1.2rem;
+}
+
+.painel-detalhe .conteudo li {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+}
+
+.evolucao-timeline {
+    position: relative;
+    padding: 2rem;
+    margin: 3rem 0;
+    background: linear-gradient(135deg, #f8f9ff 0%, #f0f8ff 100%);
+    border-radius: 12px;
+    border-left: 5px solid var(--cor-historia);
+}
+
+.item-timeline {
+    position: relative;
+    padding-left: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.item-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--cor-historia);
+}
+
+.item-timeline .ano {
+    font-weight: 700;
+    color: var(--cor-historia);
+    font-size: 1.1rem;
+}
+
+.item-timeline .evento {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.comparativo-regioes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.card-regiao {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    border: 2px solid;
+}
+
+.card-regiao.norte { border-color: #e74c3c; }
+.card-regiao.centro { border-color: #3498db; }
+.card-regiao.sul { border-color: #2ecc71; }
+
+.card-regiao h4 {
+    color: #2c3e50;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.card-regiao .estatisticas {
+    margin-top: 1.5rem;
+}
+
+.card-regiao .estatistica-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px dashed #eee;
+}
+
+.btn-expandir {
+    background: linear-gradient(135deg, var(--cor-construtiva) 0%, #1a365d 100%);
+    color: white;
+    border: none;
+    padding: 1.2rem 2.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    margin: 2rem auto;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.1rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.btn-expandir:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    background: linear-gradient(135deg, #1a365d 0%, var(--cor-construtiva) 100%);
+}
+
+.conteudo-expansivel {
+    display: none;
+    background: linear-gradient(135deg, #f8f9ff 0%, #f5f7fa 100%);
+    padding: 3rem;
+    margin: 2rem 0;
+    border-radius: 15px;
+    border: 2px solid var(--cor-construtiva);
+    animation: expandir 0.6s ease-out;
+}
+
+@keyframes expandir {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.grafico-container {
+    width: 100%;
+    height: 400px;
+    margin: 2rem 0;
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.grafico-container::before {
+    content: 'VISUALIZAÇÃO DE DADOS';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    color: rgba(0,0,0,0.1);
+    font-weight: 700;
+    z-index: 0;
+}
+
+.grafico-container .conteudo {
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .header-completo h1 {
+        font-size: 2.2rem;
+    }
+    
+    .nav-denominacoes {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .denominacao-btn {
+        width: 100%;
+        max-width: 320px;
+    }
+    
+    .secao-analise {
+        padding: 2rem 1.5rem;
+    }
+    
+    .container-detalhes {
+        grid-template-columns: 1fr;
+    }
+    
+    .cabecalho-analise {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+}
+
+.indicador-tendencia {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-left: 0.5rem;
+}
+
+.indicador-tendencia.positivo {
+    background: #d4edda;
+    color: #155724;
+}
+
+.indicador-tendencia.negativo {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.indicador-tendencia.neutro {
+    background: #e2e3e5;
+    color: #383d41;
+}
+
+.tag-fonte {
+    display: inline-block;
+    background: #f1f1f1;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.destaque-numerico {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--cor-construtiva);
+    margin: 0.5rem 0;
+}

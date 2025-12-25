@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise Aprofundada: Curandeirismo em Moçambique - Sistema Completo</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;600;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --curandeiro-earth: #8d6e63;
+            --curandeiro-brown: #5d4037;
+            --curandeiro-red: #c62828;
+            --curandeiro-orange: #ff8f00;
+            --curandeiro-yellow: #ffd54f;
+            --curandeiro-green: #558b2f;
+            --curandeiro-dark: #3e2723;
+            --curandeiro-light: #efebe9;
+            --curandeiro-purple: #6a1b9a;
+            --curandeiro-teal: #00695c;
+            --curandeiro-blue: #0277bd;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.8;
+            color: var(--curandeiro-dark);
+            background: linear-gradient(135deg, #f5efeb 0%, #ede7f6 100%);
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(141, 110, 99, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 143, 0, 0.05) 0%, transparent 20%);
+        }
+
+        .container {
+            width: 95%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Principal */
+        .header-completo {
+            background: linear-gradient(rgba(62, 39, 35, 0.9), rgba(93, 64, 55, 0.95)), 
+                        url('https://images.unsplash.com/photo-1519821172144-4f87d85de2a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 130px 0 90px;
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 12px solid var(--curandeiro-orange);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-completo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 213, 79, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(255, 143, 0, 0.1) 0%, transparent 40%);
+        }
+
+        .titulo-principal {
+            font-family: 'Roboto Slab', serif;
+            font-size: 4.2rem;
+            margin-bottom: 25px;
+            color: var(--curandeiro-yellow);
+            text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.7);
+            line-height: 1.1;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitulo-principal {
+            font-size: 1.8rem;
+            max-width: 1000px;
+            margin: 0 auto 50px;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 300;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge-tradicional {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--curandeiro-orange), var(--curandeiro-red));
+            color: white;
+            padding: 15px 40px;
+            border-radius: 35px;
+            font-size: 1.3rem;
+            margin-top: 25px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            z-index: 1;
+            transition: all 0.4s ease;
+        }
+
+        .badge-tradicional:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Navegação por Tópicos */
+        .navegacao-rapida {
+            background: white;
+            border-radius: 18px;
+            padding: 35px;
+            margin-bottom: 60px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            border-top: 10px solid var(--curandeiro-brown);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .navegacao-rapida::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(141, 110, 99, 0.1) 0%, rgba(141, 110, 99, 0) 70%);
+            border-radius: 50%;
+        }
+
+        .navegacao-titulo {
+            color: var(--curandeiro-dark);
+            margin-bottom: 30px;
+            font-family: 'Roboto Slab', serif;
+            font-size: 2.5rem;
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .navegacao-titulo i {
+            margin-right: 25px;
+            color: var(--curandeiro-earth);
+            background: rgba(141, 110, 99, 0.1);
+            padding: 18px;
+            border-radius: 50%;
+        }
+
+        .topicos-rapidos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .topico-link {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f9f5f3, #f5efe9);
+            padding: 25px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--curandeiro-dark);
+            font-weight: 700;
+            transition: all 0.4s ease;
+            border-left: 6px solid var(--curandeiro-earth);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            border-right: 2px solid transparent;
+        }
+
+        .topico-link:hover {
+            background: linear-gradient(135deg, var(--curandeiro-brown), var(--curandeiro-dark));
+            color: white;
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+            border-left: 6px solid var(--curandeiro-orange);
+            border-right: 2px solid var(--curandeiro-yellow);
+        }
+
+        .topico-link i {
+            margin-right: 20px;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+            min-width: 40px;
+        }
+
+        .topico-link:hover i {
+            transform: scale(1.3) rotate(10deg);
+            color: var(--curandeiro-yellow);
+        }
+
+        /* Seções Principais */
+        .secao-aprofundada {
+            background: white;
+            border-radius: 18px;
+            padding: 55px;
+            margin-bottom: 70px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+            border-top: 10px solid;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .secao-aprofundada::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, var(--curandeiro-brown), var(--curandeiro-orange), var(--curandeiro-red));
+        }
+
+        .secao-1 { border-top-color: var(--curandeiro-brown); }
+        .secao-2 { border-top-color: var(--curandeiro-green); }
+        .secao-3 { border-top-color: var(--curandeiro-red); }
+        .secao-4 { border-top-color: var(--curandeiro-orange); }
+        .secao-5 { border-top-color: var(--curandeiro-purple); }
+        .secao-6 { border-top-color: var(--curandeiro-teal); }
+        .secao-7 { border-top-color: var(--curandeiro-blue); }
+
+        .titulo-secao {
+            font-family: 'Roboto Slab', serif;
+            color: var(--curandeiro-dark);
+            margin-bottom: 45px;
+            padding-bottom: 25px;
+            border-bottom: 5px solid;
+            font-size: 3rem;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .titulo-secao i {
+            margin-right: 25px;
+            background: linear-gradient(135deg, var(--curandeiro-brown), var(--curandeiro-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 3rem;
+            padding: 20px;
+            background-color: rgba(141, 110, 99, 0.1);
+            border-radius: 50%;
+            border: 3px solid rgba(141, 110, 99, 0.2);
+        }
+
+        /* Boxes Informativos Expandidos */
+        .boxes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 35px;
+            margin: 40px 0;
+        }
+
+        .box-expandido {
+            background: white;
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            border-top: 6px solid;
+            transition: all 0.5s ease;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .box-expandido::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(141, 110, 99, 0.05) 0%, rgba(141, 110, 99, 0) 70%);
+            border-radius: 50%;
+        }
+
+        .box-expandido:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .box-expandido.filosofia { border-top-color: var(--curandeiro-brown); }
+        .box-expandido.etnico { border-top-color: var(--curandeiro-green); }
+        .box-expandido.planta { border-top-color: var(--curandeiro-red); }
+        .box-expandido.ritual { border-top-color: var(--curandeiro-orange); }
+        .box-expandido.diagnostico { border-top-color: var(--curandeiro-purple); }
+        .box-expandido.integracao { border-top-color: var(--curandeiro-blue); }
+
+        .box-titulo {
+            color: var(--curandeiro-dark);
+            margin-bottom: 25px;
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .box-titulo i {
+            margin-right: 20px;
+            font-size: 2rem;
+            background: rgba(141, 110, 99, 0.1);
+            padding: 15px;
+            border-radius: 50%;
+        }
+
+        /* Tipos Expandidos */
+        .tipos-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .tipo-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            border: 3px solid transparent;
+            height: 100%;
+        }
+
+        .tipo-card:hover {
+            transform: translateY(-15px) rotate(1deg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.18);
+            border-color: var(--curandeiro-orange);
+        }
+
+        .tipo-header {
+            background: linear-gradient(135deg, var(--curandeiro-brown), var(--curandeiro-dark));
+            color: white;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tipo-header::after {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(255, 213, 79, 0.2) 0%, rgba(255, 213, 79, 0) 70%);
+            border-radius: 50%;
+        }
+
+        .tipo-nome {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.9rem;
+            margin-bottom: 10px;
+            color: var(--curandeiro-yellow);
+            position: relative;
+            z-index: 1;
+        }
+
+        .tipo-regiao {
+            font-size: 1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tipo-body {
+            padding: 30px;
+        }
+
+        .tipo-item {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(141, 110, 99, 0.1);
+        }
+
+        .tipo-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .tipo-item i {
+            color: var(--curandeiro-green);
+            margin-right: 15px;
+            margin-top: 5px;
+            min-width: 25px;
+            font-size: 1.2rem;
+        }
+
+        .tipo-item span {
+            flex: 1;
+        }
+
+        .tipo-item strong {
+            color: var(--curandeiro-brown);
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        /* Tabela Comparativa Expandida */
+        .tabela-expandida {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 50px 0;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 3px solid var(--curandeiro-earth);
+        }
+
+        .tabela-expandida thead {
+            background: linear-gradient(135deg, var(--curandeiro-brown), var(--curandeiro-dark));
+            color: white;
+        }
+
+        .tabela-expandida th {
+            padding: 28px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.3rem;
+            border-right: 1px solid rgba(255, 255, 255, 0.15);
+            letter-spacing: 0.5px;
+        }
+
+        .tabela-expandida th:last-child {
+            border-right: none;
+        }
+
+        .tabela-expandida tbody tr {
+            transition: background-color 0.4s;
+            border-bottom: 1px solid rgba(141, 110, 99, 0.1);
+        }
+
+        .tabela-expandida tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        .tabela-expandida tbody tr:hover {
+            background-color: #f9f5f3;
+        }
+
+        .tabela-expandida tbody tr:nth-child(even) {
+            background-color: #faf5f3;
+        }
+
+        .tabela-expandida tbody tr:nth-child(even):hover {
+            background-color: #f5ede9;
+        }
+
+        .tabela-expandida td {
+            padding: 25px 28px;
+            border-right: 1px solid rgba(141, 110, 99, 0.1);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .tabela-expandida td:first-child {
+            font-weight: 700;
+            color: var(--curandeiro-brown);
+            border-left: 5px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .tabela-expandida tr:hover td:first-child {
+            border-left: 5px solid var(--curandeiro-earth);
+            padding-left: 23px;
+        }
+
+        .tabela-expandida td:last-child {
+            border-right: none;
+        }
+
+        /* Linha do Tempo Expandida */
+        .timeline-expandida {
+            margin: 60px 0;
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline-expandida::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 6px;
+            background: linear-gradient(to bottom, var(--curandeiro-brown), var(--curandeiro-orange), var(--curandeiro-red), var(--curandeiro-earth));
+            transform: translateX(-50%);
+            border-radius: 3px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .momento-expandido {
+            width: calc(50% - 60px);
+            margin: 40px 0;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .momento-expandido.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .momento-expandido:nth-child(odd) {
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        .momento-expandido:nth-child(even) {
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        .momento-expandido::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--curandeiro-orange);
+            border: 6px solid white;
+            box-shadow: 0 0 0 4px var(--curandeiro-brown), 0 4px 15px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        .momento-expandido:nth-child(odd)::before {
+            right: -73px;
+        }
+
+        .momento-expandido:nth-child(even)::before {
+            left: -73px;
+        }
+
+        .momento-content {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+            border-top: 6px solid var(--curandeiro-brown);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .momento-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--curandeiro-brown), var(--curandeiro-orange));
+        }
+
+        .momento-ano {
+            background: linear-gradient(135deg, var(--curandeiro-brown), var(--curandeiro-dark));
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            letter-spacing: 1px;
+        }
+
+        /* Mapa Regional Expandido */
+        .mapa-regional {
+            background: linear-gradient(135deg, #f9f5f3, #f5efe9);
+            padding: 40px;
+            border-radius: 18px;
+            margin: 50px 0;
+            border: 3px solid var(--curandeiro-earth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mapa-regional::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 143, 0, 0.05) 0%, rgba(255, 143, 0, 0) 70%);
+            border-radius: 50%;
+        }
+
+        .mapa-titulo {
+            color: var(--curandeiro-dark);
+            margin-bottom: 35px;
+            font-family: 'Roboto Slab', serif;
+            font-size: 2.2rem;
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mapa-titulo i {
+            margin-right: 20px;
+            color: var(--curandeiro-earth);
+        }
+
+        .regioes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .regiao-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border-top: 5px solid var(--curandeiro-green);
+        }
+
+        .regiao-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-top: 5px solid var(--curandeiro-orange);
+        }
+
+        .regiao-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(141, 110, 99, 0.2);
+        }
+
+        .regiao-icon {
+            font-size: 2.5rem;
+            color: var(--curandeiro-earth);
+            margin-right: 20px;
+            background: rgba(141, 110, 99, 0.1);
+            padding: 15px;
+            border-radius: 50%;
+        }
+
+        .regiao-nome {
+            color: var(--curandeiro-brown);
+            font-weight: 700;
+            font-size: 1.5rem;
+            font-family: 'Roboto Slab', serif;
+        }
+
+        .regiao-etnias {
+            color: var(--curandeiro-red);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        /* Sistema de Conhecimento */
+        .sistema-conhecimento {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .conhecimento-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            border-top: 6px solid var(--curandeiro-teal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .conhecimento-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            border-top: 6px solid var(--curandeiro-orange);
+        }
+
+        .conhecimento-icon {
+            font-size: 4rem;
+            color: var(--curandeiro-teal);
+            margin-bottom: 25px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .conhecimento-card:hover .conhecimento-icon {
+            transform: scale(1.2);
+            color: var(--curandeiro-orange);
+        }
+
+        .conhecimento-titulo {
+            font-weight: bold;
+            color: var(--curandeiro-dark);
+            margin-bottom: 20px;
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.6rem;
+        }
+
+        /* Citações Expandidas */
+        .citacao-expandida {
+            background: linear-gradient(135deg, rgba(245, 235, 233, 0.9), rgba(232, 213, 201, 0.9));
+            padding: 50px;
+            border-radius: 18px;
+            margin: 60px 0;
+            border: 3px solid var(--curandeiro-earth);
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 0 30px rgba(141, 110, 99, 0.1);
+        }
+
+        .citacao-expandida::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 120px;
+            color: var(--curandeiro-earth);
+            opacity: 0.15;
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .citacao-expandida::after {
+            content: '"';
+            position: absolute;
+            bottom: -30px;
+            right: 30px;
+            font-size: 120px;
+            color: var(--curandeiro-earth);
+            opacity: 0.15;
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .citacao-texto {
+            font-size: 1.7rem;
+            color: var(--curandeiro-dark);
+            margin-bottom: 25px;
+            line-height: 2;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .citacao-fonte {
+            color: var(--curandeiro-red);
+            font-weight: 700;
+            text-align: right;
+            font-size: 1.2rem;
+            position: relative;
+            z-index: 1;
+            font-style: normal;
+        }
+
+        /* Conclusão Expandida */
+        .conclusao-expandida {
+            background: linear-gradient(135deg, rgba(141, 110, 99, 0.1), rgba(255, 143, 0, 0.08));
+            padding: 60px;
+            border-radius: 20px;
+            margin: 70px 0;
+            border: 4px solid var(--curandeiro-brown);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .conclusao-expandida::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 143, 0, 0.05) 0%, rgba(255, 143, 0, 0) 70%);
+            border-radius: 50%;
+        }
+
+        .conclusao-titulo {
+            color: var(--curandeiro-dark);
+            margin-bottom: 40px;
+            font-family: 'Roboto Slab', serif;
+            font-size: 3rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .conclusao-texto {
+            font-size: 1.3rem;
+            line-height: 2.1;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Barra de Progresso de Leitura */
+        .progresso-leitura {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: #f5efe9;
+            z-index: 1000;
+        }
+
+        .barra-progresso {
+            height: 100%;
+            background: linear-gradient(90deg, var(--curandeiro-brown), var(--curandeiro-orange), var(--curandeiro-red));
+            width: 0%;
+            transition: width 0.3s ease;
+            box-shadow: 0 2px 15px rgba(141, 110, 99, 0.4);
+        }
+
+        /* Responsividade */
+        @media (max-width: 1200px) {
+            .titulo-principal {
+                font-size: 3.5rem;
+            }
+            
+            .secao-aprofundada {
+                padding: 45px;
+            }
+            
+            .boxes-container {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            }
+            
+            .timeline-expandida::before {
+                left: 40px;
+            }
+            
+            .momento-expandido {
+                width: calc(100% - 80px);
+                margin-left: 80px !important;
+                margin-right: 0 !important;
+            }
+            
+            .momento-expandido:nth-child(odd)::before,
+            .momento-expandido:nth-child(even)::before {
+                left: -73px;
+                right: auto;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .titulo-principal {
+                font-size: 2.8rem;
+            }
+            
+            .subtitulo-principal {
+                font-size: 1.5rem;
+            }
+            
+            .secao-aprofundada {
+                padding: 40px;
+            }
+            
+            .titulo-secao {
+                font-size: 2.5rem;
+            }
+            
+            .boxes-container {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .tabela-expandida {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .regioes-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .titulo-principal {
+                font-size: 2.4rem;
+            }
+            
+            .subtitulo-principal {
+                font-size: 1.2rem;
+            }
+            
+            .secao-aprofundada {
+                padding: 30px;
+            }
+            
+            .titulo-secao {
+                font-size: 2rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .titulo-secao i {
+                margin-bottom: 20px;
+                margin-right: 0;
+            }
+            
+            .topicos-rapidos {
+                grid-template-columns: 1fr;
+            }
+            
+            .boxes-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .tipos-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .momento-expandido {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+            }
+            
+            .momento-expandido::before {
+                left: -53px !important;
+            }
+        }
+
+        /* Animações */
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(40px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        .secao-aprofundada, .box-expandido, .tipo-card, .conhecimento-card {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* Efeitos especiais */
+        .efeito-sabedoria {
+            position: relative;
+        }
+
+        .efeito-sabedoria::after {
+            content: '⚕';
+            position: absolute;
+            bottom: -10px;
+            right: 10px;
+            font-size: 2rem;
+            color: var(--curandeiro-earth);
+            opacity: 0.1;
+            animation: flutuar 3s ease-in-out infinite;
+        }
+
+        @keyframes flutuar {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de Progresso -->
+    <div class="progresso-leitura">
+        <div class="barra-progresso" id="barraProgresso"></div>
+    </div>
+
+    <!-- Cabeçalho -->
+    <header class="header-completo">
+        <div class="container">
+            <h1 class="titulo-principal">Curandeirismo em Moçambique</h1>
+            <p class="subtitulo-principal">Sistema Completo de Medicina Tradicional: Filosofia, Práticas, Tipologias e Transformações no Contexto Moçambicano Contemporâneo</p>
+            <div class="badge-tradicional">⚕ Sabedoria Ancestral • Sistema Médico Holístico • Conhecimento Tradicional ⚕</div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Navegação Rápida -->
+        <nav class="navegacao-rapida">
+            <h2 class="navegacao-titulo"><i class="fas fa-compass"></i> Navegação por Tópicos</h2>
+            <div class="topicos-rapidos">
+                <a href="#filosofia" class="topico-link"><i class="fas fa-brain"></i> Filosofia e Cosmovisão</a>
+                <a href="#tipos" class="topico-link"><i class="fas fa-user-md"></i> Tipologias de Curandeiros</a>
+                <a href="#regioes" class="topico-link"><i class="fas fa-map"></i> Diversidade Regional</a>
+                <a href="#plantas" class="topico-link"><i class="fas fa-leaf"></i> Farmacopeia Tradicional</a>
+                <a href="#diagnostico" class="topico-link"><i class="fas fa-stethoscope"></i> Sistemas de Diagnóstico</a>
+                <a href="#rituais" class="topico-link"><i class="fas fa-magic"></i> Rituais e Cerimónias</a>
+                <a href="#historia" class="topico-link"><i class="fas fa-history"></i> Evolução Histórica</a>
+                <a href="#contemporaneo" class="topico-link"><i class="fas fa-handshake"></i> Contexto Contemporâneo</a>
+            </div>
+        </nav>
+
+        <!-- Seção 1: Filosofia e Cosmovisão -->
+        <section id="filosofia" class="secao-aprofundada secao-1">
+            <h2 class="titulo-secao"><i class="fas fa-yin-yang"></i> Filosofia e Cosmovisão</h2>
+            
+            <div class="boxes-container">
+                <div class="box-expandido filosofia">
+                    <h3 class="box-titulo"><i class="fas fa-balance-scale"></i> Holismo: Corpo, Espírito e Comunidade</h3>
+                    <p>Na cosmovisão tradicional moçambicana, saúde e doença não são conceitos puramente biológicos. A pessoa é vista como um todo integrado:</p>
+                    <ul style="margin: 20px 0 0 20px; color: #555;">
+                        <li style="margin-bottom: 10px;"><strong>Corpo Físico:</strong> Aspecto material, sujeito a desequilíbrios naturais</li>
+                        <li style="margin-bottom: 10px;"><strong>Espírito/Força Vital:</strong> Energia que anima o corpo, vulnerável a influências espirituais</li>
+                        <li style="margin-bottom: 10px;"><strong>Relações Sociais:</strong> Conexões com família, comunidade e ancestrais</li>
+                        <li><strong>Ambiente Natural:</strong> Relação harmônica com terra, água, plantas e animais</li>
+                    </ul>
+                </div>
+                
+                <div class="box-expandido filosofia">
+                    <h3 class="box-titulo"><i class="fas fa-ghost"></i> Causação das Doenças</h3>
+                    <p>As doenças são classificadas conforme sua origem percebida:</p>
+                    <ul style="margin: 20px 0 0 20px; color: #555;">
+                        <li style="margin-bottom: 10px;"><strong>Naturais:</strong> Exposição a elementos, desequilíbrios alimentares, idade</li>
+                        <li style="margin-bottom: 10px;"><strong>Sobrenaturais:</strong> Ação de espíritos, feitiçaria, quebra de tabus</li>
+                        <li style="margin-bottom: 10px;"><strong>Sociomorais:</strong> Conflitos não resolvidos, inveja, comportamentos anti-sociais</li>
+                        <li><strong>Ancestrais:</strong> Descontentamento dos antepassados, obrigações não cumpridas</li>
+                    </ul>
+                </div>
+                
+                <div class="box-expandido filosofia">
+                    <h3 class="box-titulo"><i class="fas fa-users"></i> Ancestralidade e Continuidade</h3>
+                    <p>Os antepassados (vadzimu) não são "mortos" no sentido ocidental, mas membros ativos da comunidade espiritual que:</p>
+                    <ul style="margin: 20px 0 0 20px; color: #555;">
+                        <li style="margin-bottom: 10px;">Protegem os descendentes que os honram</li>
+                        <li style="margin-bottom: 10px;">Causam problemas quando negligenciados</li>
+                        <li style="margin-bottom: 10px;">Transmitem sabedoria através de sonhos e possessão</li>
+                        <li>São intermediários entre os vivos e as forças cósmicas superiores</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="citacao-expandida">
+                <p class="citacao-texto">"Para compreender a medicina tradicional africana, é preciso abandonar a dicotomia ocidental entre corpo e espírito, natural e sobrenatural, indivíduo e comunidade. Na África, tudo está conectado: a doença de uma pessoa pode ser sintoma do desequilíbrio da comunidade; a feitiçaria não é superstição, mas linguagem social para expressar conflitos; os ancestrais não são memórias, são presenças ativas."</p>
+                <p class="citacao-fonte">— Professor moçambicano de antropologia médica</p>
+            </div>
+        </section>
+
+        <!-- Seção 2: Tipologias de Curandeiros -->
+        <section id="tipos" class="secao-aprofundada secao-2">
+            <h2 class="titulo-secao"><i class="fas fa-user-nurse"></i> Tipologias e Especializações</h2>
+            
+            <div class="tipos-container">
+                <!-- Nyanga -->
+                <div class="tipo-card">
+                    <div class="tipo-header">
+                        <h3 class="tipo-nome">Nyanga / Mutsanga</h3>
+                        <div class="tipo-regiao">Herbalista • Todo o território</div>
+                    </div>
+                    <div class="tipo-body">
+                        <div class="tipo-item">
+                            <i class="fas fa-seedling"></i>
+                            <span>
+                                <strong>Conhecimento Botânico</strong>
+                                Identificação de 200-300 plantas medicinais, épocas de colheita, preparação
+                            </span>
+                        </div>
+                        <div class="tipo-item">
+                            <i class="fas fa-mortar-pestle"></i>
+                            <span>
+                                <strong>Preparações</strong>
+                                Infusões, decocções, pomadas, pós, banhos medicinais, inalações
+                            </span>
+                        </div>
+                        <div class="tipo-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>
+                                <strong>Formação</strong>
+                                Aprendizado familiar (7-15 anos), iniciação ritual, conhecimento transmitido oralmente
+                            </span>
+                        </div>
+                        <div class="tipo-item">
+                            <i class="fas fa-hand-holding-medical"></i>
+                            <span>
+                                <strong>Especializações</strong>
+                                Alguns focam em doenças específicas: malária, problemas digestivos, dermatológicos
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- N'anga -->
+                <div class="tipo-card">
+                    <div class="tipo-header">
+                        <h3 class="tipo-nome">N'anga / Mufembi</h3>
+                        <div class="tipo-regiao">Divinador • Centro e Norte</div>
+                    </div>
+                    <div class="tipo-body">
+                        <div class="tipo-item">
+                            <i class="fas fa-crystal-ball"></i>
+                            <span>
+                                <strong>Métodos de Diagnóstico</strong>
+                                Jogo de ossos (hakata), água espelhada, possessão espiritual, leitura de sinais
+                            </span>
+                        </div>
+                        <div class="tipo-item">
+                            <i class="fas fa-eye"></i>
+                            <span>
+                                <strong>Função Principal</strong>
+                                Identificar causas espirituais: feitiçaria, espíritos, quebra de tabus ancestrais
+                            </span>
+                        </div>
+                        <div class="tipo-item">
+                            <i class="fas fa-theater-masks"></i>
+                            <span>
+                                <strong>Possessão</strong>
+                                Muitos entram em transe, "incorporando" espíritos que diagnosticam e prescrevem
+                            </span>
+                        </div>
+                        <div class="tipo-item">
+                            <i class="fas fa-scale-balanced"></i>
+                            <span>
+                                <strong>Papel Social</strong>
+                                Mediador de conflitos, conselheiro, guardião da ordem moral tradicional
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Parteira Tradicional -->
+                <div class="tipo-card">
+                    <div class="tipo-header">
+                        <h3 class="tipo-nome">Parteira Tradicional</h3>
+                        <div class="tipo-regiao">Áreas rurais • Todo o país</div>
+                    </div>
+                    <div class="tipo-body">
+                        <div class="tipo-item">
+                            <i class="fas fa-baby"></i>
+                            <span>
+                                <strong>Cuidados Pré-Natais</strong>
+                                Massagens, infusões para fortalecimento, aconselhamento dietético
+                            </span>
+                        </div>
+                        <div class="tipo-item">
+                            <i class="fas fa-spa"></i>
+                            <span>
+                                <strong>Plantas Específicas</strong>
+                                Para facilitar parto, contra hemorragias, para produção de leite
+                            </span>
+                        </div>
+                        <div class="tipo-item">
+                            <i class="fas fa-female"></i>
+                            <span>
+                                <strong>Perfil</strong>
+                                Mulheres mais velhas, muitas vezes após própria experiência de múltiplos partos
+                            </span>
+                        </div>
+                        <div class="tipo-item">
+                            <i class="fas fa-hands-helping"></i>
+                            <span>
+                                <strong>Integração Moderna</strong>
+                                Muitas recebem treino básico do Ministério da Saúde em higiene e encaminhamento
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Muti -->
+                <div class="tipo-card">
+                    <div class="tipo-header">
+                        <h3 class="tipo-nome">Especialista em Muti</h3>
+                        <div class="tipo-regiao">Sul e Centro • Áreas urbanas</div>
+                    </div>
+                    <div class="tipo-body">
+                        <div class="tipo-item">
+                            <i class="fas fa-skull-crossbones"></i>
+                            <span>
+                                <strong>Conhecimento Especializado</strong>
+                                Venenos e antídotos, substâncias para proteção e ataque espiritual
+                            </span>
+                        </div>
+                        <div class="tipo-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>
+                                <strong>Função</strong>
+                                Contra-feitiçaria, proteção contra inveja e agressões espirituais
+                            </span>
+                        </div>
+                        <div class="tipo-item">
+                            <i class="fas fa-flask"></i>
+                            <span>
+                                <strong>Preparações</strong>
+                                Amuletos, substâncias para aplicar no corpo, para enterrar, para queimar
+                            </span>
+                        </div>
+                        <div class="tipo-item">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span>
+                                <strong>Aspecto Controverso</strong>
+                                Associado a casos de tráfico de partes corporais para "medicina" muthi
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 3: Diversidade Regional -->
+        <section id="regioes" class="secao-aprofundada secao-3">
+            <h2 class="titulo-secao"><i class="fas fa-globe-africa"></i> Diversidade Regional e Étnica</h2>
+            
+            <div class="mapa-regional">
+                <h3 class="mapa-titulo"><i class="fas fa-map-marked-alt"></i> Mapa das Práticas por Região</h3>
+                <div class="regioes-grid">
+                    <div class="regiao-card">
+                        <div class="regiao-header">
+                            <div class="regiao-icon">
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            <div>
+                                <div class="regiao-nome">Sul (Maputo, Gaza)</div>
+                                <div class="regiao-etnias">Tsonga, Ronga, Changana</div>
+                            </div>
+                        </div>
+                        <div class="tipo-item">
+                            <i class="fas fa-dice"></i>
+                            <span><strong>Diagnóstico:</strong> Forte uso do jogo de ossos (hakata), menos possessão espiritual</span>
+                        </div>
+                        <div class="tipo-item">
+                            <i class="fas fa-tree"></i>
+                            <span><strong>Plantas:</strong> Extenso uso de raízes e cascas, conhecimento de plantas do bioma savana</span>
+                        </div>
+                        <div class="tipo-item">
+                            <i class="fas fa-city"></i>
+                            <span><strong>Urbanização:</strong> Maior comercialização e adaptação ao contexto urbano</span>
+                        </div>
+                    </div>
+                    
+                    <div class="regiao-card">
+                        <div class="regiao-header">
+                            <div class="regiao-icon">
+                                <i class="fas fa-water"></i>
+                            </div>
+                            <div>
+                                <div class="regiao-nome">Centro (Sofala, Manica, Zambézia)</div>
+                                <div class="regiao-etnias">Sena, Ndau, Manyika</div>
+                            </div>
+                        </div>
+                        <div class="tipo-item">
+                            <i class="fas fa-ghost"></i>
+                            <span><strong>Espíritos da Água:</strong> Forte crença nos njuzu - espíritos aquáticos que transmitem conhecimento</span>
+                        </div>
+                        <div class="tipo-item">
+                            <i class="fas fa-users"></i>
+                            <span><strong>Comunicação Ancestral:</strong> Rituais elaborados para comunicação com antepassados</span>
+                        </div>
+                        <div class="tipo-item">
+                            <i class="fas fa-balance-scale"></i>
+                            <span><strong>Equilíbrio:</strong> Combinação equilibrada de herbalismo e práticas espirituais</span>
+                        </div>
+                    </div>
+                    
+                    <div class="regiao-card">
+                        <div class="regiao-header">
+                            <div class="regiao-icon">
+                                <i class="fas fa-mountain"></i>
+                            </div>
+                            <div>
+                                <div class="regiao-nome">Norte (Nampula, Cabo Delgado)</div>
+                                <div class="regiao-etnias">Macua, Makonde, Yao</div>
+                            </div>
+                        </div>
+                        <div class="tipo-item">
+                            <i class="fas fa-mask"></i>
+                            <span><strong>Arte Ritual:</strong> Esculturas Makonde usadas em rituais, máscaras de iniciação</span>
+                        </div>
+                        <div class="tipo-item">
+                            <i class="fas fa-hands"></i>
+                            <span><strong>Práticas Mágicas:</strong> Sistema complexo de magia e contra-magia</span>
+                        </div>
+                        <div class="tipo-item">
+                            <i class="fas fa-exchange-alt"></i>
+                            <span><strong>Sincretismo:</strong> Influência islâmica nas práticas, especialmente entre os Yao</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <table class="tabela-expandida">
+                <thead>
+                    <tr>
+                        <th>Grupo Étnico</th>
+                        <th>Conceito de Doença</th>
+                        <th>Especialistas Principais</th>
+                        <th>Elementos Distintivos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tsonga/Changana</td>
+                        <td>Causas principalmente sociais (inveja, conflitos)</td>
+                        <td>N'anga (divinador), Nyanga (herbalista)</td>
+                        <td>Jogo de hakata muito desenvolvido, rituais de purificação coletiva</td>
+                    </tr>
+                    <tr>
+                        <td>Macua</td>
+                        <td>Desequilíbrio com mundo espiritual, especialmente ancestrais</td>
+                        <td>M'phuki (herbalista-espiritual), parteiras tradicionais</td>
+                        <td>Cerimónias de possessão por espíritos ancestrais, uso de tambores específicos</td>
+                    </tr>
+                    <tr>
+                        <td>Sena</td>
+                        <td>Ação de espíritos da natureza (njuzu), feitiçaria</td>
+                        <td>N'anga, especialistas em espíritos aquáticos</td>
+                        <td>Rituais às margens dos rios, oferendas aos espíritos da água</td>
+                    </tr>
+                    <tr>
+                        <td>Makonde</td>
+                        <td>Forças mágicas manipuladas por humanos</td>
+                        <td>Mwalimu (professor/curandeiro), escultores rituais</td>
+                        <td>Mapiko (danças de máscaras) com função terapêutica, esculturas medicinais</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Seção 4: Farmacopeia Tradicional -->
+        <section id="plantas" class="secao-aprofundada secao-4">
+            <h2 class="titulo-secao"><i class="fas fa-leaf"></i> Farmacopeia Tradicional: Plantas e Preparações</h2>
+            
+            <div class="sistema-conhecimento">
+                <div class="conhecimento-card">
+                    <div class="conhecimento-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3 class="conhecimento-titulo">Conhecimento Ecológico</h3>
+                    <p>Identificação de 1000+ espécies vegetais medicinais. Conhecimento detalhado de biótopos, épocas de colheita, partes usadas (folhas, raízes, cascas, frutos).</p>
+                </div>
+                
+                <div class="conhecimento-card">
+                    <div class="conhecimento-icon">
+                        <i class="fas fa-mortar-pestle"></i>
+                    </div>
+                    <h3 class="conhecimento-titulo">Preparações</h3>
+                    <p>Infusões, decocções, macerações, pomadas, pós, banhos medicinais, inalações, emplastros. Técnicas específicas para extração de princípios ativos.</p>
+                </div>
+                
+                <div class="conhecimento-card">
+                    <div class="conhecimento-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3 class="conhecimento-titulo">Combinações Sinérgicas</h3>
+                    <p>Plantas raramente usadas isoladamente. Combinações complexas para potenciar efeitos, reduzir toxicidade, tratar múltiplos sintomas simultaneamente.</p>
+                </div>
+            </div>
+            
+            <div class="boxes-container" style="margin-top: 50px;">
+                <div class="box-expandido planta">
+                    <h3 class="box-titulo"><i class="fas fa-capsules"></i> Plantas Comumente Usadas</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+                        <div style="background: #f9f5f3; padding: 15px; border-radius: 8px; border-left: 4px solid var(--curandeiro-green);">
+                            <strong>Artemisia afra</strong><br>
+                            Para malária, febres, problemas respiratórios
+                        </div>
+                        <div style="background: #f9f5f3; padding: 15px; border-radius: 8px; border-left: 4px solid var(--curandeiro-green);">
+                            <strong>Warburgia salutaris</strong><br>
+                            Antibiótico natural, problemas digestivos
+                        </div>
+                        <div style="background: #f9f5f3; padding: 15px; border-radius: 8px; border-left: 4px solid var(--curandeiro-green);">
+                            <strong>Siphonochilus aethiopicus</strong><br>
+                            Anti-inflamatório, dor de cabeça, asma
+                        </div>
+                        <div style="background: #f9f5f3; padding: 15px; border-radius: 8px; border-left: 4px solid var(--curandeiro-green);">
+                            <strong>Hypoxis hemerocallidea</strong><br>
+                            Tuberculose, problemas urinários, HIV (sintomas)
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="box-expandido planta">
+                    <h3 class="box-titulo"><i class="fas fa-seedling"></i> Pesquisa Científica</h3>
+                    <p>Universidades moçambicanas (UEM, UniLúrio) desenvolvem pesquisa etnobotânica:</p>
+                    <ul style="margin: 15px 0 0 20px; color: #555;">
+                        <li style="margin-bottom: 10px;">Documentação de conhecimento tradicional</li>
+                        <li style="margin-bottom: 10px;">Análise fitoquímica de plantas promissoras</li>
+                        <li style="margin-bottom: 10px;">Testes de eficácia e segurança</li>
+                        <li>Desenvolvimento de fitoterápicos padronizados</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 5: Sistemas de Diagnóstico -->
+        <section id="diagnostico" class="secao-aprofundada secao-5">
+            <h2 class="titulo-secao"><i class="fas fa-stethoscope"></i> Sistemas de Diagnóstico</h2>
+            
+            <div class="boxes-container">
+                <div class="box-expandido diagnostico">
+                    <h3 class="box-titulo"><i class="fas fa-dice"></i> Hakata: O Jogo de Ossos Divinatório</h3>
+                    <p>Sistema complexo de adivinhação usando 4 peças (ossos, sementes ou madeira) que são lançadas e interpretadas conforme:</p>
+                    <ul style="margin: 15px 0 0 20px; color: #555;">
+                        <li style="margin-bottom: 10px;"><strong>Posição:</strong> Como caem (face para cima/baixo)</li>
+                        <li style="margin-bottom: 10px;"><strong>Combinações:</strong> Padrões formados pelas 4 peças</li>
+                        <li style="margin-bottom: 10px;"><strong>Sequência:</strong> Resultados de múltiplos lançamentos</li>
+                        <li><strong>Interpretação:</strong> Baseada em conhecimento tradicional transmitido</li>
+                    </ul>
+                </div>
+                
+                <div class="box-expandido diagnostico">
+                    <h3 class="box-titulo"><i class="fas fa-eye"></i> Observação e Interrogatório</h3>
+                    <p>Métodos não-invasivos de diagnóstico:</p>
+                    <ul style="margin: 15px 0 0 20px; color: #555;">
+                        <li style="margin-bottom: 10px;"><strong>Aparência:</strong> Cor dos olhos, língua, pele</li>
+                        <li style="margin-bottom: 10px;"><strong>Comportamento:</strong> Modo de falar, andar, olhar</li>
+                        <li style="margin-bottom: 10px;"><strong>História:</strong> Eventos recentes, sonhos, conflitos</li>
+                        <li><strong>Contexto:</strong> Situação familiar, relações comunitárias</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="box-expandido diagnostico" style="margin-top: 30px;">
+                <h3 class="box-titulo"><i class="fas fa-theater-masks"></i> Possessão e Transe</h3>
+                <p>Em muitas tradições, especialmente no Centro e Norte, o diagnóstico ocorre através de possessão espiritual:</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+                    <div style="background: #f9f5f3; padding: 20px; border-radius: 10px;">
+                        <strong>Iniciação</strong><br>
+                        O curandeiro entra em transe através de música, dança, tambores ou substâncias
+                    </div>
+                    <div style="background: #f9f5f3; padding: 20px; border-radius: 10px;">
+                        <strong>Incorporação</strong><br>
+                        Um espírito (ancestral ou outro) "entra" no curandeiro e fala através dele
+                    </div>
+                    <div style="background: #f9f5f3; padding: 20px; border-radius: 10px;">
+                        <strong>Diagnóstico</strong><br>
+                        O espírito identifica causas e prescreve tratamentos
+                    </div>
+                    <div style="background: #f9f5f3; padding: 20px; border-radius: 10px;">
+                        <strong>Retorno</strong><br>
+                        O curandeiro retorna à consciência normal, muitas vezes sem memória do ocorrido
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 6: Rituais e Cerimónias -->
+        <section id="rituais" class="secao-aprofundada secao-6">
+            <h2 class="titulo-secao"><i class="fas fa-fire"></i> Rituais e Cerimónias de Cura</h2>
+            
+            <div class="boxes-container">
+                <div class="box-expandido ritual">
+                    <h3 class="box-titulo"><i class="fas fa-hand-sparkles"></i> Rituais de Purificação</h3>
+                    <p>Para remover influências negativas e restaurar equilíbrio:</p>
+                    <ul style="margin: 15px 0 0 20px; color: #555;">
+                        <li style="margin-bottom: 10px;"><strong>Banhos Ritualísticos:</strong> Com plantas específicas em água corrente</li>
+                        <li style="margin-bottom: 10px;"><strong>Fumaça:</strong> Inalação de fumaça de plantas queimadas</li>
+                        <li style="margin-bottom: 10px;"><strong>Esfregações:</strong> Aplicação de preparações no corpo</li>
+                        <li><strong>Sacrifícios:</strong> Oferendas a ancestrais ou espíritos</li>
+                    </ul>
+                </div>
+                
+                <div class="box-expandido ritual">
+                    <h3 class="box-titulo"><i class="fas fa-users"></i> Cerimónias Comunitárias</h3>
+                    <p>Muitos tratamentos envolvem a comunidade:</p>
+                    <ul style="margin: 15px 0 0 20px; color: #555;">
+                        <li style="margin-bottom: 10px;"><strong>Biras:</strong> Cerimónias para apaziguar ancestrais</li>
+                        <li style="margin-bottom: 10px;"><strong>Kupira/kusvikisa:</strong> Rituais de iniciação para novos curandeiros</li>
+                        <li style="margin-bottom: 10px;"><strong>Nhanga/malombo:</strong> Cultos de possessão com música e dança</li>
+                        <li><strong>Kufemba:</strong> Sessões públicas de adivinhação e cura</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 7: Evolução Histórica -->
+        <section id="historia" class="secao-aprofundada secao-7">
+            <h2 class="titulo-secao"><i class="fas fa-timeline"></i> Evolução Histórica</h2>
+            
+            <div class="timeline-expandida">
+                <div class="momento-expandido">
+                    <div class="momento-content">
+                        <div class="momento-ano">Pré-Colonial (até 1498)</div>
+                        <h3 style="color: var(--curandeiro-brown); margin-bottom: 15px; font-family: 'Roboto Slab', serif;">Sistema Integrado</h3>
+                        <p>Medicina tradicional totalmente integrada nas estruturas sociais. Curandeiros eram conselheiros dos chefes, guardiões do conhecimento, mediadores espirituais. Não havia separação entre "religião" e "medicina". Conhecimento transmitido oralmente dentro de linhagens familiares ou através de iniciação espiritual.</p>
+                    </div>
+                </div>
+                
+                <div class="momento-expandido">
+                    <div class="momento-content">
+                        <div class="momento-ano">Colonial (1498-1975)</div>
+                        <h3 style="color: var(--curandeiro-brown); margin-bottom: 15px; font-family: 'Roboto Slab', serif;">Perseguição e Sincretismo</h3>
+                        <p>Autoridades coloniais portuguesas e missões cristãs perseguiram práticas tradicionais como "feitiçaria" e "superstição". Muitos curandeiros praticaram clandestinamente. Sincretismo com catolicismo: santos identificados com espíritos ancestrais, crucifixos usados em rituais. Alguns elementos foram incorporados pela medicina colonial por falta de alternativas.</p>
+                    </div>
+                </div>
+                
+                <div class="momento-expandido">
+                    <div class="momento-content">
+                        <div class="momento-ano">Pós-Independência (1975-1992)</div>
+                        <h3 style="color: var(--curandeiro-brown); margin-bottom: 15px; font-family: 'Roboto Slab', serif;">Socialismo e Suspeita</h3>
+                        <p>Governo da FRELIMO inicialmente viu o curandeirismo como obstáculo à modernização e ao pensamento científico socialista. Marginalização oficial, mas prática continuou nas comunidades. Durante a guerra civil (1977-1992), recrudescimento das práticas tradicionais devido ao colapso dos serviços de saúde e necessidade psicológica.</p>
+                    </div>
+                </div>
+                
+                <div class="momento-expandido">
+                    <div class="momento-content">
+                        <div class="momento-ano">Democratização (1992-2000)</div>
+                        <h3 style="color: var(--curandeiro-brown); margin-bottom: 15px; font-family: 'Roboto Slab', serif;">Reconhecimento e Institucionalização</h3>
+                        <p>Após Acordos de Paz, gradual reconhecimento pelo Estado. Inclusão no sistema nacional de saúde, especialmente para HIV/AIDS. Formação de associações de curandeiros. Pesquisa universitária sobre plantas medicinais. Integração de parteiras tradicionais em programas de saúde materno-infantil.</p>
+                    </div>
+                </div>
+                
+                <div class="momento-expandido">
+                    <div class="momento-content">
+                        <div class="momento-ano">Contemporâneo (2000-presente)</div>
+                        <h3 style="color: var(--curandeiro-brown); margin-bottom: 15px; font-family: 'Roboto Slab', serif;">Pluralismo e Desafios</h3>
+                        <p>Sistema de saúde pluralista reconhecido oficialmente. Desafios: charlatanismo comercial, tráfico de partes corporais, conflitos com biomedicina, perda de conhecimento tradicional. Oportunidades: pesquisa científica, desenvolvimento de fitoterápicos, turismo de saúde tradicional, reconhecimento internacional pela OMS.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 8: Contexto Contemporâneo -->
+        <section id="contemporaneo" class="secao-aprofundada secao-1">
+            <h2 class="titulo-secao"><i class="fas fa-handshake"></i> Contexto Contemporâneo e Futuro</h2>
+            
+            <div class="boxes-container">
+                <div class="box-expandido integracao">
+                    <h3 class="box-titulo"><i class="fas fa-clinic-medical"></i> Integração com Biomedicina</h3>
+                    <p>Modelos atuais de colaboração:</p>
+                    <ul style="margin: 15px 0 0 20px; color: #555;">
+                        <li style="margin-bottom: 10px;"><strong>Encaminhamento:</strong> Curandeiros identificam casos que necessitam de atenção médica</li>
+                        <li style="margin-bottom: 10px;"><strong>Cuidados Complementares:</strong> Plantas medicinais para sintomas enquanto paciente segue tratamento convencional</li>
+                        <li style="margin-bottom: 10px;"><strong>Apoio Psicossocial:</strong> Curandeiros ajudam na adesão a tratamentos através de apoio espiritual</li>
+                        <li><strong>Pesquisa Colaborativa:</strong> Cientistas trabalham com curandeiros para estudar plantas tradicionais</li>
+                    </ul>
+                </div>
+                
+                <div class="box-expandido integracao">
+                    <h3 class="box-titulo"><i class="fas fa-gavel"></i> Regulamentação e Ética</h3>
+                    <p>Desafios na formalização:</p>
+                    <ul style="margin: 15px 0 0 20px; color: #555;">
+                        <li style="margin-bottom: 10px;"><strong>Charlatanismo:</strong> Distinguir praticantes legítimos de exploradores</li>
+                        <li style="margin-bottom: 10px;"><strong>Segurança:</strong> Garantir que preparações não sejam tóxicas</li>
+                        <li style="margin-bottom: 10px;"><strong>Propriedade Intelectual:</strong> Proteger conhecimento tradicional sem impedir acesso</li>
+                        <li><strong>Eficácia:</strong> Encontrar métodos para avaliar tratamentos tradicionais</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="citacao-expandida" style="margin-top: 50px;">
+                <p class="citacao-texto">"O futuro da medicina em Moçambique não será a substituição do tradicional pelo moderno, mas a criação de um sistema verdadeiramente pluralista onde diferentes formas de conhecimento dialogam e se complementam. Um sistema onde um paciente com HIV pode receber antirretrovirais no hospital e ao mesmo tempo participar em rituais de purificação que restauram seu lugar na comunidade - porque a doença não é apenas viral, é também social e espiritual."</p>
+                <p class="citacao-fonte">— Diretor do Programa Nacional de Medicina Tradicional</p>
+            </div>
+            
+            <h3 style="color: var(--curandeiro-dark); margin: 50px 0 25px; font-family: 'Roboto Slab', serif; font-size: 1.8rem;">Visão Estratégica para o Futuro</h3>
+            <table class="tabela-expandida">
+                <thead>
+                    <tr>
+                        <th>Área</th>
+                        <th>Desafios</th>
+                        <th>Oportunidades</th>
+                        <th>Ações Recomendadas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pesquisa Científica</td>
+                        <td>Falta de financiamento, metodologias inadequadas</td>
+                        <td>Biodiversidade única, conhecimento ancestral</td>
+                        <td>Parcerias internacionais, bancos de dados etnobotânicos, ensaios clínicos adaptados</td>
+                    </tr>
+                    <tr>
+                        <td>Educação e Formação</td>
+                        <td>Perda de conhecimento intergeracional</td>
+                        <td>Jovens interessados em medicina natural</td>
+                        <td>Programas de formação híbrida, inclusão nos currículos de saúde</td>
+                    </tr>
+                    <tr>
+                        <td>Regulamentação</td>
+                        <td>Charlatanismo, práticas perigosas</td>
+                        <td>Associações profissionais emergentes</td>
+                        <td>Registro nacional, códigos de ética, sistema de certificação</td>
+                    </tr>
+                    <tr>
+                        <td>Integração no SNS</td>
+                        <td>Resistências culturais em ambos os lados</td>
+                        <td>Cobertura limitada do SNS, aceitação popular</td>
+                        <td>Modelos de referência, unidades de medicina integrativa</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Conclusão Expandida -->
+        <section id="conclusao" class="conclusao-expandida">
+            <h2 class="conclusao-titulo">Conclusão: Sabedoria Viva em Transformação</h2>
+            
+            <p class="conclusao-texto">O curandeirismo moçambicano não é um relíquia do passado, mas um <strong>sistema de conhecimento vivo e dinâmico</strong> que tem demonstrado notável resiliência e capacidade de adaptação ao longo dos séculos. Dos tempos pré-coloniais à era digital, tem se transformado enquanto mantém seu núcleo filosófico: a visão holística do ser humano como entidade integrada de corpo, espírito e relações sociais.</p>
+            
+            <p class="conclusao-texto">Sua complexidade desafia categorizações simplistas ocidentais: é ao mesmo tempo ciência empírica (conhecimento detalhado de centenas de plantas medicinais) e sistema religioso-espiritual (mediação com o mundo invisível); é prática individual (cura do paciente) e ritual comunitário (restauração do equilíbrio social); é tradição ancestral e inovação contemporânea.</p>
+            
+            <p class="conclusao-texto">A persistência do curandeirismo em Moçambique revela não apenas falhas na cobertura do sistema formal de saúde, mas também <strong>limitações epistemológicas da biomedicina ocidental</strong> em responder a necessidades humanas fundamentais: a busca por significado na doença, a necessidade de conexão comunitária no sofrimento, o desejo de reconciliação com forças maiores que o indivíduo.</p>
+            
+            <p class="conclusao-texto" style="font-weight: 700; color: var(--curandeiro-dark); text-align: center; margin-top: 35px; font-size: 1.4rem;">
+                O futuro da saúde em Moçambique não está na escolha entre tradição e modernidade, mas na construção de um sistema verdadeiramente pluralista que valorize diferentes formas de conhecimento, reconheça a complexidade da experiência humana da doença e ofereça respostas que sejam culturalmente significativas e cientificamente sólidas.
+            </p>
+            
+            <p class="conclusao-texto" style="text-align: center; margin-top: 30px; font-style: italic; border-top: 2px solid var(--curandeiro-earth); padding-top: 30px;">
+                Nas mãos sábias dos curandeiros moçambicanos, nas bancadas dos laboratórios de pesquisa, nas políticas de saúde pública inovadoras, está sendo escrito um novo capítulo na história da medicina - um capítulo que Moçambique tem condições únicas de protagonizar, mostrando ao mundo que é possível curar com ciência e espírito, com tecnologia e tradição, com comprimidos e plantas sagradas.
+            </p>
+        </section>
+    </main>
+
+    <script>
+        // Barra de progresso de leitura
+        window.addEventListener('scroll', function() {
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (window.scrollY / windowHeight) * 100;
+            document.getElementById('barraProgresso').style.width = scrolled + '%';
+        });
+
+        // Scroll suave para âncoras
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 120,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Animação de entrada para elementos
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    if(entry.target.classList.contains('momento-expandido')) {
+                        entry.target.classList.add('visible');
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observar elementos para animação
+        document.querySelectorAll('.secao-aprofundada, .box-expandido, .tipo-card, .conhecimento-card, .momento-expandido').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(40px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(el);
+        });
+
+        // Efeito de destaque nos cards ao passar o mouse
+        document.querySelectorAll('.box-expandido, .tipo-card, .conhecimento-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.zIndex = '10';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.zIndex = '1';
+            });
+        });
+
+        // Efeito de flutuação para elementos com classe efeito-sabedoria
+        document.querySelectorAll('.efeito-sabedoria').forEach(el => {
+            el.style.position = 'relative';
+        });
+    </script>
+</body>
+</html>

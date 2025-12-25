@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -19,7 +18,7 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJDQ8Z1NQG"></script> 
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);S}
+      function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-VJDQ8Z1NQG');
     </script>
@@ -28,24 +27,20 @@
     <!-- Menu Injetado aqui -->
 
     <!-- Header -->
-    <header>
+    <header class="biblioteca-header">
         <div class="container">
-            <div class="logo">
-                <div class="logo-icon">📚</div>
-                <h1>Biblioteca Digital</h1>
-            </div>
-            <p class="subtitle">Livros, artigos e recursos sobre as religiões de Moçambique</p>
+            <h1><i class="fas fa-book-open"></i> Biblioteca Digital</h1>
+            <p class="subtitle">Explore um acervo curado de livros, artigos e recursos sobre a paisagem religiosa de Moçambique.</p>
         </div>
     </header>
     
     <!-- Main Content -->
     <main class="container">
         <section class="library-section">
-            <div class="library-header">
-                <h2>Acervo de Livros</h2>
+            <div class="library-controls">
                 <div class="search-container">
-                    <input type="text" class="search-input" placeholder="Pesquisar livros...">
-                    <button id="clearSearch" class="clear-btn">Limpar</button>
+                    <input type="text" class="search-input" placeholder="Pesquisar por título, autor ou descrição...">
+                    <button id="clearSearch" class="clear-btn" title="Limpar busca"><i class="fas fa-times"></i></button>
                 </div>
                  <div class="filters">
                     <button class="filter-btn active" data-filter="all"><i class="fas fa-book"></i> Todos</button>
@@ -54,23 +49,28 @@
                     <button class="filter-btn" data-filter="tradicionais"><i class="fas fa-globe-africa"></i> Tradicionais</button>
                     <button class="filter-btn" data-filter="outras"><i class="fas fa-hands-praying"></i> Outras</button>
                 </div>
-                <div class="controls">
+                <div class="display-options">
                     <select id="sortSelect">
                         <option value="default">Ordenar por Padrão</option>
                         <option value="title">Título (A-Z)</option>
                         <option value="author">Autor (A-Z)</option>
-                        <option value="rating">Avaliação</option>
+                        <option value="rating">Melhor Avaliação</option>
                     </select>
-                    <label><input type="checkbox" id="groupByCategory" checked> Agrupar por Categoria</label>
+                    <label class="group-toggle"><input type="checkbox" id="groupByCategory" checked> Agrupar por Categoria</label>
                 </div>
             </div>
             
-            <div class="loading" style="display: none;">Carregando...</div>
-            <div class="books-grid"></div>
+            <div class="loading">A carregar acervo...</div>
+            
             <div class="featured-books">
-                <h3>Livros em Destaque</h3>
+                <h2><i class="fas fa-star"></i> Em Destaque</h2>
                 <div class="books-grid"></div>
             </div>
+
+            <div class="books-grid-container">
+                <div class="books-grid"></div>
+            </div>
+
         </section>
     </main>
     
@@ -78,26 +78,15 @@
     <div class="modal" id="downloadModal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
-            <h3>Confirmar Download</h3>
-            <p>Você está prestes a baixar: <strong id="bookTitle"></strong></p>
-            <a href="#" id="confirmDownload" class="book-download" download><i class="fas fa-download"></i> Iniciar Download</a>
+            <h3><i class="fas fa-download"></i> Confirmar Download</h3>
+            <p>Você está prestes a baixar o livro:</p>
+            <strong id="bookTitle"></strong>
+            <a href="#" id="confirmDownload" class="book-download-btn" download><i class="fas fa-check-circle"></i> Sim, iniciar download</a>
         </div>
     </div>
 
-    <section class="secao-critica-islamica">
-        <h2><i class="fas fa-microphone-alt"></i> A Sua Voz Importa</h2>
-        <p>Este espaço é seu. A sua história, a sua denúncia ou a sua contribuição podem fazer a diferença. Utilizamos um sistema seguro e anónimo para garantir a sua proteção.</p>
-        <ul>
-            <li><a href="denuncia.html"><i class="fas fa-comment-medical"></i> Denuncie abusos (totalmente anónimo)</a></li>
-            <li><a href="denuncia.html?categoria=documento"><i class="fas fa-archive"></i> Contribua com documentos históricos</a></li>
-            <li><a href="denuncia.html?categoria=movimento"><i class="fas fa-hands-helping"></i> Participe em movimentos por transparência</a></li>
-            <li><a href="estudos.html"><i class="fas fa-book"></i> Estude teologia crítica e história religiosa</a></li>
-        </ul>
-    </section>
-
     <!-- Scripts Centralizados -->
     <script src="menu.js"></script>
-    <script src="scripts.js"></script>
     <script src="biblioteca.js"></script>
     <script src="footer.js"></script>
 

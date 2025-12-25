@@ -30,7 +30,8 @@
     </script>
 </head>
 <body>
-    <!-- O menu será injetado aqui pelo menu.js -->
+    <!-- Contentor para o menu dinâmico -->
+    <div id="menu-container"></div>
 
     <!-- Cabeçalho Hero -->
     <header class="hero-header">
@@ -166,9 +167,11 @@
 
     </main>
     
-    <!-- Scripts Centralizados -->
-    <script src="menu.js"></script>
-    <script src="footer.js"></script>
+    <!-- Contentor para o rodapé dinâmico -->
+    <div id="footer-container"></div>
+
+    <!-- Script de layout centralizado -->
+    <script src="layout.js"></script>
 
     <script>
         if ('serviceWorker' in navigator) {

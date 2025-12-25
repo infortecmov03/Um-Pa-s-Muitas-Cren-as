@@ -1,0 +1,25 @@
+
+<nav class="menu-principal">
+    <div class="container menu-container">
+        <a href="index.html" class="logo">Um País, Muitas Crenças</a>
+        <button class="menu-toggle" aria-label="Abrir Menu" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="menu-links">
+            <a href="index.html">Início</a>
+            <a href="estudos.html">Estudos de Casos</a>
+            <a href="debate.html">Debates</a>
+            <a href="testemunhos.html">Testemunhos</a>
+            <a href="sobre.html">Sobre o Projeto</a>
+            <a href="contato.html">Contato</a>
+            <a href="denuncia.html" class="btn-denuncia">Denúncia Segura</a>
+        </div>
+    </div>
+</nav>
+
+<script>
+function toggleMenu() {
+    const menuLinks = document.querySelector('.menu-links');
+    menuLinks.classList.toggle('ativo');
+}
+</script>

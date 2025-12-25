@@ -1,68 +1,3 @@
-// Dados dos livros (idealmente, viria de um JSON)
-const booksData = [
-    {
-        id: 1,
-        title: "Cristianismo em Moçambique: História e Influência",
-        author: "Por João M. Silva",
-        description: "Uma análise profunda da chegada e desenvolvimento do Cristianismo em Moçambique, desde os primeiros missionários até os dias atuais.",
-        category: "cristianismo",
-        size: "5.2MB",
-        rating: 4.8,
-        cover: "https://via.placeholder.com/250x350/5E35B1/FFFFFF?text=Cristianismo+em+Moçambique",
-        downloadUrl: "#",
-        featured: false
-    },
-    {
-        id: 2,
-        title: "Islão na Costa Suaíli: A Presença em Moçambique",
-        author: "Por Amina Saleh",
-        description: "Estudo detalhado sobre a história do Islão nas regiões costeiras de Moçambique e sua influência na cultura e sociedade local.",
-        category: "islamismo",
-        size: "4.7MB",
-        rating: 4.6,
-        cover: "https://via.placeholder.com/250x350/00897B/FFFFFF?text=Islão+na+Costa+Suaíli",
-        downloadUrl: "#",
-        featured: false
-    },
-    {
-        id: 3,
-        title: "Religiões Tradicionais Africanas em Moçambique",
-        author: "Por Carlos Ngunga",
-        description: "Exploração das crenças, rituais e práticas das religiões tradicionais africanas nas diferentes etnias moçambicanas.",
-        category: "tradicionais",
-        size: "6.1MB",
-        rating: 4.9,
-        cover: "https://via.placeholder.com/250x350/E65100/FFFFFF?text=Religiões+Tradicionais",
-        downloadUrl: "#",
-        featured: false
-    },
-    {
-        id: 7,
-        title: "Ritos de Iniciação nas Culturas Moçambicanas",
-        author: "Por Luisa Chivite",
-        description: "Análise comparativa dos ritos de passagem em diferentes grupos étnicos de Moçambique e seu significado cultural e espiritual.",
-        category: "tradicionais",
-        size: "7.2MB",
-        rating: 5.0,
-        cover: "https://via.placeholder.com/250x350/E65100/FFFFFF?text=Ritos+de+Iniciação",
-        downloadUrl: "#",
-        featured: true
-    },
-    {
-        id: 8,
-        title: "Sincretismo Religioso em Moçambique",
-        author: "Por Ana Muchanga",
-        description: "Estudo sobre a mistura de elementos de diferentes tradições religiosas na prática espiritual dos moçambicanos.",
-        category: "outras",
-        size: "4.9MB",
-        rating: 4.9,
-        cover: "https://via.placeholder.com/250x350/9C27B0/FFFFFF?text=Sincretismo+Religioso",
-        downloadUrl: "#",
-        featured: true
-    }
-];
-
-
 document.addEventListener('DOMContentLoaded', function() {
     // Só executa o script da biblioteca se estivermos na página certa
     if (document.querySelector('.library-section')) {
@@ -71,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initializeApp() {
+    let booksData = []; // Irá armazenar os livros do JSON
     let currentFilter = 'all';
     let currentSearch = '';
     let currentSort = 'default';
@@ -79,29 +15,50 @@ function initializeApp() {
     const categories = {
         'cristianismo': 'Cristianismo',
         'islamismo': 'Islamismo',
-        'tradicionais': 'Tradicionais',
-        'outras': 'Outras'
+        'tradicionais': 'Religiões Tradicionais',
+        'outras': 'Outros e Sincretismo'
     };
 
     const booksGrid = document.querySelector('.books-grid');
     const featuredGrid = document.querySelector('.featured-books .books-grid');
     const loadingElement = document.querySelector('.loading');
-    const searchInput = document.querySelector('.search-box input');
+    const searchInput = document.querySelector('.search-input');
     const clearSearchBtn = document.getElementById('clearSearch');
     const sortSelect = document.getElementById('sortSelect');
     const groupToggle = document.getElementById('groupByCategory');
     const filterButtons = document.querySelectorAll('.filter-btn');
     const modal = document.getElementById('downloadModal');
     const closeModal = document.querySelector('.close-modal');
-    const newsletterForm = document.querySelector('.newsletter-form');
+
+    async function fetchBooks() {
+        loadingElement.style.display = 'block';
+        booksGrid.style.display = 'none';
+        try {
+            const response = await fetch('books.json');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            booksData = await response.json();
+            renderAll();
+        } catch (error) {
+            console.error('Falha ao carregar os livros:', error);
+            loadingElement.textContent = 'Erro ao carregar o acervo. Tente novamente mais tarde.';
+        } finally {
+            loadingElement.style.display = 'none';
+            booksGrid.style.display = 'grid'; // Ou 'block', dependendo do CSS
+        }
+    }
 
     function normalizeText(str) {
         return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
     }
 
-    function renderBooks() {
-        loadingElement.style.display = 'block';
+    function renderAll() {
+        renderBooks();
+        renderFeatured();
+    }
 
+    function renderBooks() {
         // 1. Filtrar
         let filteredBooks = booksData.filter(book => {
             const matchesFilter = currentFilter === 'all' || book.category === currentFilter;
@@ -125,7 +82,6 @@ function initializeApp() {
 
         if (filteredBooks.length === 0) {
             booksGrid.innerHTML = `<div class="no-results"><h3>Nenhum livro encontrado</h3><p>Tente ajustar os filtros ou a busca.</p></div>`;
-            loadingElement.style.display = 'none';
             return;
         }
 
@@ -136,19 +92,30 @@ function initializeApp() {
                 return acc;
             }, {});
 
-            Object.keys(grouped).forEach(category => {
-                const categoryTitle = document.createElement('h3');
+            Object.keys(grouped).sort().forEach(category => {
+                const categoryTitle = document.createElement('h2');
                 categoryTitle.className = 'category-group-title';
                 categoryTitle.textContent = categories[category] || 'Outros';
                 booksGrid.appendChild(categoryTitle);
-                grouped[category].forEach(book => booksGrid.appendChild(createBookElement(book)));
+                const categoryGrid = document.createElement('div');
+                categoryGrid.className = 'books-grid-inner';
+                grouped[category].forEach(book => categoryGrid.appendChild(createBookElement(book)));
+                booksGrid.appendChild(categoryGrid);
             });
         } else {
-            // Renderização normal
             filteredBooks.forEach(book => booksGrid.appendChild(createBookElement(book)));
         }
+    }
 
-        loadingElement.style.display = 'none';
+    function renderFeatured() {
+        const featuredBooks = booksData.filter(book => book.featured);
+        featuredGrid.innerHTML = '';
+        if (featuredBooks.length > 0) {
+            featuredBooks.forEach(book => featuredGrid.appendChild(createBookElement(book)));
+            document.querySelector('.featured-books').style.display = 'block';
+        } else {
+            document.querySelector('.featured-books').style.display = 'none';
+        }
     }
 
     function createBookElement(book) {
@@ -177,6 +144,7 @@ function initializeApp() {
     function showDownloadModal(book) {
         document.getElementById('bookTitle').textContent = book.title;
         document.getElementById('confirmDownload').href = book.downloadUrl;
+        document.getElementById('confirmDownload').download = book.title; // Adiciona o atributo de download
         modal.style.display = 'flex';
     }
 
@@ -214,13 +182,6 @@ function initializeApp() {
         if (e.target === modal) modal.style.display = 'none';
     });
 
-    newsletterForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        // Aqui iria a lógica de notificação
-        newsletterForm.reset();
-        alert('Obrigado por se inscrever!');
-    });
-
-    // Renderização inicial
-    renderBooks();
+    // Inicia o carregamento dos dados
+    fetchBooks();
 }

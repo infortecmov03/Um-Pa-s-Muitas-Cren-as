@@ -6,6 +6,7 @@
     --cor-texto-principal: #34495e;
     --cor-borda-cartao: #e9ecef;
     --cor-analise: #c0392b; /* Vermelho sóbrio para análises */
+    --cor-relatorio-especial: #8b0000; /* Vermelho escuro para o relatório da Nigéria */
 }
 
 /* Cabeçalho da Página de Estudos */
@@ -232,6 +233,41 @@
 .lista-indice li.analysis-item a i {
     color: var(--cor-analise);
 }
+
+/* NOVO: Estilo para o Relatório Especial da Nigéria */
+.lista-indice li.special-report a {
+    background: linear-gradient(135deg, #2d3436, #000000);
+    color: white;
+    border: 1px solid var(--cor-relatorio-especial);
+    position: relative;
+    overflow: hidden;
+}
+
+.lista-indice li.special-report a:hover {
+    box-shadow: 0 10px 20px rgba(139, 0, 0, 0.2);
+    border-color: #ff0000;
+}
+
+.lista-indice li.special-report a i {
+    color: var(--cor-relatorio-especial);
+}
+
+.lista-indice li.special-report a::before {
+    content: 'CONTEÚDO SENSÍVEL';
+    position: absolute;
+    top: 5px;
+    right: -50px;
+    transform: rotate(45deg);
+    background-color: var(--cor-relatorio-especial);
+    color: white;
+    padding: 2px 50px;
+    font-size: 0.6rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    opacity: 0.7;
+}
+
 
 /* --- Mensagem de "Nenhum Resultado" --- */
 #no-results {

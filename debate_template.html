@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debate - Um País Muitas Crenças</title> <!-- O título será atualizado via JS -->
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Um País Muitas Crenças.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="tema-analise-critica.css">
+    <link rel="stylesheet" href="debate.css">
+</head>
+<body>
+    <!-- O menu será injetado aqui pelo menu.js -->
+
+    <header id="header-template" class="header-analise" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1518665792453-37d4f4039a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
+        <div class="container">
+            <h1 id="titulo-principal-template" class="titulo-principal">A carregar debate...</h1>
+            <p class="subtitulo-principal">Analisando as escrituras, uma passagem de cada vez, com a comunidade.</p>
+        </div>
+    </header>
+
+    <main class="container conteudo-analise">
+
+        <!-- O conteúdo do versículo será preenchido aqui -->
+        <section id="versiculo-container" class="versiculo-debate">
+            <!-- Placeholder enquanto o conteúdo carrega -->
+        </section>
+
+    </main>
+
+    <!-- Scripts Essenciais -->
+    <script src="menu.js"></script>
+    <script src="footer.js"></script>
+
+    <!-- Lógica da Página de Template -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const versiculoContainer = document.getElementById('versiculo-container');
+            const tituloPrincipal = document.getElementById('titulo-principal-template');
+
+            // 1. Obter o ID (data) do versículo a partir do URL (?id=...)
+            const params = new URLSearchParams(window.location.search);
+            const versiculoId = params.get('id'); // O ID agora é uma string (ex: '2024-01-01')
+
+            if (!versiculoId) {
+                versiculoContainer.innerHTML = "<h1>Erro: ID do versículo não encontrado.</h1><p>Por favor, volte ao <a href='debate.html'>arquivo de debates</a> e selecione um versículo.</p>";
+                return;
+            }
+
+            // 2. Carregar o JSON com todos os versículos
+            fetch('versiculos.json')
+                .then(response => response.json())
+                .then(versiculos => {
+                    // 3. Encontrar o versículo específico com base no ID (data)
+                    const versiculo = versiculos.find(v => v.id === versiculoId);
+
+                    if (!versiculo) {
+                        versiculoContainer.innerHTML = `<h1>Erro: Versículo com ID ${versiculoId} não encontrado.</h1>`;
+                        return;
+                    }
+
+                    // 4. Atualizar a página com os dados do versículo
+                    document.title = `${versiculo.referencia} - Debate`;
+                    tituloPrincipal.textContent = `Debate sobre ${versiculo.referencia}`;
+
+                    versiculoContainer.innerHTML = `
+                        <div class="versiculo-header">
+                            <div>
+                                <h2 class="titulo-secao-onda"><i class="fas fa-book-open"></i> ${versiculo.referencia}</h2>
+                            </div>
+                        </div>
+                        <div class="versiculo-citacao">\"${versiculo.texto}\"</div>
+                        <div class="contexto-historico">
+                            <h4><i class="fas fa-history"></i> Análise Inicial</h4>
+                            <p>${versiculo.analise_inicial}</p>
+                        </div>
+                        <div class="comentarios-secao">
+                            <h3><i class="fas fa-comments"></i> Comentários da Comunidade</h3>
+                            <p>Deixe aqui a sua perspetiva, testemunho ou questão sobre <strong>${versiculo.referencia}</strong>.</p>
+                            <div id="disqus_thread"></div>
+                        </div>
+                    `;
+
+                    // 5. Carregar e configurar o Disqus para ESTA página
+                    var disqus_config = function () {
+                        this.page.url = window.location.href;
+                        this.page.identifier = `versiculo-${versiculo.id}`;
+                        this.page.title = `${versiculo.referencia} - Debate`;
+                    };
+                    (function() {
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://https-diversidadereligiosa-netlify-app.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                })
+                .catch(error => {
+                    console.error("Erro ao carregar o template de debate:", error);
+                    versiculoContainer.innerHTML = "<h1>Erro ao carregar o debate.</h1><p>Não foi possível comunicar com a base de dados de versículos. Tente novamente mais tarde.</p>";
+                });
+        });
+    </script>
+</body>
+</html>

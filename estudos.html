@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -6,26 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal de Estudos - A Paisagem Religiosa de Moçambique</title>
     <link rel="manifest" href="/manifest.json">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-
-    <!-- Folhas de Estilo -->
     <link rel="stylesheet" href="Um País Muitas Crenças.css">
     <link rel="stylesheet" href="menu.css">
     <link rel="stylesheet" href="estudos.css">
 </head>
 <body>
+    <h1 style="color: red; text-align: center; font-size: 4rem; padding: 2rem; background: yellow;">TESTE DE ATUALIZAÇÃO</h1>
+
     <!-- O menu será injetado aqui pelo menu.js -->
 
     <header class="header-estudos">
         <div class="container">
             <h1>Portal de Estudos</h1>
             <p>O seu ponto de partida para explorar a complexa e fascinante paisagem religiosa de Moçambique.</p>
-            
-            <!-- Barra de Pesquisa -->
             <div class="search-container">
                 <input type="text" id="searchInput" placeholder="Pesquisar por tema, religião, igreja...">
                 <button aria-label="Pesquisar"><i class="fas fa-search"></i></button>
@@ -70,6 +64,16 @@
                 </div>
             </div>
 
+            <div class="card-estudo" data-tags="curandeirismo tradicionalismo medicina alternativa">
+                <div class="card-estudo-img" style="background-image: url('/images/placeholder/curandeirismo-thumb.jpg');"></div>
+                <div class="card-estudo-content">
+                    <span class="card-estudo-categoria transversal">Cultura</span>
+                    <h3 class="card-estudo-titulo">Curandeirismo e Tradição</h3>
+                    <p class="card-estudo-desc">Uma visão sobre o papel dos curandeiros na sociedade moçambicana, entre a tradição, a saúde e a espiritualidade.</p>
+                    <a href="curanderismo.html" class="card-estudo-link">Ler Análise <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
         </section>
 
         <!-- 2. AS GRANDES RELIGIÕES -->
@@ -88,9 +92,9 @@
                     <h4 class="sub-links-titulo">Explorar Tópicos:</h4>
                     <ul class="sub-links">
                         <li><a href="História do Cristianismo em Moçambique.html"><i class="fas fa-landmark"></i> História do Cristianismo</a></li>
-                        <li><a href="catolicismo.html"><i class="fas fa-church"></i> A Igreja Católica</a></li>
-                        <li><a href="igrejas-brasileiras.html"><i class="fas fa-globe-americas"></i> A Ascensão das Igrejas Brasileiras</a></li>
-                        <li><a href="igrejas-zionistas.html"><i class="fas fa-water"></i> As Igrejas Zionistas</a></li>
+                        <li><a href="Sobre Católica.html"><i class="fas fa-church"></i> A Igreja Católica</a></li>
+                        <li><a href="Denominações Cristãs em Moçambique.html"><i class="fas fa-sitemap"></i> Denominações Cristãs</a></li>
+                        <li><a href="Sobre Igreja Zionista.html"><i class="fas fa-water"></i> As Igrejas Zionistas</a></li>
                     </ul>
                 </div>
             </div>
@@ -107,10 +111,9 @@
                     <h4 class="sub-links-titulo">Explorar Tópicos:</h4>
                     <ul class="sub-links">
                         <li><a href="Chegada do Islamismo a Moçambique.html"><i class="fas fa-ship"></i> A Chegada do Islão</a></li>
-                         <li><a href="História do Islamismo.html"><i class="fas fa-history"></i> Breve História Global</a></li>
+                        <li><a href="História do Islamismo.html"><i class="fas fa-history"></i> Breve História Global</a></li>
                         <li><a href="Comunidades Islâmicas.html"><i class="fas fa-users"></i> O Mosaico de Comunidades</a></li>
-                        <li><a href="Tradições do Islamismo.html
-"><i class="fas fa-book-quran"></i> Tradições e Práticas</a></li>
+                        <li><a href="Tradições do Islamismo.html"><i class="fas fa-book-quran"></i> Tradições e Práticas</a></li>
                         <li><a href="Ramadã e Celebrações Islâmicas.html"><i class="fas fa-calendar-alt"></i> Ramadão e Celebrações</a></li>
                     </ul>
                 </div>
@@ -122,70 +125,87 @@
         <p class="section-subtitle">Análises detalhadas de igrejas e movimentos específicos que marcam a paisagem religiosa do país.</p>
         <section class="indice-completo">
             <ul id="lista-indice-completa" class="lista-indice">
-                <!-- Neopentecostais -->
-                <li class="analysis-item" data-tags="universal iurd fogueira santa neopentecostal prosperidade"> 
-                    <a href="Sobre universal.html"><i class="fas fa-fire-alt"></i> Igreja Universal do Reino de Deus: A Multinacional da Fé</a>
+                <!-- Dossiês Especiais -->
+                <li class="special-report" data-tags="nigeria neopentecostal poder oculto redes financeiras dossie">
+                    <a href="nigeria.html"><i class="fas fa-user-secret"></i> Dossiê Nigéria: As Redes de Poder Ocultas</a>
                 </li>
-                 <li class="analysis-item" data-tags="igreja da graca rr soares neopentecostal prosperidade"> 
-                    <a href="Sobre Igreja da Graça em Moçambique.html"><i class="fas fa-gem"></i> Igreja da Graça: A Prosperidade 'Light'</a>
-                </li>
-                <li class="analysis-item" data-tags="mana g12 apostolo tadeu neopentecostal"> 
-                    <a href="Sobre Maná.html"><i class="fas fa-satellite"></i> Igreja Maná: O Modelo G12 e a Franquia da Fé</a>
-                </li>
-                 <li class="analysis-item" data-tags="sara nossa terra marketing neopentecostal prosperidade"> 
-                    <a href="Sobre Sara Nossa Terra em Moçambique.html"><i class="fas fa-bullhorn"></i> Sara Nossa Terra: O Marketing da Salvação</a>
-                </li>
-                 <li class="analysis-item" data-tags="profeta onorio milagres cura sida neopentecostal"> 
-                    <a href="Igreja Nações para Cristo Onório.html"><i class="fas fa-star"></i> O Fenómeno do Profeta Onório e o Culto da Personalidade</a>
+                <li class="special-report" data-tags="testemunhas de jeova tj ostracismo sangue dossie">
+                    <a href="dossie-testemunhas-de-jeova.html"><i class="fas fa-book-medical"></i> Dossiê Testemunhas de Jeová: Isolamento e Controlo</a>
                 </li>
 
-                <!-- Igrejas de Pureza / Apostólicas -->
-                <li class="analysis-item" data-tags="apostolica vapostori pureza poligamia"> 
-                    <a href="Sobre Apostólica.html"><i class="fas fa-hands-praying"></i> Vapostori (Igrejas Apostólicas): A Recusa da Modernidade</a>
+                <!-- Neopentecostais -->
+                <li class="analysis-item" data-tags="universal iurd fogueira santa neopentecostal prosperidade"> 
+                    <a href="Sobre universal.html"><i class="fas fa-fire-alt"></i> Igreja Universal do Reino de Deus</a>
                 </li>
-                <li class="analysis-item" data-tags="testemunhas de jeova tj ostracismo sangue"> 
-                    <a href="Sobre Testemunhas de Jeová.html"><i class="fas fa-book"></i> Testemunhas de Jeová: O Isolamento e o Ostracismo</a>
+                 <li class="analysis-item" data-tags="igreja da graca rr soares neopentecostal prosperidade"> 
+                    <a href="Sobre Igreja da Graça em Moçambique.html"><i class="fas fa-gem"></i> Igreja Internacional da Graça de Deus</a>
+                </li>
+                <li class="analysis-item" data-tags="mana g12 apostolo tadeu neopentecostal"> 
+                    <a href="Sobre Maná.html"><i class="fas fa-satellite"></i> Igreja Maná: O Modelo G12</a>
+                </li>
+                 <li class="analysis-item" data-tags="sara nossa terra marketing neopentecostal prosperidade"> 
+                    <a href="Sobre Sara Nossa Terra em Moçambique.html"><i class="fas fa-bullhorn"></i> Sara Nossa Terra</a>
+                </li>
+                 <li class="analysis-item" data-tags="profeta onorio milagres cura sida neopentecostal"> 
+                    <a href="Igreja Nações para Cristo Onório.html"><i class="fas fa-star"></i> Fenómeno Profeta Onório</a>
+                </li>
+
+                <!-- Zionistas e Apostólicas -->
+                <li class="analysis-item" data-tags="zionista zcc igreja zionista africa do sul">
+                    <a href="sobre igreja ZCC.html"><i class="fas fa-star-and-crescent"></i> Zion Christian Church (ZCC)</a>
+                </li>
+                <li class="analysis-item" data-tags="apostolica vapostori pureza poligamia"> 
+                    <a href="Sobre Apostólica.html"><i class="fas fa-hands-praying"></i> Vapostori (Igrejas Apostólicas)</a>
                 </li>
 
                 <!-- Pentecostais Históricas -->
                 <li class="analysis-item" data-tags="assembleia de deus pentecostal frelimo renamo politica"> 
-                    <a href="Sobre Assembleia de Deus.html"><i class="fas fa-gavel"></i> Assembleia de Deus: Entre a Fé e o Poder Político</a>
+                    <a href="Sobre Assembleia de Deus.html"><i class="fas fa-gavel"></i> Assembleia de Deus</a>
+                </li>
+                <li class="analysis-item" data-tags="iphc pentecostal santidade holiness">
+                    <a href="sobre IPHC.html"><i class="fas fa-dove"></i> Igreja de Santidade Pentecostal (IPHC)</a>
                 </li>
 
                  <!-- Igrejas Históricas / Missão -->
                  <li class="analysis-item" data-tags="catolica concordata vaticano politica"> 
-                    <a href="Sobre Católica.html"><i class="fas fa-cross"></i> A Igreja Católica: Do Estado Colonial à Influência Atual</a>
+                    <a href="Sobre Católica.html"><i class="fas fa-cross"></i> A Igreja Católica</a>
                 </li>
                  <li class="analysis-item" data-tags="anglicana lebomos sul africa missao"> 
-                    <a href="Sobre Anglicana.html"><i class="fas fa-church"></i> A Igreja Anglicana: A Herança da Missão de Lebombos</a>
+                    <a href="Sobre Anglicana.html"><i class="fas fa-church"></i> A Igreja Anglicana</a>
                 </li>
                  <li class="analysis-item" data-tags="metodista educacao saude metodismo"> 
-                    <a href="Sobre Metodista.html"><i class="fas fa-school"></i> A Igreja Metodista: O Foco na Educação e Saúde</a>
+                    <a href="Sobre Metodista.html"><i class="fas fa-school"></i> A Igreja Metodista</a>
                 </li>
                  <li class="analysis-item" data-tags="presbiteriana suica missao calvinismo"> 
-                    <a href="Sobre Igreja Presbiteriana.html"><i class="fas fa-landmark"></i> A Igreja Presbiteriana e a Missão Suíça</a>
+                    <a href="Sobre Igreja Presbiteriana.html"><i class="fas fa-landmark"></i> A Igreja Presbiteriana</a>
                 </li>
                  <li class="analysis-item" data-tags="adventista setimo dia sabado saude"> 
-                    <a href="Sobre Adventista.html"><i class="fas fa-calendar-day"></i> Adventistas do Sétimo Dia: A Mensagem de Saúde</a>
+                    <a href="Sobre Adventistas emMoçambique.html"><i class="fas fa-calendar-day"></i> Adventistas do Sétimo Dia</a>
                 </li>
             </ul>
         </section>
 
         <!-- Mensagem de Nenhum Resultado -->
-        <div id="no-results" class="is-hidden">
+        <div id="no-results" style="display: none;">
             <h3>Nenhum resultado encontrado</h3>
             <p>Tente pesquisar com termos diferentes.</p>
         </div>
     </main>
 
-    <footer>
-        <div class="container">
-            <p class="copyright">© 2024 Um País, Muitas Crenças. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
     <!-- Scripts -->
     <script src="menu.js"></script>
+    <script src="footer.js"></script>
     <script src="estudos.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function(err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
 </body>
 </html>

@@ -1,0 +1,267 @@
+
+/*
+  TEMA NIGERIA - VERSÃO HARMONIZADA E OTIMIZADA
+  Este ficheiro herda a base do estilo global (`Um País Muitas Crenças.css`)
+  e aplica uma camada de estilo temática para a análise sobre a Nigéria,
+  incluindo efeitos de hover em CSS puro para maior eficiência.
+*/
+
+:root {
+    /* Paleta temática mantida para elementos específicos */
+    --nigeria-green: #008751;
+    --nigeria-white: #ffffff;
+    --nigeria-gold: #FFC107; /* Harmonizado com o --cor-acento global */
+    --nigeria-black: #333; /* Harmonizado com o --texto-escuro global */
+    --nigeria-purple: #800080;
+    --nigeria-red: #e23d28;
+    --nigeria-dark-blue: #0f172a;
+    --nigeria-crimson: #8b0000;
+
+    /* Variáveis Globais (para referência, não sobreposição) */
+    --cor-primaria: #2E7D32;
+    --fundo-claro: #f9f9f9;
+    --texto-escuro: #333;
+    --borda-suave: #eee;
+}
+
+/* HERANÇA GLOBAL: Body usa a fonte e o fundo do site principal */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte global */
+    background-color: var(--fundo-claro); /* Fundo global */
+    color: var(--texto-escuro);
+    line-height: 1.7;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header: Mantém o estilo sombrio e único */
+.header-nigeria {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(15, 23, 42, 0.95));
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+    margin-bottom: 40px;
+    border-bottom: 6px solid var(--nigeria-crimson);
+    position: relative;
+    overflow: hidden;
+}
+
+.header-nigeria::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.7) 100%);
+}
+
+/* Título Principal: Mantém a fonte serifada para dar um ar de "dossiê" */
+.titulo-principal {
+    font-family: 'Roboto Slab', serif;
+    font-size: 3.2rem;
+    margin-bottom: 15px;
+    color: var(--nigeria-white);
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9);
+}
+
+.titulo-principal span {
+    color: var(--nigeria-crimson);
+}
+
+.subtitulo-principal {
+    font-size: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.badge-impacto {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--nigeria-crimson), #5a0000);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-size: 1rem;
+    margin-top: 25px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    border: 2px solid var(--nigeria-gold);
+}
+
+/* Aviso: Estilo mantido pela sua importância temática */
+.aviso-contextual {
+    background: linear-gradient(135deg, var(--nigeria-dark-blue), #1e293b);
+    color: white;
+    padding: 25px 30px;
+    border-radius: 8px; /* Harmonizado com o global */
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    border-left: 8px solid var(--nigeria-crimson);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+.aviso-contextual:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.aviso-contextual i {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: var(--nigeria-crimson);
+    min-width: 50px;
+}
+
+.aviso-contextual strong {
+    font-size: 1.4rem;
+    display: block;
+    margin-bottom: 8px;
+    color: var(--nigeria-crimson);
+}
+
+/* HARMONIZAÇÃO CENTRAL: Secções e Caixas */
+.secao-analise {
+    background-color: #fff; /* Fundo de secção global */
+    padding: 40px;
+    border-radius: 8px; /* Raio de borda global */
+    margin-bottom: 40px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Sombra global */
+    border-top: 6px solid var(--nigeria-green); /* Borda temática mantida */
+    transition: all 0.3s ease-in-out;
+}
+
+.secao-analise.secreta {
+    border-top-color: var(--nigeria-crimson);
+    background: linear-gradient(to bottom, #ffffff, #fef7f7);
+}
+
+/* EFEITO HOVER ADICIONADO VIA CSS */
+.secao-analise.secreta:hover {
+    box-shadow: 0 15px 40px rgba(139, 0, 0, 0.1);
+    transform: translateY(-3px);
+}
+
+.titulo-secao {
+    font-family: 'Roboto Slab', serif; /* Fonte de título temática */
+    color: var(--nigeria-dark-green);
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--borda-suave); /* Borda inferior suave do global */
+    font-size: 2.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.titulo-secao.secreta {
+    color: var(--nigeria-crimson);
+    border-bottom-color: var(--nigeria-crimson);
+}
+
+.titulo-secao::before { content: '🇳🇬'; margin-right: 15px; font-size: 2rem; }
+.titulo-secao.secreta::before { content: '🔒'; }
+
+/* Boxes Informativos Harmonizados */
+.box-info {
+    background-color: var(--fundo-claro);
+    padding: 28px;
+    border-radius: 8px;
+    margin: 28px 0;
+    border-left: 6px solid var(--nigeria-green);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+/* EFEITO HOVER ADICIONADO VIA CSS */
+.box-info:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* Cores temáticas mantidas para as bordas */
+.box-info.poder { border-left-color: var(--nigeria-purple); }
+.box-info.mecanismos { border-left-color: var(--nigeria-red); }
+.box-info.influencia { border-left-color: var(--nigeria-gold); }
+.box-info.critica { border-left-color: var(--nigeria-black); }
+.box-info.secreta { border-left-color: var(--nigeria-crimson); }
+.box-info.oculta { border-left-color: var(--nigeria-dark-blue); }
+
+.info-titulo {
+    color: var(--nigeria-dark-green);
+    margin-bottom: 18px;
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.6rem;
+}
+
+.info-titulo i { margin-right: 15px; color: var(--nigeria-green); }
+.info-titulo.secreta { color: var(--nigeria-crimson); }
+.info-titulo.secreta i { color: var(--nigeria-crimson); }
+
+/* Citação Harmonizada */
+.citacao-impactante {
+    background-color: var(--fundo-claro);
+    padding: 35px 45px;
+    border-radius: 8px;
+    margin: 35px 0;
+    border-left: 8px solid var(--nigeria-gold);
+    font-style: italic;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.citacao-impactante.secreta { border-left-color: var(--nigeria-crimson); background-color: #fff5f5; }
+.citacao-impactante::before, .citacao-impactante::after { display: none; }
+
+.citacao-impactante blockquote {
+    font-size: 1.4rem;
+    color: var(--nigeria-black);
+    margin-bottom: 20px;
+}
+
+.citacao-impactante cite {
+    color: var(--nigeria-purple);
+    font-weight: 700;
+    display: block;
+    text-align: right;
+    font-style: normal;
+    font-size: 1rem;
+}
+
+/* ... (outros estilos como grid, tabelas, etc. com micro-ajustes) ... */
+.grid-mecanismos { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin: 40px 0; }
+
+.mecanismo-item {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: all 0.3s ease-in-out;
+    border: 1px solid var(--borda-suave);
+    height: 100%;
+}
+
+.mecanismo-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+    border-color: var(--nigeria-gold);
+}
+
+/* Responsividade mantida e verificada */
+@media (max-width: 768px) {
+    .titulo-principal { font-size: 2.3rem; }
+    .subtitulo-principal { font-size: 1.2rem; }
+    .secao-analise { padding: 25px; }
+    .titulo-secao { font-size: 1.8rem; }
+}

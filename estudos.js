@@ -1,69 +1,66 @@
-
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Seletores de Elementos ---
     const searchInput = document.getElementById('searchInput');
     const noResults = document.getElementById('no-results');
+    
+    // Seleciona TODOS os elementos que podem ser filtrados.
+    const allSearchableItems = document.querySelectorAll('.card-estudo, .card-religiao, .analysis-item, .special-report');
 
-    // Secção de Destaques
-    const destaquesSection = document.getElementById('destaques-grid');
-    const cards = destaquesSection.getElementsByClassName('card-estudo');
-    const destaquesTitle = document.getElementById('destaques-title');
+    // Função que garante que um elemento está visível.
+    const show = (element) => {
+        if (element) element.style.display = ''; // Reseta para o display padrão do CSS
+    };
 
-    // Secção do Índice Completo
-    const indiceCompletoSection = document.querySelector('.indice-completo');
-    const indiceList = indiceCompletoSection.querySelector('.lista-indice');
-    const indiceItems = indiceList.querySelectorAll('li');
-    const indiceTitle = indiceCompletoSection.querySelector('.section-title');
+    // Função que esconde um elemento.
+    const hide = (element) => {
+        if (element) element.style.display = 'none';
+    };
 
-    // --- Função de Pesquisa ---
-    searchInput.addEventListener('keyup', function() {
-        const searchTerm = this.value.toLowerCase().trim();
+    // Garante que tudo começa visível.
+    allSearchableItems.forEach(show);
+    hide(noResults);
 
-        // Se a pesquisa estiver vazia, remove todas as classes .is-hidden para restaurar a página
-        if (searchTerm === "") {
-            destaquesTitle.classList.remove('is-hidden');
-            destaquesSection.classList.remove('is-hidden');
-            Array.from(cards).forEach(card => card.classList.remove('is-hidden'));
-            
-            indiceCompletoSection.classList.remove('is-hidden');
-            indiceTitle.classList.remove('is-hidden');
-            Array.from(indiceItems).forEach(item => item.classList.remove('is-hidden'));
-            
-            noResults.classList.add('is-hidden');
-            return;
-        }
+    // Função de filtragem principal.
+    const handleSearch = () => {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        let itemsFound = 0;
 
-        // --- Lógica de Filtragem ---
+        allSearchableItems.forEach(item => {
+            const tags = item.dataset.tags || '';
+            const textContent = item.textContent.toLowerCase();
+            const isMatch = textContent.includes(searchTerm) || tags.toLowerCase().includes(searchTerm);
 
-        // 1. Filtra os cards de destaque
-        let foundInDestaques = 0;
-        for (const card of cards) {
-            const content = (card.textContent + (card.dataset.tags || '')).toLowerCase();
-            const isMatch = content.includes(searchTerm);
-            card.classList.toggle('is-hidden', !isMatch);
             if (isMatch) {
-                foundInDestaques++;
+                show(item);
+                itemsFound++;
+            } else {
+                hide(item);
             }
-        }
+        });
 
-        // 2. Filtra os itens do índice
-        let foundInIndice = 0;
-        for (const item of indiceItems) {
-            const isMatch = item.textContent.toLowerCase().includes(searchTerm);
-            item.classList.toggle('is-hidden', !isMatch);
-            if (isMatch) {
-                foundInIndice++;
-            }
+        // Mostra ou esconde a mensagem de "nenhum resultado".
+        if (itemsFound > 0) {
+            hide(noResults);
+        } else {
+            show(noResults);
         }
-
-        // 3. Atualiza a visibilidade das secções e títulos
-        destaquesTitle.classList.toggle('is-hidden', foundInDestaques === 0);
-        destaquesSection.classList.toggle('is-hidden', foundInDestaques === 0);
         
-        indiceCompletoSection.classList.toggle('is-hidden', foundInIndice === 0);
+        // Lógica para esconder os títulos das secções se estiverem vazias.
+        document.querySelectorAll('.section-title').forEach(title => {
+            const sectionContainer = title.nextElementSibling;
+            if (sectionContainer) {
+                // Procura por itens visíveis DENTRO da secção.
+                const visibleItemsInSection = sectionContainer.querySelectorAll('.card-estudo:not([style*="display: none"]), .card-religiao:not([style*="display: none"]), .analysis-item:not([style*="display: none"]), .special-report:not([style*="display: none"])');
+                
+                if(visibleItemsInSection.length > 0) {
+                    show(title);
+                    show(title.nextElementSibling); // Mostra o subtítulo também
+                } else {
+                    hide(title);
+                    hide(title.nextElementSibling); // Esconde o subtítulo também
+                }
+            }
+        });
+    };
 
-        // 4. Mostra ou esconde a mensagem de "nenhum resultado"
-        const totalFound = foundInDestaques + foundInIndice;
-        noResults.classList.toggle('is-hidden', totalFound > 0);
-    });
+    searchInput.addEventListener('keyup', handleSearch);
 });

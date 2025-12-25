@@ -30,9 +30,9 @@ body {
     padding: 0 20px;
 }
 
-/* Classe de utilidade para esconder elementos de forma acessível */
+/* Classe de utilidade para esconder elementos */
 .is-hidden {
-    display: none !important;
+    display: none;
 }
 
 header {
